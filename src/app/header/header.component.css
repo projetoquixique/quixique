@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Love Ya Like A Sister';
+    src: url('/assets/fonts/LoveYaLikeASister.ttf');
+}
+.header{
+  background-color: rgb(124, 57, 0);
+  width: 100%;
+  margin-left: 0px;
+}
+.page-header{
+  margin: 0px;
+  border-bottom: 0px;
+}
+.h1, h1{
+  font-family: 'Love Ya Like A Sister';
+  color: white;
+}
+small{
+  float: right;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Love Ya Like A Sister';
+  margin-top: 25px;
+}
