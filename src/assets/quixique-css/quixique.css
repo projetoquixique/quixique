@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Love Ya Like A Sister';
+    src: url('/assets/fonts/LoveYaLikeASister.ttf');
+}
+
+/*Paleta de cores*/
+.marron-1{
+    color:#dd6926
+}
+.marron-2{
+    color:#b25526
+}
+.marron-3{
+    color:#7b3b14
+}
+.marron-4{
+    color:#5d3311
+}
+.marron-5{
+    color:#462710
+}
+
+.vermelho{
+    color:#a81e22
+}
+.azul{
+    color:#211e5c
+}
+.laranja{
+    color:#f7921e
+}
+.marron{
+    color:#462710
+}
+.turqueza{
+    color:#1c9ba2
+}
+.marfin{
+    background: #fffdd6
+}
+
+
+/*pagination color*/
+.pagination > .active > a, 
+.pagination > .active > span,
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus,
+.pagination > .active > span:focus{
+    background-color:  #f7921e;
+    border-color:#EB7E1E;
+}
+
+
+/*pager color*/
+.pager-primary li > a,
+.pager-primary li > span {
+  background-color: #f7921e;
+  border-color:#EB7E1E;
+  color:#fff;
+}
+
+
+/*pager color hover*/
+.pager li > a:hover,
+.pager li > a:focus {
+  text-decoration: none;
+  background-color: #f7921e;
+}
+
+
+/*pager color disabled*/
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #999999;
+  background-color: #eeeeee;
+  border-color:#e2e2e2;
+  cursor: not-allowed;
+}

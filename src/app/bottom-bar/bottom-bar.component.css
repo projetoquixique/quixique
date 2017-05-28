@@ -1,0 +1,11 @@
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center
+}
+.pagination{
+    position:absolute;
+}
+.pager{
+    width: 100%;
+}
