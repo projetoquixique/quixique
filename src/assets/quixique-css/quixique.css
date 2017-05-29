@@ -42,10 +42,10 @@
 
 
 /*pagination color*/
-.pagination > .active > a, 
+.pagination > .active > a,
 .pagination > .active > span,
-.pagination > .active > a:hover, 
-.pagination > .active > span:hover, 
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus{
     background-color:  #f7921e;
@@ -79,4 +79,22 @@
   background-color: #eeeeee;
   border-color:#e2e2e2;
   cursor: not-allowed;
+}
+
+/*botão primario dropdown cores*/
+
+.btn-primary:hover, .btn-primary:focus, .btn-group.open .dropdown-toggle.btn-primary, .btn-primary{
+  background-color: #f7921e;
+  border-color: #EB7E1E;
+  color: #fff;
+}
+.btn-primary:active:hover, .btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus, .btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  background-color: #f7921e;
+  border-color: #EB7E1E;
+  color: #fff;
 }
