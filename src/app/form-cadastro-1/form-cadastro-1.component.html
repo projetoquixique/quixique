@@ -1,6 +1,6 @@
-<div class="container">
-  <form>
-    <fieldset>
+<div class="container" >
+  <form class="">
+    <fieldset *ngIf="show == 0">
       <legend>Dados Pessoais</legend>
       <div class="form-group col-md-8">
         <label for="inputNome" class="control-label">Nome</label>
@@ -34,7 +34,7 @@
 
     </fieldset>
 
-    <fieldset>
+    <fieldset *ngIf="show == 1" >
       <legend>Dados Profissionais</legend>
       <div class="form-group col-md-8">
         <label for="inputNomeComercial" class="control-label">Nome Comercial</label>
@@ -59,18 +59,92 @@
         <span class="help-block">Faça uma descrição simples para que os potenciais clientes conheçam a base de seu trabalho</span>
       </div>
 
-      <div class="form-group col-md-4">
-        <label for="inputSite" class="control-label">Página Web / Portifolio</label>
-        <input type="url" class="form-control" id="inputSite" placeholder="Adicione um link para um site que esponha seu trabalho">
+      <div class="form-group col-md-6">
+        <label for="inputRua" class="control-label">Rua</label>
+        <input type="text" class="form-control" id="inputRua" placeholder="Informe a rua do enderço onde trabalha">
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Example block-level help text here.</p>
+      <div class="form-group col-md-4">
+        <label for="inputComplemento" class="control-label">Complemento</label>
+        <input type="text" class="form-control" id="inputComplemento" placeholder="Informe se há algum complemento">
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="inputNumero" class="control-label">Número</label>
+        <input type="number" class="form-control" id="inputNumero" placeholder="Número">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputBairro" class="control-label">Bairro</label>
+        <input type="text" class="form-control" id="inputBairro" placeholder="Informe o bairro">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputCidade" class="control-label">Cidade</label>
+        <input type="text"
+         class="form-control" id="inputCidade" placeholder="Informe a cidade onde você atua">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputEstado" class="control-label">Estado</label>
+        <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado">
       </div>
 
     </fieldset>
+
+    <fieldset *ngIf="show == 2" >
+      <legend>Dados Bancarios</legend>
+      
+      <div class="form-group col-md-4">
+        <label for="inputCard" class="control-label">Cartão</label>
+        <input type="number" class="form-control" id="inputCard" placeholder="Adicione o número do seu cartão">
+      </div>
+
+      <div class="form-group col-md-2">
+        <label for="inputVencimento" class="control-label">Vencimento</label>
+        <input type="date" class="form-control" id="inputVencimento" placeholder="Informe a data de vencimento do cartão">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputTitular" class="control-label">Titular</label>
+        <input type="text" class="form-control" id="inputTitular" placeholder="Informe o nome do titular como no cartão">
+      </div>
+
+    </fieldset>
+
+    <fieldset *ngIf="show == 3" >
+      <legend>Dados de Perfil</legend>
+      
+      <div class="form-group col-md-12">
+       
+        <label for="InputFile">Procurar Arquivo</label>
+        <input type="file" id="InputFile">
+        <p class="help-block">Busque uma foto onde você seja facilmente reconhecido</p>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label for="inputUser" class="control-label">Usuário</label>
+        <input type="text" class="form-control" id="inputUser" placeholder="Adicione um nome de usuario para usar na plataforma">
+      </div>
+
+       <div class="form-group col-md-6">
+        <label for="inputSenha" class="control-label">Senha</label>
+        <input type="password" class="form-control" id="inputSenha" placeholder="Adicione uma senha com no mínimo 8 digitos">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputConfirma" class="control-label">Confirmação de Senha</label>
+        <input type="password" class="form-control" id="inputConfirma" placeholder="Insira novamente a senha">
+      </div>
+
+      <div class="form-group col-md-12">
+        <label for="inputSite" class="control-label">Página Web / Portifolio</label>
+        <input type="url" class="form-control" id="inputSite" placeholder="Adicione um link para um site que exponha seu trabalho">
+      </div>
+
+
+    </fieldset>
+
         
   </form>
+  <app-bottom-bar (page)="capturar($event)"></app-bottom-bar>
 </div>

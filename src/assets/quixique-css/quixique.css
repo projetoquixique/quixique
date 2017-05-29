@@ -40,9 +40,13 @@
     background: #fffdd6
 }
 
+body{
+    background-color: rgb(250,250,250);
+}
+
 
 /*pagination color*/
-.pagination > .active > a, 
+.pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover, 
 .pagination > .active > span:hover, 
@@ -52,10 +56,9 @@
     border-color:#EB7E1E;
 }
 
-
 /*pager color*/
-.pager-primary li > a,
-.pager-primary li > span {
+.pager-primary li.next > a,
+.pager-primary li.next > span {
   background-color: #f7921e;
   border-color:#EB7E1E;
   color:#fff;
@@ -63,8 +66,8 @@
 
 
 /*pager color hover*/
-.pager li > a:hover,
-.pager li > a:focus {
+.pager-primary  li.next > a:hover,
+.pager-primary  li.next > a:focus {
   text-decoration: none;
   background-color: #f7921e;
 }

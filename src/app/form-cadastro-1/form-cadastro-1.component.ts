@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormCadastro1Component implements OnInit {
 
-  constructor() { }
+  show: number = 0;
+
+  capturar(e){
+    this.show = e;
+    // alert(e);
+  }
+  
+  constructor() {
+
+  }
 
   ngOnInit() {
   }

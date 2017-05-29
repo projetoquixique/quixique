@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container col-md-12">
 
   <ul class="pagination">
     <!--<li class="disabled"><a href="#">&laquo;</a></li>-->
-    <li class="active"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
+    <li [class.active]="pageCount == 0"><a>1</a></li>
+    <li [class.active]="pageCount == 1"><a>2</a></li>
+    <li [class.active]="pageCount == 2"><a>3</a></li>
+    <li [class.active]="pageCount == 3"><a>4</a></li>
     <!--<li><a href="#">&raquo;</a></li>-->
   </ul>
 
-  <ul class="pager pager-primary">
-    <li class="previous disabled"><a href="#">&larr; voltar</a></li>
-    <li class="next"><a href="#">avançar &rarr;</a></li>
+  <ul class="pager pager-primary col-md-12">
+    <li class="previous" [class.disabled]="pageCount == 0"><a (click)="previous()" routerLink="/ " href="">&larr; voltar</a></li>
+    <li class="next"><a (click)="next()"  routerLink="/ " href="">avançar &rarr;</a></li>
   </ul>
 </div>

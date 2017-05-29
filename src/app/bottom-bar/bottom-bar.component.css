@@ -1,11 +1,24 @@
 .container{
-    position: relative;
+    position: absolute;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    bottom: 0px;
 }
 .pagination{
     position:absolute;
 }
 .pager{
-    width: 100%;
+    padding: 0;
+    /*width: 100%;*/
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover{
+  top: 0px;
+  border-bottom-width: 4px;
+}
+.pagination > li > a:active,
+.pagination > li > span:active{
+  top: 0px;
+  border-bottom-width: 4px;
 }
