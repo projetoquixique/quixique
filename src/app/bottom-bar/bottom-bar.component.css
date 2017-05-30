@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     bottom: 0px;
+    left: 0px;
 }
 .pagination{
     position:absolute;

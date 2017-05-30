@@ -9,6 +9,9 @@ export class BottomBarComponent implements OnInit {
 
   constructor() { }
 
+  // propriedades ligadas
+  nextButton:string = "avançar";
+
   pageCount:number = 0;
 
   @Output() page = new EventEmitter <Number>();
@@ -16,13 +19,18 @@ export class BottomBarComponent implements OnInit {
   previous(){
     if(this.pageCount > 0){
       this.page.emit(this.pageCount -= 1);
-
+    }
+    if(this.pageCount != 3){
+      this.nextButton = "avançar"
     }
   }
   next(){
     // alert("proximo:");
     if(this.pageCount < 3){
       this.page.emit(this.pageCount += 1);
+    }
+    if(this.pageCount == 3){
+      this.nextButton = "concluir"
     }
   }
 

@@ -10,7 +10,7 @@
   </ul>
 
   <ul class="pager pager-primary col-md-12">
-    <li class="previous" [class.disabled]="pageCount == 0"><a (click)="previous()" routerLink="/ " href="">&larr; voltar</a></li>
-    <li class="next"><a (click)="next()"  routerLink="/ " href="">avançar &rarr;</a></li>
+    <li class="previous" *ngIf="pageCount != 0"><a (click)="previous()" routerLink="/ " href="">&larr; voltar</a></li>
+    <li class="next"><a (click)="next()"  routerLink="/ " href="">{{nextButton}} &rarr;</a></li>
   </ul>
 </div>

@@ -59,12 +59,17 @@
         <span class="help-block">Faça uma descrição simples para que os potenciais clientes conheçam a base de seu trabalho</span>
       </div>
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-2">
+        <label for="inputCep" class="control-label">CEP</label>
+        <input type="number" class="form-control" id="inputCep" placeholder="Informe o cep de sua rua/cidade">
+      </div>
+
+      <div class="form-group col-md-5">
         <label for="inputRua" class="control-label">Rua</label>
         <input type="text" class="form-control" id="inputRua" placeholder="Informe a rua do enderço onde trabalha">
       </div>
 
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-3">
         <label for="inputComplemento" class="control-label">Complemento</label>
         <input type="text" class="form-control" id="inputComplemento" placeholder="Informe se há algum complemento">
       </div>
@@ -115,12 +120,12 @@
     <fieldset *ngIf="show == 3" >
       <legend>Dados de Perfil</legend>
       
-      <div class="form-group col-md-12">
+      <!--<div class="form-group col-md-12">
        
         <label for="InputFile">Procurar Arquivo</label>
         <input type="file" id="InputFile">
         <p class="help-block">Busque uma foto onde você seja facilmente reconhecido</p>
-      </div>
+      </div>-->
 
       <div class="form-group col-md-12">
         <label for="inputUser" class="control-label">Usuário</label>
