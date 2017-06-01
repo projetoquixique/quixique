@@ -8,15 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormCadastro1Component } from './form-cadastro-1/form-cadastro-1.component';
-import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+
+import { CadastroService } from './form-cadastro-1/form-cadastro-1.service'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavbarComponent,
-    FormCadastro1Component,
-    BottomBarComponent
+    FormCadastro1Component
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,7 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
     HttpModule,
     Routing
   ],
-  providers: [],
+  providers: [CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

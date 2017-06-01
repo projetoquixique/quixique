@@ -78,9 +78,9 @@ body{
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  color: #999999;
-  background-color: #eeeeee;
-  border-color:#e2e2e2;
+  color: #999999 !important;
+  background-color: #eeeeee !important;
+  border-color:#e2e2e2 !important;
   cursor: not-allowed;
 }
 
@@ -100,4 +100,27 @@ body{
   background-color: #f7921e;
   border-color: #EB7E1E;
   color: #fff;
+}
+
+.form-group{
+  margin-bottom: 5px;
+}
+
+.help-block{
+  margin-bottom: 0px;
+/*  border-radius: 5px;
+  position: absolute;
+  background-color: white;
+  padding: 2px 5px;
+  top: 57px;
+  font-size: 13px;
+  left: 20px;
+  border: 1px solid red;
+  border-top: white;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;*/
+}
+
+.cadastro{
+  margin-bottom: 60px;
 }
