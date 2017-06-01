@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class CadastroService{
-	static urlCadastros = "http://rest.learncode.academy/api/macelocosta/cadastrlo";;
+	static urlCadastros = "http://rest.learncode.academy/api/quixique/cadastroartesao";;
 
 	constructor(private http:Http){}
 
