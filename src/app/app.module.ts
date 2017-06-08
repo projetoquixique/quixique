@@ -13,6 +13,12 @@ import { CardPedidoGrandeComponent } from './card-pedido-grande/card-pedido-gran
 import { CadastroService } from './form-cadastro-1/form-cadastro-1.service';
 import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-principal-artesao.component';
 import { CardPedidoPequenoComponent } from './card-pedido-pequeno/card-pedido-pequeno.component';
+import { MensagemErroInputComponent } from './mensagem-erro-input/mensagem-erro-input.component';
+import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirmacao.component'
+
+import { RequestService } from './services/request.service';
+import { UserDataHandlerService } from './services/user-data-handler.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,8 @@ import { CardPedidoPequenoComponent } from './card-pedido-pequeno/card-pedido-pe
     CardPedidoGrandeComponent,
     TelaPrincipalArtesaoComponent,
     CardPedidoPequenoComponent
+    MensagemErroInputComponent,
+    TermosConfirmacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,11 @@ import { CardPedidoPequenoComponent } from './card-pedido-pequeno/card-pedido-pe
     HttpModule,
     Routing
   ],
-  providers: [CadastroService],
+  providers: [
+    RequestService,
+    UserDataHandlerService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

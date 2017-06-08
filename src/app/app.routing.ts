@@ -6,6 +6,7 @@ const APP_ROUTES: Routes = [
     {path:"", redirectTo:"/", pathMatch:"full"},
     {path:"cadastro_artesão", component:FormCadastro1Component},
     {path:"tela_principal_artesao", component:TelaPrincipalArtesaoComponent},
+    {path:"cadastro", component:FormCadastro1Component},
 ]
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);
