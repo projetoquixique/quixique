@@ -84,8 +84,10 @@ body{
   cursor: not-allowed;
 }
 
+.btn:focus{
+  outline: none;
+}
 /*botão primario dropdown cores*/
-
 .btn-primary:hover, .btn-primary:focus, .btn-group.open .dropdown-toggle.btn-primary, .btn-primary{
   background-color: #f7921e;
   border-color: #EB7E1E;
@@ -101,6 +103,7 @@ body{
   border-color: #EB7E1E;
   color: #fff;
 }
+
 
 .form-group{
   margin-bottom: 5px;
@@ -121,6 +124,14 @@ body{
   border-top-right-radius: 0;*/
 }
 
-.cadastro{
-  margin-bottom: 60px;
+.has-error .form-control, .has-error .form-control:focus {
+  border: 1px solid #f7921e;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label, .has-error .form-control-feedback {
+  color: #f7921e;
+}
+
+.pagination > li > a, .pager > li > a, .pagination > li > span, .pager > li > span {
+  cursor: pointer;
 }

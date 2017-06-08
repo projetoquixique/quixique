@@ -8,15 +8,21 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormCadastro1Component } from './form-cadastro-1/form-cadastro-1.component';
+import { MensagemErroInputComponent } from './mensagem-erro-input/mensagem-erro-input.component';
+import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirmacao.component'
 
-import { CadastroService } from './form-cadastro-1/form-cadastro-1.service'
+import { RequestService } from './services/request.service';
+import { UserDataHandlerService } from './services/user-data-handler.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     NavbarComponent,
-    FormCadastro1Component
+    FormCadastro1Component,
+    MensagemErroInputComponent,
+    TermosConfirmacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,11 @@ import { CadastroService } from './form-cadastro-1/form-cadastro-1.service'
     HttpModule,
     Routing
   ],
-  providers: [CadastroService],
+  providers: [
+    RequestService,
+    UserDataHandlerService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

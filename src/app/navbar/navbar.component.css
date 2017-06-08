@@ -29,3 +29,10 @@ input:focus{
   margin: 5px;
   margin-top: 10px;
 }
+app-mensagem-erro-input{
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  top: 35px;
+}
