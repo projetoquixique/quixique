@@ -6,12 +6,22 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PageStartComponent } from './page-start/page-start.component';
+import { CarrosselComponent } from './page-start/carrossel/carrossel.component';
+import { NavbarStartComponent } from './page-start/navbar-start/navbar-start.component';
+import { CategoriesComponent } from './page-start/categories/categories.component';
+import { FooterComponent } from './page-start/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageStartComponent,
+    CarrosselComponent,
+    NavbarStartComponent,
+    CategoriesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
