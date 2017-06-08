@@ -1,3 +1,4 @@
+import { Routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +12,8 @@ import { CarrosselComponent } from './page-start/carrossel/carrossel.component';
 import { NavbarStartComponent } from './page-start/navbar-start/navbar-start.component';
 import { CategoriesComponent } from './page-start/categories/categories.component';
 import { FooterComponent } from './page-start/footer/footer.component';
+import { FormCadastro1Component } from './form-cadastro-1/form-cadastro-1.component';
+import { CadastroService } from './form-cadastro-1/form-cadastro-1.service'
 
 @NgModule({
   declarations: [
@@ -21,14 +24,16 @@ import { FooterComponent } from './page-start/footer/footer.component';
     CarrosselComponent,
     NavbarStartComponent,
     CategoriesComponent,
-    FooterComponent
+    FooterComponent,
+    FormCadastro1Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Routing
   ],
-  providers: [],
+  providers: [CadastroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
