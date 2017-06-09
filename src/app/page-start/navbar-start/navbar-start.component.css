@@ -1,0 +1,359 @@
+/*@font-face {
+    font-family: 'Love Ya Like A Sister';
+    src: url('../tipografia/LoveYaLikeASister.ttf');
+}
+
+@font-face {
+    font-family: 'Lobster';
+    src: url('../tipografia/Lobster14.otf');
+}*/
+/*#corpo{
+  padding-top: 80px;
+}
+#mapa h1 {
+    font-family: 'Lobster';
+}*/
+
+    /*top: -80px;*/
+    /*position: fixed;*/
+/*.navbar {
+    border-radius: 0;
+    border-width: 0px 0px 4px 0px;
+    border-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    height: 40px;
+    display: block;
+    z-index: 100;
+    -webkit-transition: All 0.5s ease;
+    -moz-transition: All 0.5s ease;
+    -o-transition: All 0.5s ease
+}*/
+
+/*.navbar.mostrar {
+    top: 0;
+    position:fixed;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    margin-left: 10px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-size: 32pt;
+    margin-top: 6%;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
+
+#entrar, #cadastrar, #logout, .form-group {
+    margin-top: 2%;
+}
+
+.seletor {
+    font-size: 24px;
+    margin-left: 15px;
+}
+
+.navbar-default {
+    border: 0;
+    background-color: rgb(124, 57, 0);
+    height: 70px;
+}
+
+.navbar-default span {
+    font-family: 'Love Ya Like A Sister';
+    color: white;
+}
+
+.slogan {
+    float: right;
+    position: static;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.navbar-menu {
+    background-color: rgb(94, 48, 0);
+    height: 40px;
+    padding: 0;
+}
+
+.navbar-menu span {
+    color: white;
+    font-size: 20px;
+    margin: 6px;
+}
+
+.menu {
+    margin-top: 5px;
+}
+
+.dropdown {
+    position: relative;
+    float: right;
+}
+
+.dropdown-menu {
+    background-color: rgb(94, 48, 0);
+    color: white;
+}
+
+.dropdown-menu input {
+    color: rgb(0, 0, 0);
+}
+
+.btn-default {
+    background-color: rgb(124, 57, 0);
+    border-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: rgb(124, 57, 0);
+    border-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#logout {
+    display: none;
+    position: relative;
+    float: right;
+}
+
+#erro_conta {
+    display: none;
+}
+
+#erro_cad {
+    display: none;
+}
+
+#email {
+    width: 100%;
+    padding-right: 0px;
+}
+
+#cartao .col-md-2 {
+    padding: 0px;
+}
+
+#assinar {
+    background-color: rgb(26, 143, 151);
+    font-size: 13px;
+    height: 30px;
+}
+#map {
+        height: 200px;
+        width: 100%;
+       }
+
+	   
+.setae {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    right: 70%;
+}
+
+.setad {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+    left: 70%;
+}
+
+.carousel-indicators {
+    text-align: left;
+    margin-left: -45%;
+}
+.carousel-indicators li, .carousel-indicators .active{
+    width: 35px;
+    height: 35px;
+    border-width: medium;
+    border-radius: 100%;
+}
+
+.carousel-indicators .active{
+  background-color: rgb(204, 100, 19);
+}
+.carousel-inner img{
+  width: 100%;
+  height: 20%;
+}
+
+.search-form .form-group {
+    float: right !important;
+    transition: all 0.35s, border-radius 0s;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.search-form .form-group input.form-control {
+    padding-right: 20px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+}
+
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+    display: none;
+}*/
+
+.search-form .form-group input.form-control:-moz-placeholder {
+    /* Firefox 18- */
+    display: none;
+}
+
+.search-form .form-group input.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    display: none;
+}
+
+/*.search-form .form-group input.form-control:-ms-input-placeholder {
+    display: none;
+}
+
+.search-form .form-group:hover, .search-form .form-group.hover {
+    width: 50%;
+    border-radius: 4px 25px 25px 4px;
+}
+
+.search-form .form-group span.form-control-feedback {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #3596e0;
+    left: initial;
+    font-size: 14px;
+}
+
+#mapa, #mapa h1, #mapa h2, #h3 {
+    background-color: rgb(26, 143, 151);
+}
+
+footer, footer h1, footer h2, footer h3, footer h4 {
+    color: rgb(232, 231, 230);
+}
+
+#mapa .col-md-3 ul {
+    margin-top: 20px;
+}
+
+#mapa .col-md-3  {
+    display: block;
+    margin-top: 2.5%;
+
+}
+
+#mapa .col-md-3 img {
+    width: 20%;
+    float: right;
+    margin-bottom: 7%
+
+}
+
+#mapa .col-md-3 .col-md-12 {
+
+    padding: 0px;
+}
+#mapa h4{
+  font-weight: bold;
+  line-height: 60%
+}
+#mapa ul{
+  padding: 0px;
+
+  margin-bottom: 0px;
+  margin-top: 15%
+
+}
+#mapa li{
+  font-size: 15px;
+  list-style: none;
+  padding: 0px;
+  border-top: 20%;
+  line-height: 60%
+
+}
+#cartao {
+    background-color: rgb(214, 135, 40);
+    font-size: 18px;
+}
+#cartao p {
+  text-align: right;
+  font-size: 18px;
+  margin-top: 5px;
+
+
+}
+#cartao .col-md-2 img{
+  width: 50px;
+  height: 25px;
+  border-right: 20px;
+}
+#cartao .col-md-2 {
+
+  background-color: #ffff;
+  text-align: left;
+  margin-right: 35px;
+  margin-left: 1px;
+  width: 59px;
+  padding-right: -60px;
+
+}
+
+#cartoes .col-md-12{
+  background-color: ffff;
+  margin-left: 15px;
+}
+#mp{
+  padding-left: 50px;
+}*/
+/*#cartao h1{
+  font-family:inherit;
+  font-size: 37px;
+*/
+
+/*#mapa {
+    height: 400px;
+    width: 100%;
+}*/
+
+.header{
+  background-color: rgb(124, 57, 0);
+  width: 100%;
+  margin-left: 0px;
+}
+.page-header{
+  margin: 0px;
+  border-bottom: 0px;
+}
+.h1, h1, .navbar-brand{
+  font-family: 'Love Ya Like A Sister';
+  color: white;
+}
+small{
+  float: right;
+  color: #fff;
+  font-size: 20px;
+  font-family: 'Love Ya Like A Sister';
+  margin-top: 25px;
+}
