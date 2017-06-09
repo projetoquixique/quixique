@@ -13,6 +13,7 @@ import { AuthenticationService } from './../services/authentication.service';
 
 export class NavbarComponent implements OnInit {
 
+
   constructor(private router:Router,
   						private authService:AuthenticationService) { }
 
@@ -45,6 +46,7 @@ export class NavbarComponent implements OnInit {
 		    this.dadosLogin.senha.mensagem = "Insira a senha";
 		  } else if (this.dadosLogin.senha.valor.length < 6) {
 		    this.dadosLogin.senha.estado = false;
+        
 		    this.dadosLogin.senha.mensagem = "Insira a senha completa";
 		  } else {
 		    this.dadosLogin.senha.estado = true;
@@ -61,6 +63,7 @@ export class NavbarComponent implements OnInit {
   	if (this.dadosLogin.email.estado && this.dadosLogin.senha.estado){
   		console.log("calling service...")
   		let logging = this.authService.entrar(this.dadosLogin.email.valor, this.dadosLogin.senha.valor);
+
       console.log(logging);
   		if (logging == "wrongPassword"){
   			this.dadosLogin.senha.estado = false;
@@ -68,6 +71,9 @@ export class NavbarComponent implements OnInit {
   		} else if (logging == "notFound"){
         this.dadosLogin.email.estado = false;
         this.dadosLogin.email.mensagem = "E-mail não cadastrado";
+
+      } else if (logging = "ok"){
+        alert("Login ok");
       } else if (logging = "ok_artesao"){
         this.router.navigate(['/tela_principal_artesao']);
       } else {
@@ -78,7 +84,6 @@ export class NavbarComponent implements OnInit {
   };
 
   ngOnInit() {
-
   }
 
 }
