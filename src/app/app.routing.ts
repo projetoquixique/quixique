@@ -1,10 +1,14 @@
+import { HeaderComponent } from './header/header.component';
 import { Routes, RouterModule } from "@angular/router";
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-principal-artesao.component';
+import { PageStartComponent } from './page-start/page-start.component';
 
 const APP_ROUTES: Routes = [
-    {path:"", redirectTo:"/", pathMatch:"full"},
+    {path:"", redirectTo:"/inicio", pathMatch:"full"},
     {path:"cadastro", component:FormCadastroComponent},
+    {path:"", redirectTo:"/inicio", pathMatch:"full"},
+    {path: "inicio", component: PageStartComponent},
     {path:"tela_principal_artesao", component:TelaPrincipalArtesaoComponent},
 ]
 

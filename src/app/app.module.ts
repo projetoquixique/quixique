@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
+import { PageStartComponent } from './page-start/page-start.component';
+import { CarrosselComponent } from './page-start/carrossel/carrossel.component';
+import { NavbarStartComponent } from './page-start/navbar-start/navbar-start.component';
+import { CategoriesComponent } from './page-start/categories/categories.component';
+import { FooterComponent } from './page-start/footer/footer.component';
 import { CardPedidoGrandeComponent } from './card-pedido-grande/card-pedido-grande.component'
 import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-principal-artesao.component';
 import { CardPedidoPequenoComponent } from './card-pedido-pequeno/card-pedido-pequeno.component';
@@ -29,7 +34,12 @@ import { AuthenticationService } from './services/authentication.service';
     TelaPrincipalArtesaoComponent,
     CardPedidoPequenoComponent,
     MensagemErroInputComponent,
-    TermosConfirmacaoComponent
+    TermosConfirmacaoComponent,
+    PageStartComponent,
+    CarrosselComponent,
+    NavbarStartComponent,
+    CategoriesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
