@@ -1,3 +1,5 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
 <div class="container">
   <!-- Formulário de cadastro do artesão -->
   <div class="form-cadastro-artesao" *ngIf="tipoDeUsuario == 'artesao'">
@@ -67,7 +69,7 @@
           <textarea class="form-control" rows="3" id="textArea" placeholder="Faça uma descrição simples para que os potenciais clientes conheçam a base de seu trabalho" name="descricao" [(ngModel)]="novoUsuario.descricao" (change)="verificaDescricao()"></textarea>
           <app-mensagem-erro-input *ngIf="verificadores.descricao.estado == false" mensagemDeErro="{{verificadores.descricao.mensagem}}"></app-mensagem-erro-input>
         </div>
-        
+
         <div class="form-group col-md-4" [class.has-error]="verificadores.rua.estado == false">
           <label for="inputRua" class="control-label">Rua</label>
           <input type="text" class="form-control" id="inputRua" placeholder="Informe a rua do local onde trabalha" name="rua" [(ngModel)]="novoUsuario.rua" (change)="verificaRua()">
@@ -113,7 +115,7 @@
 
       <fieldset *ngIf="pageCount == 2" >
         <legend>Dados Bancários</legend>
-        
+
         <div class="form-group col-md-4" [class.has-error]="verificadores.numeroCartao.estado == false">
           <label for="inputCard" class="control-label">Número do Cartão</label>
           <input type="texto" class="form-control" id="inputCard" placeholder="Informe somente os números, sem espaços" name="numeroCartao" [(ngModel)]="novoUsuario.numeroCartao" (change)="verificaNumeroCartao()">
@@ -135,7 +137,7 @@
 
       <fieldset *ngIf="pageCount == 3" >
         <legend>Dados de Perfil</legend>
-        
+
         <!--<div class="form-group col-md-12">
           <label for="InputFile">Procurar Arquivo</label>
           <input type="file" id="InputFile">
@@ -205,7 +207,7 @@
           <app-mensagem-erro-input *ngIf="verificadores.telefone.estado == false" mensagemDeErro="{{verificadores.telefone.mensagem}}"></app-mensagem-erro-input>
         </div>
       </fieldset>
-      
+
       <fieldset *ngIf="pageCount == 1">
         <legend>Dados Pessoais - Endereço</legend>
         <div class="form-group col-md-4" [class.has-error]="verificadores.rua.estado == false">
@@ -213,7 +215,7 @@
           <input type="text" class="form-control" id="inputRua" placeholder="Informe a rua do local onde mora" name="rua" [(ngModel)]="novoUsuario.rua" (change)="verificaRua()">
           <app-mensagem-erro-input *ngIf="verificadores.rua.estado == false" mensagemDeErro="{{verificadores.rua.mensagem}}"></app-mensagem-erro-input>
         </div>
-        
+
         <div class="form-group col-md-2" [class.has-error]="verificadores.numero.estado == false">
           <label for="inputNumero" class="control-label">Número</label>
           <input type="texto" class="form-control" id="inputNumero" placeholder="Número" name="numero" [(ngModel)]="novoUsuario.numero" (change)="verificaNumero()">

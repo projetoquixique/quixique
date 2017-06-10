@@ -1,3 +1,4 @@
+import { HeaderComponent } from './header/header.component';
 import { Routes, RouterModule } from "@angular/router";
 import { FormCadastro1Component } from './form-cadastro-1/form-cadastro-1.component';
 import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-principal-artesao.component';

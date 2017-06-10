@@ -1,0 +1,51 @@
+div.img{
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+div.img.i01{
+    background-image: url("../../../assets/images/components/carrossel/01.jpg");
+}
+
+div.img.i02{
+    background-image: url("../../../assets/images/components/carrossel/02.jpg");
+}
+div.img.i03{
+    background-image: url("../../../assets/images/components/carrossel/03.png");
+}
+
+div.img.i04{
+    background-image: url("../../../assets/images/components/carrossel/04.jpg");
+}
+
+
+/*@font-face {
+    font-family: 'Love Ya Like A Sister';
+    src: url('../tipografia/LoveYaLikeASister.ttf');
+}
+
+@font-face {
+    font-family: 'Lobster';
+    src: url('../tipografia/Lobster14.otf');
+}*/
+
+.carousel-indicators {
+    /*text-align: left;
+    margin-left: -45%;*/
+}
+.carousel-indicators li, .carousel-indicators .active{
+    /*width: 35px;
+    height: 35px;*/
+    /*border-width: medium;*/
+    border-radius: 100%;
+}
+
+.carousel-indicators .active{
+  background-color: rgb(204, 100, 19);
+}
+.carousel-inner img{
+  width: 100%;
+  height: 20%;
+}
