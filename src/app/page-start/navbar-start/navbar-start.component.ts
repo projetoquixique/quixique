@@ -5,15 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar-start.component.html',
   styleUrls: ['./navbar-start.component.css']
 })
+
 export class NavbarStartComponent implements OnInit {
 
   constructor() { }
-  cadastrarUsuario(){
-  	sessionStorage.setItem('cadastro','cliente');
+
+  cadastrarCliente(){
+  	sessionStorage.setItem('tipoUsuario','cliente');
   };
 
   cadastrarArtesao(){
-  	sessionStorage.setItem('cadastro','artesao');
+  	sessionStorage.setItem('tipoUsuario','artesao');
   };
   ngOnInit() {
   }

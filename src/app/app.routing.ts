@@ -6,9 +6,8 @@ import { PageStartComponent } from './page-start/page-start.component';
 
 const APP_ROUTES: Routes = [
     {path:"", redirectTo:"/inicio", pathMatch:"full"},
+    {path:"inicio", component:PageStartComponent},
     {path:"cadastro", component:FormCadastroComponent},
-    {path:"", redirectTo:"/inicio", pathMatch:"full"},
-    {path: "inicio", component: PageStartComponent},
     {path:"tela_principal_artesao", component:TelaPrincipalArtesaoComponent},
 ]
 

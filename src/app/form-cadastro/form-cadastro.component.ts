@@ -309,67 +309,67 @@ export class FormCadastroComponent implements OnInit {
   };
 
   formularioOk(){
-    return true;
-    // let v = this.verificadores;
-    // if (this.tipoDeUsuario == "artesao") {
-    //   if (this.pageCount == 0) {
-    //     this.verificaNome(); this.verificaCPF(); this.verificaDataDeNascimento();  this.verificaNaturalidade(); this.verificaEmail(); this.verificaTelefone();
-    //     if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.naturalidade.estado && v.email.estado && v.telefone.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   } else if (this.pageCount == 1) {
-    //     this.verificaNomeComercial(); this.verificaCategoria(); this.verificaDescricao(); this.verificaCep(); this.verificaRua(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();
-    //     if (v.nomeComercial.estado && v.categoria.estado && v.descricao.estado && v.cep.estado && v.rua.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   } else if (this.pageCount == 2) {
-    //     this.verificaNumeroCartao(); this.verificaVencimentoCartao(); this.verificaTitularCartao(); 
-    //     if (v.numeroCartao.estado && v.vencimentoCartao.estado && v.titularCartao.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   } else if (this.pageCount == 3) {
-    //     this.verificaNomeDeUsuario(); this.verificaSenha(); this.verificaConfirmacaoSenha(); this.verificaLinkPaginaWeb();
-    //     if (v.nomeDeUsuario.estado && v.senha.estado && v.confirmacaoSenha.estado && v.linkPaginaWeb.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   };
-    // } else if (this.tipoDeUsuario == "cliente") {
-    //   if (this.pageCount == 0) {
-    //     this.verificaNome(); this.verificaDataDeNascimento(); this.verificaCPF(); this.verificaEmail(); this.verificaTelefone();
-    //     if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.email.estado && v.telefone.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   } else if (this.pageCount == 1) {
-    //     this.verificaRua(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();this.verificaCep();
-    //     if (v.rua.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado, v.cep.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   } else if (this.pageCount == 2) {
-    //     this.verificaNomeDeUsuario(); this.verificaSenha(); this.verificaConfirmacaoSenha();
-    //     if (v.nomeDeUsuario.estado && v.senha.estado && v.confirmacaoSenha.estado) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     };
-    //   };
-    // };
+    let v = this.verificadores;
+    if (this.tipoDeUsuario == "artesao") {
+      if (this.pageCount == 0) {
+        this.verificaNome(); this.verificaCPF(); this.verificaDataDeNascimento();  this.verificaNaturalidade(); this.verificaEmail(); this.verificaTelefone();
+        if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.naturalidade.estado && v.email.estado && v.telefone.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      } else if (this.pageCount == 1) {
+        this.verificaNomeComercial(); this.verificaCategoria(); this.verificaDescricao(); this.verificaCep(); this.verificaRua(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();
+        if (v.nomeComercial.estado && v.categoria.estado && v.descricao.estado && v.cep.estado && v.rua.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      } else if (this.pageCount == 2) {
+        this.verificaNumeroCartao(); this.verificaVencimentoCartao(); this.verificaTitularCartao(); 
+        if (v.numeroCartao.estado && v.vencimentoCartao.estado && v.titularCartao.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      } else if (this.pageCount == 3) {
+        this.verificaNomeDeUsuario(); this.verificaSenha(); this.verificaConfirmacaoSenha(); this.verificaLinkPaginaWeb();
+        if (v.nomeDeUsuario.estado && v.senha.estado && v.confirmacaoSenha.estado && v.linkPaginaWeb.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      };
+    } else if (this.tipoDeUsuario == "cliente") {
+      if (this.pageCount == 0) {
+        this.verificaNome(); this.verificaDataDeNascimento(); this.verificaCPF(); this.verificaEmail(); this.verificaTelefone();
+        if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.email.estado && v.telefone.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      } else if (this.pageCount == 1) {
+        this.verificaRua(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();this.verificaCep();
+        if (v.rua.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado, v.cep.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      } else if (this.pageCount == 2) {
+        this.verificaNomeDeUsuario(); this.verificaSenha(); this.verificaConfirmacaoSenha();
+        if (v.nomeDeUsuario.estado && v.senha.estado && v.confirmacaoSenha.estado) {
+          return true;
+        } else {
+          return false;
+        };
+      };
+    };
   };
 
   ngOnInit() {
     //tipo de usuário
     this.tipoDeUsuario = sessionStorage.getItem('tipoUsuario');
+    console.log(this.tipoDeUsuario)
     if (!this.tipoDeUsuario){
       this.router.navigate(['/']);
       return;
