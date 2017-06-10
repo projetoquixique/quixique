@@ -1,0 +1,16 @@
+.header{
+  background-color: rgb(124, 57, 0);
+  width: 100%;
+  margin-left: 0px;
+}
+.page-header{
+  margin: 0px;
+  border-bottom: 0px;
+}
+.h1, h1, .navbar-brand{
+  font-family: 'Love Ya Like A Sister';
+  color: white;
+}
+small button{
+  margin-left: 10px;
+}

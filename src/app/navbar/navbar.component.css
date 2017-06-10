@@ -7,6 +7,7 @@
 .navbar-default .navbar-nav>li>a{
   color: white;
 }
+
 .input{
   border-radius: 5px;
   margin: 10px;
@@ -21,4 +22,11 @@ input:focus{
 }
 .dropdown-menu{
   min-width: 200px;
+}
+.btn-cadastro{
+  margin-top: 10px;
+}
+.btn-entrar-dropdown{
+  margin: 5px;
+  margin-top: 10px;
 }
