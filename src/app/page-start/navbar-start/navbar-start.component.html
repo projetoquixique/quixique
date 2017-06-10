@@ -54,9 +54,9 @@
                             Cadastre-se <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Cadastre-se como cliente</a></li>
+                            <li><a (click)="cadastrarUsuario()" href="/cadastro">Cadastre-se como cliente</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a routerLink="/cadastro_artesão">Cadastre-se como artesão</a></li>
+                            <li><a  (click) = "cadastrarArtesao()" routerLink="/cadastro">Cadastre-se como artesão</a></li>
                         </ul>
                     </div>
                 </li>
@@ -157,11 +157,11 @@
       <div class="row">
           <div class="col-md-4"><span class="navbar-brand" style="cursor:default">Quixique</span></div>
           <div class="col-md-8">
-               Botão de cadastro 
+               Botão de cadastro
               <div class="dropdown" id="cadastrar">
                   <span class="pull-right seletor" data-toggle="dropdown" style="cursor:pointer">Cadastrar</span>
                   <ul class="dropdown-menu">
-                       ERRO CADASTRO 
+                       ERRO CADASTRO
                       <div id="erro_cad" class="alert alert-danger">
                           <strong>Usuário em uso!</strong> Escolha outro usuário para sua conta.
                       </div>
@@ -171,11 +171,11 @@
                       <li><button type="button" class="btn btn-default" id="submit_cad">Cadastrar</button></li>
                   </ul>
               </div>
-               Botão de entrar 
+               Botão de entrar
               <div class="dropdown" id="entrar">
                   <span class="pull-right seletor" data-toggle="dropdown" style="cursor:pointer">Entrar</span>
                   <ul class="dropdown-menu">
-                       ERRO CONTA 
+                       ERRO CONTA
                       <div id="erro_conta" class="alert alert-danger">
                           <strong>Conta inválida!</strong> Usuário e/ou Senha incorreta. Digite novamente.
                       </div>
@@ -185,9 +185,9 @@
                       <li><button type="button" class="btn btn-default" id="submit">Entrar</button></li>
                   </ul>
               </div>
-               Botão para sair da conta 
+               Botão para sair da conta
               <button type="button" class="btn btn-default" id="logout"><span class="seletor" style="cursor:pointer">Sair</span></button>
-               Barra de pesquisa 
+               Barra de pesquisa
               <form action="" class="search-form">
                   <div class="form-group has-feedback">
                       <label for="search" class="sr-only">Search</label>
@@ -199,4 +199,3 @@
       </div>
   </div>
 </div>-->
-
