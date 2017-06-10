@@ -8,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarStartComponent implements OnInit {
 
   constructor() { }
+  cadastrarUsuario(){
+  	sessionStorage.setItem('cadastro','cliente');
+  };
 
+  cadastrarArtesao(){
+  	sessionStorage.setItem('cadastro','artesao');
+  };
   ngOnInit() {
   }
 

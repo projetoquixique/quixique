@@ -24,7 +24,7 @@ import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirma
 import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
 import { AuthenticationService } from './services/authentication.service';
-import { CadastroService } from './form-cadastro-1/form-cadastro-1.service';
+// import { CadastroService } from './form-cadastro-1/form-cadastro-1.service';
 
 @NgModule({
   declarations: [
