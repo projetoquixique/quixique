@@ -1,19 +1,17 @@
 <nav class="navbar navbar-default">
-  <!--  comentario -->
   <div class="container">
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li>
               <div class="btn-group btn-entrar-dropdown">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Entrar <span class="caret"></span>
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrar <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <form>
+                  <form novalidate="true">
                     <li>
                       <div class="input-group input" [class.has-error]="dadosLogin.email.estado === false">
                         <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1" name="emailInput" [(ngModel)]="dadosLogin.email.valor" (change)="verificaEmail()">

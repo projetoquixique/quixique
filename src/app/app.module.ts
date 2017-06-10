@@ -1,20 +1,19 @@
 import { Routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { TextMaskModule } from 'angular2-text-mask';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormCadastro1Component } from './form-cadastro-1/form-cadastro-1.component';
+import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { CardPedidoGrandeComponent } from './card-pedido-grande/card-pedido-grande.component'
-
-// import { CadastroService } from './form-cadastro-1/form-cadastro-1.service';
 import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-principal-artesao.component';
 import { CardPedidoPequenoComponent } from './card-pedido-pequeno/card-pedido-pequeno.component';
 import { MensagemErroInputComponent } from './mensagem-erro-input/mensagem-erro-input.component';
-import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirmacao.component'
+import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirmacao.component';
 
 import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
@@ -25,7 +24,7 @@ import { AuthenticationService } from './services/authentication.service';
     AppComponent,
     HeaderComponent,
     NavbarComponent,
-    FormCadastro1Component,
+    FormCadastroComponent,
     CardPedidoGrandeComponent,
     TelaPrincipalArtesaoComponent,
     CardPedidoPequenoComponent,
@@ -34,9 +33,10 @@ import { AuthenticationService } from './services/authentication.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
-    Routing
+    FormsModule,
+    Routing,
+    TextMaskModule
   ],
   providers: [
     RequestService,

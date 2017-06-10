@@ -11,32 +11,32 @@ import { UserDataHandlerService } from './../services/user-data-handler.service'
 })
 
 export class TermosConfirmacaoComponent implements OnInit {
-	constructor(private requestService:RequestService,
-				private userDataHandler:UserDataHandlerService) { }
+  constructor(private requestService:RequestService,
+              private userDataHandler:UserDataHandlerService) { }
 
-	userType = this.userDataHandler.newUserData.tipo;
-	userMail = this.userDataHandler.newUserData.email;
+  userType = this.userDataHandler.newUserData.tipo;
+  userMail = this.userDataHandler.newUserData.email;
 
-	confirmacaoTermos:boolean = null;
-	cadastroFinalizado:boolean = false;
+  confirmacaoTermos:boolean = null;
+  cadastroFinalizado:boolean = false;
+  formSubmitted:boolean = false;
 
-	confirmaTermos(){
-		this.confirmacaoTermos = !this.confirmacaoTermos;
-	};
-
-	cadastrar() {
-		if (this.confirmacaoTermos){
-			this.requestService.post("http://rest.learncode.academy/api/quixique/cadastro", this.userDataHandler.newUserData).subscribe(
-	      		data => this.cadastroFinalizado = true,
-	      		error => console.log(error)
-	    		);
-		} else {
-			this.confirmacaoTermos = false;
-		};
-	};
-
-  ngOnInit() {
-  	console.log(this.userMail, this.userType)
+  confirmaTermos(){
+    this.confirmacaoTermos = !this.confirmacaoTermos;
   };
+
+  cadastrar() {
+    this.formSubmitted = true;
+    if (this.confirmacaoTermos){
+      this.requestService.post("http://rest.learncode.academy/api/quixique/cadastro", this.userDataHandler.newUserData).subscribe(
+        data => this.cadastroFinalizado = true,
+        error => console.log(error)
+      );
+    } else {
+      this.confirmacaoTermos = false;
+    };
+  };
+
+  ngOnInit() { };
 
 }

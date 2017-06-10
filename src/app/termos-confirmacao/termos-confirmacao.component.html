@@ -17,7 +17,7 @@
     <app-mensagem-erro-input *ngIf="confirmacaoTermos === false" mensagemDeErro="Para concluir o cadastro, é necessário concordar com os termos"></app-mensagem-erro-input>
   </div>
   <div class="col-md-12" text-center>
-    <button class="btn btn-primary center-block" (click)="cadastrar()">Concluir cadastro</button>
+    <button class="btn btn-primary center-block" [class.disabled]="formSubmitted" (click)="cadastrar()">Concluir cadastro</button>
   </div>
 </div>
 <div class="modal" [class.show]="cadastroFinalizado">

@@ -14,71 +14,66 @@ import { AuthenticationService } from './../services/authentication.service';
 export class NavbarComponent implements OnInit {
 
   constructor(private router:Router,
-  						private authService:AuthenticationService) { }
+              private authService:AuthenticationService) { }
 
   cadastrarUsuario(){
-  	sessionStorage.setItem('cadastro','cliente');
+    sessionStorage.setItem('tipoUsuario','cliente');
   };
 
   cadastrarArtesao(){
-  	sessionStorage.setItem('cadastro','artesao');
+    sessionStorage.setItem('tipoUsuario','artesao');
   };
 
-  dadosLogin = {email:{valor:undefined, estado: null, mensagem:""}, senha:{valor:undefined, estado: null, mensagem:""}};
+  dadosLogin = {email:{valor:undefined, estado:null, mensagem:""}, senha:{valor:undefined, estado:null, mensagem:""}};
 
   verificaEmail(){
-	    if (!(/\S/.test(this.dadosLogin.email.valor)) || this.dadosLogin.email.valor == undefined) {
-	      this.dadosLogin.email.estado = false;
-	      this.dadosLogin.email.mensagem = "Insira o email";
-	    } else if (!(/\S+@\S+\.\S+/.test(this.dadosLogin.email.valor))) {
-	      this.dadosLogin.email.estado = false;
-	      this.dadosLogin.email.mensagem = "Email inválido";
-	    } else {
-	      this.dadosLogin.email.estado = true;
-	    };
-	};
+    if (!(/\S/.test(this.dadosLogin.email.valor)) || this.dadosLogin.email.valor == undefined){
+      this.dadosLogin.email.estado = false;
+      this.dadosLogin.email.mensagem = "Insira o email";
+    } else if (!(/\S+@\S+\.\S+/.test(this.dadosLogin.email.valor))){
+      this.dadosLogin.email.estado = false;
+      this.dadosLogin.email.mensagem = "Email inválido";
+    } else {
+      this.dadosLogin.email.estado = true;
+    };
+  };
 
-	verificaSenha(){
-		if (this.dadosLogin.senha.valor !== undefined) {
-		  if (!(/\S/.test(this.dadosLogin.senha.valor))) {
-		    this.dadosLogin.senha.estado = false;
-		    this.dadosLogin.senha.mensagem = "Insira a senha";
-		  } else if (this.dadosLogin.senha.valor.length < 6) {
-		    this.dadosLogin.senha.estado = false;
-		    this.dadosLogin.senha.mensagem = "Insira a senha completa";
-		  } else {
-		    this.dadosLogin.senha.estado = true;
-		  };
-		} else {
-		  this.dadosLogin.senha.estado = false;
-		  this.dadosLogin.senha.mensagem = "Insira a senha";
-		};
-	};
+  verificaSenha(){
+    if (this.dadosLogin.senha.valor !== undefined){
+      if (!(/\S/.test(this.dadosLogin.senha.valor))){
+        this.dadosLogin.senha.estado = false;
+        this.dadosLogin.senha.mensagem = "Insira a senha";
+      } else if (this.dadosLogin.senha.valor.length < 6) {
+        this.dadosLogin.senha.estado = false;
+        this.dadosLogin.senha.mensagem = "Insira a senha completa";
+      } else {
+        this.dadosLogin.senha.estado = true;
+      };
+    } else {
+      this.dadosLogin.senha.estado = false;
+      this.dadosLogin.senha.mensagem = "Insira a senha";
+    };
+  };
 
   entrar(){
-  	this.verificaEmail();
-  	this.verificaSenha();
-  	if (this.dadosLogin.email.estado && this.dadosLogin.senha.estado){
-  		console.log("calling service...")
-  		let logging = this.authService.entrar(this.dadosLogin.email.valor, this.dadosLogin.senha.valor);
-      console.log(logging);
-  		if (logging == "wrongPassword"){
-  			this.dadosLogin.senha.estado = false;
-  			this.dadosLogin.senha.mensagem = "Senha incorreta";
-  		} else if (logging == "notFound"){
+    this.verificaEmail();
+    this.verificaSenha();
+    if (this.dadosLogin.email.estado && this.dadosLogin.senha.estado){
+      let loginAttempt = this.authService.login(this.dadosLogin.email.valor, this.dadosLogin.senha.valor);
+      if (loginAttempt == "notFound"){
         this.dadosLogin.email.estado = false;
         this.dadosLogin.email.mensagem = "E-mail não cadastrado";
-      } else if (logging = "ok_artesao"){
-        this.router.navigate(['/tela_principal_artesao']);
+      } else if (loginAttempt == "wrongPassword"){
+        this.dadosLogin.senha.estado = false;
+        this.dadosLogin.senha.mensagem = "Senha incorreta";
       } else {
-        alert ("Cliente logado");
+        alert(loginAttempt.tipo)
       }
-  	};
-
+    };
   };
 
   ngOnInit() {
-
+    this.authService.getReady();
   }
 
 }
