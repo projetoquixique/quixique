@@ -35,10 +35,10 @@
             </li>
             <li>
               <div class="btn-group btn-cadastro">
-                <button *ngIf="router.url !== '/cadastro'" class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Cadastre-se <span class="caret"></span>
                 </button>
-                <ul *ngIf="router.url !== '/cadastro'" class="dropdown-menu">
+                <ul class="dropdown-menu">
                   <li><a (click)="cadastrarUsuario()" routerLink="/cadastro">Cadastre-se como cliente</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a (click)="cadastrarArtesao()" routerLink="/cadastro">Cadastre-se como artesão</a></li>
