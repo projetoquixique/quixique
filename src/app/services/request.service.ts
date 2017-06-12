@@ -9,13 +9,23 @@ export class RequestService{
 
 	post(url, dados){
     return this.http.post(url, dados)
-                          .map((response:Response) => response.json())
-                          .catch((error:Response) => Observable.throw(error));
+                          .map((res:Response) => res.json())
+                          .catch((error:any) => Observable.throw(error.json().error));
 	};
 
 	get(url){
+    console.log("getting " + url)
     return this.http.get(url)
-                        .map((response:Response) => response.json())
-                        .catch((error:Response) => Observable.throw(error));
+                        .map((res:Response) => res.json())
+                        .catch((error:any) => Observable.throw(error.json().error));
   };
+
+  // get(url): Promise<any>
+  // {
+  //   return this.http.get(url).map(response => {
+  //     return response.json() || {success: false, message: "No response from server"};
+  //   }).catch((error: Response | any) => {
+  //     return Observable.throw(error.json());
+  //   }).toPromise();
+  // }
 }

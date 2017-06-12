@@ -30,18 +30,20 @@
                         <ul class="dropdown-menu">
                             <form class="" >
                                 <li>
-                                    <div class="input-group input">
-                                        <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+                                    <div class="input-group input" [class.has-error]="loginData.email.state === false">
+                                        <input type="text" class="form-control" placeholder="Email" name="emailInput" [(ngModel)]="loginData.email.value" aria-describedby="basic-addon1">
+                                        <app-mensagem-erro-input *ngIf="loginData.email.state === false" mensagemDeErro="{{loginData.email.message}}"></app-mensagem-erro-input>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="input-group input">
-                                        <input type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
+                                    <div class="input-group input" [class.has-error]="loginData.password.state === false">
+                                        <input type="password" class="form-control" placeholder="Senha" name="passwordInput" [(ngModel)]="loginData.password.value" aria-describedby="basic-addon1">
+                                        <app-mensagem-erro-input *ngIf="loginData.password.state === false" mensagemDeErro="{{loginData.password.message}}"></app-mensagem-erro-input>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="btn">
-                                        <button type="submit" name="button" class="btn btn-primary btn-entrar">Entrar</button>
+                                        <button type="submit" name="button" class="btn btn-primary btn-entrar" [class.disabled]="loading" (click)="login(); $event.stopPropagation()">Entrar</button>
                                     </div>
                                 </li>
                             </form>

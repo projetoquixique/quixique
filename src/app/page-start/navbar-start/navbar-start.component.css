@@ -14,3 +14,34 @@
 small button{
   margin-left: 10px;
 }
+.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+.input{
+  border-radius: 5px;
+  margin: 10px;
+  min-width: 200px;
+}
+input:focus{
+  box-shadow: 0px 0px 0px;
+}
+.btn-entrar{
+  min-width: 200px;
+}
+.dropdown-menu{
+  min-width: 200px;
+}
+.btn-cadastro{
+  margin-top: 10px;
+}
+.btn-entrar-dropdown{
+  margin: 5px;
+  margin-top: 10px;
+}
+app-mensagem-erro-input{
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  top: 35px;
+}

@@ -395,7 +395,6 @@ export class FormCadastroComponent implements OnInit {
   ngOnInit() {
     //tipo de usuário
     this.tipoDeUsuario = sessionStorage.getItem('tipoUsuario');
-    console.log(this.tipoDeUsuario)
     if (!this.tipoDeUsuario){
       this.router.navigate(['/']);
       return;

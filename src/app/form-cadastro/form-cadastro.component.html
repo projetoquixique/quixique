@@ -13,13 +13,13 @@
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.cpf.estado == false">
           <label for="inputCpf" class="control-label">CPF</label>
-          <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF " [(ngModel)]="novoUsuario.cpf" [textMask]="{mask:cpfMask}" (change)="verificaCPF()">
+          <input type="tel" class="form-control" name="cpf" placeholder="Digite seu CPF " [(ngModel)]="novoUsuario.cpf" [textMask]="{mask:cpfMask}" (change)="verificaCPF()">
           <app-mensagem-erro-input *ngIf="verificadores.cpf.estado == false" mensagemDeErro="{{verificadores.cpf.mensagem}}"></app-mensagem-erro-input>
         </div>
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.dataDeNascimento.estado == false">
           <label for="inputData" class="control-label">Data de nascimento</label>
-          <input type="text" class="form-control" id="inputData" placeholder="Digite sua data de nascimento" name="dataDeNascimento" [textMask]="{mask:dateMask}" [(ngModel)]="novoUsuario.dataDeNascimento" (change)="verificaDataDeNascimento()">
+          <input type="tel" class="form-control" id="inputData" placeholder="Digite sua data de nascimento" name="dataDeNascimento" [textMask]="{mask:dateMask}" [(ngModel)]="novoUsuario.dataDeNascimento" (change)="verificaDataDeNascimento()">
           <app-mensagem-erro-input *ngIf="verificadores.dataDeNascimento.estado == false" mensagemDeErro="{{verificadores.dataDeNascimento.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -83,7 +83,7 @@
 
         <div class="form-group col-md-2" [class.has-error]="verificadores.numero.estado == false">
           <label for="inputNumero" class="control-label">Número</label>
-          <input type="texto" class="form-control" id="inputNumero" placeholder="Número" name="numero" [(ngModel)]="novoUsuario.numero" (change)="verificaNumero()">
+          <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero" [(ngModel)]="novoUsuario.numero" (change)="verificaNumero()">
           <app-mensagem-erro-input *ngIf="verificadores.numero.estado == false" mensagemDeErro="{{verificadores.numero.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -112,7 +112,7 @@
         </div>
         <div class="form-group col-md-4" [class.has-error]="verificadores.cep.estado == false">
           <label for="inputCep" class="control-label">CEP</label>
-          <input type="text" class="form-control" id="inputCep" placeholder="Insira o CEP do seu local de trabalho" name="cep" [(ngModel)]="novoUsuario.cep" [textMask]="{mask:cepMask}" (change)="verificaCep()">
+          <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP do seu local de trabalho" name="cep" [(ngModel)]="novoUsuario.cep" [textMask]="{mask:cepMask}" (change)="verificaCep()">
            <app-mensagem-erro-input *ngIf="verificadores.cep.estado == false" mensagemDeErro="{{verificadores.cep.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -123,13 +123,13 @@
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.numeroCartao.estado == false">
           <label for="inputCard" class="control-label">Número do Cartão</label>
-          <input type="texto" class="form-control" id="inputCard" placeholder="Informe somente os números, sem espaços" name="numeroCartao" [textMask]="{mask:cardNumberMask}" [(ngModel)]="novoUsuario.numeroCartao" (change)="verificaNumeroCartao()">
+          <input type="tel" class="form-control" id="inputCard" placeholder="Informe somente os números, sem espaços" name="numeroCartao" [textMask]="{mask:cardNumberMask}" [(ngModel)]="novoUsuario.numeroCartao" (change)="verificaNumeroCartao()">
           <app-mensagem-erro-input *ngIf="verificadores.numeroCartao.estado == false" mensagemDeErro="{{verificadores.numeroCartao.mensagem}}"></app-mensagem-erro-input>
         </div>
 
         <div class="form-group col-md-2" [class.has-error]="verificadores.vencimentoCartao.estado == false">
           <label for="inputVencimento" class="control-label">Vencimento</label>
-          <input type="text" class="form-control" id="inputVencimento" placeholder="Mês e ano" name="vencimentoCartao" [textMask]="{mask:cardEnd}" [(ngModel)]="novoUsuario.vencimentoCartao" (change)="verificaVencimentoCartao()">
+          <input type="tel" class="form-control" id="inputVencimento" placeholder="Mês e ano" name="vencimentoCartao" [textMask]="{mask:cardEnd}" [(ngModel)]="novoUsuario.vencimentoCartao" (change)="verificaVencimentoCartao()">
           <app-mensagem-erro-input *ngIf="verificadores.vencimentoCartao.estado == false" mensagemDeErro="{{verificadores.vencimentoCartao.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -190,13 +190,13 @@
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.dataDeNascimento.estado == false">
           <label for="inputData" class="control-label">Data de nascimento</label>
-          <input type="text" class="form-control" id="inputData" placeholder="Insira sua data de nascimento" name="dataDeNascimento" [textMask]="{mask:dateMask}" [(ngModel)]="novoUsuario.dataDeNascimento" (change)="verificaDataDeNascimento()">
+          <input type="tel" class="form-control" id="inputData" placeholder="Insira sua data de nascimento" name="dataDeNascimento" [textMask]="{mask:dateMask}" [(ngModel)]="novoUsuario.dataDeNascimento" (change)="verificaDataDeNascimento()">
           <app-mensagem-erro-input *ngIf="verificadores.dataDeNascimento.estado == false" mensagemDeErro="{{verificadores.dataDeNascimento.mensagem}}"></app-mensagem-erro-input>
         </div>
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.cpf.estado == false">
           <label for="inputCpf" class="control-label">CPF</label>
-          <input type="text" class="form-control" id="inputCpf" placeholder="Informe apenas os números do CPF" name="cpf" [textMask]="{mask:cpfMask}" [(ngModel)]="novoUsuario.cpf" (change)="verificaCPF()">
+          <input type="tel" class="form-control" id="inputCpf" placeholder="Informe apenas os números do CPF" name="cpf" [textMask]="{mask:cpfMask}" [(ngModel)]="novoUsuario.cpf" (change)="verificaCPF()">
           <app-mensagem-erro-input *ngIf="verificadores.cpf.estado == false" mensagemDeErro="{{verificadores.cpf.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -223,7 +223,7 @@
 
         <div class="form-group col-md-2" [class.has-error]="verificadores.numero.estado == false">
           <label for="inputNumero" class="control-label">Número</label>
-          <input type="texto" class="form-control" id="inputNumero" placeholder="Número" name="numero" [(ngModel)]="novoUsuario.numero" (change)="verificaNumero()">
+          <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero" [(ngModel)]="novoUsuario.numero" (change)="verificaNumero()">
           <app-mensagem-erro-input *ngIf="verificadores.numero.estado == false" mensagemDeErro="{{verificadores.numero.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -253,7 +253,7 @@
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.cep.estado == false">
           <label for="inputCep" class="control-label">CEP</label>
-          <input type="text" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep" [textMask]="{mask:cepMask}" [(ngModel)]="novoUsuario.cep" (change)="verificaCep()">
+          <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep" [textMask]="{mask:cepMask}" [(ngModel)]="novoUsuario.cep" (change)="verificaCep()">
           <app-mensagem-erro-input *ngIf="verificadores.cep.estado == false" mensagemDeErro="{{verificadores.cep.mensagem}}"></app-mensagem-erro-input>
         </div>
       </fieldset>
