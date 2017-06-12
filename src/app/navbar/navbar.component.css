@@ -3,37 +3,75 @@
   border-width: 0px 0px 4px 0px;
   border-radius: 0px;
   border-bottom: rgb(71, 37, 5) 4px solid;
+  box-sizing: border-box;
 }
-.navbar-default .navbar-nav>li>a{
-  color: white;
-}
-
-.input{
-  border-radius: 5px;
-  margin: 10px;
-  min-width: 200px;
-
-}
-input:focus{
-  box-shadow: 0px 0px 0px;
-}
-.btn-entrar{
-  min-width: 200px;
-}
-.dropdown-menu{
-  min-width: 200px;
-}
-.btn-cadastro{
-  margin-top: 10px;
-}
-.btn-entrar-dropdown{
-  margin: 5px;
-  margin-top: 10px;
-}
-app-mensagem-erro-input{
-  position: absolute;
-  left: 0;
-  z-index: 10;
+.pessoa{
+  padding: 5px;
   width: 100%;
-  top: 35px;
+}
+.foto{
+  width: 35px;
+  float: left;
+}
+.foto img{
+  width: 35px;
+  border-radius: 50%;
+}
+.nomePessoa{
+  color: #fff;
+  margin-left: 45px;
+  padding-top: 6px;
+}
+.menu ul li{
+  display: inline-block;
+  margin-right: 55px;
+  padding-top: 12px;
+}
+.menu ul{
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+.menu ul li > a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 15px;
+}
+/*
+.menu ul li > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: -17px;
+  left: 0;
+  background-color: #f7921e;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.menu ul li > a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}*/
+.explorar{
+  display: inline-block;
+}
+.mensagens{
+  display: inline-block;
+  margin-right: 30px;
+}
+.icones{
+  font-size: 20px;
+  color: #fff;
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
 }
