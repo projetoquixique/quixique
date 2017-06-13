@@ -15,10 +15,10 @@ import { UserDataHandlerService } from './../services/user-data-handler.service'
 
 export class FormCadastroComponent implements OnInit {
 
-  constructor(private requestService:RequestService, 
+  constructor(private requestService:RequestService,
               private router:Router,
               private userDataHandler:UserDataHandlerService) { }
-  
+
   pageCount:number = 0;
 
   previous(){
@@ -45,8 +45,8 @@ export class FormCadastroComponent implements OnInit {
 
   novoUsuario;
   verificadores;
-  confirmacaoSenha = undefined; 
-  
+  confirmacaoSenha = undefined;
+
   controleVerificadores(identificador, mensagem) {
     identificador.estado = false;
     identificador.mensagem = mensagem;
@@ -74,7 +74,7 @@ export class FormCadastroComponent implements OnInit {
     } else if (this.novoUsuario.cpf.indexOf("_") !== -1 || this.novoUsuario.cpf.length !== 14){
       this.controleVerificadores(this.verificadores.cpf, "Insira um CPF válido");
     } else {
-      this.verificadores.cpf.estado = true; 
+      this.verificadores.cpf.estado = true;
     };
   };
 
@@ -242,7 +242,7 @@ export class FormCadastroComponent implements OnInit {
     if (!(/\S/.test(this.novoUsuario.estado)) || this.novoUsuario.estado == undefined) {
       this.controleVerificadores(this.verificadores.estado, this.mensagemCampoVazio);
     } else if (/^\d+$/.test(this.novoUsuario.estado)) {
-      this.controleVerificadores(this.verificadores.estado, "Números não são permitidos aqui"); 
+      this.controleVerificadores(this.verificadores.estado, "Números não são permitidos aqui");
     } else {
       this.verificadores.estado.estado = true;
     };
@@ -352,7 +352,7 @@ export class FormCadastroComponent implements OnInit {
           return false;
         };
       } else if (this.pageCount == 2) {
-        this.verificaNumeroCartao(); this.verificaVencimentoCartao(); this.verificaTitularCartao(); 
+        this.verificaNumeroCartao(); this.verificaVencimentoCartao(); this.verificaTitularCartao();
         if (v.numeroCartao.estado && v.vencimentoCartao.estado && v.titularCartao.estado) {
           return true;
         } else {
