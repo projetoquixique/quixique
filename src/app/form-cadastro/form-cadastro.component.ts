@@ -138,7 +138,7 @@ export class FormCadastroComponent implements OnInit {
     if (this.novoUsuario.telefone !== undefined) {
       if (!(/\S/.test(this.novoUsuario.telefone))) {
         this.controleVerificadores(this.verificadores.telefone, this.mensagemCampoVazio);
-      } else if (this.novoUsuario.telefone.indexOf("_") !== -1 || (this.novoUsuario.telefone.length !== 15)) {
+      } else if (this.novoUsuario.telefone.indexOf("_") !== -1 || (this.novoUsuario.telefone.length !== 14)) {
         this.controleVerificadores(this.verificadores.telefone, "Insira um telefone válido");
       } else { 
         this.verificadores.telefone.estado = true;

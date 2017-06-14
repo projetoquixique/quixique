@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthenticationService } from './../../services/authentication.service';
 
@@ -10,7 +11,8 @@ import { AuthenticationService } from './../../services/authentication.service';
 
 export class NavbarStartComponent implements OnInit {
 
-  constructor(private authService:AuthenticationService) {}
+  constructor(private authService:AuthenticationService,
+              private router:Router) {}
 
   cadastrarCliente(){
   	sessionStorage.setItem('tipoUsuario','cliente');
@@ -22,6 +24,7 @@ export class NavbarStartComponent implements OnInit {
 
   loginData = {email:{value:undefined, state:null, message:""}, password:{value:undefined, state:null, message:""}};
   loading = false;
+  loginButtonText = "Entrar";
 
   verificaEmail(){
     if (!(/\S/.test(this.loginData.email.value)) || this.loginData.email.value == undefined){
@@ -57,10 +60,12 @@ export class NavbarStartComponent implements OnInit {
     this.verificaSenha();
     if (this.loginData.email.state && this.loginData.password.state){
       this.loading = true;
+      this.loginButtonText = "Entrando..."
       this.authService.login(this.loginData.email.value, this.loginData.password.value)
             .subscribe(
                 data => {
                   this.loading = false;
+                  this.loginButtonText = "Entrar";
                   if (data == "notFound"){
                     this.loginData.email.state = false;
                     this.loginData.email.message = "E-mail não cadastrado";
@@ -68,11 +73,16 @@ export class NavbarStartComponent implements OnInit {
                     this.loginData.password.state = false;
                     this.loginData.password.message = "Senha incorreta";
                   } else {
-                    alert(data.tipo);
+                    if (data.tipo == "artesao"){
+                      this.router.navigate(['/tela_principal_artesao']);
+                    } else {
+                      alert("Cliente logado: redirecionar");
+                    }
                   }
                 },
                 error => {
                   this.loading = false;
+                  this.loginButtonText = "Entrar";
             });
     };
   };

@@ -43,7 +43,10 @@
                                 </li>
                                 <li>
                                     <div class="btn">
-                                        <button type="submit" name="button" class="btn btn-primary btn-entrar" [class.disabled]="loading" (click)="login(); $event.stopPropagation()">Entrar</button>
+                                        <button type="submit" name="button" class="btn btn-primary btn-entrar" [class.disabled]="loading" (click)="login(); $event.stopPropagation()">
+                                        <span *ngIf="loading" class="glyphicon glyphicon-repeat button-loading-icon" aria-hidden="true"></span>
+                                        {{ loginButtonText }}
+                                        </button>
                                     </div>
                                 </li>
                             </form>

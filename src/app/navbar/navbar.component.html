@@ -1,87 +1,40 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <div class="btn-group btn-entrar-dropdown">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Entrar <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <form novalidate="true">
-                    <li>
-                      <div class="input-group input" [class.has-error]="dadosLogin.email.estado === false">
-                        <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1" name="emailInput" [(ngModel)]="dadosLogin.email.valor" (change)="verificaEmail()">
-                        <app-mensagem-erro-input *ngIf="dadosLogin.email.estado === false" mensagemDeErro="{{dadosLogin.email.mensagem}}"></app-mensagem-erro-input>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="input-group input" [class.has-error]="dadosLogin.senha.estado === false">
-                        <input type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1" name="senhaInput" [(ngModel)]="dadosLogin.senha.valor" (change)="verificaSenha()">
-                        <app-mensagem-erro-input *ngIf="dadosLogin.senha.estado === false" mensagemDeErro="{{dadosLogin.senha.mensagem}}"></app-mensagem-erro-input>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="btn">
-                        <button name="button" class="btn btn-primary btn-entrar" (click)="entrar(); $event.stopPropagation()">Entrar</button>
-                      </div>
-                    </li>
-                  </form>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="btn-group btn-cadastro">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Cadastre-se <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a (click)="cadastrarUsuario()" routerLink="/cadastro">Cadastre-se como cliente</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a (click)="cadastrarArtesao()" routerLink="/cadastro">Cadastre-se como artesão</a></li>
-                </ul>
-              </div>
-            </li>
+      <div class="col-md-2">
+        <div class="pessoa">
+          <div class="foto">
+            <img src="https://yt3.ggpht.com/-Yr_vFB0pASA/AAAAAAAAAAI/AAAAAAAAAAA/2XdpmdI2lTE/s48-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="">
+          </div>
+          <div class="nomePessoa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ userName }} <span class="caret"></span>
+          </div>
+          <ul class="dropdown-menu">
+            <li><a href="#">Editar Perfil</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a (click)="logout()">Sair</a></li>
           </ul>
-          <div class="col-md-2">
-            <div class="pessoa">
-              <div class="foto">
-                <img src="https://yt3.ggpht.com/-Yr_vFB0pASA/AAAAAAAAAAI/AAAAAAAAAAA/2XdpmdI2lTE/s48-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="">
-              </div>
-              <div class="nomePessoa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Lucas Inácio <span class="caret"></span>
-              </div>
-              <ul class="dropdown-menu">
-                <li><a href="#">Editar Perfil</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Sair</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div class="menu">
-              <ul>
-                <li><a href="">Pedidos</a></li>
-                <li><a href="">Gestão</a></li>
-                <li><a href="">Minha Loja</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="icones">
-              <div class="mensagens">
-                <div class="glyphicon glyphicon-comment"></div>
-              </div>
-              <div class="explorar">
-                <div class="glyphicon glyphicon-plane"></div>
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="menu">
+          <ul>
+            <li><a href="">Pedidos</a></li>
+            <li><a href="">Gestão</a></li>
+            <li><a href="">Minha Loja</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="icones">
+        <div class="mensagens">
+          <div class="glyphicon glyphicon-comment"></div>
+        </div>
+        <div class="explorar">
+          <div class="glyphicon glyphicon-plane"></div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </nav>

@@ -17,6 +17,7 @@ export class AuthenticationService {
               if (usersData[user].email == email){
                 if (usersData[user].senha == password){
                   this.currentUser = usersData[user];
+                  this.toSessionStorage(usersData[user]);
                   return usersData[user];
                 } else {
                   return "wrongPassword"
@@ -29,10 +30,12 @@ export class AuthenticationService {
  
     logout() {
       this.currentUser = null;
-        // remove user from local storage to log user out
-        // localStorage.removeItem('currentUser');
+      sessionStorage.removeItem('isUserLogged');
+      sessionStorage.removeItem('userType');
+      sessionStorage.removeItem('currentUserName');
+      // remove user from local storage to log user out
+      return true;
     }
-  
 
   isLogged(){
     if (this.currentUser) {
@@ -41,4 +44,10 @@ export class AuthenticationService {
       return false;
     }
   };
+
+  toSessionStorage(userData) {
+    sessionStorage.setItem('isUserLogged','true');
+    sessionStorage.setItem('userType', userData.tipo);
+    sessionStorage.setItem('currentUserName', userData.nome);
+  }
 }
