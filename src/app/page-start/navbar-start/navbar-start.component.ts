@@ -76,7 +76,7 @@ export class NavbarStartComponent implements OnInit {
                     if (data.tipo == "artesao"){
                       this.router.navigate(['/tela_principal_artesao']);
                     } else {
-                      alert("Cliente logado: redirecionar");
+                      this.router.navigate(['/tela_principal_cliente']);
                     }
                   }
                 },

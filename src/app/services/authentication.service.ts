@@ -48,6 +48,6 @@ export class AuthenticationService {
   toSessionStorage(userData) {
     sessionStorage.setItem('isUserLogged','true');
     sessionStorage.setItem('userType', userData.tipo);
-    sessionStorage.setItem('currentUserName', userData.nome);
+    sessionStorage.setItem('currentUserName', userData.nome.replace(/(([^\s]+\s\s*){2})(.*)/,"$1"));
   }
 }
