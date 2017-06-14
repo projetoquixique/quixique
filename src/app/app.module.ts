@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { PageStartComponent } from './page-start/page-start.component';
 import { CarrosselComponent } from './page-start/carrossel/carrossel.component';
+import { FormCadastroStartComponent } from './page-start/form-cadastro-start/form-cadastro-start.component';
 import { NavbarStartComponent } from './page-start/navbar-start/navbar-start.component';
 import { CategoriesComponent } from './page-start/categories/categories.component';
 import { FooterComponent } from './page-start/footer/footer.component';
@@ -23,6 +24,7 @@ import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirma
 import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
 import { AuthenticationService } from './services/authentication.service';
+import { CategoryThumbnailComponent } from './page-start/categories/category-thumbnail/category-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { AuthenticationService } from './services/authentication.service';
     NavbarStartComponent,
     CategoriesComponent,
     FooterComponent,
+    FormCadastroStartComponent,
+    CategoryThumbnailComponent,
   ],
   imports: [
     BrowserModule,

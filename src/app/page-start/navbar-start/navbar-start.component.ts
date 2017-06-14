@@ -17,6 +17,7 @@ export class NavbarStartComponent implements OnInit {
   cadastrarArtesao(){
   	sessionStorage.setItem('tipoUsuario','artesao');
   };
+
   ngOnInit() {
   }
 
