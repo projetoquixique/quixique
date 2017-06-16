@@ -1,0 +1,113 @@
+.card{
+  background-color: #E5E5E5;
+  border-bottom: 4px solid #d6d3d3;
+  margin-top:  20px;
+  max-height: 154px;
+  min-height: 154px;
+  box-shadow: 0px 0px 30px #edebeb;
+}
+.listaHide{
+  display: none;
+}
+.listaShow{
+  display: block;
+}
+.img{
+  display: block;
+  background-color: #000000;
+  width: 150px;
+  height: 150px;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/736x/0f/82/19/0f8219c0c0b498c6b0a50cf1753a1214.jpg');
+  background-size: 150px 150px;
+  display: table;
+  position: relative;
+}
+.titulo{
+  display: table-row;
+  position: absolute;
+  bottom: 0px;
+  padding: 5px;
+}
+.titulo h3{
+  color: #fff;
+}
+.degrade{
+  width: 150px;
+  height: 150px;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* Standard syntax */
+}
+
+.foto-ecomendante{
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  margin-left: 0px;
+}
+.foto-ecomendante img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.classificacao{
+  margin-top: -7px;
+}
+.classificacao li{
+  display: inline-block;
+}
+.tempo-restante{
+  margin-top: 10px;
+}
+.tempo-restante span{
+  display: inline-block;
+  float: left;
+  font-size: 20px;
+  margin: 5px;
+  margin-top: 0px;
+}
+.tempo{
+  display: inline;
+}
+.tempo-dias{
+  color: red;
+  display: inline;
+}
+.price{
+  background-color: #F5F5F5;
+  display: block;
+  padding: 10px;
+}
+.unidades{
+  color: rgb(3, 104, 113);
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.valor-total{
+  color: rgb(77, 34, 7);
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: -5px;
+}
+.prazo-entrega{
+  float: right;
+  margin-right: 15px;
+  margin-top: -10px;
+}
+.prazo-entrega h2{
+  font-weight: bold;
+  color: rgb(0, 24, 181)
+}
+.prazo-entrega h5{
+  margin-top: -10px;
+  color: rgb(0, 24, 181);
+  font-size: 20px;
+}
+.botoes{
+  float: right;
+  margin-top: 16px;
+}
+.botoes button{
+  margin-right: 5px;
+}

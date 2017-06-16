@@ -1,0 +1,209 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="logo" class="col-md-offset-4 col-md-4">
+        <h1>Quixique</h1>
+        <a class="btn btn-primary btn-lg" (click)="showForm('open')">Entre ou Cadastre-se</a>
+    </div>
+    <!-- Indicators -->
+    <!--<ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>-->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div *ngIf="formShow == true" class="filter" (click)="showForm('close')">
+            <app-form-cadastro-start (closeForm)="showForm($event)"></app-form-cadastro-start>
+        </div>
+        <div (click)="funcao" class="item active">
+            <!--<img src="../../../assets/images/temp/pp.jpg" alt="Los Angeles">-->
+            <div *ngIf="formShow == false" class="img i01"></div>
+            <div *ngIf="formShow == true" class="img PB-01"></div>
+            <!--<div *ngIf="formShow == false" class="carousel-caption">
+              <h3>Bla Lorem impsum Dolar...</h3>
+              <p>
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+              </p>
+            </div>-->
+        </div>
+        <div (click)="funcao" class="item">
+            <!--<img src="../../../assets/images/temp/a.png" alt="Chicago">-->
+            <div *ngIf="formShow == false" class="img i02"></div>
+            <div *ngIf="formShow == true" class="img PB-02"></div>
+            <!--<div *ngIf="formShow == false" class="carousel-caption">
+              <h3>Bla Lorem impsum Dolar...</h3>
+              <p>
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+              </p>
+            </div>-->
+        </div>
+
+        <div (click)="funcao" class="item">
+            <!--<img src="../../../assets/images/temp/a.png" alt="New York">-->
+            <div *ngIf="formShow == false" class="img i03"></div>
+            <div *ngIf="formShow == true" class="img PB-03"></div>
+            <!--<div *ngIf="formShow == false" class="carousel-caption">
+              <h3>Bla Lorem impsum Dolar...</h3>
+              <p>
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+              </p>
+            </div>            -->
+        </div>
+        <div (click)="funcao" class="item">
+            <!--<img src="../../../assets/images/temp/a.png" alt="New York">-->
+            <div *ngIf="formShow == false" class="img i04"></div>
+            <div *ngIf="formShow == true" class="img PB-04"></div>
+            <!--<div *ngIf="formShow == false" class="carousel-caption">
+              <h3>Bla Lorem impsum Dolar...</h3>
+              <p>
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+              </p>
+            </div>            -->
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="setae"><img src="../../../assets/images/temp/se.png" alt=""/></span>
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="setad"><img src="../../../assets/images/temp/sd.png" alt=""/></span>
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>-->
+</div>
+<div id="infografico">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div (click)="funcao" class="item active">
+                    <!--<img src="../../../assets/images/temp/pp.jpg" alt="Los Angeles">-->
+                    <div class="img i03"></div>
+                    <!--<div *ngIf="formShow == false" class="carousel-caption">
+                    <h3>Bla Lorem impsum Dolar...</h3>
+                    <p>
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                    </p>
+                    </div>-->
+                </div>
+                <div (click)="funcao" class="item">
+                    <!--<img src="../../../assets/images/temp/a.png" alt="Chicago">-->
+                    <div class="img i04"></div>
+                    <!--<div *ngIf="formShow == false" class="carousel-caption">
+                    <h3>Bla Lorem impsum Dolar...</h3>
+                    <p>
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                    </p>
+                    </div>-->
+                </div>
+
+                <div (click)="funcao" class="item">
+                    <!--<img src="../../../assets/images/temp/a.png" alt="New York">-->
+                    <div class="img i01"></div>
+                    <!--<div *ngIf="formShow == false" class="carousel-caption">
+                    <h3>Bla Lorem impsum Dolar...</h3>
+                    <p>
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                    </p>
+                    </div>            -->
+                </div>
+                <div (click)="funcao" class="item">
+                    <!--<img src="../../../assets/images/temp/a.png" alt="New York">-->
+                    <div class="img i02"></div>
+                    <!--<div *ngIf="formShow == false" class="carousel-caption">
+                    <h3>Bla Lorem impsum Dolar...</h3>
+                    <p>
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                        Bla Lorem impsum Dolar seat amet Bla Lorem impsum Dolar seat amet
+                    </p>
+                    </div>            -->
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                <!--<span class="setae"><img src="../../../assets/images/temp/se.png" alt=""/></span>-->
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                <!--<span class="setad"><img src="../../../assets/images/temp/sd.png" alt=""/></span>-->
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>

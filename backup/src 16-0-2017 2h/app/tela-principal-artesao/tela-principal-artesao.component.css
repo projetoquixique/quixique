@@ -1,0 +1,48 @@
+.container-principal{
+  background-color: #FAFAFA;
+  box-shadow: 0px 0px 30px #edebeb;
+  border-radius: 10px 10px 10px 10px;
+  /*margin-top: -20px;*/
+}
+.guias-container{
+  border-radius: 10px 10px 0px 0px;
+  background-color: #F0F0F0;
+}
+.controle-container{
+  float: right;
+}
+.controle-container ul{
+  margin: 0px;
+  padding: 0px;
+}
+.controle-container li{
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 25px;
+  /*background-color: #eee;*/
+  padding: 10px;
+  cursor: pointer;
+  /*border-radius: 50%;*/
+}
+.controle-container li:hover{
+  color: #EB7E1E;
+}
+.btn-group-justified > .btn-group .btn{
+  height: 41px;
+}
+.btn, .btn:hover{
+  border-width: 0px 0px 0px 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-radius: 0px;
+  border-color: #EB7E1E;
+  background-color: #F0F0F0;
+}
+.btn-select, .btn-select:hover{
+  border-width: 4px 0px 0px 0px;
+  border-color: #EB7E1E;
+  background-color: #FAFAFA;
+}
+.gradeHide{
+  display: none;
+}
