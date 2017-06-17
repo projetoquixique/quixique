@@ -11,11 +11,13 @@ export class NavbarStartComponent implements OnInit {
   constructor() { }
 
   cadastrarCliente(){
-  	sessionStorage.setItem('tipoUsuario','cliente');
+    // alert('teste');
+    sessionStorage.setItem('tipoUsuario','cliente');
   };
 
   cadastrarArtesao(){
-  	sessionStorage.setItem('tipoUsuario','artesao');
+    // alert('teste2');
+    sessionStorage.setItem('tipoUsuario','artesao');
   };
 
   ngOnInit() {

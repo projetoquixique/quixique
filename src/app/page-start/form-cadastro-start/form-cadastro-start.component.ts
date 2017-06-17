@@ -7,13 +7,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FormCadastroStartComponent implements OnInit {
 
-  @Output() closeModal = new EventEmitter<string>();
+  @Output() closeForm = new EventEmitter<string>();
 
-  close(event){
-    this.closeModal.emit(event.target.id);
-    // alert(event.target.id);
+  close(str){
+    // alert(str);
+    this.closeForm.emit(str);
   }
 
+  cadastrarUsuario(user, data){
+    // alert(user);
+  	sessionStorage.setItem('tipoUsuario',user);
+  };
+
+  guardarDados(data){
+    if(data){
+      data = JSON.stringify(data);
+  	  sessionStorage.setItem('userData',data);
+    }
+  }
 
   constructor() { }
 

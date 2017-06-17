@@ -2,8 +2,18 @@
     padding: 200px 0;
 }
 
+#logo{
+    font-family: "Lobster 1.4", sans-serif;
+    color: #b25526;
+    font-size: 10rem;
+    /*text-shadow: 0px 0px 10px #462710;*/
+    margin-bottom: 12rem; 
+    margin-top: 0;
+    transition: all 0.3s;
+}
+
 .searchBar{
-    height: 120px;
+    height: auto;
     margin-bottom: 120px;
 }
 

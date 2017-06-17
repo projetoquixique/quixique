@@ -10,27 +10,37 @@ export class CarrosselComponent implements OnInit {
   formShow:boolean = false;
 
   // showForm(str){
-  //   // alert("clicado");
+  //   // alert('chegou isso: ' + str);
   //   if(this.formShow == false){
   //     this.formShow = true;
   //   }
   //   else{
-  //     if(str != "filter"){
-  //       return false;
+  //     if(str == "" || str == undefined || str != 'close'){
+  //       // event.preventDefault();
+  //       event.stopPropagation();
+  //       return false; 
   //     }
-  //     this.formShow = false;
+  //     else if(str == 'close'){
+  //       this.formShow = false;
+  //     }
   //   }
   // }
 
-  showForm(str){
-    alert(str);
-    if(this.formShow == false){
+  showForm(){
+      // alert('chegou isso: ' + str);    
       this.formShow = true;
+      event.stopPropagation();
+      return false;       
+  }
+
+  hideForm(str){
+    // alert('chegou isso: ' + str);
+    if(str == "" || str == undefined || str != 'close'){
+      // event.preventDefault();
+      event.stopPropagation();
+      return false; 
     }
-    else{
-      if(str == 'filter' || str == undefined ){
-        return false;
-      }
+    else if(str == 'close'){
       this.formShow = false;
     }
   }
