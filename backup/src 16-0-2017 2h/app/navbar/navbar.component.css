@@ -1,0 +1,39 @@
+.navbar{
+  background-color: rgb(94, 48, 0);
+  border-width: 0px 0px 4px 0px;
+  border-radius: 0px;
+  border-bottom: rgb(71, 37, 5) 4px solid;
+}
+.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+
+.input{
+  border-radius: 5px;
+  margin: 10px;
+  min-width: 200px;
+
+}
+input:focus{
+  box-shadow: 0px 0px 0px;
+}
+.btn-entrar{
+  min-width: 200px;
+}
+.dropdown-menu{
+  min-width: 200px;
+}
+.btn-cadastro{
+  margin-top: 10px;
+}
+.btn-entrar-dropdown{
+  margin: 5px;
+  margin-top: 10px;
+}
+app-mensagem-erro-input{
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  top: 35px;
+}

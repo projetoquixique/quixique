@@ -1,0 +1,57 @@
+<!--<div class="modal" (click)="close($event)" style="display:block">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+            <p>One fine body…</p>
+        </div>
+        <div class="modal-footer">
+            <button id="close" (click)="close($event)" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>-->
+<!--<div class="component">-->
+    <div class="formCadastro" (click)="close('')">
+        <button (click)="close('close')" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <form>
+            <h1>Bem Vindo! :)</h1>
+            <fieldset>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Endereço de email</label>
+                    <input #email type="email" class="form-control" id="exampleInputEmail1" placeholder="Informe o seu endereço de email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Senha</label>
+                    <input #senha type="password" class="form-control" id="exampleInputPassword1" placeholder="Insira uma senha no mínimo 8 digitos">
+                </div>
+                <div class="radio">
+                    <label>
+                    <input type="radio" name="user-type" value="cliente" (click)="cadastrarUsuario($event.target.value)"> Cliente
+                    </label>
+                    <label>
+                    <input  type="radio" name="user-type" value="artesao" (click)="cadastrarUsuario($event.target.value)"> Artesão
+                    </label>
+                     
+                    
+                </div>
+                <div class="pull-right">
+                    <div class="btn-group btn-entrar">
+                        <button routerLink="/cadastro" class="btn btn-default btn-md" type="button">
+                            Entrar
+                        </button>
+                    </div>
+                    <div class="btn-group btn-cadastro">
+                        <button routerLink="/cadastro" (click)="guardarDados({'email':email.value, 'senha':senha.value})" class="btn btn-primary btn-md" type="button">
+                            Cadastre-se
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div> 
+<!--</div>-->
