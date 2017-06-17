@@ -24,6 +24,9 @@ import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirma
 import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
 import { AuthenticationService } from './services/authentication.service';
+
+import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
+import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
 import { CategoryThumbnailComponent } from './page-start/categories/category-thumbnail/category-thumbnail.component';
 
 @NgModule({
@@ -42,6 +45,8 @@ import { CategoryThumbnailComponent } from './page-start/categories/category-thu
     NavbarStartComponent,
     CategoriesComponent,
     FooterComponent,
+    NavbarClienteComponent,
+    TelaPrincipalClienteComponent,
     FormCadastroStartComponent,
     CategoryThumbnailComponent,
   ],
