@@ -1,5 +1,6 @@
 .help-block {
   position: absolute;
+  z-index: 10;
 }
 
 .help-triangle {

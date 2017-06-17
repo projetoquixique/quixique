@@ -20,6 +20,7 @@ export class TermosConfirmacaoComponent implements OnInit {
   confirmacaoTermos:boolean = null;
   cadastroFinalizado:boolean = false;
   formSubmitted:boolean = false;
+  sendButtonText:string = "Concluir cadastro";
 
   confirmaTermos(){
     this.confirmacaoTermos = !this.confirmacaoTermos;
@@ -27,13 +28,16 @@ export class TermosConfirmacaoComponent implements OnInit {
 
   cadastrar() {
     this.formSubmitted = true;
+    this.sendButtonText = "Enviando...";
     if (this.confirmacaoTermos){
       this.requestService.post("http://rest.learncode.academy/api/quixique/cadastro", this.userDataHandler.newUserData).subscribe(
         data => this.cadastroFinalizado = true,
         error => console.log(error)
       );
+      sessionStorage.removeItem('tipoUsuario');
     } else {
       this.confirmacaoTermos = false;
+      this.sendButtonText = "Concluir cadastro";
     };
   };
 

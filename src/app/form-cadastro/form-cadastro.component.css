@@ -1,6 +1,7 @@
 .container{
     position: relative;
     min-height: 75vh;
+    margin-top: 20px;
 }
 
 .bottom-bar-container{

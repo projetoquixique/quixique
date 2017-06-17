@@ -10,6 +10,8 @@
   width: 100%;
 }
 .foto{
+  position: absolute;
+  top: 6px;
   width: 35px;
   float: left;
 }
@@ -18,9 +20,17 @@
   border-radius: 50%;
 }
 .nomePessoa{
+  position: absolute;
+  top: -2px;
   color: #fff;
   margin-left: 45px;
   padding-top: 6px;
+  width: 60px;
+}
+.nomePessoa > .caret{
+  position: absolute;
+  top: 12px;
+  right: -10px;
 }
 .menu ul li{
   display: inline-block;

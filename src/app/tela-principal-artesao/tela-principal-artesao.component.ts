@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CardPedidoGrandeComponent } from '../card-pedido-grande/card-pedido-grande.component';
 import { CardPedidoPequenoComponent } from '../card-pedido-pequeno/card-pedido-pequeno.component';
 
@@ -9,10 +11,17 @@ import { CardPedidoPequenoComponent } from '../card-pedido-pequeno/card-pedido-p
 })
 export class TelaPrincipalArtesaoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
+
+  isLogged = sessionStorage.getItem('isUserLogged');
+  userType = sessionStorage.getItem('userType');
 
   ngOnInit() {
+    if (!this.isLogged || this.userType !== 'artesao'){
+      this.router.navigate(['/']);
+    }
   }
+
   mudarVisualizacao(){
       let grade = document.getElementsByClassName("glyphicon glyphicon-th-large")[0];
       let lista = document.getElementsByClassName("glyphicon glyphicon-th-list")[0];

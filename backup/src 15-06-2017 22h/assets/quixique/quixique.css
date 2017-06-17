@@ -109,6 +109,12 @@ body{
   color: #fff;
 }
 
+.btn-primary.disabled {
+  color: #ffffff;
+  background-color: #ff851b;
+  border-color: #ff7701;
+  opacity: 0.65;
+}
 
 .form-group{
   margin-bottom: 5px;
@@ -139,4 +145,32 @@ body{
 
 .pagination > li > a, .pager > li > a, .pagination > li > span, .pager > li > span {
   cursor: pointer;
+}
+
+.button-loading-icon{
+  margin-right: 0.5em;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: #ff851b;
+  border-color: #ff7701;
+  opacity: 0.70;
+}
+@keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }to{
+    transform: rotate(360deg);
+  }
 }

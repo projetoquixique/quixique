@@ -70,24 +70,48 @@ export class FormCadastroComponent implements OnInit {
 
   cpfMask = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
   verificaCPF(){
-    if (!(/\S/.test(this.novoUsuario.cpf)) || this.novoUsuario.cpf == undefined) {
+    if (!(/\S/.test(this.novoUsuario.cpf)) || this.novoUsuario.cpf == undefined){
       this.controleVerificadores(this.verificadores.cpf, this.mensagemCampoVazio);
-    } else if (this.novoUsuario.cpf.length !== 15 || !(+(this.novoUsuario.cpf))) {
+    } else if (this.novoUsuario.cpf.indexOf("_") !== -1 || this.novoUsuario.cpf.length !== 14){
       this.controleVerificadores(this.verificadores.cpf, "Insira um CPF válido");
     } else {
       this.verificadores.cpf.estado = true;
     };
   };
 
+  getAge(dateString){
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+  };
+
   dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
   verificaDataDeNascimento(){
-    if (!(/\S/.test(this.novoUsuario.dataDeNascimento)) || this.novoUsuario.dataDeNascimento == undefined) {
-      this.controleVerificadores(this.verificadores.dataDeNascimento, this.mensagemCampoVazio);
-    } else if (this.novoUsuario.dataDeNascimento == "" || !(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(this.novoUsuario.dataDeNascimento))) {
-      this.controleVerificadores(this.verificadores.dataDeNascimento, "Insira uma data válida");
-    } else {
-      this.verificadores.dataDeNascimento.estado = true;
-    };
+    if(this.novoUsuario.dataDeNascimento !== undefined){
+      const [dd, mm, aa] = this.novoUsuario.dataDeNascimento.split('/');
+      if (!(/\S/.test(this.novoUsuario.dataDeNascimento)) || this.novoUsuario.dataDeNascimento == "" || this.novoUsuario.dataDeNascimento == undefined) {
+        this.controleVerificadores(this.verificadores.dataDeNascimento, this.mensagemCampoVazio);
+        return;
+      } else if (this.novoUsuario.dataDeNascimento.indexOf("_") !== -1 || (!(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(this.novoUsuario.dataDeNascimento)))) {
+        this.controleVerificadores(this.verificadores.dataDeNascimento, "Insira uma data válida"); 
+        return;
+      } else if (this.getAge(mm + "/" + dd + "/" + aa) < 18) {
+        this.controleVerificadores(this.verificadores.dataDeNascimento, "Desculpe-nos, mas é preciso ter mais de 18 anos para se cadastrar");
+        return;
+      } else if (this.getAge(mm + "/" + dd + "/" + aa) > 130) {
+        this.controleVerificadores(this.verificadores.dataDeNascimento, "Infelizmente, humanos não vivem mais de 130 anos, verifique a data");
+        return;
+      } else {
+        this.verificadores.dataDeNascimento.estado = true;
+        return;
+      };
+    }
+    this.controleVerificadores(this.verificadores.dataDeNascimento, this.mensagemCampoVazio);
   };
 
   verificaNaturalidade(){
@@ -112,23 +136,25 @@ export class FormCadastroComponent implements OnInit {
 
   phoneMask = ['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   verificaTelefone(){
-    if (!(/\S/.test(this.novoUsuario.telefone)) || this.novoUsuario.telefone == undefined) {
-      this.controleVerificadores(this.verificadores.telefone, this.mensagemCampoVazio);
-    } else if (!(/^\((\d{2})\)?(\d{4,5}\-?\d{4})$/.test(this.novoUsuario.telefone))) {
-      this.controleVerificadores(this.verificadores.telefone, "Insira um telefone válido");
-    } else {
-      this.verificadores.telefone.estado = true;
-    };
+    if (this.novoUsuario.telefone !== undefined) {
+      if (!(/\S/.test(this.novoUsuario.telefone))) {
+        this.controleVerificadores(this.verificadores.telefone, this.mensagemCampoVazio);
+      } else if (this.novoUsuario.telefone.indexOf("_") !== -1 || (this.novoUsuario.telefone.length !== 14)) {
+        this.controleVerificadores(this.verificadores.telefone, "Insira um telefone válido");
+      } else { 
+        this.verificadores.telefone.estado = true;
+      };
+    }
   };
 
   cellphoneMask = ['(', /\d/, /\d/, ')', ' ', /9/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   verificaCelular(){
-    if (!(/\S/.test(this.novoUsuario.celular)) || this.novoUsuario.celular == undefined) {
+    if (!(/\S/.test(this.novoUsuario.celular)) || this.novoUsuario.celular == undefined){
       this.controleVerificadores(this.verificadores.celular, this.mensagemCampoVazio);
-    } else if (!(/^\((\d{2})\)?(\d{4,5}\-?\d{4})$/.test(this.novoUsuario.telefone))) {
-      this.controleVerificadores(this.verificadores.celular, "Insira um telefone válido");
-    } else {
-      this.verificadores.celular.estado = true;
+    } else if (this.novoUsuario.celular.indexOf("_") !== -1 || this.novoUsuario.celular.length !== 15){
+      this.controleVerificadores(this.verificadores.celular, "Insira um número celular válido");
+    } else { 
+      this.verificadores.celular.estado = true; 
     };
   };
 
@@ -160,7 +186,7 @@ export class FormCadastroComponent implements OnInit {
   verificaCep(){
     if (!(/\S/.test(this.novoUsuario.cep)) || this.novoUsuario.cep == undefined) {
       this.controleVerificadores(this.verificadores.cep, this.mensagemCampoVazio);
-    } else if (this.novoUsuario.cep.length !== 9 || (/\d\S{5}[-]\\d\S{2}/.test(this.novoUsuario.cep))) {
+    } else if (this.novoUsuario.cep.indexOf("_") !== -1 || this.novoUsuario.cep.length !== 10) {
       this.controleVerificadores(this.verificadores.cep, "Insira um CEP válido");
     } else {
       this.verificadores.cep.estado = true;
@@ -313,8 +339,8 @@ export class FormCadastroComponent implements OnInit {
     let v = this.verificadores;
     if (this.tipoDeUsuario == "artesao") {
       if (this.pageCount == 0) {
-        this.verificaNome(); this.verificaCPF(); this.verificaDataDeNascimento();  this.verificaNaturalidade(); this.verificaEmail(); this.verificaTelefone();
-        if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.naturalidade.estado && v.email.estado && v.telefone.estado) {
+        this.verificaNome(); this.verificaCPF(); this.verificaDataDeNascimento();  this.verificaNaturalidade(); this.verificaEmail(); this.verificaCelular(); this.verificaTelefone();
+        if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.naturalidade.estado && v.email.estado && v.celular.estado && v.telefone.estado) {
           return true;
         } else {
           return false;
@@ -343,8 +369,8 @@ export class FormCadastroComponent implements OnInit {
       };
     } else if (this.tipoDeUsuario == "cliente") {
       if (this.pageCount == 0) {
-        this.verificaNome(); this.verificaDataDeNascimento(); this.verificaCPF(); this.verificaEmail(); this.verificaTelefone();
-        if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.email.estado && v.telefone.estado) {
+        this.verificaNome(); this.verificaDataDeNascimento(); this.verificaCPF(); this.verificaEmail(); this.verificaCelular();
+        if (v.nome.estado && v.cpf.estado && v.dataDeNascimento.estado && v.email.estado && v.celular.estado) {
           return true;
         } else {
           return false;
@@ -372,7 +398,6 @@ export class FormCadastroComponent implements OnInit {
     this.userData = JSON.parse(sessionStorage.getItem('userData'));
     this.tipoDeUsuario = sessionStorage.getItem('tipoUsuario');
 
-    console.log(this.tipoDeUsuario)
     if (!this.tipoDeUsuario){
       this.router.navigate(['/']);
       return;
