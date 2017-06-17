@@ -1,0 +1,39 @@
+<div class="termos-container">
+  <h5>Para finalizar seu cadastro, é necessário aceitar os termos de uso do Quixique.</h5>
+  <div *ngIf="userType == 'artesao'" class="termos">
+    <p>TERMOS DE USO (ARTESÃO)</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacus lacus, tempor et laoreet ut, dignissim gravida enim. Praesent nulla justo, vulputate ac dolor vel, hendrerit bibendum magna. Fusce non eleifend nisi. Vestibulum sit amet justo malesuada turpis fermentum dictum. Vestibulum ut quam facilisis, cursus ligula a, luctus erat. Nullam facilisis accumsan tincidunt. Morbi maximus ultrices est sed porta. Integer pharetra aliquet arcu sit amet rutrum. Integer a libero lectus. Sed vel blandit urna, varius congue nisi. In dignissim accumsan lacus, et convallis odio elementum ut. Aliquam erat volutpat.</p>
+    <p>Nam justo felis, egestas eget mollis quis, sollicitudin nec mauris. Nulla vel sapien eu eros posuere sodales. Mauris feugiat ex id massa aliquet ultricies. Pellentesque sit amet ex ullamcorper, tincidunt dolor vel, rutrum leo. Phasellus lobortis dapibus mattis. Nunc est ligula, imperdiet at elit vitae, interdum elementum nisi. Aliquam molestie magna eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec vehicula nibh a tellus ornare, eget ultrices elit commodo. Ut lorem eros, commodo ac varius ut, malesuada sed turpis. Praesent vehicula, eros ut commodo elementum, magna augue imperdiet ex, tincidunt accumsan odio dolor id odio. Donec luctus leo id mauris auctor, sit amet venenatis nulla commodo. Ut pulvinar eros justo, eu laoreet tortor pretium sit amet. Mauris sit amet cursus diam.</p>
+  </div>
+  <div *ngIf="userType == 'cliente'" class="termos">
+    <p>TERMOS DE USO (CLIENTE)</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacus lacus, tempor et laoreet ut, dignissim gravida enim. Praesent nulla justo, vulputate ac dolor vel, hendrerit bibendum magna. Fusce non eleifend nisi. Vestibulum sit amet justo malesuada turpis fermentum dictum. Vestibulum ut quam facilisis, cursus ligula a, luctus erat. Nullam facilisis accumsan tincidunt. Morbi maximus ultrices est sed porta. Integer pharetra aliquet arcu sit amet rutrum. Integer a libero lectus. Sed vel blandit urna, varius congue nisi. In dignissim accumsan lacus, et convallis odio elementum ut. Aliquam erat volutpat.</p>
+    <p>Nam justo felis, egestas eget mollis quis, sollicitudin nec mauris. Nulla vel sapien eu eros posuere sodales. Mauris feugiat ex id massa aliquet ultricies. Pellentesque sit amet ex ullamcorper, tincidunt dolor vel, rutrum leo. Phasellus lobortis dapibus mattis. Nunc est ligula, imperdiet at elit vitae, interdum elementum nisi. Aliquam molestie magna eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec vehicula nibh a tellus ornare, eget ultrices elit commodo. Ut lorem eros, commodo ac varius ut, malesuada sed turpis. Praesent vehicula, eros ut commodo elementum, magna augue imperdiet ex, tincidunt accumsan odio dolor id odio. Donec luctus leo id mauris auctor, sit amet venenatis nulla commodo. Ut pulvinar eros justo, eu laoreet tortor pretium sit amet. Mauris sit amet cursus diam.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" [(ngModel)]="confirmacaoTermos" (click)="confirmaTermos()"> Concordo com os termos de uso.
+    </label>
+    <app-mensagem-erro-input *ngIf="confirmacaoTermos === false" mensagemDeErro="Para concluir o cadastro, é necessário concordar com os termos"></app-mensagem-erro-input>
+  </div>
+  <div class="col-md-12" text-center>
+    <button class="btn btn-primary center-block" [class.disabled]="formSubmitted" (click)="cadastrar()">Concluir cadastro</button>
+  </div>
+</div>
+<div class="modal" [class.show]="cadastroFinalizado">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       <!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+        <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Enviamos um e-mail para {{ userMail }} com um link de confirmação.</p>
+      </div>
+      <div class="modal-footer">
+<!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" routerLink="/">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

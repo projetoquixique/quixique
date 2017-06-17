@@ -4,6 +4,11 @@
     src: url('/assets/fonts/LoveYaLikeASister.ttf');
 }
 
+@font-face {
+    font-family: 'Lobster 1.4';
+    src: url('/assets/fonts/Lobster14.otf');
+}
+
 /*Paleta de cores*/
 .marron-1{
     color:#dd6926

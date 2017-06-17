@@ -42,6 +42,7 @@ export class FormCadastroComponent implements OnInit {
 
   //incializa tipo de usuário e prepara campos para entradas
   tipoDeUsuario;
+  userData;
 
   novoUsuario;
   verificadores;
@@ -368,7 +369,9 @@ export class FormCadastroComponent implements OnInit {
 
   ngOnInit() {
     //tipo de usuário
+    this.userData = JSON.parse(sessionStorage.getItem('userData'));
     this.tipoDeUsuario = sessionStorage.getItem('tipoUsuario');
+
     console.log(this.tipoDeUsuario)
     if (!this.tipoDeUsuario){
       this.router.navigate(['/']);
@@ -380,6 +383,8 @@ export class FormCadastroComponent implements OnInit {
       this.novoUsuario = this.userDataHandler.newCliente();
       this.verificadores = this.userDataHandler.newClienteVerifiers();
     };
+    this.novoUsuario.email = this.userData.email;
+    this.novoUsuario.senha = this.userData.senha;
   };
 
 }
