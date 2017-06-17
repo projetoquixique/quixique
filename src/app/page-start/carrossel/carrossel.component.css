@@ -1,0 +1,146 @@
+/*#myCarousel .item:active > #logo{
+    opacity: 0.0;
+}*/
+
+#logo{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    /*pointer-events: none;*/
+    user-select: none;
+    background-image: linear-gradient(to bottom, rgba(247,143,30,0.7), rgba(123,59,26,0.7));
+
+    /*background: radial-gradient(rgba(0,0,0,0), #000);*/
+}
+
+#logo h1{
+    font-family: "Lobster 1.4", sans-serif;
+    color: #fff;
+    font-size: 10rem;
+    text-shadow: 0px 0px 10px #462710;
+    margin-bottom: 6rem; 
+    transition: all 0.3s;
+}
+
+#logo.cadastro h1{
+    transform: translateY(-30vh);
+}
+
+
+#logo a{
+    box-shadow: 0px 0px 5px #462710;
+}
+
+#logo.cadastro a{
+    transform: scale(0.0);
+    box-shadow: 0px 0px 5px #462710;
+}
+
+#logo .form{
+    /*display: none;*/
+    transform: scale(0.0);
+    position: absolute;
+    z-index: -100;
+    transition: all 0.3s;
+}
+
+#logo.cadastro .form{
+    transform: scale(1.0);
+    bottom: 20vh;
+    z-index: initial;
+}
+
+div.img{
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+div.img.i01{
+    background-image: url("../../../assets/images/components/carrossel/01.jpg");
+}
+
+div.img.i02{
+    background-image: url("../../../assets/images/components/carrossel/02.jpg");
+}
+div.img.i03{
+    background-image: url("../../../assets/images/components/carrossel/03.png");
+}
+
+div.img.i04{
+    background-image: url("../../../assets/images/components/carrossel/04.jpg");
+}
+
+div.img.PB-01{
+    background-image: url("../../../assets/images/components/carrossel/PB-01.jpg");
+}
+
+div.img.PB-02{
+    background-image: url("../../../assets/images/components/carrossel/PB-02.jpg");
+}
+div.img.PB-03{
+    background-image: url("../../../assets/images/components/carrossel/PB-03.png");
+}
+
+div.img.PB-04{
+    background-image: url("../../../assets/images/components/carrossel/PB-04.jpg");
+}
+
+.carousel-indicators {
+    /*text-align: left;
+    margin-left: -45%;*/
+}
+.carousel-indicators li, .carousel-indicators .active{
+    /*width: 35px;
+    height: 35px;*/
+    /*border-width: medium;*/
+    border-radius: 100%;
+    background-color: #7B3B1A;
+    border-color: #f7921e;
+}
+
+.carousel-indicators .active{
+  background-color: #f7921e;
+}
+.carousel-inner img{
+  width: 100%;
+  height: 20%;
+}
+
+.carousel-caption{
+    left:35%;
+    right:35%;
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.carousel-caption h3{
+    color: #f7921e;
+    font-family: "Lobster 1.4", sans-serif;
+    /*font-family: "Love Ya Like A Sister", sans-serif;*/
+
+}
+
+.carousel-caption p{
+    line-height: 2;    
+}
+
+.filter{
+    width: 100%;
+    height: 100vh;
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    background-image: linear-gradient(to bottom, rgba(247,143,30,0.7), rgba(123,59,26,0.7));
+    position: absolute;
+    z-index: 20;
+}
