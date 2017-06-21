@@ -31,7 +31,7 @@ div.thumbnail {
   padding: 10px;
 }*/
 
-.modal-dialog{
+.modal-dialog {
   position: relative;
   display: table; /* This is important */ 
   overflow-y: auto;    
@@ -63,7 +63,7 @@ a.thumbnail {
 }
 
 a.thumbnail:last-child {
-  margin: 0 0 0 2.5px;
+  margin: 0 2.5px 0 0;
 }
 
 h3, h4 {
@@ -100,4 +100,14 @@ h3, h4 {
 .comment-input {
   width: 100%;
   height: 5em;
+}
+
+.form-group > button {
+  position: absolute;
+  right: 0;
+  margin-right: 15px;
+}
+
+.more-products {
+  height: 77.5px;
 }
