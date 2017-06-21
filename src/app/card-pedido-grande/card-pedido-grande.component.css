@@ -4,6 +4,7 @@
   margin-top:  20px;
   max-height: 154px;
   min-height: 154px;
+  overflow: hidden;
   box-shadow: 0px 0px 30px #edebeb;
 }
 .listaHide{
@@ -110,4 +111,36 @@
 }
 .botoes button{
   margin-right: 5px;
+}
+.card-text{
+  max-height: 75px;
+  min-height: 75px;
+  overflow: hidden;
+  /*background-color: #fff;*/
+}
+.ver-mais{
+  width: 555px;
+  height: 25px;
+  /*padding-top: 15px;*/
+  font-size: 12px;
+  background-color: rgba(229, 229, 229, 1);
+  margin-top: 60px;
+  z-index: 100;
+  position: absolute;
+  display: none;
+}
+.ver-mais-block{
+  width: 555px;
+  height: 25px;
+  /*padding-top: 15px;*/
+  font-size: 12px;
+  background-color: rgba(229, 229, 229, 1);
+  margin-top: 60px;
+  z-index: 100;
+  position: absolute;
+  display: block;
+}
+.texto{
+  /*position: absolute;*/
+  height: 60px;
 }
