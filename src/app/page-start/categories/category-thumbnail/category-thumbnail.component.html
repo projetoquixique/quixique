@@ -10,25 +10,3 @@
         <!--<div class="img" style='background-image: url("../../../../assets/images/components/categorie-thumbnail/img-01.jpg")'></div>-->
     </div>
 </div>
-
-<script>
-    alert('é nois');
-    $(function(){
-        // this
-        $('.container-object-fit').find('.item-object-fit').each(function() {
-            var itemClass;
-            var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-            // var imgAspectRatio = this.width/this.height; não funciona com videos
-
-            $('.container-object-fit').each(function(){
-                var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-                if(imgAspectRatio > containerAspectRatio){
-                    itemClass = 'tall';
-                }else{
-                    itemClass = 'wide';                                    
-                }
-            });
-            $(this).addClass(itemClass);
-        })
-    });
-</script>

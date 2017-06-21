@@ -1,37 +1,54 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-10 barra">
+        <!--<div class="menu">
+          <ul >
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span> CATEGORIAS <span class="caret"></span></a>
+              <ul class="dropdown-menu categorias">
+                <li role="separator" class="divider"></li>
+                <li *ngFor="let category of categories" ><a href="#">{{ category.nome }}</a></li>
+              </ul>
+            </li>
+            <li><a>timeline</a></li>
+            <li><a>link</a></li>
+          </ul>
+      </div>-->
+      <ul class="menu-barra">
+        <li>
+          <a href="">CATEGORIAS</a>
+          <ul id="menu-dropdown">
+            <li *ngFor="let category of categories"> <a> {{ category.nome }} </a> </li>
+          </ul>
+        </li>
+        <!--<li>timeline</li>
+        <li>perfil</li>
+        <li>qualquer coisa</li>-->
+      </ul>
+      
+
+    </div>
+    <div class="col-md-2">
         <div class="pessoa">
-          <div class="foto">
-            <img src="https://yt3.ggpht.com/-Yr_vFB0pASA/AAAAAAAAAAI/AAAAAAAAAAA/2XdpmdI2lTE/s48-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="">
-          </div>
+          <img class="foto" src="https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png" alt="">
           <div class="nomePessoa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ userName }} <span class="caret"></span>
           </div>
-          <ul class="dropdown-menu">
-            <li><a href="#">Editar Perfil</a></li>
+          <ul class="dropdown-menu dm-right">
+            <li><a>Editar Perfil</a></li>
             <li role="separator" class="divider"></li>
             <li><a (click)="logout()">Sair</a></li>
           </ul>
         </div>
       </div>
-      <div class="col-md-8">
-        <div class="menu">
-          <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-      </div>
-    </div>
-    <div class="col-md-2">
+    <!--<div class="col-md-2">
       <div class="icones">
         <div class="mensagens">
           <div class="glyphicon glyphicon-comment"></div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
   </div>
 </nav>
