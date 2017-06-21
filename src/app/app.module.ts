@@ -28,6 +28,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
 import { CategoryThumbnailComponent } from './page-start/categories/category-thumbnail/category-thumbnail.component';
+import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { CategoryThumbnailComponent } from './page-start/categories/category-thu
     TelaPrincipalClienteComponent,
     FormCadastroStartComponent,
     CategoryThumbnailComponent,
+    DetalheProdutoComponent,
   ],
   imports: [
     BrowserModule,

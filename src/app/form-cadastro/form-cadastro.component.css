@@ -18,7 +18,6 @@
     padding: 0;
     /*width: 100%;*/
 }
-
 .pagination > li > a:hover,
 .pagination > li > span:hover{
   top: 0px;
