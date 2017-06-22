@@ -30,7 +30,7 @@ app-mensagem-erro-input{
 }
 
 
-.header{
+.navbar-start{
   /*background-color: rgb(124, 57, 0);*/
   background-color: #7B3B1A;
   width: 100%;
@@ -43,11 +43,11 @@ app-mensagem-erro-input{
   position:fixed;
 }
 
-.header.show {
+.navbar-start.show {
     opacity: 1.0;
 }
 
-.header.hide{
+.navbar-start.hide{
   display: none;
 }
 
@@ -86,3 +86,6 @@ app-mensagem-erro-input{
   color: #fff;
 }
 
+.dropdown-menu {
+    margin-top: 20px;
+}
