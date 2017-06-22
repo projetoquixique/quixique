@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mensagem-erro-input.component.css']
 })
 export class MensagemErroInputComponent implements OnInit {
-	@Input() mensagemDeErro: string;
+	@Input() mensagemDeErro:string;
 
   constructor() { }
 
