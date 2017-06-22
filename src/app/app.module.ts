@@ -29,6 +29,10 @@ import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.componen
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
 import { CategoryThumbnailComponent } from './page-start/categories/category-thumbnail/category-thumbnail.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
+import { ProdutosComponent } from './produtos/produtos.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { TimelineComponent } from './timeline/timeline.component';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +55,9 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
     FormCadastroStartComponent,
     CategoryThumbnailComponent,
     DetalheProdutoComponent,
+    ProdutosComponent,
+    ProdutoComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
