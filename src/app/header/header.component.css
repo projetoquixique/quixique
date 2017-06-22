@@ -1,20 +1,36 @@
+.row{
+  display: flex;
+  align-items: baseline;
+}
+
 .header{
-  background-color: rgb(124, 57, 0);
+  /*background-color: rgb(124, 57, 0);*/
+  background-color: #7B3B1A;
   width: 100%;
   margin-left: 0px;
+  /*border-bottom: solid 4px #462710;*/
 }
+
 .page-header{
   margin: 0px;
   border-bottom: 0px;
 }
-.h1, h1{
-  font-family: 'Love Ya Like A Sister';
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.h1, h1, .navbar-brand{
+  /*font-family: 'Love Ya Like A Sister';*/
+  font-family: 'Lobster 1.4';  
   color: white;
 }
 small{
-  float: right;
+  display: flex;
+  justify-content: flex-end;
   color: #fff;
   font-size: 20px;
-  font-family: 'Love Ya Like A Sister';
-  margin-top: 25px;
+  font-family: 'Lobster 1.4';
+  /*margin-top: 25px;*/
 }

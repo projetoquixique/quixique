@@ -1,0 +1,25 @@
+.help-block {
+  position: absolute;
+  z-index: 10;
+}
+
+.help-triangle {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  background-color: #f7921e;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+}
+
+.help-text {
+  position: relative;
+  background-color: #f7921e;
+  z-index: 1;
+  padding: 3px 6px;
+  top: 5px;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  color: white;
+}

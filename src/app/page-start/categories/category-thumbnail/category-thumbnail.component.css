@@ -1,0 +1,86 @@
+.component{
+    transition: transform 0.3s;
+}
+
+.component:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.thumbnail{
+    position: relative;
+    box-shadow: 0px 0px 1px 1px #eeeeee;
+    border: solid 4px #fff;
+    padding: 0;
+}
+
+.thumbnail .filtro {
+    position: absolute;
+    left: 0px;
+    top:0px;
+    height: 100%;
+    background-color: rgba(70,39,16,0.6);
+    display: flex;
+    align-items: center;
+    opacity: 0.0;
+    transition: opacity 0.5s;
+}
+
+.thumbnail .caption {
+    text-align: center;
+}
+
+.thumbnail:hover .filtro,
+.thumbnail:hover .caption {
+    opacity: 1.0;
+}
+
+div.caption h1{
+    font-family: "Lobster 1.4", sans-serif;
+    color: #f7921e;
+}
+
+div.caption h4{
+    /*font-family: "Lobster 1.4", sans-serif;*/
+    color: #fff;
+}
+
+.img{
+    background-color: grey;
+    height: 45vmin;
+    min-width: 45vmin;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*object-fit hack*/
+.container-object-fit {
+    width: 45vmin;
+    height: 45vmin;
+    /*background: #444;*/
+    /*margin: 0 auto;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.container-object-fit .item-object-fit.wide {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: initial;
+    height: auto;
+}
+.container-object-fit .item-object-fit.tall {
+    max-height: 100%;
+    min-height: 100%;
+    max-width: initial;                
+    width: auto;
+}
+.container-object-fit .item-object-fit.square {
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
