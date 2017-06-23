@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-detalhe-produto',
   templateUrl: './detalhe-produto.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalheProdutoComponent implements OnInit {
 
-	thumbnails;
+  thumbnails;
   selectedImage;
   showFullscreen:boolean = false;
   product;
@@ -22,7 +24,11 @@ export class DetalheProdutoComponent implements OnInit {
 
   showPictureFullscreen(){
     this.showFullscreen = !this.showFullscreen;
-    console.log(this.showFullscreen)
+  }
+
+  setThumbnailSelected(e){
+    $(".thumbnail-product").removeClass("selected-thumbnail");
+    $(e.target.parentElement).addClass("selected-thumbnail");
   }
 
   constructor() {
@@ -30,7 +36,8 @@ export class DetalheProdutoComponent implements OnInit {
       {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
       {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
       {"url":"assets/images/components/detalhe-produto/img-03.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-04.jpg"}
+      {"url":"assets/images/components/detalhe-produto/img-04.jpg"},
+      {"url":"assets/images/components/detalhe-produto/img-05.jpg"}
     ];
 
     this.product = {title:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá"',
@@ -62,9 +69,33 @@ export class DetalheProdutoComponent implements OnInit {
     ];
 
     this.selectedImage = this.thumbnails[0];
+  };
+
+  ajustCover(){
+    $(document).ready(function(){
+      $('.container-object-fit').find('.item-object-fit').each(function() {
+          var itemClass;
+          var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+          // var imgAspectRatio = this.width/this.height; não funciona com videos
+
+          $('.container-object-fit').each(function(){
+              var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+              if(imgAspectRatio > containerAspectRatio){
+                  itemClass = 'tall';
+              }else{
+                  itemClass = 'wide';                                    
+              }
+          });
+          $(this).addClass(itemClass);
+      })
+    });
   }
 
   ngOnInit() {
+    this.ajustCover();
+    $(document).ready(function(){
+      $(".filter.thumbnail-product:first").addClass("selected-thumbnail");
+    });
   }
 
 }

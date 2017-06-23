@@ -1,105 +1,102 @@
-<!-- <app-header></app-header> -->
+<app-header></app-header>
 <app-navbar-cliente></app-navbar-cliente>
 
 <div class="container">
 
-  <div class="modal" [class.show]="showFullscreen" (click)="showPictureFullscreen()">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <img src="{{ selectedImage.url }}" alt="">
-          <span class="glyphicon glyphicon-remove"></span>
+  <div class="main-contents">
+    <div class="col-md-6">
+      <div class="photo-view">
+        <div class="thumbnail container-object-fit" (click)="showPictureFullscreen()">
+          <img *ngIf="selectedImage" class="item-object-fit" src="{{ selectedImage.url }}">
+          <span class="glyphicon glyphicon-search"></span>
+        </div>
+      </div>
+      <div class="thumbnails">
+        <div class="thumbnails-list">
+          <div *ngFor="let thumbnail of thumbnails" class="thumbnail container-object-fit">
+            <div class="filter thumbnail-product" (click)="setSelectedImage(thumbnail); setThumbnailSelected($event)">
+              <h4>this content is necessary to fit the entire div's internal space. please don't remove.</h4>
+            </div>
+            <img class="item-object-fit" src="{{ thumbnail.url }}" alt="">
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="photo-view">
-      <div class="thumbnail" (click)="showPictureFullscreen()">
-        <img *ngIf="selectedImage" src="{{ selectedImage.url }}">
-        <span class="glyphicon glyphicon-search"></span>
+    <div class="col-md-6">
+      <h3 class="title">{{ product.title }}</h3>
+      <h2 class="price">R$ {{ product.price }}</h2>
+      <button type="button" class="btn btn-primary buy">Comprar</button>
+      <div class="info-group">
+        <h4>Pronta entrega</h4>
+        <p>{{ product.units }} unidades disponíveis</p>
+      </div>
+      <div class="info-group">
+        <h4>Encomendas</h4>
+        <p>Prazo a negociar</p>
+      </div>
+      <div class="info-group">
+        <h4>Meios de pagamento</h4>
+        <img class="payment-methods" src="assets/images/footer/bandeiras_cartoes.png" alt="">
       </div>
     </div>
-    <div class="thumbnails">
-      <div class="thumbnails-list">
-        <a *ngFor="let thumbnail of thumbnails" class="thumbnail">
-          <img src="{{ thumbnail.url }}" (click)="setSelectedImage(thumbnail)" alt="">
-        </a>
-      </div>
-    </div>
 
-  </div>
-
-  <div class="col-md-6">
-    <h3 class="title">{{ product.title }}</h3>
-    <h2 class="price">R$ {{ product.price }}</h2>
-    <button type="button" class="btn btn-primary buy">Comprar</button>
-    <div class="info-group">
-      <h4>Pronta entrega</h4>
-      <p>{{ product.units }} unidades disponíveis</p>
-    </div>
-    <div class="info-group">
-      <h4>Encomendas</h4>
-      <p>Prazo a negociar</p>
-    </div>
-    <div class="info-group">
-      <h4>Meios de pagamento</h4>
-      <img class="payment-methods" src="assets/images/footer/bandeiras_cartoes.png" alt="">
-    </div>
-  </div>
-
-  <div class="row" style="margin:0;">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-12 info-group">
-              <h4>Detalhes sobre o produto</h4>
-              <p><b>Dimensões:</b> {{ product.size }} <br>
-              <b>Material:</b> {{ product.materials }} </p>
-              {{ product.description }}
+    <div class="row" style="margin:0;">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12 info-group">
+                <h4>Detalhes sobre o produto</h4>
+                <p><b>Dimensões:</b> {{ product.size }} <br>
+                <b>Material:</b> {{ product.materials }} </p>
+                {{ product.description }}
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 info-group">
-              <h4>Comentários</h4>
-              <form class="form-group">
-                <div class="form-group">
-                  <textarea class="form-control comment-input" name="commentInput" placeholder="Escrever novo comentário" [(ngModel)]="newComment"></textarea>
+            <div class="row">
+              <div class="col-md-12 info-group">
+                <h4>Comentários</h4>
+                <form class="form-group comment-input-form">
+                  <div class="form-group">
+                    <textarea class="form-control comment-input" name="commentInput" placeholder="Escrever novo comentário" [(ngModel)]="newComment"></textarea>
+                  </div>
+                  <button  *ngIf="newComment" class="btn btn-primary">Enviar</button>
+                </form>
+
+                <div *ngFor="let comment of comments">
+                  <p><b> {{comment.author}} </b> <br>
+                  {{comment.text }} </p>
                 </div>
-                <button  *ngIf="newComment" class="btn btn-primary">Enviar</button>
-              </form>
 
-              <div *ngFor="let comment of comments">
-                <p><b> {{comment.author}} </b> <br>
-                {{comment.text }} </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-12 info-group">
-              <h4>Conheça o artesão</h4>
-              <p>{{ product.authorBio }}</p>
-              <a>Saiba mais</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 info-group"> 
-            <h4>Outras obras do artesão</h4>
-              <div class="thumbnails-list">
-                <a class="thumbnail" *ngFor="let product of anotherAuthorProducts"><img src="{{ product.imageUrl }}" alt=""></a>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12 info-group">
-              <h4>Você também pode gostar</h4>
-              <div class="thumbnails-list">
-                <a class="thumbnail" *ngFor="let product of productSuggestions"><img src="{{ product.imageUrl }}" alt=""></a>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12 info-group">
+                <h4>Conheça o artesão</h4>
+                <p>{{ product.authorBio }} <br>
+                <a>Saiba mais</a></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 info-group"> 
+              <h4>Outras obras do artesão</h4>
+                <div class="thumbnails-list">
+                  <a class="thumbnail container-object-fit" *ngFor="let product of anotherAuthorProducts">
+                    <img class="item-object-fit" src="{{ product.imageUrl }}" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 info-group">
+                <h4>Você também pode gostar</h4>
+                <div class="thumbnails-list">
+                  <a class="thumbnail container-object-fit" *ngFor="let product of productSuggestions">
+                    <img class="item-object-fit" src="{{ product.imageUrl }}" alt="">
+                  </a>
+                </div>
               </div>
             </div>
           </div>
