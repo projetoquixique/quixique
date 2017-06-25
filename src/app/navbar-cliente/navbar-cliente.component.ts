@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from './../services/authentication.service';
 import { Category } from './../page-start/categories/category-thumbnail/category-thumbnail.model';
 
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-navbar-cliente',
@@ -38,7 +39,28 @@ export class NavbarClienteComponent implements OnInit {
     }
   }
 
+  ajustCover(){
+    $(document).ready(function(){
+      $('.container-object-fit').find('.item-object-fit').each(function() {
+          var itemClass;
+          var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+          // var imgAspectRatio = this.width/this.height; não funciona com videos
+
+          $('.container-object-fit').each(function(){
+              var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+              if(imgAspectRatio > containerAspectRatio){
+                  itemClass = 'tall';
+              }else{
+                  itemClass = 'wide';                                    
+              }
+          });
+          $(this).addClass(itemClass);
+      })
+    });
+  }
+
   ngOnInit() {
+    this.ajustCover();
   }
 
 }

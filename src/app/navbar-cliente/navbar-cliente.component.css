@@ -1,3 +1,14 @@
+/*.navbar{
+  position: fixed;
+}*/
+
+.affix{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 101;
+}
+
 .dropdown-menu{
     margin-top: 15px;
 }
@@ -47,6 +58,70 @@
   cursor: pointer;
 }
 
+.barra{
+  align-self: baseline;
+}
+
+ul.menu-barra{
+  display: inline-flex;
+  position: relative;
+  list-style-type: none;
+  text-decoration: none;
+  padding-left: 0px;
+  margin: 0;
+  max-height: 60px;
+  width: 100%;
+}
+
+.menu-barra > li{
+  /*background: red;*/
+}
+
+.menu-barra > li:first-child{
+  max-width: 12vw;
+}
+
+.menu-barra > li:first-child:hover{
+  max-width: initial;
+}
+
+.menu-barra > li > a{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  height: 60px;
+  padding: 0 3vmin;
+  transition: 0.3s;
+}
+
+.menu-barra > li:first-child > a{
+  padding-left: 0;
+  padding-right: 6vmin;
+}
+
+.menu-barra > li:hover > a{ 
+  text-decoration: none;
+  background: #f7921e;
+  font-weight: bolder;
+  justify-content: center;
+  padding: 0 3vmin;
+  margin: 0 auto;
+}
+
+.menu-barra > li > a:hover + #menu-dropdown, #menu-dropdown:hover{
+  max-height: 100vh;
+  border: solid #e7e7e7;
+  border-width: 0px 1px 4px 1px;
+}
+
+.menu-barra > li > a > span{
+  margin-right: 0.8rem;
+}
+
+.menu-barra > li > a > span:first-child{
+  font-size: 2rem;
+}
+
 #menu-dropdown{
   list-style-type: none;
   text-decoration: none;
@@ -54,32 +129,22 @@
   padding-left: 0px;
   display: inline-flex;
   flex-direction: column;
-  background: #FFF;
-  border-bottom: solid 4px #e7e7e7;
-  position: absolute;
   z-index: 100;
   max-height: 0;
   overflow: hidden;
+  transition: max-height 0.5s;  
+  border-radius: 0 0 4px 4px;
+  white-space: nowrap;
+  background: #fff;
+  position: relative;
 }
 
 #menu-dropdown:hover{
-  max-height: auto;
+  overflow: visible;
+  border-radius: 0 0 0 4px;
 }
 
-.barra{
-  align-self: baseline;
-}
-
-.menu-barra{
-  display: inline-flex;
-  background: transparent;
-  position: relative;
-  list-style-type: none;
-  text-decoration: none;
-  padding-left: 0px;
-}
-
-.menu-barra ul li a, .menu-barra li a{
+#menu-dropdown > li > a{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,69 +153,59 @@
   color: #999999;
 }
 
-
-.menu-barra li a{
-  height: 60px;
-  color: #FFF;
-}
-
-.menu-barra li a:hover{
-  color: #f7921e; 
-  font-weight: 500;
-}
-
-.menu-barra ul li a:hover{
+#menu-dropdown > li > a:hover{
   color:#f7921e;
   text-decoration: none;
   transform: scale(1.1);
 }
 
-.menu-barra ul li:hover{
-  border-right: solid 4px #f7921e; 
-}
-
-/*.barra ul li{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-}*/
-
-/*.menu > ul{
-  margin-left: 0px;
-  padding: 0px;
-}
-
-.menu > ul > li{
-  display: inline-block;
-  margin-right: 55px;
-  padding-top: 12px;
-}*/
-/*.menu > ul > li > a {
-  color: #fff;
-  text-decoration: none;
-  padding-left: 15px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.mensagens{
-  display: inline-block;
-  margin-right: 30px;
-}
-
-.icones{
-  font-size: 20px;
-  color: #fff;
-  display: inline-block;
-  margin-top: 10px;
-}*/
-
-/*.dropdown-menu.categorias{
-  background: rgba(93,51,17,0.8);
-}
-
-.dropdown-menu.categorias > li {
+#menu-dropdown > li > a:hover + .preview{
   display: block;
+}
+
+#menu-dropdown > li:hover:not(#category){
+  box-shadow: 4px 0 0 #f7921e;
+  /*border-right: solid 4px #f7921e;*/
+}
+
+
+.preview{
+  width:auto;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  display: none;
+  z-index: -1;
+  border: solid #e7e7e7;
+  border-width: 0 1px;
+  box-shadow: 0 4px 0 #e7e7e7;
+  border-radius: 0 0 4px 0;
+}
+
+.preview > .container-object-fit{
+  width: 58vw;
+  height: 70%;
+  margin: 10px;
+}
+
+.preview > p {
+  margin: 10px;
+  max-width: 58vw;
+  font-size: 2rem;
+  white-space: normal;
+}
+
+/*
+#menu-dropdown li:first-child a{
+  min-height: 60px;
+  background: transparent;
   color: #fff;
+}
+
+#menu-dropdown li:first-child a:hover{
+  font-weight: bolder;
+  text-decoration: none;
+  background: #f7921e;
 }*/
