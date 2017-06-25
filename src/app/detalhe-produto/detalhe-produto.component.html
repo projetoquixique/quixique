@@ -6,15 +6,15 @@
   <div class="main-contents">
     <div class="col-md-6">
       <div class="photo-view">
-        <div class="thumbnail container-object-fit" (click)="showPictureFullscreen()">
-          <img *ngIf="selectedImage" class="item-object-fit" src="{{ selectedImage.url }}">
+        <div class="thumbnail container-object-fit">
+          <img *ngIf="selectedImage" class="item-object-fit" src="{{ selectedImage.url }}" (click)="lightboxControl()">
           <span class="glyphicon glyphicon-search"></span>
         </div>
       </div>
       <div class="thumbnails">
         <div class="thumbnails-list">
           <div *ngFor="let thumbnail of thumbnails" class="thumbnail container-object-fit">
-            <div class="filter thumbnail-product" (click)="setSelectedImage(thumbnail); setThumbnailSelected($event)">
+            <div class="filter thumbnail-product" (click)="setSelectedImage(thumbnail); setSelectedThumbnail($event)">
               <h4>this content is necessary to fit the entire div's internal space. please don't remove.</h4>
             </div>
             <img class="item-object-fit" src="{{ thumbnail.url }}" alt="">
@@ -101,6 +101,15 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div [hidden]="!showFullscreen" class="lightbox">
+    <div class="lightbox-contents">
+      <span class="close-lightbox glyphicon glyphicon-remove" (click)="lightboxControl()"></span>
+      <div class="lightbox-image">
+        <img src="{{ selectedImage.url }}" alt="">
       </div>
     </div>
   </div>

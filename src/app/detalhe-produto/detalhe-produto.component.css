@@ -1,3 +1,7 @@
+.main-contents {
+  position: relative;
+}
+
 div.photo-view > .container-object-fit {
   width: 430px !important;
   height: 300px !important;
@@ -15,6 +19,10 @@ div.photo-view > .container-object-fit {
 
 div.thumbnails > .row {
   margin: 0;
+}
+
+a.thumbnail:hover {
+  border-color: rgba(70,39,16,0.8);
 }
 
 .thumbnails-list {
@@ -49,12 +57,12 @@ div.thumbnails > .row {
   opacity: 1.0;
 }
 
-div.caption h1{
+div.caption h1 {
   font-family: "Lobster 1.4", sans-serif;
   color: #f7921e;
 }
 
-div.caption h4{
+div.caption h4 {
   /*font-family: "Lobster 1.4", sans-serif;*/
   color: #fff;
 }
@@ -87,7 +95,7 @@ h3, h4 {
 }
 
 .payment-methods {
-  max-width: 100%;
+  max-width: 60%;
   margin-top: -5px;
 }
 
@@ -139,3 +147,37 @@ h3, h4 {
   height: 100%;
 }
 
+.lightbox {
+  position: fixed;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.lightbox-contents {
+  position: relative;
+}
+
+.close-lightbox {
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  color: #fff;
+  size: 1.5em;
+}
+
+.lightbox-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.lightbox-image img {
+  max-width: 100%;
+}

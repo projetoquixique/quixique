@@ -22,14 +22,24 @@ export class DetalheProdutoComponent implements OnInit {
     this.selectedImage = image;
   };
 
-  showPictureFullscreen(){
-    this.showFullscreen = !this.showFullscreen;
-  }
-
-  setThumbnailSelected(e){
+  setSelectedThumbnail(e){
     $(".thumbnail-product").removeClass("selected-thumbnail");
     $(e.target.parentElement).addClass("selected-thumbnail");
-  }
+  };
+
+  lightboxControl(){
+    this.showFullscreen = !this.showFullscreen;
+    if (!this.showFullscreen) {
+      $("body").css({"overflow":"auto", "margin-right":"0"});
+    } else {
+      $("body").css({"overflow":"hidden","margin-right":"15px"});
+      $(document).keyup(function(e) {
+        if (e.keyCode === 27) {
+          $(".close-lightbox").click();
+        }
+      });
+    };
+  };
 
   constructor() {
     this.thumbnails = [
@@ -89,7 +99,7 @@ export class DetalheProdutoComponent implements OnInit {
           $(this).addClass(itemClass);
       })
     });
-  }
+  };
 
   ngOnInit() {
     this.ajustCover();
