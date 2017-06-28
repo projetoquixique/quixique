@@ -109,6 +109,18 @@ body{
   color: #fff;
 }
 
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: #f7921e;
+  border-color: #EB7E1E;
+}
 
 .form-group{
   margin-bottom: 5px;
@@ -144,8 +156,8 @@ body{
 
 /*object-fit hack*/
 .container-object-fit {
-    width: 45vmin;
-    height: 45vmin;
+    /*width: 45vmin;*/
+    /*height: 45vmin;*/
     /*background: #444;*/
     /*margin: 0 auto;*/
     display: flex;

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from './../services/authentication.service';
 import { Category } from './../page-start/categories/category-thumbnail/category-thumbnail.model';
+import { TelaPrincipalCienteService } from './../tela-principal-cliente/tela-principal-cliente.service';
 
 import * as $ from 'jquery';
 
@@ -28,39 +29,41 @@ export class NavbarClienteComponent implements OnInit {
     new Category("Recicláveis","Recriar é um dom que você verá por aqui. De uma coisa sem valor à um objeto de valor.","thumb (12).png"),
   ];
   
-  userName = sessionStorage.getItem('currentUserName');
+  // userName = sessionStorage.getItem('currentUserName');
 
-  constructor(private authService:AuthenticationService,
-              private router:Router) { }
+  constructor(private clientService:TelaPrincipalCienteService) { }
 
-  logout() {
-    if (this.authService.logout()){
-      this.router.navigate(['/']);
-    }
-  }
+  // logout() {
+  //   if (this.authService.logout()){
+  //     this.router.navigate(['/']);
+  //   }
+  // }
 
-  ajustCover(){
-    $(document).ready(function(){
-      $('.container-object-fit').find('.item-object-fit').each(function() {
-          var itemClass;
-          var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-          // var imgAspectRatio = this.width/this.height; não funciona com videos
+  // carrinho:Array<any> = this.clientService.carrinho;
+  // qtdCarrinho:number = this.clientService.qtdCarrinho;
 
-          $('.container-object-fit').each(function(){
-              var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-              if(imgAspectRatio > containerAspectRatio){
-                  itemClass = 'tall';
-              }else{
-                  itemClass = 'wide';                                    
-              }
-          });
-          $(this).addClass(itemClass);
-      })
-    });
-  }
+  // ajustCover(){
+  //   $(document).ready(function(){
+  //     $('.container-object-fit').find('.item-object-fit').each(function() {
+  //         var itemClass;
+  //         var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+  //         // var imgAspectRatio = this.width/this.height; não funciona com videos
+
+  //         $('.container-object-fit').each(function(){
+  //             var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+  //             if(imgAspectRatio > containerAspectRatio){
+  //                 itemClass = 'tall';
+  //             }else{
+  //                 itemClass = 'wide';                                    
+  //             }
+  //         });
+  //         $(this).addClass(itemClass);
+  //     })
+  //   });
+  // }
 
   ngOnInit() {
-    this.ajustCover();
+    // this.ajustCover();
   }
 
 }

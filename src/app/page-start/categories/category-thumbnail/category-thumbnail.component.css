@@ -52,3 +52,8 @@ div.caption h4{
     background-size: cover;
     background-position: center;
 }
+
+.container-object-fit {
+    width: 45vmin;
+    height: 45vmin;
+}
