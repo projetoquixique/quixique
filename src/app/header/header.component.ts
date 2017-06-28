@@ -11,6 +11,14 @@ import { AuthenticationService } from './../services/authentication.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private authService:AuthenticationService, private router:Router) { }
+
+  userName = sessionStorage.getItem('currentUserName');
+
+  logout() {
+    if (this.authService.logout()){
+      this.router.navigate(['/']);
+    }
+  }
   
   isLogged() {
     if (!this.authService.isLogged()){

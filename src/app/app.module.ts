@@ -1,3 +1,4 @@
+import { TelaPrincipalCienteService } from './tela-principal-cliente/tela-principal-cliente.service';
 import { Routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -34,7 +35,10 @@ import { ProdutoComponent } from './produto/produto.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { PerfilArtesaoComponent } from './perfil-artesao/perfil-artesao.component';
 import { CapaApresentacaoComponent } from './perfil-artesao/capa-apresentacao/capa-apresentacao.component';
-
+import { ProdutosNovidadesComponent } from './produtos-novidades/produtos-novidades.component';
+import { ProdutosDestaquesComponent } from './produtos-destaques/produtos-destaques.component';
+import { ProdutosOfertasComponent } from './produtos-ofertas/produtos-ofertas.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { CapaApresentacaoComponent } from './perfil-artesao/capa-apresentacao/ca
     ProdutoComponent,
     TimelineComponent,
     PerfilArtesaoComponent,
-    CapaApresentacaoComponent
+    CapaApresentacaoComponent,
+    ProdutosNovidadesComponent,
+    ProdutosDestaquesComponent,
+    ProdutosOfertasComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +81,8 @@ import { CapaApresentacaoComponent } from './perfil-artesao/capa-apresentacao/ca
   providers: [
     RequestService,
     UserDataHandlerService,
-    AuthenticationService
+    AuthenticationService,
+    TelaPrincipalCienteService
   ],
   bootstrap: [AppComponent]
 })

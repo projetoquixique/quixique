@@ -14,7 +14,7 @@
             <a href="#"><h2>{{ produto.preco }}</h2></a>
         </div>
         <div class="col-md-6">
-          <a href="#" class="btn btn-primary" role="button">Comprar</a>
+          <a (click)="addToCart(produto)" class="btn btn-primary" role="button">Adicionar  <span class="glyphicon glyphicon-shopping-cart"></span></a>
         </div>
       </div>
     </div>
