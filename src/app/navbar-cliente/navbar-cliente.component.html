@@ -1,7 +1,7 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" data-spy="affix" data-offset-top="80">
   <div class="container">
     <div class="row">
-      <div class="col-md-10 barra">
+      <div class="col-md-12 barra">
         <!--<div class="menu">
           <ul >
             <li class="dropdown">
@@ -17,19 +17,52 @@
       </div>-->
       <ul class="menu-barra">
         <li>
-          <a href="">CATEGORIAS</a>
+          <a id="category" href=""><span class="glyphicon glyphicon-menu-hamburger"></span> <span> CATEGORIAS </span><span class="caret"></span></a>
           <ul id="menu-dropdown">
-            <li *ngFor="let category of categories"> <a> {{ category.nome }} </a> </li>
+            <!--<li id="category"><a href="">CATEGORIAS</a> </li>-->
+            <li *ngFor="let category of categories">
+              <a> {{ category.nome }}  </a>
+              <div class="preview">
+                <div class="container-object-fit">
+                  <img class="item-object-fit" src="../../../assets/images/components/categorie-thumbnail/{{category.src}}" alt="{{category.nome}}">
+                </div>
+                <p>{{ category.descricao }}</p>
+              </div>
+            </li>
           </ul>
         </li>
-        <!--<li>timeline</li>
-        <li>perfil</li>
-        <li>qualquer coisa</li>-->
-      </ul>
-      
+        <li> <a href="">timeline</a> </li>
+        <li> <a href="">perfil</a></li>
+        <!--<li> <a href="">qualquer coisa</a> </li>-->
+        <form class="navbar-form navbar-left" role="search">
+          <!--<div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>-->
 
+          <input type="text" class="form-control" placeholder="O que deseja encontrar ?">
+          <span class="input-group-btn">
+              <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+
+        </form>
+        <li class="dropdown navbar-right"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <span class="badge">{{this.clientService.qtdCarrinho}}</span> <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu carrinho">
+            <!--<li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>-->
+            <li *ngFor="let item of clientService.carrinho"><a href="#"> <span>{{ item.nome }}</span> <span class="badge">1</span> </a></li>
+            <li *ngIf="clientService.carrinho.length == 0"><a href="#">O carrinho está vazio! :(</a></li>
+            <li role="separator" class="divider"></li>
+            <!--<li>
+              <a class="btn btn-block btn-primary" href="#">finalizar</a>
+            </li>-->
+              <a routerLink="/carrinho" href="#" [class.disabled]="clientService.carrinho.length == 0" class="btn btn-primary btn-block">finalizar</a>
+          </ul>
+        </li>   
+      </ul>
     </div>
-    <div class="col-md-2">
+    <!--<div class="col-md-2">
         <div class="pessoa">
           <img class="foto" src="https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png" alt="">
           <div class="nomePessoa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,7 +74,7 @@
             <li><a (click)="logout()">Sair</a></li>
           </ul>
         </div>
-      </div>
+      </div>-->
     <!--<div class="col-md-2">
       <div class="icones">
         <div class="mensagens">

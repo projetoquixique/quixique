@@ -1,3 +1,4 @@
+import { TelaPrincipalCienteService } from './tela-principal-cliente/tela-principal-cliente.service';
 import { Routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,6 +33,10 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { ProdutosNovidadesComponent } from './produtos-novidades/produtos-novidades.component';
+import { ProdutosDestaquesComponent } from './produtos-destaques/produtos-destaques.component';
+import { ProdutosOfertasComponent } from './produtos-ofertas/produtos-ofertas.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 @NgModule({
@@ -57,7 +62,11 @@ import { TimelineComponent } from './timeline/timeline.component';
     DetalheProdutoComponent,
     ProdutosComponent,
     ProdutoComponent,
-    TimelineComponent
+    TimelineComponent,
+    ProdutosNovidadesComponent,
+    ProdutosDestaquesComponent,
+    ProdutosOfertasComponent,
+    CarrinhoComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +78,8 @@ import { TimelineComponent } from './timeline/timeline.component';
   providers: [
     RequestService,
     UserDataHandlerService,
-    AuthenticationService
+    AuthenticationService,
+    TelaPrincipalCienteService
   ],
   bootstrap: [AppComponent]
 })
