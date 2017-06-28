@@ -5,6 +5,7 @@ import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-pri
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
 import { PageStartComponent } from './page-start/page-start.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
+import { PerfilArtesaoComponent } from './perfil-artesao/perfil-artesao.component';
 
 const APP_ROUTES: Routes = [
     {path:"", redirectTo:"/inicio", pathMatch:"full"},
@@ -12,7 +13,8 @@ const APP_ROUTES: Routes = [
     {path:"cadastro", component:FormCadastroComponent},
     {path:"tela_principal_artesao", component:TelaPrincipalArtesaoComponent},
     {path:"tela_principal_cliente", component:TelaPrincipalClienteComponent},
-    {path:"detalhe_produto", component:DetalheProdutoComponent}
+    {path:"detalhe_produto", component:DetalheProdutoComponent},
+    {path:"perfil_artesao", component:PerfilArtesaoComponent}
 ]
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);

@@ -1,0 +1,45 @@
+<!-- <app-header></app-header> -->
+<!-- <app-navbar-cliente></app-navbar-cliente> -->
+
+<div class="container">
+  <app-capa-apresentacao [infoCapa]="infoPerfil" (irParaSaibaMais)="irParaSaibaMais()"></app-capa-apresentacao>
+  <div class="sub-container">
+    <div class="portfolio">
+      <h1>Portfólio</h1>
+    </div>
+    <div class="meus-produtos">
+      <h1>Meus produtos</h1>
+      <app-produtos></app-produtos>
+    </div>
+  </div>
+  <div class="saiba-mais">
+    <h1>Saiba mais</h1>
+    <div class="conteudo">
+      <div class="perfil col-md-3">
+        <img src="assets/images/components/perfil-artesao/perfil.png" alt="">
+        <p class="nome">{{ infoPerfil.nome}}</p>
+        <p>{{ infoPerfil.atividade }}</p>
+        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{ infoPerfil.localizacao }}</p>
+      </div>
+      <div class="historia-contato col-md-9">
+        <div class="historia col-md-12 ">
+          <p class="bold">Minha história</p>
+          <p>{{ infoPerfil.historia }}</p>
+        </div>
+        <div class="contato col-md-12">
+            <p class="bold">Meus contatos</p>
+            <div class="col-md-6">Telefone: {{ infoPerfil.telefone }}</div>
+            <div class="col-md-6">Facebook: {{ infoPerfil.urlFacebook }}</div>
+            <div class="col-md-6">Email: {{ infoPerfil.email }}</div>
+            <div class="col-md-6">Instagram: {{ infoPerfil.urlInstagram }}</div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="sub-container">
+    <div class="processos-criacao">
+      <h1>Processos de criação</h1>
+    </div>
+  </div>
+</div>
+<!-- <app-footer></app-footer> -->

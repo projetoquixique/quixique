@@ -32,6 +32,8 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { PerfilArtesaoComponent } from './perfil-artesao/perfil-artesao.component';
+import { CapaApresentacaoComponent } from './perfil-artesao/capa-apresentacao/capa-apresentacao.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { TimelineComponent } from './timeline/timeline.component';
     DetalheProdutoComponent,
     ProdutosComponent,
     ProdutoComponent,
-    TimelineComponent
+    TimelineComponent,
+    PerfilArtesaoComponent,
+    CapaApresentacaoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,83 @@
+.portfolio{
+  margin-top: 40px;
+}
+.meus-produtos, .saiba-mais, .processos-criacao {
+  margin-top: 30px;
+}
+.container h1 {
+  font-family: 'Lobster 1.4';
+  color: #d68728;
+}
+.sub-container {
+  max-width: 950px;
+  padding: 0 15px;
+}
+.saiba-mais h1 {
+  padding-left: 15px;
+}
+.saiba-mais .conteudo {
+  background-color: #d68728;
+  height: 320px;
+}
+.saiba-mais .perfil {
+  display: inline-block;
+  height: 100%;
+  background-color: rgb(91, 44, 22);
+  border: 3px solid rgb(91, 44, 22);
+  text-align: center;
+  color: #fff;
+  padding: 0;
+}
+.saiba-mais .nome {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.saiba-mais .perfil img {
+  width: 100%;
+}
+.saiba-mais .historia-contato {
+  color: #fff;
+  font-size: 16px;
+  height: 100%;
+  padding: 25px 28px;
+}
+.saiba-mais .historia {
+  padding: 0;
+}
+.saiba-mais .contato {
+  position: absolute;
+  bottom: 0;
+  padding: 0 0 25px;
+}
+.saiba-mais .contato div {
+  padding: 0;
+}
+.saiba-mais .bold {
+  font-weight: bold;
+}
+.saiba-mais p {
+  margin: 0;
+}
+.processos-criacao {
+  margin-bottom: 30px;
+}
+app-produtos {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+app-produtos >>> img {
+  width: 100%;
+}
+app-produtos >>> .imagem {
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+}
+app-produtos >>> .col-md-4{
+  padding: 0px;
+  width: 290px;
+  margin: 0 0 15px 0;
+}

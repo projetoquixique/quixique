@@ -1,0 +1,87 @@
+.perfil{
+  position:relative;
+}
+.col-md-10{
+  padding: 0px;
+}
+.col-md-10, .col-md-2{
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+.imagem img{
+  width: 100%;
+  overflow: hidden;
+}
+.saibaMais, .saibaMais:hover{
+  color: rgb(214, 135, 48);
+  font-size: 15px;
+}
+.foto img{
+  width: 50%;
+  border-radius:  50px 50px;
+  margin-left: 25%;
+  margin-top: 7px;
+}
+a, a:hover{
+  text-decoration: none;
+  color: #ffffff;
+}
+.panel{
+  width: 210px;
+  position: absolute;
+  display: block;
+  margin-left: 50px;
+  border: 0px;
+  border-radius: 0px 0px 10px 10px;
+  background-color: transparent;
+}
+.panel-body{
+  height: 280px;
+  background-color: #461e07;
+  background-color: rgba(66, 36, 5, 0.72);
+  padding: 5px;
+  padding-bottom: 15px;
+  color: #ffffff;
+  font-size: 13px;
+}
+.panel-footer{
+  height: 40px;
+  background-color: #d68728;
+  border-radius: 0px 0px 10px 10px;
+  border: 0px;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 19px;
+}
+.panel-footer:hover{
+  cursor: pointer;
+}
+.imagem{
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  margin: 0px;
+  box-shadow: 0px 15px 20px -10px;
+}
+.col-md-12{
+  margin-bottom: 5px;
+}
+p{
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+.editar-perfil{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.77;
+  z-index: 100;
+  border: none;
+}
+.editar-perfil:hover{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
