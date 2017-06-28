@@ -20,16 +20,23 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-  +        "./../node_modules/bootstrap/dist/css/bootstrap.css",
-  +        "./assets/bootstrap-3.3.7-dist/css/bootstrap.css",
-  +        "./assets/quixique/quixique.css"
-  +      ],
-+      "scripts": [
-+        "./../node_modules/jquery/dist/jquery.js",
-+        "./../node_modules/tether/dist/js/tether.js",        
-+        "./../node_modules/bootstrap/dist/js/bootstrap.js",
-+        "./assets/quixique/quixique.js"
+        "./../node_modules/bootstrap/dist/css/bootstrap.css",
+        "./assets/bootstrap-3.3.7-dist/css/bootstrap.css",
+        "./assets/quixique/quixique.css"
       ],
+      "scripts": [
+        "./../node_modules/jquery/dist/jquery.js",
+        "./../node_modules/tether/dist/js/tether.js",        
+        "./../node_modules/bootstrap/dist/js/bootstrap.js",
+        "./assets/quixique/quixique.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
