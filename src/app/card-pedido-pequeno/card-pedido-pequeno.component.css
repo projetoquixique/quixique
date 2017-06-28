@@ -16,6 +16,12 @@
   padding: 10px;
   background-color: #E5E5E5;
 }
+.card-text{
+  max-height: 100px;
+  min-height: 100px;
+  overflow: hidden;
+  /*background-color: #fff;*/
+}
 .card-body{
   background-color: #FAFAFA;
   padding: 10px;
@@ -54,6 +60,11 @@
   float: left;
   margin: 10px;
   margin-left: 0px;
+}
+.nome-encomendante{
+  min-height: 15px;
+  max-height: 15px;
+  overflow: hidden;
 }
 .foto-ecomendante img{
   width: 40px;

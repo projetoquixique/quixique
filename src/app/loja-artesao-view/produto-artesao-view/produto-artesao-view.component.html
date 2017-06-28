@@ -1,0 +1,37 @@
+<div class="col-md-8">
+
+  <div class="card">
+      <div class="col-md-3 img-container">
+        <div class="titulo">
+          <h3 #nome>
+            {{ produto.nome }}
+          </h3>
+        </div>
+        <div class="degrade"></div>
+        <div class="img">
+           <!--<img src="https://s-media-cache-ak0.pinimg.com/736x/0f/82/19/0f8219c0c0b498c6b0a50cf1753a1214.jpg" alt=""> -->
+           <img src="./assets/images/components/produtos/{{ produto.img }}" alt=""> 
+        </div>
+      </div>
+      <div class="col-md-4 corpo">
+        <div class="card-text" #descricao>
+          Mussum Ipsum, cacilds vidis litro abertis. A ordem dos tratores não altera o pão duris. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. In elementis mé pra quem é amistosis quis leo.
+        </div>
+      </div>
+      <div class="col-md-5 infos">
+        <div class="infos-content">
+          <div class="col-md-6">
+            <span class="info-text">Estoque: <br> <span #unidades>30</span> unidades</span>
+          </div>
+          <div class="col-md-6">
+            <span class="info-text">Valor: <br> R$ <span #preco>54.99</span></span>
+          </div>
+        </div>
+        <!--<h1>teste</h1>-->
+        <div class="botoes">
+          <button class="btn btn-primary" (click)="pegarDados(nome.innerText, descricao.innerText, unidades.innerText, preco.innerText )">Ver peça</button>
+        </div>
+      </div>
+  </div>
+
+</div>

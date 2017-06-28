@@ -24,6 +24,7 @@ import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirma
 import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
 import { AuthenticationService } from './services/authentication.service';
+import { LojaArtesaoViewServiceService } from './loja-artesao-view/loja-artesao-view-service.service';
 
 import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
@@ -32,6 +33,9 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { LojaArtesaoViewComponent } from './loja-artesao-view/loja-artesao-view.component';
+import { ProdutoArtesaoViewComponent } from './loja-artesao-view/produto-artesao-view/produto-artesao-view.component';
+import { InserirProdutoComponent } from './loja-artesao-view/inserir-produto/inserir-produto.component';
 
 
 @NgModule({
@@ -57,7 +61,10 @@ import { TimelineComponent } from './timeline/timeline.component';
     DetalheProdutoComponent,
     ProdutosComponent,
     ProdutoComponent,
-    TimelineComponent
+    TimelineComponent,
+    LojaArtesaoViewComponent,
+    ProdutoArtesaoViewComponent,
+    InserirProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +76,8 @@ import { TimelineComponent } from './timeline/timeline.component';
   providers: [
     RequestService,
     UserDataHandlerService,
-    AuthenticationService
+    AuthenticationService,
+    LojaArtesaoViewServiceService
   ],
   bootstrap: [AppComponent]
 })

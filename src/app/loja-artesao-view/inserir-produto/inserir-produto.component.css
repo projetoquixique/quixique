@@ -1,0 +1,32 @@
+.inserir-produto-box, .mostrar-produto-box{
+    /*background-color: #E5E5E5;*/
+    background-color: #F5F5F5;    
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 30px #edebeb;
+    padding: 20px;
+    border-bottom: 4px solid #d6d3d3;
+}
+legend{
+    border-bottom: 1px solid #d6d3d3;
+    margin-top: 40px;
+}
+.title{
+    margin-bottom: 0px;
+}
+.form-group, col-md-12{
+    padding: 0px;
+}
+.input-group-addon{
+    background-color: transparent;
+    border: 0px;
+}
+.botoes{
+    float: right;
+    margin-top: 30px;
+}
+input[type='file'] {
+  display: none
+}

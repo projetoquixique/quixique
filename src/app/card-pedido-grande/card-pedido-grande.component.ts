@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterViewInit, QueryList, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-pedido-grande',
@@ -6,20 +6,34 @@ import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterViewInit }
   styleUrls: ['./card-pedido-grande.component.css']
 })
 export class CardPedidoGrandeComponent implements OnInit {
-  @ViewChild('verMais') verMais : ElementRef;
-  @ViewChild('textoMensagem') textoMensagem : ElementRef;
+  // @ViewChild('verMais') verMais : ElementRef;
+  // @ViewChild('textoMensagem') textoMensagem : ElementRef;
 
-  @ViewChildren('textoMensagem') textoMensagemC: ElementRef;
+  // @ViewChildren('textoMensagem') textoMensagemC;
   
   ngOnInit() {
     // console.log("view child " + this.textoMensagem);
   }
 
+  // showVerMais:any = [false, true, false, true, false];
+ 
   ngAfterViewInit(){
-    console.log(this.textoMensagemC);    
-    // console.log(this.textoMensagem.nativeElement._results);
-    
+    // for(var i = 0; i<this.textoMensagemC.length; i++){
+    //   let showVerMais:boolean = true;
+    //   if(this.textoMensagemC._results[i].nativeElement.clientHeight>60){
+
+    //     showVerMais = true;
+    //   }
+    //   else{}       
+    // }
   }
+  // mudarShow(){
+  //   if(!this.showVerMais){
+  //     this.showVerMais = true;
+  //   }else{
+  //     this.showVerMais=false;
+  //   }
+  // }
 
   constructor() {  }
   pedidos = [{
@@ -49,7 +63,7 @@ export class CardPedidoGrandeComponent implements OnInit {
   },
   { "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
     "nomeCliente":"Joana Da Silva",
-    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ",
+    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ",
     "dataExpiracao":"5 dias 5:40min",
     "quantidade":1,
     "valor":54.99,
