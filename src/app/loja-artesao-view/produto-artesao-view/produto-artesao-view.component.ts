@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LojaArtesaoViewServiceService } from './../loja-artesao-view-service.service';
+import { LojaArtesaoViewComponent } from './../loja-artesao-view.component';
 
 @Component({
   selector: 'app-produto-artesao-view',

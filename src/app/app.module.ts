@@ -36,6 +36,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { LojaArtesaoViewComponent } from './loja-artesao-view/loja-artesao-view.component';
 import { ProdutoArtesaoViewComponent } from './loja-artesao-view/produto-artesao-view/produto-artesao-view.component';
 import { InserirProdutoComponent } from './loja-artesao-view/inserir-produto/inserir-produto.component';
+import { VerPecaComponent } from './loja-artesao-view/ver-peca/ver-peca.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { InserirProdutoComponent } from './loja-artesao-view/inserir-produto/ins
     TimelineComponent,
     LojaArtesaoViewComponent,
     ProdutoArtesaoViewComponent,
-    InserirProdutoComponent
+    InserirProdutoComponent,
+    VerPecaComponent
   ],
   imports: [
     BrowserModule,

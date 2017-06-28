@@ -1,6 +1,11 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <div class="container container-principal">
-  <app-produto-artesao-view *ngFor="let produto of produtos"></app-produto-artesao-view>
+  <div class="col-md-8">
+    <app-produto-artesao-view *ngFor="let produto of servico.produtos" [produto]="produto"></app-produto-artesao-view>
+  </div>
   <app-inserir-produto></app-inserir-produto>
+  <div class="col-md-4">
+    <app-ver-peca></app-ver-peca>
+  </div>
 </div>

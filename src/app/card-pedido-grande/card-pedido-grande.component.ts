@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterViewInit, QueryList, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterContentChecked, QueryList, Input, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-card-pedido-grande',
   templateUrl: './card-pedido-grande.component.html',
   styleUrls: ['./card-pedido-grande.component.css']
 })
-export class CardPedidoGrandeComponent implements OnInit {
+export class CardPedidoGrandeComponent implements  OnInit{
   // @ViewChild('verMais') verMais : ElementRef;
   // @ViewChild('textoMensagem') textoMensagem : ElementRef;
 
@@ -15,16 +15,22 @@ export class CardPedidoGrandeComponent implements OnInit {
     // console.log("view child " + this.textoMensagem);
   }
 
-  // showVerMais:any = [false, true, false, true, false];
+  // showVerMais:any = [];
  
-  ngAfterViewInit(){
+  ngAfterContentChecked(){
+    // alert("entrei");
+    // console.log(this.textoMensagemC);
     // for(var i = 0; i<this.textoMensagemC.length; i++){
+    // console.log(this.textoMensagemC._results[i].nativeElement.offsetHeight);
     //   let showVerMais:boolean = true;
-    //   if(this.textoMensagemC._results[i].nativeElement.clientHeight>60){
-
-    //     showVerMais = true;
+    //   if(this.textoMensagemC._results[i].nativeElement.offsetHeight>60){
+    //     this.showVerMais.push(true)
+    //     // showVerMais = true;
     //   }
-    //   else{}       
+    //   else{
+    //     this.showVerMais.push(false);
+    //   }
+    //   console.log(this.showVerMais);      
     // }
   }
   // mudarShow(){
