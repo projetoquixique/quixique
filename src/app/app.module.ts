@@ -39,6 +39,8 @@ import { ProdutosNovidadesComponent } from './produtos-novidades/produtos-novida
 import { ProdutosDestaquesComponent } from './produtos-destaques/produtos-destaques.component';
 import { ProdutosOfertasComponent } from './produtos-ofertas/produtos-ofertas.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ProdutosPerfilArtesaoComponent } from './produtos-perfil-artesao/produtos-perfil-artesao.component';
+import { PortfolioProcessosViewerComponent } from './portfolio-processos-viewer/portfolio-processos-viewer.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     ProdutosNovidadesComponent,
     ProdutosDestaquesComponent,
     ProdutosOfertasComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    ProdutosPerfilArtesaoComponent,
+    PortfolioProcessosViewerComponent,
   ],
   imports: [
     BrowserModule,

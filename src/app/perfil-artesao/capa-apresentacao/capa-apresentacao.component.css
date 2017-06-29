@@ -73,7 +73,7 @@ p{
   font-size: 20px;
   margin-bottom: 2px;
 }
-.editar-perfil{
+.editar-capa{
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -81,7 +81,7 @@ p{
   z-index: 100;
   border: none;
 }
-.editar-perfil:hover{
+.editar-capa:hover{
   opacity: 1;
   transition: opacity 0.5s;
 }

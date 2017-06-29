@@ -1,0 +1,24 @@
+<div class="pictures">
+  <!--<div class="row">-->
+    <div #vitrine class="container-object-fit" 
+    [style.height]="alturaBase+'px'" 
+    [class.col-md-3]="dimensoes[i] == 1" 
+    [class.col-md-6]="dimensoes[i] == 2" 
+    [class.col-md-9]="dimensoes[i] == 3" 
+    *ngFor="let img of images; let i = index">
+      <img class="item-object-fit {{ itemClass[i] }}" src="../../assets/images/components/perfil-artesao/portfolio/{{img}}" alt="" (click)="lightboxControl($event)">
+    </div>
+  <!--</div>-->
+</div>
+<div class="expand-retract-button">
+  <p *ngIf="containerRetraido" (click)="expandirContainer()"><span class="glyphicon glyphicon-chevron-down"></span></p>
+  <p *ngIf="!containerRetraido" (click)="retrairContainer()"><span class="glyphicon glyphicon-chevron-up"></span></p>
+</div>
+<div [hidden]="!showFullscreen" class="lightbox">
+  <div class="lightbox-contents">
+    <span class="close-lightbox glyphicon glyphicon-remove" (click)="lightboxControl()"></span>
+    <div class="lightbox-image">
+      <img src="{{ srcLightbox }}" alt="">
+    </div>
+  </div>
+</div>

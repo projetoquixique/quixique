@@ -1,15 +1,16 @@
 .portfolio{
-  margin-top: 40px;
+  margin: 40px 0;
 }
-.meus-produtos, .saiba-mais, .processos-criacao {
+.meus-produtos, .saiba-mais {
   margin-top: 30px;
+  display: block;
 }
 .container h1 {
   font-family: 'Lobster 1.4';
   color: #d68728;
 }
 .sub-container {
-  max-width: 950px;
+  max-width: 100%;
   padding: 0 15px;
 }
 .saiba-mais h1 {
@@ -17,10 +18,14 @@
 }
 .saiba-mais .conteudo {
   background-color: #d68728;
+  position: relative;
   height: 320px;
+  padding: 0;
+  margin-bottom: 40px;
 }
 .saiba-mais .perfil {
   display: inline-block;
+  width: 230px;
   height: 100%;
   background-color: rgb(91, 44, 22);
   border: 3px solid rgb(91, 44, 22);
@@ -45,6 +50,9 @@
 .saiba-mais .historia {
   padding: 0;
 }
+.saiba-mais .apresentacao {
+  margin-bottom: 15px;
+}
 .saiba-mais .contato {
   position: absolute;
   bottom: 0;
@@ -59,24 +67,36 @@
 .saiba-mais p {
   margin: 0;
 }
+.saiba-mais .editar-info {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  opacity: 0.77;
+  z-index: 100;
+  border: none;
+}
+.saiba-mais .editar-info:hover{
+  opacity: 1;
+  transition: opacity 0.5s;
+}
 .processos-criacao {
   margin-bottom: 30px;
 }
-app-produtos {
+app-produtos-perfil-artesao {
   display: flex;
   flex-flow: wrap;
   flex-direction: row;
   justify-content: space-between;
 }
-app-produtos >>> img {
+app-produtos-perfil-artesao >>> img {
   width: 100%;
 }
-app-produtos >>> .imagem {
+app-produtos-perfil-artesao >>> .imagem {
   width: 280px;
   height: 280px;
   overflow: hidden;
 }
-app-produtos >>> .col-md-4{
+app-produtos-perfil-artesao >>> .col-md-4{
   padding: 0px;
   width: 290px;
   margin: 0 0 15px 0;
