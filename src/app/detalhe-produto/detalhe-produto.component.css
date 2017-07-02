@@ -152,6 +152,9 @@ h3, h4 {
 
 .lightbox-image img {
   max-width: 100%;
+  position: absolute;
+  top: 40px;
+  margin-bottom: 40px;
 }
 
 /*object-fit hack*/

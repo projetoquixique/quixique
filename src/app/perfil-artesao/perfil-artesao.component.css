@@ -13,15 +13,17 @@
   max-width: 100%;
   padding: 0 15px;
 }
-.saiba-mais h1 {
-  padding-left: 15px;
+.saiba-mais {
+  height: 370px;
 }
-.saiba-mais .conteudo {
+.saiba-mais > .col-md-12 {
   background-color: #d68728;
+  color: #fff;
   position: relative;
   height: 320px;
   padding: 0;
   margin-bottom: 40px;
+  border-radius: 3px;
 }
 .saiba-mais .perfil {
   display: inline-block;
@@ -30,57 +32,76 @@
   background-color: rgb(91, 44, 22);
   border: 3px solid rgb(91, 44, 22);
   text-align: center;
-  color: #fff;
   padding: 0;
-}
-.saiba-mais .nome {
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 .saiba-mais .perfil img {
   width: 100%;
+  margin-bottom: 3px;
+  border-radius: 3px;
 }
-.saiba-mais .historia-contato {
-  color: #fff;
-  font-size: 16px;
-  height: 100%;
-  padding: 25px 28px;
+.saiba-mais .perfil span.editavel {
+  padding: 3px 5px;
+  line-height: 30px;
+  border-radius: 3px;
+  outline: none;
+}
+.saiba-mais .titulo {
+  font-weight: bold;
+  font-size: 18px !important;
+  margin-bottom: 0;
+}
+.historia .titulo, .contatos .col-md-6 {
+  padding-left: 3px;
+}
+.saiba-mais .editavel {
+  padding: 4px;
 }
 .saiba-mais .historia {
-  padding: 0;
+  padding: 15px;
+  height: 100%;
 }
 .saiba-mais .apresentacao {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
-.saiba-mais .contato {
+.saiba-mais .contatos {
   position: absolute;
-  bottom: 0;
-  padding: 0 0 25px;
+  bottom: 15px;
 }
-.saiba-mais .contato div {
-  padding: 0;
+.saiba-mais .historia p, .saiba-mais .historia span {
+  font-size: 16px;
+  border-radius: 3px;
+  outline: none;
 }
-.saiba-mais .bold {
-  font-weight: bold;
+.saiba-mais:hover .btn-editar {
+  opacity: 1;
+  transition: opacity 0.25s;
 }
-.saiba-mais p {
-  margin: 0;
-}
-.saiba-mais .editar-info {
+.edicao-saiba-mais .btn-editar {
   position: absolute;
   bottom: 15px;
   right: 15px;
-  opacity: 0.77;
   z-index: 100;
   border: none;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.25s;
 }
-.saiba-mais .editar-info:hover{
-  opacity: 1;
-  transition: opacity 0.5s;
+.modo-edicao {
+  position: absolute;
+  right: 0;
+  bottom: -35px;
+  opacity: 0;
+}
+.nopadding {
+  padding: 0;
 }
 .processos-criacao {
   margin-bottom: 30px;
+}
+app-navbar-cliente >>> .navbar {
+  margin-bottom: 0;
 }
 app-produtos-perfil-artesao {
   display: flex;

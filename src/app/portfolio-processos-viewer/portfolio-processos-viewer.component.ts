@@ -77,7 +77,7 @@ export class PortfolioProcessosViewerComponent implements OnInit {
   retrairContainer() {
     $("." + this.parentDivClass + " .pictures").animate({height: this.alturaContainerRetraido}, 500 );
     $('html, body').animate({
-      scrollTop: $("." + this.parentDivClass).offset().top
+      scrollTop: $("." + this.parentDivClass).offset().top - 80
     }, 500);
     this.containerRetraido = true;
   }

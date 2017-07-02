@@ -72,9 +72,6 @@ export class ProdutosDestaquesComponent implements OnInit, AfterViewInit, AfterV
     // this.ajustCover();
   }
   
-
-  
-
   constructor() { }
 
   // ajustCover(){

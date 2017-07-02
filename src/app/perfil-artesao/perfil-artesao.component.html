@@ -1,12 +1,11 @@
 <app-header></app-header>
 <app-navbar-cliente></app-navbar-cliente>
-
 <div class="container">
   <app-capa-apresentacao [infoCapa]="infoPerfil" (irParaSaibaMais)="irParaSaibaMais()"></app-capa-apresentacao>
   <div class="sub-container">
-    <div class="portfolio">
+    <div class="portfolio portfolio-anchor">
       <h1>Portfólio</h1>
-      <app-portfolio-processos-viewer parentDivClass="portfolio"></app-portfolio-processos-viewer>
+      <app-portfolio-processos-viewer parentDivClass="sub-container"></app-portfolio-processos-viewer>
     </div>
     <div class="meus-produtos">
       <h1>Meus produtos</h1>
@@ -15,36 +14,46 @@
   </div>
   <div class="saiba-mais">
     <h1>Saiba mais</h1>
-    <div class="conteudo col-md-12">
+    <div class="col-md-12">
       <div class="perfil col-md-3">
         <img src="assets/images/components/perfil-artesao/perfil.png" alt="">
-        <p class="nome">{{ infoPerfil.nome}}</p>
-        <p>{{ infoPerfil.bio }}</p>
-        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{ infoPerfil.localizacao }}</p>
+        <span class="titulo editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.nome}}</span> <br>
+        <span class="editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.bio }}</span> <br>
+        <span class="editavel" [contentEditable]="modoEdicaoSaibaMais"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{ infoPerfil.localizacao }}</span>
       </div>
-      <div class="historia-contato col-md-9">
-        <div class="historia col-md-12">
-          <p class="apresentacao bold">{{ infoPerfil.apresentacao }}</p>
-          <p class="bold">Minha história</p>
-          <p>{{ infoPerfil.historia }}</p>
+      <div class="col-md-9 historia">
+        <div class="col-md-12 nopadding">
+          <p class="titulo editavel apresentacao" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.apresentacao }}</p>
+          <p class="titulo">Minha história</p>
+          <p class="editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.historia }}</p>
         </div>
-        <div class="contato col-md-12">
-            <p class="bold">Meus contatos</p>
-            <div class="col-md-6">Telefone: {{ infoPerfil.telefone }}</div>
-            <div class="col-md-6">Facebook: {{ infoPerfil.urlFacebook }}</div>
-            <div class="col-md-6">Email: {{ infoPerfil.email }}</div>
-            <div class="col-md-6">Instagram: {{ infoPerfil.urlInstagram }}</div>
+        <div class="col-md-12 contatos nopadding">
+            <p class="titulo">Meus contatos</p>
+            <div class="col-md-6 nopadding">Telefone: <span class="editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.telefone }}</span></div>
+            <div class="col-md-6 nopadding">Facebook: <span class="editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.urlFacebook }}</span></div>
+            <div class="col-md-6 nopadding">Email: <span class="editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.email }}</span></div>
+            <div class="col-md-6 nopadding">Instagram: <span class="editavel" [contentEditable]="modoEdicaoSaibaMais">{{ infoPerfil.urlInstagram }}</span></div>
           </div>
       </div>
-      <button type="button" class="btn btn-default btn-sm editar-info" (click)="editarInfoSaibaMais()">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar
-      </button>
+      <div class="edicao-saiba-mais">
+        <button type="button" class="btn btn-default btn-sm btn-editar" (click)="editarInfoSaibaMais()">
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar
+        </button>
+        <div class="modo-edicao">
+          <button type="button" class="btn btn-default btn-sm btn-salvar" (click)="editarInfoSaibaMais()">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+            </button>
+          <button type="button" class="btn btn-primary btn-sm btn-salvar" (click)="editarInfoSaibaMais()">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar edições
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="sub-container">
+  <div class="sub-container processos-anchor">
     <div class="processos-criacao">
       <h1>Processos de criação</h1>
-      <app-portfolio-processos-viewer parentDivClass="processos-criacao"></app-portfolio-processos-viewer>
+      <app-portfolio-processos-viewer parentDivClass="processos-anchor"></app-portfolio-processos-viewer>
     </div>
   </div>
 </div>
