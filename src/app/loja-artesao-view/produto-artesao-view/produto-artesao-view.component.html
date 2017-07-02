@@ -7,8 +7,12 @@
       </div>
       <div class="degrade"></div>
       <div class="img">
-          <!--<img src="https://s-media-cache-ak0.pinimg.com/736x/0f/82/19/0f8219c0c0b498c6b0a50cf1753a1214.jpg" alt=""> -->
-          <img src="../../../assets/images/components/produtos/{{ produto.img }}" alt=""> 
+          <!--<img #imagemProduto src="https://s-media-cache-ak0.pinimg.com/736x/0f/82/19/0f8219c0c0b498c6b0a50cf1753a1214.jpg" alt=""> -->
+          <!--<img #imagemProduto src="./assets/images/components/produtos/{{ produto.imagem }}" alt="" > -->
+          <!--<img #imagemProduto src="./assets/uploads/imagens-produtos/{{ produto.imagem }}" alt="" > -->
+          <img #imagemProduto src="./assets/uploads/imagens-produtos/{{ produto.imagem[0] }}" alt="" > 
+          <!--<img #imagemProduto src="../../../../../quixique-backend/uploads/file-1498875497150.jpg" alt="" > -->
+          <!--/media/brendon/Windows8_OS/Users/Brendon/Desktop/UFC/5° Semestre/Projeto Integrado III/Projeto Quixique Final/quixique-backend/uploads/file-1498875497150.jpg-->
       </div>
     </div>
     <div class="col-md-4 corpo">
@@ -27,7 +31,8 @@
       </div>
       <!--<h1>teste</h1>-->
       <div class="botoes">
-        <button class="btn btn-primary" (click)="pegarDados(nome.innerText, descricao.innerText, unidades.innerText, preco.innerText )">Ver peça</button>
+        <!--<button class="btn btn-primary" (click)="pegarDados(imagemProduto.src, nome.innerText, descricao.innerText, unidades.innerText, preco.innerText)">Ver peça</button>-->
+        <button class="btn btn-primary" (click)="pegarDadosProduto(produto)">Ver peça</button>
       </div>
     </div>
 </div>

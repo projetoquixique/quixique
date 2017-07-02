@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LojaArtesaoViewServiceService } from './../loja-artesao-view-service.service';
 import { LojaArtesaoViewComponent } from './../loja-artesao-view.component';
+import { Produto } from './produto.model';
 
 @Component({
   selector: 'app-produto-artesao-view',
@@ -22,12 +23,17 @@ export class ProdutoArtesaoViewComponent implements OnInit {
   // public descricao: string = "";
   // public unidades: string = "";
   // public preco: string = "";
-  pegarDados(nome, descricao, unidades, preco){
-    // this.nome = nome;
-    // this.descricao = descricao;
-    // this.unidades = unidades;
-    // this.preco = preco;
-    // console.log(this.nome,this.descricao, this.unidades, this.preco);
-    this.servico.receberDados(nome, descricao, unidades, preco);
+
+  public produtoSelecionado:Produto=null;
+
+  // pegarDados(imagem, nome, descricao, unidades, preco){
+    // console.log(imagem);
+    // this.servico.receberDados(imagem, nome, descricao, unidades, preco);
+    // console.log(dimensoes, categoria)
+  // }
+  pegarDadosProduto(produto){
+    // this.produtoSelecionado = produto;
+    console.log(produto);
+    this.servico.selecionarProduto(produto);
   }
 }

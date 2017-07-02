@@ -30,3 +30,7 @@ legend{
 input[type='file'] {
   display: none
 }
+.btn-controll{
+    /*display: inline-block*/
+    float: right;
+}

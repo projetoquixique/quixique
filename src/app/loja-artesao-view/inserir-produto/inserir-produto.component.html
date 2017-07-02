@@ -7,8 +7,42 @@
         <legend class="title">Adicione uma nova peça a sua loja!</legend>
 
         <legend><h4>Comece inserindo algumas imagens</h4></legend>
+
+        <!--inserir Imagem-->
         <label for="imagens" class="btn btn-primary">Escolher Imagens</label>
-        <input id="imagens" type="file" name="pic" accept="image/*" multiple>
+        <input  type="file"  id="imagens" name="pic" accept="image/*" ng2FileSelect [uploader]="uploader" multiple>
+        <table class="table" *ngIf="uploader.queue.length>0">
+          <thead>
+          <tr>
+              <th width="70%">Imagem</th>
+              <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of uploader.queue; let i = index">
+              <td><strong>{{ item.file.name }}</strong></td>
+              <td nowrap>
+                  <button type="button" class="btn btn-default btn-xs"
+                      (click)="item.remove()" [disabled]="!uploader.getNotUploadedItems().length">
+                      <span class="glyphicon glyphicon-trash"></span> Remover
+                  </button>
+              </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="send-controll" *ngIf="uploader.queue.length>0">
+          
+          <!--<button *ngIf="uploader.getNotUploadedItems().length>0" type="button" class="btn btn-default btn-xs"
+            (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+            <span class="glyphicon glyphicon-trash"></span> Remover todas
+          </button>-->
+          <!--<button type="button" class="btn btn-primary btn-xs btn-controll"
+            (click)="uploader.uploadAll(); ver(uploader)" [disabled]="!uploader.getNotUploadedItems().length">
+            <span class="glyphicon glyphicon-upload"></span> Enviar todas
+          </button>-->
+
+        </div>
+        <!--inserir Imagem-->
 
         <legend><h4>Agora forneça algumas informações sobre a peça</h4></legend>
         <div class="form-group col-md-12">
@@ -73,7 +107,7 @@
         <div class="col-md-12">
           <div class="botoes">
             <button class="btn btn-default">Cancelar</button>
-            <input type="submit" value="Adicionar" class="btn btn-primary" (click)="inserirProduto()">  
+            <input type="submit" value="Adicionar" class="btn btn-primary" (click)="uploader.uploadAll(); inserirProduto()">  
           </div>
         </div>
       </fieldset>

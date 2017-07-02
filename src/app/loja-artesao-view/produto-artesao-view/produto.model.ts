@@ -1,6 +1,6 @@
 export class Produto{
     constructor(
-        // public imagens = [],
+        public imagem,
         public nome:string,
         public descricao:string,
         public preco:number,
