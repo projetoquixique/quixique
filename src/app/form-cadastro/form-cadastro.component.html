@@ -75,10 +75,10 @@
           <app-mensagem-erro-input *ngIf="verificadores.descricao.estado == false" mensagemDeErro="{{verificadores.descricao.mensagem}}"></app-mensagem-erro-input>
         </div>
 
-        <div class="form-group col-md-4" [class.has-error]="verificadores.rua.estado == false">
-          <label for="inputRua" class="control-label">Rua</label>
-          <input type="text" class="form-control" id="inputRua" placeholder="Informe a rua do local onde trabalha" name="rua" [(ngModel)]="novoUsuario.rua" (change)="verificaRua()">
-          <app-mensagem-erro-input *ngIf="verificadores.rua.estado == false" mensagemDeErro="{{verificadores.rua.mensagem}}"></app-mensagem-erro-input>
+        <div class="form-group col-md-4" [class.has-error]="verificadores.logradouro.estado == false">
+          <label for="inputLogradouro" class="control-label">Logradouro</label>
+          <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde trabalha" name="logradouro" [(ngModel)]="novoUsuario.logradouro" (change)="verificaLogradouro()">
+          <app-mensagem-erro-input *ngIf="verificadores.logradouro.estado == false" mensagemDeErro="{{verificadores.logradouro.mensagem}}"></app-mensagem-erro-input>
         </div>
 
         <div class="form-group col-md-2" [class.has-error]="verificadores.numero.estado == false">
@@ -215,10 +215,10 @@
 
       <fieldset *ngIf="pageCount == 1">
         <legend>Dados Pessoais - Endereço</legend>
-        <div class="form-group col-md-4" [class.has-error]="verificadores.rua.estado == false">
-          <label for="inputRua" class="control-label">Rua</label>
-          <input type="text" class="form-control" id="inputRua" placeholder="Informe a rua do local onde mora" name="rua" [(ngModel)]="novoUsuario.rua" (change)="verificaRua()">
-          <app-mensagem-erro-input *ngIf="verificadores.rua.estado == false" mensagemDeErro="{{verificadores.rua.mensagem}}"></app-mensagem-erro-input>
+        <div class="form-group col-md-4" [class.has-error]="verificadores.logradouro.estado == false">
+          <label for="inputLogradouro" class="control-label">Logradouro</label>
+          <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro" [(ngModel)]="novoUsuario.logradouro" (change)="verificaLogradouro()">
+          <app-mensagem-erro-input *ngIf="verificadores.logradouro.estado == false" mensagemDeErro="{{verificadores.logradouro.mensagem}}"></app-mensagem-erro-input>
         </div>
 
         <div class="form-group col-md-2" [class.has-error]="verificadores.numero.estado == false">

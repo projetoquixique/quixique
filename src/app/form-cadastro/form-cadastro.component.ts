@@ -1,3 +1,4 @@
+
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -193,11 +194,11 @@ export class FormCadastroComponent implements OnInit {
     };
   };
 
-  verificaRua(){
-    if (!(/\S/.test(this.novoUsuario.rua)) || this.novoUsuario.rua == undefined) {
-      this.controleVerificadores(this.verificadores.rua, this.mensagemCampoVazio);
+  verificaLogradouro(){
+    if (!(/\S/.test(this.novoUsuario.logradouro)) || this.novoUsuario.logradouro == undefined) {
+      this.controleVerificadores(this.verificadores.logradouro, this.mensagemCampoVazio);
     } else {
-      this.verificadores.rua.estado = true;
+      this.verificadores.logradouro.estado = true;
     };
   };
 
@@ -346,8 +347,8 @@ export class FormCadastroComponent implements OnInit {
           return false;
         };
       } else if (this.pageCount == 1) {
-        this.verificaNomeComercial(); this.verificaCategoria(); this.verificaDescricao(); this.verificaCep(); this.verificaRua(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();
-        if (v.nomeComercial.estado && v.categoria.estado && v.descricao.estado && v.cep.estado && v.rua.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado) {
+        this.verificaNomeComercial(); this.verificaCategoria(); this.verificaDescricao(); this.verificaCep(); this.verificaLogradouro(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();
+        if (v.nomeComercial.estado && v.categoria.estado && v.descricao.estado && v.cep.estado && v.logradouro.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado) {
           return true;
         } else {
           return false;
@@ -376,8 +377,8 @@ export class FormCadastroComponent implements OnInit {
           return false;
         };
       } else if (this.pageCount == 1) {
-        this.verificaRua(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();this.verificaCep();
-        if (v.rua.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado, v.cep.estado) {
+        this.verificaLogradouro(); this.verificaNumero(); this.verificaComplemento(); this.verificaBairro(); this.verificaCidade(); this.verificaEstado();this.verificaCep();
+        if (v.logradouro.estado && v.numero.estado && v.complemento.estado && v.bairro.estado && v.cidade.estado && v.estado.estado, v.cep.estado) {
           return true;
         } else {
           return false;

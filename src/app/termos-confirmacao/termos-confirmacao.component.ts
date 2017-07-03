@@ -26,13 +26,19 @@ export class TermosConfirmacaoComponent implements OnInit {
     this.confirmacaoTermos = !this.confirmacaoTermos;
   };
 
+  urlPost;
   cadastrar() {
     this.formSubmitted = true;
     this.sendButtonText = "Enviando...";
     if (this.confirmacaoTermos){
-      this.requestService.post("http://rest.learncode.academy/api/quixique/cadastro", this.userDataHandler.newUserData).subscribe(
+      if (this.userType == "artesao") {
+        this.urlPost = "http://localhost:3000/api/artesaos";
+      } else if (this.userType == "cliente") {
+        this.urlPost = "http://localhost:3000/api/clientes";
+      } 
+      this.requestService.post(this.urlPost, this.userDataHandler.newUserData).subscribe(
         data => this.cadastroFinalizado = true,
-        error => console.log(error)
+        error => this.mostrarAlerta(error)
       );
       sessionStorage.removeItem('tipoUsuario');
     } else {
@@ -40,6 +46,21 @@ export class TermosConfirmacaoComponent implements OnInit {
       this.sendButtonText = "Concluir cadastro";
     };
   };
+
+  mensagemErro = "Não foi possível realizar seu cadastro. "
+  mostrarAlerta(erro) {
+    if (erro.indexOf("email") !== -1) {
+      this.mensagemErro += "O e-mail escolhido já está sendo utilizado. ";
+    };
+    if (erro.indexOf("cpf") !== -1) {
+      this.mensagemErro += "O CPF escolhido já está sendo utilizado. ";
+    };
+    if (erro.indexOf("nomeDeUsuario") !== -1) {
+      this.mensagemErro += "O nome de usuário escolhido já está sendo utilizado. ";
+    };
+    this.mensagemErro += "Por favor, verifique essas informações e tente novamente.";
+    alert(this.mensagemErro);
+  }
 
   ngOnInit() { };
 
