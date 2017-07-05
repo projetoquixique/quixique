@@ -13,7 +13,8 @@ import { AuthenticationService } from './../services/authentication.service';
 
 export class NavbarComponent implements OnInit {
 
-	userName = sessionStorage.getItem('currentUserName');
+	// userName = localStorage.getItem('currentUserName');
+  idArtesao = localStorage.getItem('userId');
 
   logout() {
     if (this.authService.logout()){

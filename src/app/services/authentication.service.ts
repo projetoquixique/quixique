@@ -7,47 +7,48 @@ import 'rxjs/add/operator/map';
 export class AuthenticationService {
   constructor(private http:Http){}
 
-  private currentUser = null;
+  urlLogin = "http://localhost:3000/api/entrar";
   
-  login (email, password) {
-    return this.http.get('http://rest.learncode.academy/api/quixique/cadastro',)
-        .map((response: Response) => {
-          let usersData = response.json();
-            for (let user in usersData){
-              if (usersData[user].email == email){
-                if (usersData[user].senha == password){
-                  this.currentUser = usersData[user];
-                  this.toSessionStorage(usersData[user]);
-                  return usersData[user];
-                } else {
-                  return "wrongPassword"
-                };
-              };
-            };
-            return "notFound" 
-        });
-    }
- 
-    logout() {
-      this.currentUser = null;
-      sessionStorage.removeItem('isUserLogged');
-      sessionStorage.removeItem('userType');
-      sessionStorage.removeItem('currentUserName');
-      // remove user from local storage to log user out
-      return true;
-    }
+  login (loginData) {
+    // return this.http.get('http://rest.learncode.academy/api/quixique/cadastro',)
+    //     .map((response: Response) => {
+    //       let usersData = response.json();
+    //         for (let user in usersData){
+    //           if (usersData[user].email == email){
+    //             if (usersData[user].senha == password){
+    //               this.currentUser = usersData[user];
+    //               this.toSessionStorage(usersData[user]);
+    //               return usersData[user];
+    //             } else {
+    //               return "wrongPassword"
+    //             };
+    //           };
+    //         };
+    //         return "notFound" 
+    //     });
+    return this.http.post(this.urlLogin, loginData)
+                          .map((res:Response) => res.json())
+                          .catch((error:any) => Observable.throw(error.json().error));
+  }
+
+  logout() {
+    localStorage.clear();
+    return true;
+  }
 
   isLogged(){
-    if (this.currentUser) {
+    if (localStorage.getItem('token')) {
       return true;
     } else {
       return false;
     }
   };
 
-  toSessionStorage(userData) {
-    sessionStorage.setItem('isUserLogged','true');
-    sessionStorage.setItem('userType', userData.tipo);
-    sessionStorage.setItem('currentUserName', userData.nome.replace(/(([^\s]+\s\s*){2})(.*)/,"$1"));
-  }
+  postLoginActions(userData){
+    localStorage.setItem('token', userData.token);
+    localStorage.setItem('userType', userData.tipo);
+    localStorage.setItem('userId', userData.userId);
+    localStorage.setItem('username', userData.nomeDeUsuario);
+    localStorage.setItem('name', userData.nome.replace(/(([^\s]+\s\s*){2})(.*)/,"$1"));
+  };
 }

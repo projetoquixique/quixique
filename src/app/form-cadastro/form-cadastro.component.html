@@ -60,11 +60,15 @@
           <label for="select" class="control-label">Categoria</label>
             <select class="form-control" id="select" name="categoria" [(ngModel)]="novoUsuario.categoria" (change)="verificaCategoria()">
               <option value="0" selected>Informe a principal categoria de atuação</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+              <option value="bijuteria">Bjuteria</option>
+              <option value="biscuit">Biscuit</option>
+              <option value="cama, mesa e banho">Cama, mesa e banho</option>
+              <option value="couro">Couro</option>
+              <option value="decoracao">Decoração</option>
+              <option value="pintura">Pintura</option>
+              <option value="reciclaveis">Recicláveis</option>
+              <option value="religiosos">Religiosos</option>
+              <option value="vestuario">Vestuário</option>
             </select>
            <app-mensagem-erro-input *ngIf="verificadores.categoria.estado == false" mensagemDeErro="{{verificadores.categoria.mensagem}}"></app-mensagem-erro-input>
         </div>
@@ -151,7 +155,7 @@
 
         <div class="form-group col-md-12" [class.has-error]="verificadores.nomeDeUsuario.estado == false">
           <label for="inputUser" class="control-label">Nome de usuário</label>
-          <input type="text" class="form-control" id="inputUser" placeholder="Insira um nome de usuário para usar na plataforma" maxlength="12" name="nomeDeUsuario" [(ngModel)]="novoUsuario.nomeDeUsuario" (change)="verificaNomeDeUsuario()">
+          <input type="text" class="form-control" id="inputUser" placeholder="Insira um nome de usuário para usar na plataforma" maxlength="20" name="nomeDeUsuario" [(ngModel)]="novoUsuario.nomeDeUsuario" (change)="verificaNomeDeUsuario()">
           <app-mensagem-erro-input *ngIf="verificadores.nomeDeUsuario.estado == false" mensagemDeErro="{{verificadores.nomeDeUsuario.mensagem}}"></app-mensagem-erro-input>
         </div>
 
@@ -262,7 +266,7 @@
         <legend>Dados de Perfil</legend>
         <div class="form-group col-md-12" [class.has-error]="verificadores.nomeDeUsuario.estado == false">
           <label for="inputUser" class="control-label">Nome de usuário</label>
-          <input type="text" class="form-control" id="inputUser" placeholder="Insira um nome de usuário para usar na plataforma" maxlength="12" name="nomeDeUsuario" [(ngModel)]="novoUsuario.nomeDeUsuario" (change)="verificaNomeDeUsuario()">
+          <input type="text" class="form-control" id="inputUser" placeholder="Insira um nome de usuário para usar na plataforma" maxlength="20" name="nomeDeUsuario" [(ngModel)]="novoUsuario.nomeDeUsuario" (change)="verificaNomeDeUsuario()">
           <app-mensagem-erro-input *ngIf="verificadores.nomeDeUsuario.estado == false" mensagemDeErro="{{verificadores.nomeDeUsuario.mensagem}}"></app-mensagem-erro-input>
         </div>
 

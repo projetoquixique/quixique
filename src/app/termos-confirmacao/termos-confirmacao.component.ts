@@ -49,17 +49,21 @@ export class TermosConfirmacaoComponent implements OnInit {
 
   mensagemErro = "Não foi possível realizar seu cadastro. "
   mostrarAlerta(erro) {
-    if (erro.indexOf("email") !== -1) {
-      this.mensagemErro += "O e-mail escolhido já está sendo utilizado. ";
-    };
-    if (erro.indexOf("cpf") !== -1) {
-      this.mensagemErro += "O CPF escolhido já está sendo utilizado. ";
-    };
-    if (erro.indexOf("nomeDeUsuario") !== -1) {
-      this.mensagemErro += "O nome de usuário escolhido já está sendo utilizado. ";
-    };
-    this.mensagemErro += "Por favor, verifique essas informações e tente novamente.";
-    alert(this.mensagemErro);
+    if (erro.constructor !== Array){
+      alert(erro);
+    } else {
+      if (erro.indexOf("email") !== -1) {
+        this.mensagemErro += "O e-mail escolhido já está sendo utilizado. ";
+      };
+      if (erro.indexOf("cpf") !== -1) {
+        this.mensagemErro += "O CPF escolhido já está sendo utilizado. ";
+      };
+      if (erro.indexOf("nomeDeUsuario") !== -1) {
+        this.mensagemErro += "O nome de usuário escolhido já está sendo utilizado. ";
+      };
+      this.mensagemErro += "Por favor, verifique essas informações e tente novamente.";
+      alert(this.mensagemErro);
+    }
   }
 
   ngOnInit() { };
