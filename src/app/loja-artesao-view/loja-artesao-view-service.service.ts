@@ -114,7 +114,7 @@ export class LojaArtesaoViewServiceService {
   //   console.log(this.imagem, this.nome,this.descricao, this.unidades, this.preco);
   // }
   inserirProduto(produto:Produto){
-      this.produtos.unshift(produto);
+      this.produtos.push(produto);
       console.log(produto);
       return this.http.post(this.uriBase+"/api/produtos", produto)
         .map((response: Response) =>{ response.json()})
