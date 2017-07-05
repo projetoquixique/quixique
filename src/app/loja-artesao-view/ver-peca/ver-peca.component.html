@@ -1,0 +1,16 @@
+<div class="col-md-4">  
+  <div class="mostrar-produto-box">
+    <div class="photo-view">
+      <div class="thumbnail">
+        <img src="./assets/uploads/imagens-produtos/{{ servico.imagem[0] }}">
+        <!--<span class="glyphicon glyphicon-search"></span>-->
+      </div>
+    </div>
+    <legend>{{ servico.getNome() }}</legend>
+    <h3>{{ servico.getDescricao() }}</h3>
+    <h4>{{ servico.getPreco() }}</h4>
+    <h4>{{ servico.getEstoque() }}</h4>
+    <h4>{{ servico.getCategoria() }}</h4>
+    <h4>{{ servico.getDimensoes() }}</h4>
+  </div>
+</div>  

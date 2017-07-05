@@ -43,6 +43,9 @@
   border-color: #EB7E1E;
   background-color: #FAFAFA;
 }
-.gradeHide{
+.gradeHide, .listaHide{
   display: none;
+}
+.gradeShow, .listaShow{
+  display: block;
 }

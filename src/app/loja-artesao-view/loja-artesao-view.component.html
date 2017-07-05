@@ -1,0 +1,12 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container container-principal">
+  <div class="col-md-8">
+    <app-produto-artesao-view *ngFor="let produto of servico.produtos" [produto]="produto"></app-produto-artesao-view>
+  </div>
+  <app-inserir-produto></app-inserir-produto>
+  <!--<div class="col-md-4">-->
+  <app-ver-peca></app-ver-peca>
+  <!--</div>-->
+  <!--<img src="http://localhost:3000/imagens-produtos/img.png" alt="">-->
+</div>
