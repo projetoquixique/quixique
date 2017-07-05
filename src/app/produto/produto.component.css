@@ -17,6 +17,11 @@ img{
     .btn {
       float: right;
     }
+
+    .btn.added {
+      background: #1c9ba2;
+      border-color: #177379;
+    }
     
     p {
       text-decoration: none;

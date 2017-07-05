@@ -18,29 +18,29 @@ export class CategoryThumbnailComponent implements OnInit {
 
   constructor() { }
 
-  // ajustCover(){
-  //   console.log('Agora é nois mesmo');
-  //   $(document).ready(function(){
-  //     $('.container-object-fit').find('.item-object-fit').each(function() {
-  //         var itemClass;
-  //         var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-  //         // var imgAspectRatio = this.width/this.height; não funciona com videos
+  ajustCover(){
+    console.log('Agora é nois mesmo');
+    $(document).ready(function(){
+      $('.container-object-fit').find('.item-object-fit').each(function() {
+          var itemClass;
+          var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+          // var imgAspectRatio = this.width/this.height; não funciona com videos
 
-  //         $('.container-object-fit').each(function(){
-  //             var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-  //             if(imgAspectRatio > containerAspectRatio){
-  //                 itemClass = 'tall';
-  //             }else{
-  //                 itemClass = 'wide';                                    
-  //             }
-  //         });
-  //         $(this).addClass(itemClass);
-  //     })
-  //   });
-  // }
+          $('.container-object-fit').each(function(){
+              var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+              if(imgAspectRatio > containerAspectRatio){
+                  itemClass = 'tall';
+              }else{
+                  itemClass = 'wide';                                    
+              }
+          });
+          $(this).addClass(itemClass);
+      })
+    });
+  }
 
   ngOnInit() {
-    // this.ajustCover();
+    this.ajustCover();
   }
 
 }

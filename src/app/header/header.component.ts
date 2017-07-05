@@ -21,7 +21,8 @@ export class HeaderComponent implements OnInit {
   }
   
   isLogged() {
-    if (!this.authService.isLogged()){
+    if (this.authService.isLogged() == false){
+      alert('sim');
       this.router.navigate(['/']);
     }
   }

@@ -1,3 +1,4 @@
+import { PageCarrinhoComponent } from './page-carrinho/page-carrinho.component';
 import { HeaderComponent } from './header/header.component';
 import { Routes, RouterModule } from "@angular/router";
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
@@ -5,7 +6,6 @@ import { TelaPrincipalArtesaoComponent } from './tela-principal-artesao/tela-pri
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
 import { PageStartComponent } from './page-start/page-start.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 const APP_ROUTES: Routes = [
     {path:"", redirectTo:"/inicio", pathMatch:"full"},
@@ -14,7 +14,7 @@ const APP_ROUTES: Routes = [
     {path:"tela_principal_artesao", component:TelaPrincipalArtesaoComponent},
     {path:"tela_principal_cliente", component:TelaPrincipalClienteComponent},
     {path:"detalhe_produto", component:DetalheProdutoComponent},
-    {path:"carrinho", component:CarrinhoComponent},
+    {path:"carrinho", component:PageCarrinhoComponent},
 ]
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);
