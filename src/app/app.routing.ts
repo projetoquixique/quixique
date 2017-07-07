@@ -1,3 +1,4 @@
+import { PageCarrinhoComponent } from './page-carrinho/page-carrinho.component';
 import { HeaderComponent } from './header/header.component';
 import { Routes, RouterModule } from "@angular/router";
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
@@ -14,6 +15,7 @@ const APP_ROUTES: Routes = [
     {path:"tela_principal_artesao", component:TelaPrincipalArtesaoComponent},
     {path:"tela_principal_cliente", component:TelaPrincipalClienteComponent},
     {path:"detalhe_produto", component:DetalheProdutoComponent},
+    {path:"carrinho", component:PageCarrinhoComponent},
     {path:"loja_artesao_view", component:LojaArtesaoViewComponent}
 ]
 

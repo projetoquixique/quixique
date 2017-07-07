@@ -19,6 +19,7 @@ export class CategoryThumbnailComponent implements OnInit {
   constructor() { }
 
   ajustCover(){
+    console.log('Agora é nois mesmo');
     $(document).ready(function(){
       $('.container-object-fit').find('.item-object-fit').each(function() {
           var itemClass;

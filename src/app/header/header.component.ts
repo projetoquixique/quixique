@@ -10,15 +10,32 @@ import { AuthenticationService } from './../services/authentication.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private authService:AuthenticationService, private router:Router) { }
+  constructor(private authService:AuthenticationService,
+              private router:Router) { }
+
+  userNameSurname;
+
+  logout() {
+    if (this.authService.logout()){
+      this.router.navigate(['/']);
+    }
+  }
   
   isLogged() {
-    if (!this.authService.isLogged()){
+    if (this.authService.isLogged() == false){
+      alert('sim');
       this.router.navigate(['/']);
     }
   }
 
-  ngOnInit() {
+  checkLogged() {
+    return this.authService.isLogged();
   }
 
+  ngOnInit() {
+
+    this.userNameSurname = sessionStorage.getItem('userNameSurname');
+    console.log(sessionStorage.getItem('userNameSurname'));
+    console.log(sessionStorage.getItem('userId'));
+  }
 }

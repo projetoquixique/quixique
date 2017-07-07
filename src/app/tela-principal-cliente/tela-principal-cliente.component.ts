@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthenticationService } from './../services/authentication.service';
+
 @Component({
   selector: 'app-tela-principal-cliente',
   templateUrl: './tela-principal-cliente.component.html',
@@ -8,13 +10,11 @@ import { Router } from '@angular/router';
 })
 export class TelaPrincipalClienteComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
-  isLogged = sessionStorage.getItem('isUserLogged');
-  userType = sessionStorage.getItem('userType');
+  constructor(private router:Router,
+              private authService:AuthenticationService) { }
 
   ngOnInit() {
-  	if (!this.isLogged || this.userType !== 'cliente'){
+  	if (!this.authService.isLogged() || localStorage.getItem('userType') !== 'cliente'){
       this.router.navigate(['/']);
     }
   }

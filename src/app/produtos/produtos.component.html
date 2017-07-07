@@ -1,3 +1,17 @@
-<div class="container">
-    <app-produto *ngFor="let produto of produtos" [produto]="produto"></app-produto>
+<div class="container component">
+  <div class="container searchBar">
+    <h1 id="logo" class="col-sm-offset-4 col-sm-4">Quixique</h1>
+    <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+      <h1>O que você procura?</h1>
+    </div>
+    <div class="input-group col-md-offset-3 col-md-6 col-md-offset-3">
+      <!--<span class="input-group-addon">$</span>-->
+      <input type="text" class="form-control" placeholder="O que deseja encontrar ?">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+    </div>
+  </div>
+  <!--<app-produtos-destaques></app-produtos-destaques>-->
+  <app-produto *ngFor="let produto of produtos" [produto]="produto"></app-produto>
 </div>

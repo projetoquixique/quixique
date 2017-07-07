@@ -1,3 +1,4 @@
+import { TelaPrincipalCienteService } from './tela-principal-cliente/tela-principal-cliente.service';
 import { Routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -33,13 +34,20 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { PerfilArtesaoComponent } from './perfil-artesao/perfil-artesao.component';
+import { CapaApresentacaoComponent } from './perfil-artesao/capa-apresentacao/capa-apresentacao.component';
+import { ProdutosNovidadesComponent } from './produtos-novidades/produtos-novidades.component';
+import { ProdutosDestaquesComponent } from './produtos-destaques/produtos-destaques.component';
+import { ProdutosOfertasComponent } from './produtos-ofertas/produtos-ofertas.component';
+import { ProdutosPerfilArtesaoComponent } from './produtos-perfil-artesao/produtos-perfil-artesao.component';
+import { PortfolioProcessosViewerComponent } from './portfolio-processos-viewer/portfolio-processos-viewer.component';
+import { PageCarrinhoComponent } from './page-carrinho/page-carrinho.component';
 import { LojaArtesaoViewComponent } from './loja-artesao-view/loja-artesao-view.component';
 import { ProdutoArtesaoViewComponent } from './loja-artesao-view/produto-artesao-view/produto-artesao-view.component';
 import { InserirProdutoComponent } from './loja-artesao-view/inserir-produto/inserir-produto.component';
 import { VerPecaComponent } from './loja-artesao-view/ver-peca/ver-peca.component';
 
 import { FileSelectDirective } from 'ng2-file-upload';
-
 
 @NgModule({
   declarations: [
@@ -65,6 +73,14 @@ import { FileSelectDirective } from 'ng2-file-upload';
     ProdutosComponent,
     ProdutoComponent,
     TimelineComponent,
+    PerfilArtesaoComponent,
+    CapaApresentacaoComponent,
+    ProdutosNovidadesComponent,
+    ProdutosDestaquesComponent,
+    ProdutosOfertasComponent,
+    ProdutosPerfilArtesaoComponent,
+    PortfolioProcessosViewerComponent,
+    PageCarrinhoComponent,
     LojaArtesaoViewComponent,
     ProdutoArtesaoViewComponent,
     InserirProdutoComponent,
@@ -82,6 +98,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     RequestService,
     UserDataHandlerService,
     AuthenticationService,
+    TelaPrincipalCienteService,
     LojaArtesaoViewServiceService
   ],
   bootstrap: [AppComponent]

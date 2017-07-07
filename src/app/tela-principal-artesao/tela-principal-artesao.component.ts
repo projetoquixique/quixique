@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CardPedidoGrandeComponent } from '../card-pedido-grande/card-pedido-grande.component';
 import { CardPedidoPequenoComponent } from '../card-pedido-pequeno/card-pedido-pequeno.component';
 
+import { AuthenticationService } from './../services/authentication.service';
+
 @Component({
   selector: 'app-tela-principal-artesao',
   templateUrl: './tela-principal-artesao.component.html',
@@ -11,13 +13,11 @@ import { CardPedidoPequenoComponent } from '../card-pedido-pequeno/card-pedido-p
 })
 export class TelaPrincipalArtesaoComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
-  isLogged = sessionStorage.getItem('isUserLogged');
-  userType = sessionStorage.getItem('userType');
+  constructor(private router:Router,
+              private authService:AuthenticationService) { }
 
   ngOnInit() {
-    if (!this.isLogged || this.userType !== 'artesao'){
+    if (!this.authService.isLogged() || localStorage.getItem('userType') !== 'artesao'){
       this.router.navigate(['/']);
     }
   }

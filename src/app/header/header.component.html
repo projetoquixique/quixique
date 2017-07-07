@@ -8,8 +8,19 @@
           </a>
         </div>
       </div>
-      <div class="col-md-6">
-        <small>Não abra mão de ser Xique</small>
+      <div class="col-md-6" *ngIf="checkLogged()">
+        <div class="pessoa">
+          <img class="foto" src="https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png" alt="">
+          <div class="nomePessoa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ userNameSurname }} <span class="caret"></span>
+          </div>
+          <ul class="dropdown-menu dm-right">
+            <li><a>Editar Perfil</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a (click)="logout()">Sair</a></li>
+          </ul>
+        </div>
+        <!--<small>Não abra mão de ser Xique</small>-->
       </div>
     </div>
   </div>

@@ -1,0 +1,52 @@
+.pictures {
+  overflow: hidden;
+}
+.pictures > div {
+  border: solid 2px transparent;
+  padding: 0;
+}
+.expand-retract-button {
+  height: 40px;
+  background-color: #c6c4c4;
+  margin: 2px 2px 0;
+}
+.expand-retract-button p {
+  text-align: center;
+  font-size: 2em;
+}
+p > span {
+  padding: 3px;
+}
+.lightbox {
+  position: fixed;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+.lightbox-contents {
+  position: relative;
+}
+.close-lightbox {
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  color: #fff;
+  size: 1.5em;
+}
+.lightbox-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.lightbox-image img {
+  max-width: 100%;
+  position: absolute;
+  top: 40px;
+  margin-bottom: 40px;
+}
