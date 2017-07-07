@@ -25,6 +25,7 @@ import { TermosConfirmacaoComponent } from './termos-confirmacao/termos-confirma
 import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
 import { AuthenticationService } from './services/authentication.service';
+import { LojaArtesaoViewServiceService } from './loja-artesao-view/loja-artesao-view-service.service';
 
 import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
@@ -38,9 +39,15 @@ import { CapaApresentacaoComponent } from './perfil-artesao/capa-apresentacao/ca
 import { ProdutosNovidadesComponent } from './produtos-novidades/produtos-novidades.component';
 import { ProdutosDestaquesComponent } from './produtos-destaques/produtos-destaques.component';
 import { ProdutosOfertasComponent } from './produtos-ofertas/produtos-ofertas.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProdutosPerfilArtesaoComponent } from './produtos-perfil-artesao/produtos-perfil-artesao.component';
 import { PortfolioProcessosViewerComponent } from './portfolio-processos-viewer/portfolio-processos-viewer.component';
+import { PageCarrinhoComponent } from './page-carrinho/page-carrinho.component';
+import { LojaArtesaoViewComponent } from './loja-artesao-view/loja-artesao-view.component';
+import { ProdutoArtesaoViewComponent } from './loja-artesao-view/produto-artesao-view/produto-artesao-view.component';
+import { InserirProdutoComponent } from './loja-artesao-view/inserir-produto/inserir-produto.component';
+import { VerPecaComponent } from './loja-artesao-view/ver-peca/ver-peca.component';
+
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -71,9 +78,14 @@ import { PortfolioProcessosViewerComponent } from './portfolio-processos-viewer/
     ProdutosNovidadesComponent,
     ProdutosDestaquesComponent,
     ProdutosOfertasComponent,
-    CarrinhoComponent,
     ProdutosPerfilArtesaoComponent,
     PortfolioProcessosViewerComponent,
+    PageCarrinhoComponent,
+    LojaArtesaoViewComponent,
+    ProdutoArtesaoViewComponent,
+    InserirProdutoComponent,
+    VerPecaComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -86,7 +98,8 @@ import { PortfolioProcessosViewerComponent } from './portfolio-processos-viewer/
     RequestService,
     UserDataHandlerService,
     AuthenticationService,
-    TelaPrincipalCienteService
+    TelaPrincipalCienteService,
+    LojaArtesaoViewServiceService
   ],
   bootstrap: [AppComponent]
 })

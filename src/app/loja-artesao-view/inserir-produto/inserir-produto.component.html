@@ -1,0 +1,118 @@
+<div class="col-md-4">
+
+  <div class="inserir-produto-box">
+    <form action="" class="form-vertical">
+
+      <fieldset>
+        <legend class="title">Adicione uma nova peça a sua loja!</legend>
+
+        <legend><h4>Comece inserindo algumas imagens</h4></legend>
+
+        <!--inserir Imagem-->
+        <label for="imagens" class="btn btn-primary">Escolher Imagens</label>
+        <input  type="file"  id="imagens" name="pic" accept="image/*" ng2FileSelect [uploader]="uploader" multiple>
+        <table class="table" *ngIf="uploader.queue.length>0">
+          <thead>
+          <tr>
+              <th width="70%">Imagem</th>
+              <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of uploader.queue; let i = index">
+              <td><strong>{{ item.file.name }}</strong></td>
+              <td nowrap>
+                  <button type="button" class="btn btn-default btn-xs"
+                      (click)="item.remove()" [disabled]="!uploader.getNotUploadedItems().length">
+                      <span class="glyphicon glyphicon-trash"></span> Remover
+                  </button>
+              </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="send-controll" *ngIf="uploader.queue.length>0">
+          
+          <!--<button *ngIf="uploader.getNotUploadedItems().length>0" type="button" class="btn btn-default btn-xs"
+            (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+            <span class="glyphicon glyphicon-trash"></span> Remover todas
+          </button>-->
+          <button type="button" class="btn btn-primary btn-xs btn-controll"
+            (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            <span class="glyphicon glyphicon-upload"></span> Enviar todas
+          </button>
+
+        </div>
+        <!--inserir Imagem-->
+
+        <legend><h4>Agora forneça algumas informações sobre a peça</h4></legend>
+        <div class="form-group col-md-12">
+          <label for="inputName" class="col-md-3 control-label">Nome:</label>
+          <div class="col-md-9">
+            <input [(ngModel)]="nomeProduto" name="nomeProduto" type="text" class="form-control" id="inputName" placeholder="Ex.: Bolsa de couro">
+          </div>
+        </div>
+
+        <div class="form-group col-md-12">        
+          <label for="textArea" class="col-md-3 control-label">Descrição:</label>
+          <div class="col-md-9">
+            <textarea [(ngModel)]="descricaoProduto" name="descricaoProduto" class="form-control" rows="3" id="textArea" style="margin: 0px -0.84375px 0px 0px; width: 100%; max-width: 100%; height: 76px;"></textarea>
+            <span class="help-block">Insira uma descrição da peça</span>
+          </div>
+        </div>
+
+        <div class="form-group col-md-12">      
+          <label for="inputPreco" class="col-md-3 control-label">Preço:</label>
+          <div class="col-md-9">
+            <input [(ngModel)]="precoProduto" name="precoProduto" type="number" class="form-control" id="inputPreco" placeholder="Ex.: 59,90">
+          </div>
+        </div>
+
+        <div class="form-group col-md-12">
+          <label for="dimensions" class="col-md-3 control-label">Dimensões:</label>
+          <div class="col-md-9">
+            <div class="input-group" id="dimensions">
+              <input [(ngModel)]="larguraProduto" name="larguraProduto" type="text" class="form-control" aria-describedby="basic-addon1">
+              <span class="input-group-addon" id="basic-addon1">&#10005;</span>
+              <input [(ngModel)]="alturaProduto" name="alturaProduto" type="text" class="form-control" aria-describedby="basic-addon1">
+              <span class="input-group-addon" id="basic-addon1">&#10005;</span>
+              <input [(ngModel)]="expessuraProduto" name="expessuraProduto" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <span class="help-block">Largura &#10005; Altura &#10005; Expessura</span>              
+          </div>
+        </div>
+
+        <div class="form-group col-md-12">        
+          <label for="select" class="col-md-3 control-label">Categoria:</label>
+          <div class="col-md-9">
+            <select [(ngModel)]="categoriaProduto" name="categoriaProduto" class="form-control" id="select">
+              <option value="Madeira">Madeira</option>
+              <option value="Pedra Sabão">Pedra Sabão</option>
+              <option value="Barro">Barro</option>
+              <option value="Biscuit">Biscuit</option>
+              <option value="Tecido">Tecido</option>
+              <option value="Couro">Couro</option>
+              <option value="Pintura">Pintura</option>
+              <option value="Recicláveis">Recicláveis</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group col-md-12">        
+          <label for="inputEstoque" class="col-md-3 control-label">Estoque:</label>
+          <div class="col-md-9">
+            <input [(ngModel)]="estoqueProduto" name="estoqueProduto" type="number" class="form-control" id="inputEstoque" placeholder="Ex.: 10">
+          </div>
+        </div>
+        
+        <div class="col-md-12">
+          <div class="botoes">
+            <button class="btn btn-default">Cancelar</button>
+            <input type="submit" value="Adicionar" class="btn btn-primary" (click)="inserirProduto()">  
+          </div>
+        </div>
+      </fieldset>
+
+    </form>
+  </div>
+
+</div>

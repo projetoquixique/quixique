@@ -7,6 +7,8 @@ export class RequestService{
 	
 	constructor(private http:Http){}
 
+  public serverBaseUrl:string = "http://localhost:3000/api" //não colocar a última barra
+
 	post(url, dados){
     return this.http.post(url, dados)
                           .map((res:Response) => res.json())

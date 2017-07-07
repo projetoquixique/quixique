@@ -1,6 +1,6 @@
 <div>
   
-  <div class="gradeHide">
+  <div>
     <div class="row">
       <div *ngFor="let pedido of pedidos" class="col-md-4">
 
@@ -17,7 +17,7 @@
 
           <div class="card-header">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="foto-ecomendante">
                   <img src="https://68.media.tumblr.com/avatar_372ef1273827_128.png" alt="">
                 </div>
@@ -32,9 +32,9 @@
               </div>
               <div class="col-md-6">
                 <div class="tempo-restante">
-                  <span class="glyphicon glyphicon-time"></span>
-                  <h4 class="tempo">Expira em:</h4>
-                  <h4 class="tempo-dias">{{ pedido.dataExpiracao }}</h4>
+                  <!--<span class="glyphicon glyphicon-time"></span>-->
+                  <!--<h4 class="tempo">Expira em:</h4>-->
+                  <!--<h4 class="tempo-dias">{{ pedido.dataExpiracao }}</h4>-->
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@
             <div class="col-md-12">
               <div class="botoes">
                 <button class="btn btn-default">Recusar</button>
-                <button class="btn btn-primary">Aceitar</button>
+                <button class="btn btn-primary">Confirmar</button>
               </div>
             </div>
           </div>

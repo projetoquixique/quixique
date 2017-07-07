@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
 export class UserDataHandlerService {
 	constructor(){} 
 
+    closeCurrentSession() {
+        localStorage.clear();
+    };
+
+
+    // dados para formulários de cadastro
  	newUserData;
 
  	newArtesao(){

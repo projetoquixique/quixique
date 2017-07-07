@@ -241,6 +241,16 @@ ul.menu-barra{
   background: #1c9ba2;
 }
 
+.list-group{
+  max-height: 40vh;
+  overflow-x: hidden; 
+  overflow-y: auto;
+}
+
+.list-group-item{
+  width: 20vw;
+}
+
 /*
 #menu-dropdown li:first-child a{
   min-height: 60px;

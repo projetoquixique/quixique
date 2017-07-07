@@ -1,25 +1,45 @@
-import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, ElementRef, AfterContentChecked, QueryList, Input, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-card-pedido-grande',
   templateUrl: './card-pedido-grande.component.html',
   styleUrls: ['./card-pedido-grande.component.css']
 })
-export class CardPedidoGrandeComponent implements OnInit {
-  @ViewChild('verMais') verMais : ElementRef;
-  @ViewChild('textoMensagem') textoMensagem : ElementRef;
+export class CardPedidoGrandeComponent implements  OnInit{
+  // @ViewChild('verMais') verMais : ElementRef;
+  // @ViewChild('textoMensagem') textoMensagem : ElementRef;
 
-  @ViewChildren('textoMensagem') textoMensagemC: ElementRef;
+  // @ViewChildren('textoMensagem') textoMensagemC;
   
   ngOnInit() {
     // console.log("view child " + this.textoMensagem);
   }
 
-  ngAfterViewInit(){
-    console.log(this.textoMensagemC);    
-    // console.log(this.textoMensagem.nativeElement._results);
-    
+  // showVerMais:any = [];
+ 
+  ngAfterContentChecked(){
+    // alert("entrei");
+    // console.log(this.textoMensagemC);
+    // for(var i = 0; i<this.textoMensagemC.length; i++){
+    // console.log(this.textoMensagemC._results[i].nativeElement.offsetHeight);
+    //   let showVerMais:boolean = true;
+    //   if(this.textoMensagemC._results[i].nativeElement.offsetHeight>60){
+    //     this.showVerMais.push(true)
+    //     // showVerMais = true;
+    //   }
+    //   else{
+    //     this.showVerMais.push(false);
+    //   }
+    //   console.log(this.showVerMais);      
+    // }
   }
+  // mudarShow(){
+  //   if(!this.showVerMais){
+  //     this.showVerMais = true;
+  //   }else{
+  //     this.showVerMais=false;
+  //   }
+  // }
 
   constructor() {  }
   pedidos = [{
@@ -49,7 +69,7 @@ export class CardPedidoGrandeComponent implements OnInit {
   },
   { "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
     "nomeCliente":"Joana Da Silva",
-    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ",
+    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ",
     "dataExpiracao":"5 dias 5:40min",
     "quantidade":1,
     "valor":54.99,
