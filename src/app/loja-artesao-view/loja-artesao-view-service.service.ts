@@ -64,6 +64,15 @@ export class LojaArtesaoViewServiceService {
 
 
   constructor(private http: Http) { }
+  
+  verPecas: boolean = false;
+  showVerPecas(){
+    if(this.verPecas){
+      this.verPecas = false;
+    }else{
+      this.verPecas = true;
+    }
+  }
 
   public imagem: string = "";
   getImagem(){
@@ -89,10 +98,11 @@ export class LojaArtesaoViewServiceService {
   getCategoria(){
     return this.categoria;
   };
-  public dimensoes: string = "";
+  public dimensoes: any = [];
   getDimensoes(){
     return this.dimensoes;
-  }
+  };
+  public _id = null;
   
   // public produto: Produto;
 
@@ -103,16 +113,11 @@ export class LojaArtesaoViewServiceService {
     this.preco = produto.preco;
     this.estoque = produto.estoque;
     this.categoria = produto.categoria;
-    this.dimensoes = produto.dimensoes;
+    this.dimensoes.push(produto.dimensoes);
+    this._id = produto._id;
+    // let id = produto._id;
+    console.log(this.dimensoes);
   }
-  // receberDados(imagem, nome, descricao, unidades, preco){
-  //   this.imagem = imagem;
-  //   this.nome = nome;
-  //   this.descricao = descricao;
-  //   this.unidades = unidades;
-  //   this.preco = preco;
-  //   console.log(this.imagem, this.nome,this.descricao, this.unidades, this.preco);
-  // }
   inserirProduto(produto:Produto){
       this.produtos.push(produto);
       console.log(produto);
@@ -125,11 +130,17 @@ export class LojaArtesaoViewServiceService {
       .map((response:Response)=>{
         let produtos:Produto[] = [] 
         for(let produto of response.json()){
-          produtos.push(new Produto(produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
+          produtos.push(new Produto(produto._id, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque));
+          // console.log(produto._id);
         }
         this.produtos = produtos;
         return produtos;
       })
       .catch((error: Response)=> Observable.throw(error));
+  }
+  editarProduto(produto: Produto){
+    return this.http.put(this.uriBase+"/api/produtos/"+this._id, produto)
+        .map((response: Response) =>{ response.json()})
+        .catch((error: Response) => Observable.throw(error));
   }
 }

@@ -4,9 +4,6 @@
   <div class="col-md-8">
     <app-produto-artesao-view *ngFor="let produto of servico.produtos" [produto]="produto"></app-produto-artesao-view>
   </div>
-  <app-inserir-produto></app-inserir-produto>
-  <!--<div class="col-md-4">-->
-  <app-ver-peca></app-ver-peca>
-  <!--</div>-->
-  <!--<img src="http://localhost:3000/imagens-produtos/img.png" alt="">-->
+  <app-ver-peca *ngIf = "servico.verPecas"></app-ver-peca>
+  <app-inserir-produto *ngIf = "!servico.verPecas"></app-inserir-produto>
 </div>

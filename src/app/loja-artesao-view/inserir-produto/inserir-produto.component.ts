@@ -31,6 +31,7 @@ export class InserirProdutoComponent implements OnInit {
   ngOnInit() {
   }
   
+   _id = null;
    pic = null;
    nomeProduto:string;
    descricaoProduto:string;
@@ -43,30 +44,16 @@ export class InserirProdutoComponent implements OnInit {
    alturaProduto;
    expessuraProduto;
   
-  ver(up){
-    console.log(up);
-  }
+  // ver(up){
+  //   console.log(up);
+  // }
 
   inserirProduto(){
-    // descricaoProduto, precoProduto, larguraProduto, alturaProduto, expesuraProduto, categoriaProduto, estoqueProduto
-    // console.log("teste");
-    // this.nomeProduto = nomeProduto;
-    // this.descricaoProduto = descricaoProduto;
-    // this.precoProduto = precoProduto;
     this.dimensoesProduto.push(this.larguraProduto);
     this.dimensoesProduto.push(this.alturaProduto);
     this.dimensoesProduto.push(this.expessuraProduto);
-    // this.categoriaProduto = categoriaProduto;
-    // this.estoqueProduto = estoqueProduto;
-    var produto = new Produto(this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
+    var produto = new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
 
-    this.servico.inserirProduto(produto).subscribe(
-      data => {this.produtos = data},
-      error => console.log(error)
-    );
-    
-
-    // console.log(produto);
     this.nomeProduto = "";
     this.descricaoProduto = "";
     this.precoProduto = null;
@@ -76,9 +63,12 @@ export class InserirProdutoComponent implements OnInit {
     this.expessuraProduto = null;
     this.categoriaProduto = null;
     this.estoqueProduto = null;
+
+    this.servico.inserirProduto(produto).subscribe(
+      data => {this.produtos = data},
+      error => console.log(error)
+    );
     
-    // console.log(nomeProduto,this.descricaoProduto,this.precoProduto,this.dimensoesProduto,this.categoriaProduto,this.estoqueProduto);
-    // ,this.descricaoProduto,this.precoProduto,this.dimensoesProduto,this.categoriaProduto,this.estoqueProduto
   }
 
 }

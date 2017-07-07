@@ -2,15 +2,90 @@
   <div class="mostrar-produto-box">
     <div class="photo-view">
       <div class="thumbnail">
-        <img src="./assets/uploads/imagens-produtos/{{ servico.imagem[0] }}">
+        <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[0] }}">
         <!--<span class="glyphicon glyphicon-search"></span>-->
       </div>
     </div>
-    <legend>{{ servico.getNome() }}</legend>
-    <h3>{{ servico.getDescricao() }}</h3>
-    <h4>{{ servico.getPreco() }}</h4>
-    <h4>{{ servico.getEstoque() }}</h4>
-    <h4>{{ servico.getCategoria() }}</h4>
-    <h4>{{ servico.getDimensoes() }}</h4>
+    <div class="infos" *ngIf="!showEdit">
+
+      <legend>{{ servico.getNome() }}</legend>
+      <p>{{ servico.getDescricao() }}</p>
+      <h4>R$ {{ servico.getPreco() }}</h4>
+      <div class="row">
+      <h4 class="col-md-6">Estoque:</h4>
+      <h4 class="col-md-6">{{ servico.getEstoque() }} <span *ngIf="servico.getEstoque()>1">unidades</span><span *ngIf="servico.getEstoque()==1">unidade</span></h4>
+      <h4 class="col-md-6">Categoria:</h4>
+      <h4 class="col-md-6">{{ servico.getCategoria() }}</h4>
+      <h4 class="col-md-6">Dimensões:</h4>
+      <h5 class="col-md-6">{{ servico.getDimensoes()[0][0] }}cm &#10005; {{ servico.getDimensoes()[0][1] }}cm &#10005; {{ servico.getDimensoes()[0][2] }}cm</h5>
+      <!--<h5 class="col-md-6"> {{ servico._id }} </h5>-->
+      </div>
+
+    </div>
+
+
+    <div class="editar" *ngIf="showEdit">
+
+    <form action="" class="form-vertical">
+
+        <div class="form-group">
+          <label for="nome" class="col-md-3 control-label">Nome:</label>
+          <div class="col-md-9">
+            <input name="nome" [(ngModel)]="nomeProduto" type="text" class="form-control" aria-describedby="basic-addon1">            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="descricao" class="col-md-3 control-label">Descrição:</label>
+          <div class="col-md-9">
+            <textarea name="descricao" [(ngModel)]="descricaoProduto" type="text" class="form-control" aria-describedby="basic-addon1" style="margin: 0px -0.84375px 0px 0px; width: 100%; max-width: 100%; height: 76px;"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="preco" class="col-md-3 control-label">Preço:</label>
+          <div class="col-md-9">
+            <input name="preco" [(ngModel)]="precoProduto" type="number" class="form-control" aria-describedby="basic-addon1">            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="estoque" class="col-md-3 control-label">Estoque:</label>
+          <div class="col-md-9">
+            <input name="estoque" [(ngModel)]="estoqueProduto" type="number" class="form-control" aria-describedby="basic-addon1">            
+          </div>
+        </div>
+
+        
+
+        <div class="form-group">
+          <label for="dimensions" class="col-md-3 control-label">Dimensões:</label>
+          <div class="col-md-9">
+            <div class="input-group" id="dimensions">
+              <input name="larguraProduto" [(ngModel)]="larguraProduto" type="text" class="form-control" aria-describedby="basic-addon1">
+              <span class="input-group-addon" id="basic-addon1">&#10005;</span>
+              <input name="alturaProduto" [(ngModel)]="alturaProduto" type="text" class="form-control" aria-describedby="basic-addon1">
+              <span class="input-group-addon" id="basic-addon1">&#10005;</span>
+              <input name="expessuraProduto" [(ngModel)]="expessuraProduto" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>             
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <div class="col-md-4">
+          <button class="btn btn-default" *ngIf="showEdit">Excluir</button>
+      </div>
+      <div class="col-md-8">
+        <div class="botoes">
+          <button class="btn btn-default" *ngIf="!showEdit" (click)="editar()">Editar</button>
+          <button class="btn btn-default" *ngIf="showEdit" (click)="cancelarEdit()">cancelar</button>
+          <button class="btn btn-default" *ngIf="showEdit" (click)="salvarEdit()">salvar</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>  

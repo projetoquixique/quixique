@@ -35,5 +35,9 @@ export class ProdutoArtesaoViewComponent implements OnInit {
     // this.produtoSelecionado = produto;
     console.log(produto);
     this.servico.selecionarProduto(produto);
+  };
+
+  showVerPecas(){
+    this.servico.showVerPecas()
   }
 }

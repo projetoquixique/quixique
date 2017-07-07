@@ -15,3 +15,11 @@
     background-color: white;
     overflow: hidden;
 }
+
+.botoes{
+    /*display: inline-block*/
+    float: right;
+}
+.fechar{
+    position: absolute;
+}
