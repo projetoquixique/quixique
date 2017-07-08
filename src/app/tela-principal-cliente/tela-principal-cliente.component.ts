@@ -14,7 +14,7 @@ export class TelaPrincipalClienteComponent implements OnInit {
               private authService:AuthenticationService) { }
 
   ngOnInit() {
-  	if (!this.authService.isLogged() || localStorage.getItem('userType') !== 'cliente'){
+  	if (!this.authService.isLogged() || sessionStorage.getItem('userType') !== 'cliente'){
       this.router.navigate(['/']);
     }
   }

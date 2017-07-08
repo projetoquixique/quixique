@@ -33,9 +33,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.userNameSurname = sessionStorage.getItem('userNameSurname');
-    console.log(sessionStorage.getItem('userNameSurname'));
-    console.log(sessionStorage.getItem('userId'));
+    this.userNameSurname = sessionStorage.getItem('name');
   }
 }
