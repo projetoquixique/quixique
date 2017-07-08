@@ -4,8 +4,18 @@ import { Injectable } from '@angular/core';
 export class UserDataHandlerService {
 	constructor(){} 
 
+    dadosPerfil;
+
+    newSession(userData) {
+        sessionStorage.setItem('userId', userData.userId);
+        sessionStorage.setItem('name', userData.nome.replace(/(([^\s]+\s\s*){2})(.*)/,"$1"));
+        sessionStorage.setItem('token', userData.token);
+        sessionStorage.setItem('username', userData.nomeDeUsuario);
+        sessionStorage.setItem('userType', userData.tipo);
+    }
+
     closeCurrentSession() {
-        localStorage.clear();
+        sessionStorage.clear();
     };
 
 

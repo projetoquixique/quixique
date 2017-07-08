@@ -28,8 +28,6 @@ export class NavbarClienteComponent implements OnInit {
     new Category("Vestuário","Do popular ao estilizado, nossos artesãos possuem nas mãos, a capacidade de representar os valores de cada cliente.","banner (11).png"),
     new Category("Recicláveis","Recriar é um dom que você verá por aqui. De uma coisa sem valor à um objeto de valor.","banner (12).png"),
   ];
-  
-  // userName = sessionStorage.getItem('currentUserName');
 
   constructor(private clientService:TelaPrincipalCienteService) { }
 

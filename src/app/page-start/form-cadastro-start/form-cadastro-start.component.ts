@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from './../../services/authentication.service';
+import { UserDataHandlerService } from './../../services/user-data-handler.service';
 
 @Component({
   selector: 'app-form-cadastro-start',
@@ -19,13 +20,13 @@ export class FormCadastroStartComponent implements OnInit {
 
   cadastrarUsuario(user, data){
     // alert(user);
-  	sessionStorage.setItem('tipoUsuario',user);
+  	sessionStorage.setItem('tipoUsuario', user);
   };
 
   guardarDados(data){
     if(data){
       data = JSON.stringify(data);
-  	  sessionStorage.setItem('userData',data);
+  	  sessionStorage.setItem('userData', data);
     }
   }
 
@@ -62,39 +63,36 @@ export class FormCadastroStartComponent implements OnInit {
     };
   };
 
-  // login(){
-  //   this.verificaEmail();
-  //   this.verificaSenha();
-  //   if (this.loginData.email.state && this.loginData.password.state){
-  //     this.loading = true;
-  //     this.loginButtonText = "Entrando..."
-  //     this.authService.login(this.loginData.email.value, this.loginData.password.value)
-  //           .subscribe(
-  //               data => {
-  //                 this.loading = false;
-  //                 this.loginButtonText = "Entrar";
-  //                 if (data == "notFound"){
-  //                   this.loginData.email.state = false;
-  //                   this.loginData.email.message = "E-mail não cadastrado";
-  //                 } else if (data == "wrongPassword"){
-  //                   this.loginData.password.state = false;
-  //                   this.loginData.password.message = "Senha incorreta";
-  //                 } else {
-  //                   if (data.tipo == "artesao"){
-  //                     this.router.navigate(['/tela_principal_artesao']);
-  //                   } else {
-  //                     this.router.navigate(['/tela_principal_cliente']);
-  //                   }
-  //                 }
-  //               },
-  //               error => {
-  //                 this.loading = false;
-  //                 this.loginButtonText = "Entrar";
-  //           });
-  //   };
-  // };
+  login() {
+    this.verificaEmail();
+    this.verificaSenha();
+    if (this.loginData.email.state && this.loginData.password.state){
+      this.loading = true;
+      this.loginButtonText = "Entrando..."
+      this.authService.login({email: this.loginData.email.value, senha: this.loginData.password.value})
+                      .subscribe(
+                        data => {
+                          this.loading = false;
+                          this.loginButtonText = "Entrar";
+                          this.userDataHandler.newSession(data);
+                          if (data.tipo == "artesao"){
+                            this.router.navigate(['/tela_principal_artesao']);
+                          } else {
+                            this.router.navigate(['/tela_principal_cliente']);
+                          }
+                        },
+                        error => {
+                          alert("Login inválido. Verifique as informações e tente novamente.");
+                          this.loading = false;
+                          this.loginButtonText = "Entrar";
+                        }
+                       )
+    };
+  };
 
-  constructor(private authService:AuthenticationService, private router:Router) { }
+  constructor(private authService:AuthenticationService,
+              private userDataHandler:UserDataHandlerService,
+              private router:Router) { }
 
   ngOnInit() {
   }

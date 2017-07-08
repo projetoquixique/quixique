@@ -26,7 +26,7 @@ export class AuthenticationService {
   }
 
   isLogged(){
-    if (localStorage.getItem('token')) {
+    if (sessionStorage.getItem('token')) {
       return true;
     } else {
       return false;

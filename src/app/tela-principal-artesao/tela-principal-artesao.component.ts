@@ -17,7 +17,7 @@ export class TelaPrincipalArtesaoComponent implements OnInit {
               private authService:AuthenticationService) { }
 
   ngOnInit() {
-    if (!this.authService.isLogged() || localStorage.getItem('userType') !== 'artesao'){
+    if (!this.authService.isLogged() || sessionStorage.getItem('userType') !== 'artesao'){
       this.router.navigate(['/']);
     }
   }
