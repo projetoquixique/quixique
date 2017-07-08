@@ -52,7 +52,22 @@ export class InserirProdutoComponent implements OnInit {
     this.dimensoesProduto.push(this.larguraProduto);
     this.dimensoesProduto.push(this.alturaProduto);
     this.dimensoesProduto.push(this.expessuraProduto);
-    var produto = new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
+    // var produto = new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
+    
+    this.servico.inserirProduto( new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto)).subscribe(
+      data => {console.log("data " + data);
+              this.servico.listarProdutos().subscribe(
+                data => {console.log(data); },
+                error => console.log(error)
+              );
+            },
+      error => console.log(error)
+    );
+
+    // this.servico.listarProdutos().subscribe(
+    //   data => {console.log(data); },
+    //   error => console.log(error)
+    // );
 
     this.nomeProduto = "";
     this.descricaoProduto = "";
@@ -64,10 +79,9 @@ export class InserirProdutoComponent implements OnInit {
     this.categoriaProduto = null;
     this.estoqueProduto = null;
 
-    this.servico.inserirProduto(produto).subscribe(
-      data => {this.produtos = data},
-      error => console.log(error)
-    );
+
+    // location.reload();
+
     
   }
 

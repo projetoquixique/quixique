@@ -3,7 +3,9 @@
     <div class="photo-view">
       <div class="thumbnail">
         <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[0] }}">
-        <!--<span class="glyphicon glyphicon-search"></span>-->
+      </div>
+      <div *ngIf="servico.getImagem().length>1" class="thumbnail">
+          <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
       </div>
     </div>
     <div class="infos" *ngIf="!showEdit">
