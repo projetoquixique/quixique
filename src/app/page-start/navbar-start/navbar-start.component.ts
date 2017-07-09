@@ -17,13 +17,11 @@ export class NavbarStartComponent implements OnInit {
               private router:Router) {}
 
   cadastrarCliente(){
-    // alert('teste');
-    sessionStorage.setItem('tipoUsuario','cliente');
+    this.userDataHandler.startSignupFromNavbar('cliente');
   };
 
   cadastrarArtesao(){
-    // alert('teste2');
-    sessionStorage.setItem('tipoUsuario','artesao');
+    this.userDataHandler.startSignupFromNavbar('artesao');
   };
 
   loginData = {email:{value:undefined, state:null, message:""}, password:{value:undefined, state:null, message:""}};

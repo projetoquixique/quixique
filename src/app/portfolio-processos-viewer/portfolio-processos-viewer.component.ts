@@ -82,7 +82,7 @@ export class PortfolioProcessosViewerComponent implements OnInit {
     this.containerRetraido = true;
   }
 
-  showFullscreen:boolean = false;
+  showFullscreen:boolean;
   srcLightbox:string;
 
   lightboxControl(event){
@@ -127,7 +127,9 @@ export class PortfolioProcessosViewerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showFullscreen = false;
     this.gerarVitrine();
     $('.pictures').css('height', this.alturaContainerRetraido);
+    console.log(this.showFullscreen)
   }
 }

@@ -27,27 +27,57 @@ export class PerfilArtesaoComponent implements OnInit {
   // }
 
   public urlPerfil:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username');
-  infoPerfil;
+  private urlAtualizacaoDados:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username') + "/atualizarperfil";
+  
+  public infoPerfil = {
+    nomeApresentacao:null,
+    bio:null,
+    localizacao:null,
+    apresentacao:null,
+    historia:null,
+    urlLoja:null,
+    telefone:null,
+    email:null,
+    urlFacebook:null,
+    urlInstagram:null
+  }
 
   requestDadosPerfil(){
     this.requestService.get(this.urlPerfil).subscribe(
-                                        function(data){
-                                          this.userDataHandler.dadosPerfil = data;
-                                          this.infoPerfil = this.userDataHandler.dadosPerfil;
-                                        },
-                                        function(error){
-                                          console.log(error);
-                                        }
-    );
+      data => {
+        this.userDataHandler.dadosPerfil = data;
+        this.infoPerfil = this.userDataHandler.dadosPerfil;
+      },
+      error => {
+        console.log(error);
+      });
   }
 
-  modoEdicaoSaibaMais = false;
-  editarInfoSaibaMais(){
-    this.modoEdicaoSaibaMais = !this.modoEdicaoSaibaMais;
+  atualizarDadosPerfil(){
+    console.log(this.urlAtualizacaoDados, this.infoPerfil)
+    // this.requestService.put(this.urlAtualizacaoDados, this.infoPerfil).subscribe(
+    //   data => console.log('updated'),
+    //   error => {
+    //     alert("Houve um erro. Por favor, tente novamente.");
+    //   });
+  }
+
+  public modoEdicao = false;
+
+  editarPerfil(){
+    this.modoEdicao = true;
     $(".modo-edicao").css("opacity", 1);
-    $(".perfil .editavel").css("background-color", "#6d361c");
-    $(".historia .editavel").css("background-color", "#e28f2b");
+    // $(".perfil .editavel").css("background-color", "#6d361c");
+    // $(".historia .editavel").css("background-color", "#e28f2b");
     $(".btn-editar").hide();
+    console.log('editando', this.modoEdicao)
+  }
+
+  cancelarEdicao(){
+    this.modoEdicao = false;
+    // $(".modo-edicao").css("opacity", 0);
+    $(".btn-editar").show();
+    console.log('cancelando', this.modoEdicao)
   }
 
   irParaSaibaMais() {

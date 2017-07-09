@@ -7,14 +7,14 @@
         </div>
       </div>
       <div class="col-md-12">
-        <p>{{ infoCapa.nome }}</p>
+        <p>{{ infoCapa.nomeApresentacao }}</p>
       </div>
-      <div class="col-md-12">{{ infoCapa.bio }}</div>
+      <div class="col-md-12">{{ infoCapa.bio ? infoCapa.bio : 'Adicione mais informações ao seu perfil' }}</div>
       <div class="col-md-2">
         <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
       </div>
       <div class="col-md-10">{{ infoCapa.localizacao }}</div>
-      <div class="col-md-12">{{ infoCapa.apresentacao }}</div>
+      <div class="col-md-12">{{ infoCapa.apresentacao ? infoCapa.apresentacao : '' }}</div>
       <div class="col-md-12">
         <a style="cursor:pointer" (click)="clickSaibaMais()" class="saibaMais">Saiba mais</a>
       </div>

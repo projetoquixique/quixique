@@ -41,12 +41,12 @@
   margin-bottom: 3px;
   border-radius: 3px;
 }
-.saiba-mais .perfil span.editavel {
+/*.saiba-mais .perfil span.editavel {
   padding: 3px 5px;
   line-height: 30px;
   border-radius: 3px;
   outline: none;
-}
+}*/
 .saiba-mais .titulo {
   font-weight: bold;
   font-size: 18px !important;
@@ -55,9 +55,9 @@
 .historia .titulo, .contatos .col-md-6 {
   padding-left: 3px;
 }
-.saiba-mais .editavel {
+/*.saiba-mais .editavel {
   padding: 4px;
-}
+}*/
 .saiba-mais .historia {
   padding: 15px;
   height: 100%;
@@ -93,6 +93,12 @@
   right: 0;
   bottom: -35px;
   opacity: 0;
+}
+input[type="text"]{
+  background-color: #6d361c;
+  border: none;
+  border-radius: 3px;
+  outline: none;
 }
 .nopadding {
   padding: 0;

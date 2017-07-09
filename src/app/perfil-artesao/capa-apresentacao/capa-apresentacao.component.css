@@ -34,7 +34,7 @@ a, a:hover{
   border: 0px;
   border-radius: 0px 0px 10px 10px;
   background-color: transparent;
-  z-index: 100;
+  z-index: 1;
 }
 .panel-body{
   height: 280px;
