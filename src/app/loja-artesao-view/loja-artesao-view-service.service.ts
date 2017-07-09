@@ -63,7 +63,7 @@ export class LojaArtesaoViewServiceService {
     this.estoque = produto.estoque;
     this.categoria = produto.categoria;
     this.dimensoes.push(produto.dimensoes);
-    this._id = produto._id;
+    // this._id = produto._id;
     // let id = produto._id;
     console.log(this.dimensoes);
   }
@@ -82,7 +82,20 @@ export class LojaArtesaoViewServiceService {
           .map((response: Response)=>{
             let produtos:Produto[] = [];
             for(let produto of response.json()){
-              produtos.push(new Produto(produto._id, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
+              produtos.push(new Produto(produto._id, produto.artesao_id, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
+            }
+            this.produtos = produtos;
+            return produtos;
+          })
+          .catch((error: Response)=> Observable.throw(error));
+  }
+
+  getProdutosArtesao(aid){
+    return this.http.get(this.uriBase+"/api/produtos/"+aid)
+          .map((response: Response)=>{
+            let produtos:Produto[] = [];
+            for(let produto of response.json()){
+              produtos.push(new Produto(produto._id, produto.artesao_id, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
             }
             this.produtos = produtos;
             return produtos;

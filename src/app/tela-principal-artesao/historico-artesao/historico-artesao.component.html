@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12 header">
+    <div class="col-md-6">
+      <div class="btn-group dropdown-nav">
+        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Pedidos Aceitos <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Pedidos Recusados</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Todos os pedidos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="total">
+        <h2>
+          Total de pedidos: 50
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 conteudo">
+  <table class="table table-striped table-hover ">
+  <thead>
+    <tr class="header-table">
+      <th>#</th>
+      <th>Peça</th>
+      <th>Quantidade</th>
+      <th>Data</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr *ngFor="let pedidoConfirmado of telaPrincipalArtesaoService.pedidosConfirmados" (click)="linhaClicada()">
+        <td>1</td>
+        <td>{{ pedidoConfirmado.produto_id.nome }}</td>
+        <td>{{ pedidoConfirmado.qtd }} <span *ngIf="pedidoConfirmado.qtd>1">unidades</span> <span *ngIf="pedidoConfirmado.qtd==1">unidade</span></td>
+        <td>ainda nao ta</td>
+        <td>{{ pedidoConfirmado.status }}</td>
+        <td><button class="btn btn-default btn-sm" (click)="excluir()">Excluir</button></td>
+      </tr>
+      <!--<tr (click)="linhaClicada()">
+        <td>2</td>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td>Column content</td>
+        <td><button class="btn btn-default btn-sm" (click)="excluir()">Excluir</button></td>
+      </tr>-->
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="modal" [class.show]="abrirModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" (click)="linhaClicada()" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body…</p>
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>-->
+    </div>
+  </div>
+</div>

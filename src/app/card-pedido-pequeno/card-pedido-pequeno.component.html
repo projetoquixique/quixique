@@ -2,17 +2,17 @@
   
   <div>
     <div class="row">
-      <div *ngFor="let pedido of pedidos" class="col-md-4">
+      <div *ngFor="let pedido of pedidosService.pedidos" class="col-md-4">
 
         <div class="card">
           <div class="img">
-            <!-- <img src="https://s-media-cache-ak0.pinimg.com/736x/0f/82/19/0f8219c0c0b498c6b0a50cf1753a1214.jpg" alt=""> -->
+            <div class="degrade"></div>
+            <img src="http://localhost:3000/imagens-produtos/{{ pedido.produto_id.imagem[0] }}" alt="">            
             <div class="titulo">
               <h3>
-                {{ pedido.nomeProduto }}
+                {{ pedido.produto_id.nome }}
               </h3>
             </div>
-            <div class="degrade"></div>
           </div>
 
           <div class="card-header">
@@ -20,15 +20,16 @@
               <div class="col-md-12">
                 <div class="foto-ecomendante">
                   <img src="https://68.media.tumblr.com/avatar_372ef1273827_128.png" alt="">
+                  <!--<img src="http://localhost:3000/assets/imagens-produtos/{{ pedido.produto_id.imagem[0] }}" alt="">-->
                 </div>
-                <h5 class="nome-encomendante">{{ pedido.nomeCliente }}</h5>
-                <ul class="classificacao">
+                <h4 class="nome-encomendante">{{ pedido.cliente_id.nome }}</h4>
+                <!--<ul class="classificacao">
                   <li><div class="glyphicon glyphicon-star"></div></li>
                   <li><div class="glyphicon glyphicon-star"></div></li>
                   <li><div class="glyphicon glyphicon-star"></div></li>
                   <li><div class="glyphicon glyphicon-star-empty"></div></li>
                   <li><div class="glyphicon glyphicon-star-empty"></div></li>
-                </ul>
+                </ul>-->
               </div>
               <div class="col-md-6">
                 <div class="tempo-restante">
@@ -40,16 +41,53 @@
             </div>
           </div>
           <div class="card-body">
-            <p class="card-text">
+            <!--<p class="card-text">
               {{ pedido.mensagem }}
-            </p>
+            </p>-->
+            <div class="row">
+              <div class="unidades">
+                
+                <div class="col-md-6">
+                  Quantidade:
+                </div>
+                <div class="col-md-6">
+                  {{ pedido.qtd }}
+                </div>
+                
+              </div>
+            </div>
 
+            <div class="row">
+              <div class="destino">
+                
+                <div class="col-md-6">
+                  Destino:
+                </div>
+                <h5 class="col-md-6">
+                  {{ pedido.destino }}
+                </h5>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="valor-total">
+
+                  <div class="col-md-6">
+                    Valor do pedido:
+                  </div>
+                  <div class="col-md-6">
+                    R$ {{ pedido.valor * pedido.qtd }}
+                  </div>
+
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="botoes">
                 <button class="btn btn-default">Recusar</button>
-                <button class="btn btn-primary">Confirmar</button>
+                <button class="btn btn-primary" (click)="confirmarPedido(pedido)">Confirmar</button>
               </div>
             </div>
           </div>

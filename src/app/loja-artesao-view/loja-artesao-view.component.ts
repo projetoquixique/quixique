@@ -15,10 +15,20 @@ export class LojaArtesaoViewComponent implements OnInit {
   produtos:Produto[] = null;
 
   constructor(public servico: LojaArtesaoViewServiceService) { }
+  
+  showZero:boolean = false;
 
   ngOnInit() {
-    this.servico.listarProdutos().subscribe(
-      data => {this.produtos = data},
+    // this.servico.listarProdutos().subscribe(
+    //   data => {this.produtos = data},
+    //   error => console.log(error)
+    // );
+    let artesao_id = sessionStorage.getItem('userId'); 
+    this.servico.getProdutosArtesao(artesao_id).subscribe(
+      data => {console.log(data); console.log(this.servico.produtos.length);
+              if(this.servico.produtos.length==0){
+                this.showZero = true;
+              }},
       error => console.log(error)
     );
   }

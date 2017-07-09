@@ -2,8 +2,14 @@
 <app-navbar></app-navbar>
 <div class="container container-principal">
   <div class="col-md-8">
+    <div class="zero" *ngIf="showZero">
+      <h1>
+        Não perca tempo!<br>Adicione uma peça na sua loja
+      </h1>
+    </div>
     <app-produto-artesao-view *ngFor="let produto of servico.produtos" [produto]="produto"></app-produto-artesao-view>
   </div>
   <app-ver-peca *ngIf = "servico.verPecas"></app-ver-peca>
   <app-inserir-produto *ngIf = "!servico.verPecas"></app-inserir-produto>
+
 </div>

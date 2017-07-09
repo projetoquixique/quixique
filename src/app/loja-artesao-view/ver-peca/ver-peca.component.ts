@@ -17,6 +17,7 @@ export class VerPecaComponent implements OnInit {
   // public produtos:Produto[] = null;
 
   _id;
+  artesao_id;
   pic;
   nomeProduto:string = this.servico.getNome();
   descricaoProduto:string = this.servico.getDescricao();
@@ -38,7 +39,7 @@ export class VerPecaComponent implements OnInit {
   }
 
   salvarEdit(){
-    let produto = new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
+    let produto = new Produto(this._id, this.artesao_id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
     this.servico.editarProduto(produto).subscribe(
       data => {console.log(data)},
       error => console.log(error)

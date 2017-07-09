@@ -3,6 +3,7 @@
   box-shadow: 0px 0px 30px #edebeb;
   border-radius: 10px 10px 10px 10px;
   /*margin-top: -20px;*/
+  min-height: 70vh;
 }
 .guias-container{
   border-radius: 10px 10px 0px 0px;
@@ -11,12 +12,15 @@
 .controle-container{
   float: right;
 }
-.controle-container ul{
+.controle-container{
   margin: 0px;
   padding: 0px;
 }
-.controle-container li{
-  display: inline-block;
+.dropdown-menu{
+  float: right
+}
+.controle-container{
+  /*display: inline-block;*/
   font-size: 15px;
   margin-left: 25px;
   /*background-color: #eee;*/
@@ -48,4 +52,36 @@
 }
 .gradeShow, .listaShow{
   display: block;
+}
+.zero h1{
+  color: #e2e2e2;
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.nav-tabs > li{
+  width: 400px;
+  text-align: center;
+  border-radius: 0px;
+  border-top: 3px;
+  border: 0px;
+}
+.nav-tabs {
+  border: 0px;
+}
+.nav-tabs > li > a{
+  border: 0px;
+  border-top: 3px solid transparent;  
+  border-radius: 0px;
+}
+.nav > li > a:hover, .nav > li > a:focus{
+  background-color: #E2E2E2;
+  border-bottom: 0px;
+  /*margin-top: 5px;*/
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: #FAFAFA;
+  border-top: 4px solid #EB7E1E;
 }

@@ -29,6 +29,7 @@ export class InserirProdutoComponent implements OnInit {
 
   public produtos:Produto[] = null;
   ngOnInit() {
+    console.log(sessionStorage.getItem('userId'));
   }
   
    _id = null;
@@ -48,17 +49,28 @@ export class InserirProdutoComponent implements OnInit {
   //   console.log(up);
   // }
 
+  showZero: boolean = false;
+
   inserirProduto(){
+    let artesao_id = sessionStorage.getItem('userId'); 
+    console.log(artesao_id);
     this.dimensoesProduto.push(this.larguraProduto);
     this.dimensoesProduto.push(this.alturaProduto);
     this.dimensoesProduto.push(this.expessuraProduto);
     // var produto = new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto);
     
-    this.servico.inserirProduto( new Produto(this._id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto)).subscribe(
+    this.servico.inserirProduto( new Produto(this._id, artesao_id, this.pic, this.nomeProduto, this.descricaoProduto, this.precoProduto, this.dimensoesProduto, this.categoriaProduto, this.estoqueProduto)).subscribe(
       data => {console.log("data " + data);
-              this.servico.listarProdutos().subscribe(
-                data => {console.log(data); },
-                error => console.log(error)
+              // this.servico.listarProdutos().subscribe(
+              //   data => {console.log(data); },
+              //   error => console.log(error)
+              // );
+              this.servico.getProdutosArtesao(artesao_id).subscribe(
+                    data => {console.log(data); console.log(this.servico.produtos.length);
+                              if(this.servico.produtos.length==0){
+                              this.showZero = true;
+                            }},
+                    error => console.log(error)
               );
             },
       error => console.log(error)

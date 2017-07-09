@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CardPedidoGrandeComponent } from '../card-pedido-grande/card-pedido-grande.component';
 import { CardPedidoPequenoComponent } from '../card-pedido-pequeno/card-pedido-pequeno.component';
 
+import { TelaPrincipalArtesaoServiceService } from './tela-principal-artesao-service.service';
+
 import { AuthenticationService } from './../services/authentication.service';
 
 @Component({
@@ -14,12 +16,24 @@ import { AuthenticationService } from './../services/authentication.service';
 export class TelaPrincipalArtesaoComponent implements OnInit {
 
   constructor(private router:Router,
-              private authService:AuthenticationService) { }
+              private authService:AuthenticationService,
+              public telaPrincipalArtesaoService: TelaPrincipalArtesaoServiceService) { }
+
+  // showZero:boolean = false;
 
   ngOnInit() {
     if (!this.authService.isLogged() || sessionStorage.getItem('userType') !== 'artesao'){
       this.router.navigate(['/']);
     }
+    let artesao_id = sessionStorage.getItem('userId'); 
+    this.telaPrincipalArtesaoService.getPedidosArtesao(artesao_id).subscribe(
+      data => {console.log(data); console.log(this.telaPrincipalArtesaoService.pedidos.length);
+              if(this.telaPrincipalArtesaoService.pedidos.length==0){
+                this.telaPrincipalArtesaoService.showZero = true;
+              }
+      },
+      error => console.log(error)
+    );
   }
   
   showGrade = false;
