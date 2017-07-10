@@ -8,5 +8,6 @@ export class Pedido{
         public valor:Number,
         public destino:String,
         public status:String,
+        public data,
     ){}
 }

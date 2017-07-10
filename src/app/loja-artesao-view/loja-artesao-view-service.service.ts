@@ -11,6 +11,7 @@ export class LojaArtesaoViewServiceService {
 
   produtos:Produto[] = [];
 
+  showZero:boolean = false;
 
   constructor(private http: Http) { }
   

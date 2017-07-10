@@ -34,3 +34,6 @@ input[type='file'] {
     /*display: inline-block*/
     float: right;
 }
+.modal.show {
+	display:block;
+}

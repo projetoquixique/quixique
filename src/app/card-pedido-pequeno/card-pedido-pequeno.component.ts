@@ -14,16 +14,51 @@ export class CardPedidoPequenoComponent implements OnInit {
   ngOnInit() {
     console.log(this.pedidosService.pedidos)
   }
+  
+  abrirModal:boolean = false;
+
+  fecharModal(){
+    this.abrirModal = false;
+  }
 
   confirmarPedido(produto){
+    console.log("pedido: " + produto);
+    if(produto.produto_id.estoque < produto.qtd){
+      // console.log('nao pode aceitar')
+      this.abrirModal = true;
+    }else{
+
+      this.pedidosService.confirmarPedido(produto).subscribe(
+        data => {console.log(data);
+                  let artesao_id = sessionStorage.getItem('userId'); 
+                  this.pedidosService.getPedidosArtesao(artesao_id).subscribe(
+                      data => {console.log(data); console.log(this.pedidosService.pedidos.length);
+                              if(this.pedidosService.pedidos.length==0){
+                                this.pedidosService.showZero = true;
+                              }else{
+                                this.pedidosService.showZero = false;
+                              }
+                            },
+                      error => console.log(error)
+                  )
+      },
+        error => console.log(error)
+      )
+      
+    }
+  }
+
+  recusarPedido(produto){
     console.log(produto);
-    this.pedidosService.confirmarPedido(produto).subscribe(
+    this.pedidosService.recusarPedido(produto).subscribe(
       data => {console.log(data);
                 let artesao_id = sessionStorage.getItem('userId'); 
                 this.pedidosService.getPedidosArtesao(artesao_id).subscribe(
                     data => {console.log(data); console.log(this.pedidosService.pedidos.length);
                             if(this.pedidosService.pedidos.length==0){
                               this.pedidosService.showZero = true;
+                            }else{
+                              this.pedidosService.showZero = false;
                             }
                           },
                     error => console.log(error)

@@ -47,12 +47,14 @@
             <div class="row">
               <div class="unidades">
                 
-                <div class="col-md-6">
+                <div class="col-md-12">
+                  <b>
                   Quantidade:
+                  </b>
+                  {{ pedido.qtd }} <span *ngIf="pedido.qtd>1">unidades</span><span *ngIf="pedido.qtd==1">unidade</span>
                 </div>
-                <div class="col-md-6">
-                  {{ pedido.qtd }}
-                </div>
+                <!--<div class="col-md-6">
+                </div>-->
                 
               </div>
             </div>
@@ -60,33 +62,51 @@
             <div class="row">
               <div class="destino">
                 
-                <div class="col-md-6">
+                <div class="col-md-12">
+                  <b>
                   Destino:
-                </div>
-                <h5 class="col-md-6">
+                  </b>
                   {{ pedido.destino }}
-                </h5>
+                </div>
+                <!--<h5 class="col-md-6">
+                </h5>-->
 
               </div>
             </div>
 
             <div class="row">
-              <div class="valor-total">
+              <div class="destino">
 
-                  <div class="col-md-6">
-                    Valor do pedido:
+                  <div class="col-md-12">
+                    <b>
+                    Método de pagamento:
+                    </b>
+                    Cartão de crédito
                   </div>
-                  <div class="col-md-6">
-                    R$ {{ pedido.valor * pedido.qtd }}
-                  </div>
+                  <!--<div class="col-md-6">
+                  </div>-->
 
               </div>
             </div>
+            
+            <div class="row">
+              <div class="valor-total">
+
+                  <div class="col-md-12">
+                    Valor do pedido:
+                    R$ {{ pedido.valor * pedido.qtd }}
+                  </div>
+                  <!--<div class="col-md-6">
+                  </div>-->
+
+              </div>
+            </div>
+
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="botoes">
-                <button class="btn btn-default">Recusar</button>
+                <button class="btn btn-default" (click)="recusarPedido(pedido)">Recusar</button>
                 <button class="btn btn-primary" (click)="confirmarPedido(pedido)">Confirmar</button>
               </div>
             </div>
@@ -100,3 +120,30 @@
   </div>
 
 </div>
+
+<div class="modal" [class.show]="abrirModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!--<button type="button" class="close" (click)="linhaClicada()" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+        <div class="modal-header">
+          <div class="sucess">
+            <h3>
+              Estoque insuficiente!
+            </h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>
+                  Você não possui estoque suficiente desta peça para aceitar este pedido, atualize o estoque caso deseje aceitá-lo
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" (click)="fecharModal()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>

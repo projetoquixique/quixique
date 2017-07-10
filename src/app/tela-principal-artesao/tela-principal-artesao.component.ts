@@ -30,6 +30,8 @@ export class TelaPrincipalArtesaoComponent implements OnInit {
       data => {console.log(data); console.log(this.telaPrincipalArtesaoService.pedidos.length);
               if(this.telaPrincipalArtesaoService.pedidos.length==0){
                 this.telaPrincipalArtesaoService.showZero = true;
+              }else{
+                this.telaPrincipalArtesaoService.showZero = false;
               }
       },
       error => console.log(error)

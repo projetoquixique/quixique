@@ -30,3 +30,9 @@
     display: inline;
     z-index: 100;
 }
+.produto{
+    max-width: 200px;
+}
+.pointer{
+    cursor: pointer;
+}

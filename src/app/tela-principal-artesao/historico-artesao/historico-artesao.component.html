@@ -1,19 +1,27 @@
 <div class="row">
   <div class="col-md-12 header">
-    <div class="col-md-6">
+    <div class="col-md-3">
       <div class="btn-group dropdown-nav">
-        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Pedidos Aceitos <span class="caret"></span></a>
+        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Filtrar por <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Pedidos Recusados</a></li>
+          <li class="pointer"><a (click)="verTodos()">Todos os pedidos</a></li>
           <li class="divider"></li>
-          <li><a href="#">Todos os pedidos</a></li>
+          <li class="pointer"><a (click)="verAceitos()">Pedidos confirmados</a></li>
+          <li class="divider"></li>
+          <li class="pointer"><a (click)="verRecusados()">Pedidos recusados</a></li>
         </ul>
       </div>
+      <span style="margin-left:15px">{{ filtragemTipo }}</span>
+      <!--<select [(ngModel)]="filtragemHistorico" name="filtragemHistorico" selected="TodosPedidos" class="form-control" id="select">
+        <option value="TodosPedidos">Todos pedidos</option>
+        <option value="PedidosConfirmados">Pedidos confirmados</option>
+        <option value="PedidosRecusados">Pedidos recusados</option>
+      </select>-->
     </div>
-    <div class="col-md-6">
+    <div class="col-md-9">
       <div class="total">
         <h2>
-          Total de pedidos: 50
+          Total de pedidos: {{ telaPrincipalArtesaoService.pedidosConfirmados.length }}
         </h2>
       </div>
     </div>
@@ -31,41 +39,124 @@
     </tr>
   </thead>
     <tbody>
-      <tr *ngFor="let pedidoConfirmado of telaPrincipalArtesaoService.pedidosConfirmados" (click)="linhaClicada()">
+      <tr *ngFor="let pedidoConfirmado of telaPrincipalArtesaoService.pedidosConfirmados" (click)="linhaClicada(pedidoConfirmado)">
         <td>1</td>
         <td>{{ pedidoConfirmado.produto_id.nome }}</td>
         <td>{{ pedidoConfirmado.qtd }} <span *ngIf="pedidoConfirmado.qtd>1">unidades</span> <span *ngIf="pedidoConfirmado.qtd==1">unidade</span></td>
-        <td>ainda nao ta</td>
+        <td>{{ pedidoConfirmado.data }}</td>
         <td>{{ pedidoConfirmado.status }}</td>
-        <td><button class="btn btn-default btn-sm" (click)="excluir()">Excluir</button></td>
+        <td><button class="btn btn-default btn-sm" (click)="clicarExcluir(pedidoConfirmado)">Excluir</button></td>
       </tr>
-      <!--<tr (click)="linhaClicada()">
-        <td>2</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td><button class="btn btn-default btn-sm" (click)="excluir()">Excluir</button></td>
-      </tr>-->
+      <div class="modal" [class.show]="abrirModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!--<button type="button" class="close" (click)="linhaClicada()" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+            <div class="modal-header">
+              <div class="col-md-5">
+                <div class="thumbnail produto">
+                  <img src="http://localhost:3000/imagens-produtos/{{ imgProduto }}" alt="">
+                </div>
+              </div>
+              <div class="col-md-7">
+                <h3 class="modal-title">{{ nomeProduto }}</h3>
+              </div>
+              <div class="col-md-7">
+                <h3 class="modal-title">R$ {{ precoProduto }}</h3>
+              </div>
+              <div class="col-md-7">
+                <h5 class="modal-title">{{ descProduto }}</h5>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+
+                <div class="col-md-6">
+                  Peça encomendada por:
+                </div>
+                <div class="col-md-6">
+                  {{ nomeCliente }}
+                </div>
+
+                <br><br>
+
+                <div class="col-md-6">
+                  Destino:
+                </div>
+                <div class="col-md-6">
+                  {{ destPedido }}
+                </div>
+
+                <br><br>
+
+                <div class="col-md-6">
+                  Quantidade:
+                </div>
+                <div class="col-md-6">
+                  {{ qtdPedido }} <span *ngIf="qtdPedido>1">unidades</span> <span *ngIf="qtdPedido==1">unidade</span>
+                </div>
+                
+                <br><br>
+
+                <div class="col-md-6">
+                  Valor:
+                </div>
+                <div class="col-md-6">
+                  R$ {{ valorPedido }}
+                </div>
+
+                <br><br>
+
+                <div class="col-md-6">
+                  Data:
+                </div>
+                <div class="col-md-6">
+                  ainda não tem
+                </div>
+
+                <br><br>
+
+                <div class="col-md-6">
+                  Status:
+                </div>
+                <div class="col-md-6">
+                  {{ statusPedido }}
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-default" (click)="linhaClicada()">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal" [class.show]="abrirModal2">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!--<button type="button" class="close" (click)="linhaClicada()" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+            <div class="modal-header">
+              Excluir!
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-12">
+                  Deseja realmente excluir esse pedido do seu histórico? Essa ação é irreversível
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-default" (click)="confirmarExcluir()">Excluir</button>
+              <button class="btn btn-default" (click)="naoExcluir()">Não excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </tbody>
   </table>
   </div>
 </div>
 
-<div class="modal" [class.show]="abrirModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" (click)="linhaClicada()" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>One fine body…</p>
-      </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>-->
-    </div>
-  </div>
-</div>
