@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-navbar-cliente></app-navbar-cliente>
+<app-navbar></app-navbar>
 <div class="container">
   <app-capa-apresentacao [infoCapa]="infoPerfil" (irParaSaibaMais)="irParaSaibaMais()"></app-capa-apresentacao>
   <div class="sub-container">
@@ -15,26 +15,26 @@
   <div class="saiba-mais">
     <h1>Saiba mais</h1>
     <!-- modo de exibição -->
-    <div class="col-md-12" *ngIf="!modoEdicao">
+    <div class="col-md-12" [hidden]="modoEdicao">
       <div class="perfil col-md-3">
         <img src="assets/images/components/perfil-artesao/perfil.png" alt="">
         <span class="titulo col-md-12">{{ infoPerfil.nomeApresentacao }}</span> <br>
-        <span class="col-md-12">{{ infoPerfil.bio ? infoPerfil.bio : 'Adicionar ofício'}}</span> <br>
-        <span class="col-md-12"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{ infoPerfil.localizacao }}</span>
+        <span class="sub col-md-12">{{ infoPerfil.bio ? infoPerfil.bio : 'Adicionar ofício'}}</span> <br>
+        <span class="sub col-md-12"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>{{ infoPerfil.localizacao }}</span>
       </div>
       <div class="col-md-9 historia">
         <div class="col-md-12 nopadding">
-          <p class="titulo apresentacao col-md-12">{{ infoPerfil.apresentacao ? infoPerfil.apresentacao : 'Adicionar frase de efeito xD'}}</p>
+          <p class="titulo apresentacao col-md-12">{{ infoPerfil.apresentacao ? infoPerfil.apresentacao : 'Adicionar citação'}}</p>
           <p class="titulo col-md-12">Minha história</p>
           <p class="col-md-12">{{ infoPerfil.historia ? infoPerfil.historia : 'Adicionar história' }}</p>
         </div>
-        <div class="col-md-12 contatos nopadding">
-            <p class="titulo">Meus contatos</p>
-            <div class="col-md-6 nopadding">Telefone: <span class="">{{ infoPerfil.telefone ? infoPerfil.telefone : 'Adicionar número de telefone'}}</span></div>
-            <div class="col-md-6 nopadding">Facebook: <span class="">{{ infoPerfil.urlFacebook ? infoPerfil.urlFacebook : 'Adicionar link de perfil no Facebook'}}</span></div>
-            <div class="col-md-6 nopadding">Email: <span class="">{{ infoPerfil.email }}</span></div>
-            <div class="col-md-6 nopadding">Instagram: <span class="">{{ infoPerfil.urlInstagram ? inforPerfil.urlInstragram : 'Adicionar link de perfil no Instagram' }}</span></div>
-          </div>
+        <div class="contatos nopadding">
+          <p class="col-md-12 titulo">Meus contatos</p>
+          <div class="col-md-6">Telefone: <span class="">{{ infoPerfil.telefone ? infoPerfil.telefone : 'Adicionar número de telefone'}}</span></div>
+          <div class="col-md-6">Facebook: <span class="">{{ infoPerfil.urlFacebook ? infoPerfil.urlFacebook : 'Adicionar link de perfil no Facebook'}}</span></div>
+          <div class="col-md-6">Email: <span class="">{{ infoPerfil.email }}</span></div>
+          <div class="col-md-6">Instagram: <span class="">{{ infoPerfil.urlInstagram ? infoPerfil.urlInstagram : 'Adicionar link de perfil no Instagram'}}</span></div>
+        </div>
       </div>
       <div class="edicao-saiba-mais">
         <button type="button" class="btn btn-default btn-sm btn-editar" (click)="editarPerfil()">
@@ -42,28 +42,31 @@
         </button>
       </div>
     </div>
-
+  
     <!-- modo de edição -->
-    <div class="col-md-12" *ngIf="modoEdicao">
+    <div class="col-md-12" [hidden]="!modoEdicao">
       <div class="perfil col-md-3">
         <img src="assets/images/components/perfil-artesao/perfil.png" alt="">
-        <input class="titulo col-md-12" type="text" [(ngModel)]="infoPerfil.nomeApresentacao"> <br>
-        <input class="col-md-12" type="text" [(ngModel)]="infoPerfil.bio"> <br>
-        <span class="col-md-12"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{ infoPerfil.localizacao }}</span>
+        <input class="titulo col-md-11" type="text" maxlength="20" name="nomeApresentacao" [(ngModel)]="infoPerfil.nomeApresentacao" (keydown)="contadorCaracteresRestantes($event.target.name, 20)">
+        <app-contador-caracteres class="col-md-1"contador="{{ contadores.nomeApresentacao }}"></app-contador-caracteres>
+        <input class="sub col-md-11" type="text" maxlength="35" name="bio" placeholder="Ex.: Pintor(a), 5 anos de profissão" [(ngModel)]="infoPerfil.bio" (keydown)="contadorCaracteresRestantes($event.target.name, 35)">
+        <app-contador-caracteres class="col-md-1" contador="{{ contadores.bio }}"></app-contador-caracteres>
+        <input class="sub col-md-11" type="text" maxlength="25" name="localizacao" [(ngModel)]="infoPerfil.localizacao" (keydown)="contadorCaracteresRestantes($event.target.name, 25)">
+        <app-contador-caracteres class="col-md-1"> contador="{{ contadores.localizacao }}"></app-contador-caracteres>
       </div>
       <div class="col-md-9 historia">
         <div class="col-md-12 nopadding">
-          <p class="titulo apresentacao col-md-12">{{ infoPerfil.apresentacao ? infoPerfil.apresentacao : 'Adicionar frase de efeito xD'}}</p>
+          <input class="titulo apresentacao col-md-12" type="text" maxlength="95" placeholder="Ex.: Ser pintor(a) é mais que uma profissão, é uma paixão que alimento todos os dias." [(ngModel)]="infoPerfil.apresentacao">
           <p class="titulo col-md-12">Minha história</p>
-          <p class="col-md-12">{{ infoPerfil.historia ? infoPerfil.historia : 'Adicionar história' }}</p>
+          <textarea class="col-md-12" maxlenght="500" placeholder="Conte um pouco de sua história, como aprendeu sua técnica, seus interesses." [(ngModel)]="infoPerfil.historia"></textarea>
         </div>
-        <div class="col-md-12 contatos nopadding">
-            <p class="titulo">Meus contatos</p>
-            <div class="col-md-6 nopadding">Telefone: <span class="">{{ infoPerfil.telefone ? infoPerfil.telefone : 'Adicionar número de telefone'}}</span></div>
-            <div class="col-md-6 nopadding">Facebook: <span class="">{{ infoPerfil.urlFacebook ? infoPerfil.urlFacebook : 'Adicionar link de perfil no Facebook'}}</span></div>
-            <div class="col-md-6 nopadding">Email: <span class="">{{ infoPerfil.email }}</span></div>
-            <div class="col-md-6 nopadding">Instagram: <span class="">{{ infoPerfil.urlInstagram ? inforPerfil.urlInstragram : 'Adicionar link de perfil no Instagram' }}</span></div>
-          </div>
+        <div class="contatos nopadding">
+          <p class="col-md-12 titulo">Meus contatos</p>
+          <div class="col-md-6">Telefone: <input type="text" [textMask]="{mask:telefoneMask}" [(ngModel)]="infoPerfil.telefone"></div>
+          <div class="col-md-6">Facebook: <input type="text" maxlength="35" placeholder="Ex.: fb.com/nomedeusuario" [(ngModel)]="infoPerfil.urlFacebook"></div>
+          <div class="col-md-6">Email: <input type="text" maxlength="35" [(ngModel)]="infoPerfil.email"></div>
+          <div class="col-md-6">Instagram: <input type="text" maxlength="20" placeholder="Ex.: instagram.com/nomedeusuario" [(ngModel)]="infoPerfil.urlInstagram"></div>
+        </div>
       </div>
       <div class="edicao-saiba-mais">
         <div class="modo-edicao">
