@@ -16,11 +16,21 @@ export class RequestService{
 	};
 
 	get(url){
-    console.log("getting " + url)
+    // console.log("getting " + url)
     return this.http.get(url)
                         .map((res:Response) => res.json())
                         .catch((error:any) => Observable.throw(error.json().error));
   };
+
+  put(url, dados){
+    return this.http.put(url, dados)
+                        .map((res:Response) => res.json())
+                        .catch((error:any) => Observable.throw(error.json().error));
+  }
+
+  // delete(){
+    
+  // }
 
   // get(url): Promise<any>
   // {

@@ -18,53 +18,61 @@
 <!--<div class="component">-->
     <div class="formCadastro" (click)="close('')">
         <button (click)="close('close')" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <form>
+        <form *ngIf="!cadastroIniciado">
             <h1>Bem Vindo! :)</h1>
             <fieldset>
-
-
-                <!--<div class="input-group input" [class.has-error]="loginData.email.state === false">
-                    <input type="text" class="form-control" placeholder="Email" name="emailInput" [(ngModel)]="loginData.email.value" aria-describedby="basic-addon1">
-                    <app-mensagem-erro-input *ngIf="loginData.email.state === false" mensagemDeErro="{{loginData.email.message}}"></app-mensagem-erro-input>
+                <!--<div class="input-group input" [class.has-error]="formData.email.state === false">
+                    <input type="text" class="form-control" placeholder="Email" name="emailInput" [(ngModel)]="formData.email.value" aria-describedby="basic-addon1">
+                    <app-mensagem-erro-input *ngIf="formData.email.state === false" mensagemDeErro="{{formData.email.message}}"></app-mensagem-erro-input>
                 </div>
-                <div class="input-group input" [class.has-error]="loginData.password.state === false">
-                    <input type="password" class="form-control" placeholder="Senha" name="passwordInput" [(ngModel)]="loginData.password.value" aria-describedby="basic-addon1">
-                    <app-mensagem-erro-input *ngIf="loginData.password.state === false" mensagemDeErro="{{loginData.password.message}}"></app-mensagem-erro-input>
+                <div class="input-group input" [class.has-error]="formData.password.state === false">
+                    <input type="password" class="form-control" placeholder="Senha" name="passwordInput" [(ngModel)]="formData.password.value" aria-describedby="basic-addon1">
+                    <app-mensagem-erro-input *ngIf="formData.password.state === false" mensagemDeErro="{{formData.password.message}}"></app-mensagem-erro-input>
                 </div>-->
-
-
-                <div class="form-group input" [class.has-error]="loginData.email.state === false">
+                <div class="form-group input" [class.has-error]="formData.email.state === false">
                     <label for="email">Endereço de email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Informe o seu endereço de email" name="email" [(ngModel)]="loginData.email.value" (change)="verificaEmail()">
-                    <app-mensagem-erro-input *ngIf="loginData.email.state === false" mensagemDeErro="{{loginData.email.message}}"></app-mensagem-erro-input>
+                    <input type="email" class="form-control" id="email" placeholder="Informe o seu endereço de email" name="email" [(ngModel)]="formData.email.value" (change)="verificaEmail()">
+                    <app-mensagem-erro-input *ngIf="formData.email.state === false" mensagemDeErro="{{formData.email.message}}"></app-mensagem-erro-input>
                 </div>
-                <div class="form-group input" [class.has-error]="loginData.password.state === false">
+                <div class="form-group input" [class.has-error]="formData.password.state === false">
                     <label for="password">Senha</label>
-                    <input type="password" class="form-control" id="password" placeholder="Insira uma senha com no mínimo 8 digitos" name="password" [(ngModel)]="loginData.password.value" (change)="verificaSenha()">
-                    <app-mensagem-erro-input *ngIf="loginData.password.state === false" mensagemDeErro="{{loginData.password.message}}"></app-mensagem-erro-input>
+                    <input type="password" class="form-control" id="password" placeholder="Insira uma senha com no mínimo 8 digitos" name="password" [(ngModel)]="formData.password.value" (change)="verificaSenha()">
+                    <app-mensagem-erro-input *ngIf="formData.password.state === false" mensagemDeErro="{{formData.password.message}}"></app-mensagem-erro-input>
                 </div>
-                <div class="radio">
-                    <label>
-                    <input type="radio" name="user-type" value="cliente" (click)="cadastrarUsuario($event.target.value)"> Cliente
-                    </label>
-                    <label>
-                    <input  type="radio" name="user-type" value="artesao" (click)="cadastrarUsuario($event.target.value)"> Artesão
-                    </label>
-                     
-                    
-                </div>
+                <br>
                 <div class="pull-right">
                     <div class="btn-group btn-entrar">
-                        <!--<button type="submit" name="button" class="btn btn-primary btn-entrar" [class.disabled]="loading" (click)="login(); $event.stopPropagation()">-->
-                        
+                        <!--<button type="submit" name="button" class="btn btn-primary btn-entrar" [class.disabled]="loading" (click)="login(); $event.stopPropagation()">-->              
                         <button class="btn btn-default btn-md btn-entrar" [class.disabled]="loading" type="button" name="button" (click)="login(); $event.stopPropagation()">
                         <span *ngIf="loading" class="glyphicon glyphicon-repeat button-loading-icon" aria-hidden="true"></span>
                             {{ loginButtonText }}
                         </button>
                     </div>
                     <div class="btn-group btn-cadastro">
-                        <button routerLink="/cadastro" (click)="guardarDados({'email':email.value, 'senha':senha.value})" class="btn btn-primary btn-md" type="button">
+                        <button (click)="iniciarNovoCadastro()" class="btn btn-primary btn-md" type="button">
                             Cadastre-se
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <form *ngIf="cadastroIniciado">
+            <h3>Que tipo de usuário deseja cadastrar?</h3>
+            <fieldset>
+                <p>Se deseja fazer compras, cadastre-se como cliente.</p>
+                <p>Se deseja vender produtos artesanais, cadastre-se como artesão.</p>
+                <div class="radio">
+                    <label>
+                    <input type="radio" name="user-type" value="cliente" (click)="mudarTipoUsuario($event.target.value)"> Cliente
+                    </label>
+                    <label>
+                    <input  type="radio" name="user-type" value="artesao" (click)="mudarTipoUsuario($event.target.value)"> Artesão
+                    </label>       
+                </div>
+                <div class="pull-right">
+                    <div class="btn-group btn-cadastro">
+                        <button (click)="tipoUsuario !== null && iniciarNovoCadastro()" class="btn btn-primary btn-md" type="button" [class.disabled]="tipoUsuario === null">
+                            Continuar
                         </button>
                     </div>
                 </div>

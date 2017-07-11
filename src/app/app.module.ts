@@ -50,6 +50,7 @@ import { VerPecaComponent } from './loja-artesao-view/ver-peca/ver-peca.componen
 
 import { FileSelectDirective } from 'ng2-file-upload';
 import { HistoricoArtesaoComponent } from './tela-principal-artesao/historico-artesao/historico-artesao.component';
+import { ContadorCaracteresComponent } from './contador-caracteres/contador-caracteres.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { HistoricoArtesaoComponent } from './tela-principal-artesao/historico-ar
     InserirProdutoComponent,
     VerPecaComponent,
     FileSelectDirective,
-    HistoricoArtesaoComponent
+    HistoricoArtesaoComponent,
+    ContadorCaracteresComponent
   ],
   imports: [
     BrowserModule,
