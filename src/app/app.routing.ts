@@ -17,7 +17,8 @@ const APP_ROUTES: Routes = [
     {path:"tela_principal_cliente", component:TelaPrincipalClienteComponent},
     {path:"detalhe_produto", component:DetalheProdutoComponent},
     {path:"carrinho", component:PageCarrinhoComponent},
-    {path:"loja_artesao_view", component:LojaArtesaoViewComponent}    
+    {path:"loja_artesao_view", component:LojaArtesaoViewComponent},
+    {path:"perfil", component:PerfilArtesaoComponent}
 ]
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);

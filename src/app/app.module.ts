@@ -26,6 +26,7 @@ import { RequestService } from './services/request.service';
 import { UserDataHandlerService } from './services/user-data-handler.service';
 import { AuthenticationService } from './services/authentication.service';
 import { LojaArtesaoViewServiceService } from './loja-artesao-view/loja-artesao-view-service.service';
+import { TelaPrincipalArtesaoServiceService } from './tela-principal-artesao/tela-principal-artesao-service.service';
 
 import { NavbarClienteComponent } from './navbar-cliente/navbar-cliente.component';
 import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-principal-cliente.component';
@@ -49,6 +50,8 @@ import { VerPecaComponent } from './loja-artesao-view/ver-peca/ver-peca.componen
 
 import { FileSelectDirective } from 'ng2-file-upload';
 import { InfograficoComponent } from './page-start/infografico/infografico.component';
+import { HistoricoArtesaoComponent } from './tela-principal-artesao/historico-artesao/historico-artesao.component';
+import { ContadorCaracteresComponent } from './contador-caracteres/contador-caracteres.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +90,9 @@ import { InfograficoComponent } from './page-start/infografico/infografico.compo
     InserirProdutoComponent,
     VerPecaComponent,
     FileSelectDirective,
-    InfograficoComponent
+    InfograficoComponent,
+    HistoricoArtesaoComponent,
+    ContadorCaracteresComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +106,8 @@ import { InfograficoComponent } from './page-start/infografico/infografico.compo
     UserDataHandlerService,
     AuthenticationService,
     TelaPrincipalCienteService,
-    LojaArtesaoViewServiceService
+    LojaArtesaoViewServiceService,
+    TelaPrincipalArtesaoServiceService
   ],
   bootstrap: [AppComponent]
 })

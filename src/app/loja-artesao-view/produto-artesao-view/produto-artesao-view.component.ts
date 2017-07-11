@@ -16,23 +16,10 @@ export class ProdutoArtesaoViewComponent implements OnInit {
 
   ngOnInit() {
   }
-  // public nome: string = "";
-  // getNome(){
-  //   return this.nome;
-  // };
-  // public descricao: string = "";
-  // public unidades: string = "";
-  // public preco: string = "";
 
   public produtoSelecionado:Produto=null;
 
-  // pegarDados(imagem, nome, descricao, unidades, preco){
-    // console.log(imagem);
-    // this.servico.receberDados(imagem, nome, descricao, unidades, preco);
-    // console.log(dimensoes, categoria)
-  // }
   pegarDadosProduto(produto){
-    // this.produtoSelecionado = produto;
     console.log(produto);
     this.servico.selecionarProduto(produto);
   };

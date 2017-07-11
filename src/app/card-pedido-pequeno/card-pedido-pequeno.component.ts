@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TelaPrincipalArtesaoServiceService } from './../tela-principal-artesao/tela-principal-artesao-service.service';
 
 @Component({
   selector: 'app-card-pedido-pequeno',
@@ -7,51 +8,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardPedidoPequenoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public pedidosService: TelaPrincipalArtesaoServiceService) { }
   
-  pedidos = [{
-    "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
-    "nomeCliente":"Joana Da Silva",
-    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ",
-    "dataExpiracao":"5 dias 5:40min",
-    "quantidade":1,
-    "valor":54.99,
-    "dias":25
-  },
-  { "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
-    "nomeCliente":"Mariana Ferreira Da Silva",
-    "mensagem":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis velit sit amet nisi ullamcorper, et sollicitudin libero volutpat. Sed sodales ante non felis tincidunt convallis. Praesent et malesuada orci, eu sollicitudin ante. Mauris lobortis velit sit amet nisi ullamcorper, et sollicitudin libero volutpat. Sed sodales ante non felis tincidunt convallis. Praesent et malesuada orci, eu sollicitudin ante. ",
-    "dataExpiracao":"2 dias 5:40min",
-    "quantidade":2,
-    "valor":54.99,
-    "dias":22
-  },
-  { "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
-    "nomeCliente":"Mariana Ferreira Da Silva",
-    "mensagem":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis velit sit amet nisi ullamcorper, et sollicitudin libero volutpat. Sed sodales ante non felis tincidunt convallis. Praesent et malesuada orci, eu sollicitudin ante. ",
-    "dataExpiracao":"2 dias 5:40min",
-    "quantidade":2,
-    "valor":54.99,
-    "dias":22
-  },
-  { "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
-    "nomeCliente":"Joana Da Silva",
-    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ela ta fazendo 7 anos e queria uma lata de lixo. ",
-    "dataExpiracao":"5 dias 5:40min",
-    "quantidade":1,
-    "valor":54.99,
-    "dias":25
-  },
-  { "nomeProduto":"Lata de lixo feita com tampinhas de garrafa",
-    "nomeCliente":"Joana Da Silva",
-    "mensagem":"Olá, queria encomendar essa linda lata de lixo pro aniversário da minha sobrinha Jamile é muito importante pois ela adora latas de lixo, por isso preciso dela até o dia 26 de junho pra bater os parabéns dela, ela ta fazendo 7 anos e queria uma lata de lixo. ",
-    "dataExpiracao":"5 dias 5:40min",
-    "quantidade":1,
-    "valor":54.99,
-    "dias":25
-  }];
 
   ngOnInit() {
+    console.log(this.pedidosService.pedidos)
+  }
+  
+  abrirModal:boolean = false;
+
+  fecharModal(){
+    this.abrirModal = false;
+  }
+
+  confirmarPedido(produto){
+    console.log("pedido: " + produto);
+    if(produto.produto_id.estoque < produto.qtd){
+      // console.log('nao pode aceitar')
+      this.abrirModal = true;
+    }else{
+
+      this.pedidosService.confirmarPedido(produto).subscribe(
+        data => {console.log(data);
+                  let artesao_id = sessionStorage.getItem('userId'); 
+                  this.pedidosService.getPedidosArtesao(artesao_id).subscribe(
+                      data => {console.log(data); console.log(this.pedidosService.pedidos.length);
+                              if(this.pedidosService.pedidos.length==0){
+                                this.pedidosService.showZero = true;
+                              }else{
+                                this.pedidosService.showZero = false;
+                              }
+                            },
+                      error => console.log(error)
+                  )
+      },
+        error => console.log(error)
+      )
+      
+    }
+  }
+
+  recusarPedido(produto){
+    console.log(produto);
+    this.pedidosService.recusarPedido(produto).subscribe(
+      data => {console.log(data);
+                let artesao_id = sessionStorage.getItem('userId'); 
+                this.pedidosService.getPedidosArtesao(artesao_id).subscribe(
+                    data => {console.log(data); console.log(this.pedidosService.pedidos.length);
+                            if(this.pedidosService.pedidos.length==0){
+                              this.pedidosService.showZero = true;
+                            }else{
+                              this.pedidosService.showZero = false;
+                            }
+                          },
+                    error => console.log(error)
+                )
+    },
+      error => console.log(error)
+    )
   }
 
 }

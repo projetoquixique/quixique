@@ -1,0 +1,38 @@
+.dropdown-nav{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.total{
+    float: right;
+}
+.total h2{
+    color: rgb(3, 104, 113);
+}
+.header-table{
+    background-color: rgba(235, 126, 30, 0.9);
+    color: white;
+}
+.table-striped > tbody > tr:nth-of-type(even){
+    background-color: #F5F5F5;
+}
+.table-striped > tbody > tr:nth-of-type(odd){
+    background-color: transparent;
+}
+
+.table-striped > tbody > tr:hover{
+    background-color: #F0F0F0;
+    cursor: pointer
+}
+.modal.show {
+	display:block;
+}
+.btn-row-controll{
+    display: inline;
+    z-index: 100;
+}
+.produto{
+    max-width: 200px;
+}
+.pointer{
+    cursor: pointer;
+}

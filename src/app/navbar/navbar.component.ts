@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { MensagemErroInputComponent } from './../mensagem-erro-input/mensagem-erro-input.component';
 
 import { AuthenticationService } from './../services/authentication.service';
-import { RequestService } from './../services/request.service';
+
+// import { UserDataHandlerService } from './../services/user-data-handler.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +15,8 @@ import { RequestService } from './../services/request.service';
 
 export class NavbarComponent implements OnInit {
 
-	public urlPerfil:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username');
-  public urlLoja:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username') + "/loja";
-  // public idArtesao:string = localStorage.getItem('userId');
+  // public urlLoja:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username') + "/loja";
+  // public idArtesao:string = sessionStorage.getItem('userId');
 
   logout() {
     if (this.authService.logout()){
@@ -25,7 +25,8 @@ export class NavbarComponent implements OnInit {
   }
 
   constructor(private authService:AuthenticationService,
-              private requestService:RequestService,
+              // private requestService:RequestService,
+              // private userDataHandler:UserDataHandlerService,
               private router:Router) { }
 
   ngOnInit() {

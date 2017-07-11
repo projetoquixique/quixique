@@ -4,10 +4,42 @@ import { Injectable } from '@angular/core';
 export class UserDataHandlerService {
 	constructor(){} 
 
-    closeCurrentSession() {
-        localStorage.clear();
+    dadosPerfil;
+
+    newSession(userData) {
+        sessionStorage.setItem('userId', userData.userId);
+        sessionStorage.setItem('name', userData.nomeApresentacao);
+        sessionStorage.setItem('token', userData.token);
+        sessionStorage.setItem('username', userData.nomeDeUsuario);
+        sessionStorage.setItem('userType', userData.tipo);
     };
 
+    closeCurrentSession() {
+        sessionStorage.clear();
+    };
+
+    private newUserType;
+    private newUserTempData = null;
+    startSignUpFromStartPage(userType, userData) {
+        this.newUserType = userType;
+        this.newUserTempData = userData;
+    };
+
+    startSignupFromNavbar(userType){
+        this.newUserType = userType;
+    };
+
+    getUserType(){
+        return this.newUserType;
+    }
+
+    getNewUserTempData(){
+        if (this.newUserTempData) {
+            return this.newUserTempData;
+        } else {
+            return false;
+        }
+    }
 
     // dados para formulários de cadastro
  	newUserData;

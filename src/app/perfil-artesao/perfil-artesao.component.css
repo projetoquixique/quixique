@@ -50,13 +50,16 @@
 .saiba-mais .titulo {
   font-weight: bold;
   font-size: 18px !important;
-  margin-bottom: 0;
+  margin: 5px 0 0;
 }
-.historia .titulo, .contatos .col-md-6 {
-  padding-left: 3px;
+.historia .col-md-6 input {
+  width: 60%;
 }
-.saiba-mais .editavel {
-  padding: 4px;
+.historia .col-md-6 span, .historia .col-md-6 input {
+  margin-left: 5px;
+}
+.saiba-mais .sub {
+  margin: 5px 0 0;
 }
 .saiba-mais .historia {
   padding: 15px;
@@ -94,6 +97,31 @@
   bottom: -35px;
   opacity: 0;
 }
+input[type="text"], textarea {
+  background-color: #6d361c;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+}
+.perfil .col-md-11, .perfil .col-md-1 {
+  padding: 0;
+}
+.perfil input {
+  text-align: center;
+}
+.perfil input[type="text"]::-webkit-input-placeholder {
+  color: rgb(252, 180, 93);
+}
+.historia input[type="text"], .historia textarea {
+  background-color: #e28f2b;
+  resize: none;
+}
+.historia textarea {
+  height: 130px;
+}
+.historia input[type="text"]::-webkit-input-placeholder, .historia textarea::-webkit-input-placeholder {
+  color: rgb(109, 54, 28);
+}
 .nopadding {
   padding: 0;
 }
@@ -121,4 +149,7 @@ app-produtos-perfil-artesao >>> .col-md-4{
   padding: 0px;
   width: 290px;
   margin: 0 0 15px 0;
+}
+input[type='file'] {
+  display: none
 }

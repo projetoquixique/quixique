@@ -5,6 +5,9 @@
 
       <fieldset>
         <legend class="title">Adicione uma nova peça a sua loja!</legend>
+        
+        <br>
+        <p>Ao adicionar peças a sua loja os clientes podem vê-las e fazer pedidos delas! Não perca tempo, adicione agora sua mais nova criação :)</p>
 
         <legend><h4>Comece inserindo algumas imagens</h4></legend>
 
@@ -107,12 +110,43 @@
         <div class="col-md-12">
           <div class="botoes">
             <button class="btn btn-default">Cancelar</button>
-            <input type="submit" value="Adicionar" class="btn btn-primary" (click)="inserirProduto()">  
+            <button class="btn btn-primary" (click)="inserirProduto(); uploader.clearQueue()">Adicionar</button>
+            <!--<input type="submit" value="Adicionar" class="btn btn-primary" (click)="inserirProduto()">  -->
           </div>
         </div>
       </fieldset>
 
     </form>
+
+    <!--<div class="modal fade" [class.in]="abrirModal">-->
+      <div class="modal" [class.show]="abrirModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!--<button type="button" class="close" (click)="linhaClicada()" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+              <div class="modal-header">
+                <div class="sucess">
+                  <h3>
+                    Pronto!
+                  </h3>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-12">
+                   <h4>
+                     E pronto! sua peça foi adicionada a sua loja, você pode encontrá-la na lista de peças, boas vendas!
+                   </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-default" (click)="fecharModal()">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!--</div>-->
+
   </div>
 
 </div>
