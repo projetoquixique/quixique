@@ -59,7 +59,7 @@ export class InserirProdutoComponent implements OnInit {
 
   inserirProduto(){
     this.abrirModal = true;
-
+    
     // setTimeout(function(){ this.abrirModal = false }, 3000);
 
 

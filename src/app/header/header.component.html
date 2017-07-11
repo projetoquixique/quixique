@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-6" *ngIf="checkLogged()">
         <div class="pessoa">
-          <img class="foto" src="https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png" alt="">
+          <img class="foto" src="{{ profilePicture }}" alt="">
           <div class="nomePessoa dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ userNameSurname }} <span class="caret"></span>
           </div>

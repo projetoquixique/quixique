@@ -1,5 +1,10 @@
 :host {
   opacity: 0.5;
-  line-height: 2.2;
   float: right;
+  display: flex;
+  justify-content: center;
+  float: right;
+}
+span {
+
 }
