@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from './../services/authentication.service';
+import { RequestService } from './../services/request.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,11 @@ import { AuthenticationService } from './../services/authentication.service';
 export class HeaderComponent implements OnInit {
 
   constructor(private authService:AuthenticationService,
-              private router:Router) { }
+              private router:Router,
+              private requestService:RequestService) { }
 
-  userNameSurname;
+  private userNameSurname;
+  private profilePicture;
 
   logout() {
     if (this.authService.logout()){
@@ -34,5 +37,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.userNameSurname = sessionStorage.getItem('name');
+    this.profilePicture = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');
   }
 }

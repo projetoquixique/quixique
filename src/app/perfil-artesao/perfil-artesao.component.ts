@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { FileUploader } from 'ng2-file-upload';
 
-
 import { AuthenticationService } from './../services/authentication.service';
 import { UserDataHandlerService } from './../services/user-data-handler.service';
 import { RequestService } from './../services/request.service';
@@ -15,8 +14,6 @@ const URL = 'http://localhost:3000/api/perfil/upload';
   templateUrl: './perfil-artesao.component.html',
   styleUrls: ['./perfil-artesao.component.css']
 })
-
-
 
 export class PerfilArtesaoComponent implements OnInit {
 
@@ -39,13 +36,14 @@ export class PerfilArtesaoComponent implements OnInit {
   //   urlInstagram:"@mariaesculturas"
   // }
 
-  public urlPerfil:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username');
+  private urlPerfil:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username');
   private urlAtualizacaoDados:string = this.requestService.serverBaseUrl + "/artesao/" + sessionStorage.getItem('username') + "/atualizarperfil";
-  
+
   public telefoneMask = ['(', /\d/, /\d/, ')', ' ', /9/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   public infoPerfil = {
     nomeApresentacao:null,
+    fotoPerfil: null,
     bio:null,
     localizacao:null,
     apresentacao:null,
@@ -70,6 +68,8 @@ export class PerfilArtesaoComponent implements OnInit {
     urlInstagram:null
   }
 
+  
+
   contadorCaracteresRestantes(alvo, max){
     this.contadores[alvo] = (max - this.infoPerfil[alvo].length);
   }
@@ -79,6 +79,7 @@ export class PerfilArtesaoComponent implements OnInit {
       data => {
         this.userDataHandler.dadosPerfil = data;
         this.infoPerfil = this.userDataHandler.dadosPerfil;
+        this.infoPerfil.fotoPerfil = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');
       },
       error => {
         console.log(error);
@@ -100,6 +101,7 @@ export class PerfilArtesaoComponent implements OnInit {
   private modoEdicao:boolean = false;
 
   editarPerfil():void {
+    let backup = this.infoPerfil;
     $(".modo-edicao").css("opacity", 1);
     $(".btn-editar").hide();
     this.modoEdicao = true;

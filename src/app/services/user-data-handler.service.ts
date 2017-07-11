@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class UserDataHandlerService {
 	constructor(){} 
 
-    dadosPerfil;
+    public dadosPerfil;
 
     newSession(userData) {
         sessionStorage.setItem('userId', userData.userId);
@@ -12,6 +12,7 @@ export class UserDataHandlerService {
         sessionStorage.setItem('token', userData.token);
         sessionStorage.setItem('username', userData.nomeDeUsuario);
         sessionStorage.setItem('userType', userData.tipo);
+        sessionStorage.setItem('profilePicture', userData.fotoPerfil);
     };
 
     closeCurrentSession() {
