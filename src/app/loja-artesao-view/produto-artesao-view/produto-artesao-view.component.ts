@@ -24,7 +24,7 @@ export class ProdutoArtesaoViewComponent implements OnInit {
     this.servico.selecionarProduto(produto);
   };
 
-  showVerPecas(){
-    this.servico.showVerPecas()
-  }
+  // showVerPecas(){
+  //   this.servico.showVerPecas()
+  // }
 }

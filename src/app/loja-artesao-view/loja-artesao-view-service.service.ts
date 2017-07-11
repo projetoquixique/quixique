@@ -15,6 +15,8 @@ export class LojaArtesaoViewServiceService {
 
   constructor(private http: Http) { }
   
+
+  //abrir visualizador de peça
   verPecas: boolean = false;
   showVerPecas(){
     if(this.verPecas){
@@ -24,7 +26,25 @@ export class LojaArtesaoViewServiceService {
     }
   }
 
-  public imagem: string = "";
+
+  //variaveis do produto
+  // public imagem;
+  // getImagem(){
+  //   return this.imagem
+  // }
+  public aid;
+  getAid(){
+    return this.aid;
+  };
+  public id;
+  getId(){
+    return this.id;
+  };
+  // public imagem: string = "";
+  // getImagem(){
+  //   return this.imagem
+  // };
+  public imagem;
   getImagem(){
     return this.imagem
   };
@@ -48,25 +68,23 @@ export class LojaArtesaoViewServiceService {
   getCategoria(){
     return this.categoria;
   };
-  public dimensoes: any = [];
+  public dimensoes: any;
   getDimensoes(){
     return this.dimensoes;
   };
-  public _id = null;
-  
-  // public produto: Produto;
 
+  
+  //seleciona o produto pra exibir no visualizador
   selecionarProduto(produto:Produto){
+    this.aid = produto.artesao_id;
+    this.id = produto._id;
     this.imagem = produto.imagem;
     this.nome = produto.nome;
     this.descricao = produto.descricao;
     this.preco = produto.preco;
     this.estoque = produto.estoque;
     this.categoria = produto.categoria;
-    this.dimensoes.push(produto.dimensoes);
-    // this._id = produto._id;
-    // let id = produto._id;
-    console.log(this.dimensoes);
+    this.dimensoes = produto.dimensoes;
   }
 
   inserirProduto(produto){
@@ -83,7 +101,7 @@ export class LojaArtesaoViewServiceService {
           .map((response: Response)=>{
             let produtos:Produto[] = [];
             for(let produto of response.json()){
-              produtos.push(new Produto(produto._id, produto.artesao_id, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
+              produtos.push(new Produto(produto._id, produto.aid, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
             }
             this.produtos = produtos;
             return produtos;
@@ -91,12 +109,12 @@ export class LojaArtesaoViewServiceService {
           .catch((error: Response)=> Observable.throw(error));
   }
 
-  getProdutosArtesao(aid){
-    return this.http.get(this.uriBase+"/api/produtos/"+aid)
+  getProdutosArtesao(artesao_id){
+    return this.http.get(this.uriBase+"/api/produtos/"+artesao_id)
           .map((response: Response)=>{
             let produtos:Produto[] = [];
             for(let produto of response.json()){
-              produtos.push(new Produto(produto._id, produto.artesao_id, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
+              produtos.push(new Produto(produto._id, produto.aid, produto.imagem, produto.nome, produto.descricao, produto.preco, produto.dimensoes, produto.categoria, produto.estoque))
             }
             this.produtos = produtos;
             return produtos;
@@ -105,7 +123,14 @@ export class LojaArtesaoViewServiceService {
   }
 
   editarProduto(produto: Produto){
-    return this.http.put(this.uriBase+"/api/produtos/"+this._id, produto)
+    // this.id = produto._id;
+    return this.http.put(this.uriBase+"/api/produtos/"+this.id, produto)
+        .map((response: Response) =>{ response.json()})
+        .catch((error: Response) => Observable.throw(error));
+  }
+
+  deletarPeca(){
+    return this.http.delete(this.uriBase+"/api/produtos/"+this.id)
         .map((response: Response) =>{ response.json()})
         .catch((error: Response) => Observable.throw(error));
   }

@@ -106,10 +106,39 @@
           <div class="row">
             <div class="col-md-12">
               <div class="botoes">
-                <button class="btn btn-default" (click)="recusarPedido(pedido)">Recusar</button>
+                <!--<button class="btn btn-default" (click)="recusarPedido(pedido)">Recusar</button>-->
+                <button class="btn btn-default" (click)="abrirModalRecusar()">Recusar</button>
                 <button class="btn btn-primary" (click)="confirmarPedido(pedido)">Confirmar</button>
               </div>
             </div>
+
+              <div class="modal" [class.show]="abrirModalRec">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="sucess">
+                        <h3>
+                          Recusar pedido!
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>
+                              Tem certeza que deseja recusar este pedido? Esta ação é irreversível!
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-default" (click)="recusarPedido(pedido); fecharModalRecusar()">Recusar</button>
+                      <button class="btn btn-primary" (click)="fecharModalRecusar()">Não recusar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
           </div>
         </div>
 
@@ -147,3 +176,31 @@
       </div>
     </div>
   </div>
+
+
+<!--<div class="modal" [class.show]="abrirModalRec">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="sucess">
+            <h3>
+              Recusar pedido!
+            </h3>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>
+                  Tem certeza que deseja recusar este pedido? Esta ação é irreversível!
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" (click)="fecharModal()">Recusar</button>
+          <button class="btn btn-primary" (click)="fecharModal()">Não recusar</button>
+        </div>
+      </div>
+    </div>
+  </div>-->

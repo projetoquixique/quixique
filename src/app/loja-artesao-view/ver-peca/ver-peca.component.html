@@ -4,8 +4,30 @@
       <div class="thumbnail">
         <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[0] }}">
       </div>
-      <div *ngIf="servico.getImagem().length>1" class="thumbnail">
+      <!--<div *ngIf="servico.getImagem().length>1" class="thumbnail">
           <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+      </div>-->
+      <div class="row" *ngIf="servico.getImagem().length>1">
+        <div class="col-md-4 miniatura">
+          <div class="thumbnail">
+            <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 miniatura">
+          <div class="thumbnail miniatura">
+            <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+          </div>
+        </div>
+        <div class="col-md-4 miniatura">
+          <div class="thumbnail">
+            <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+          </div>
+        </div>
+        <!--<div class="col-md-3 miniatura">
+          <div class="thumbnail">
+            <img *ngIf="servico.getImagem().length>1" src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+          </div>
+        </div>-->
       </div>
     </div>
     <div class="infos" *ngIf="!showEdit">
@@ -19,7 +41,7 @@
       <h4 class="col-md-6">Categoria:</h4>
       <h4 class="col-md-6">{{ servico.getCategoria() }}</h4>
       <h4 class="col-md-6">Dimensões:</h4>
-      <h5 class="col-md-6">{{ servico.getDimensoes()[0][0] }}cm &#10005; {{ servico.getDimensoes()[0][1] }}cm &#10005; {{ servico.getDimensoes()[0][2] }}cm</h5>
+      <h5 class="col-md-6">{{ servico.getDimensoes()[0] }}cm &#10005; {{ servico.getDimensoes()[1] }}cm &#10005; {{ servico.getDimensoes()[2] }}cm</h5>
       <!--<h5 class="col-md-6"> {{ servico._id }} </h5>-->
       </div>
 
@@ -78,7 +100,36 @@
 
     <div class="row" style="margin-top:10px;">
       <div class="col-md-4">
-          <button class="btn btn-default" *ngIf="showEdit">Excluir</button>
+          <button class="btn btn-default" *ngIf="showEdit" (click)="abriModalDelete()">Excluir</button>
+
+              <div class="modal" [class.show]="abrirModalExc">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="sucess">
+                        <h3>
+                          Excluir Peça!
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h4>
+                              Tem certeza que deseja excluir esta peça? Esta ação é irreversível e todos os pedidos da peça serão removidos!
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-default" (click)="deletarPeca(); fecharModalExc()">Excluir</button>
+                      <button class="btn btn-primary" (click)="fecharModalExc()">Não excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+
       </div>
       <div class="col-md-8">
         <div class="botoes">

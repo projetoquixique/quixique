@@ -67,5 +67,12 @@ export class CardPedidoPequenoComponent implements OnInit {
       error => console.log(error)
     )
   }
+  abrirModalRec:boolean = false;
+  abrirModalRecusar(){
+    this.abrirModalRec = true;
+  }
+  fecharModalRecusar(){
+    this.abrirModalRec = false;
+  }
 
 }
