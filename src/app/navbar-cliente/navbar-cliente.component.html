@@ -20,11 +20,11 @@
           <a id="category" href=""><span class="glyphicon glyphicon-menu-hamburger"></span> <span> CATEGORIAS </span><span class="caret"></span></a>
           <ul id="menu-dropdown">
             <!--<li id="category"><a href="">CATEGORIAS</a> </li>-->
-            <li *ngFor="let category of categories">
+            <li *ngFor="let category of categories; let i = index">
               <a> {{ category.nome }}  </a>
               <div class="preview">
-                <div class="container-object-fit">
-                  <img class="item-object-fit" src="../../../assets/images/components/categories-banners/{{category.src}}" alt="{{category.nome}}">
+                <div #container class="container-object-fit">
+                  <img #img (load)="ajustCover(img)"class="item-object-fit {{ itemClass[i] }}" src="../../../assets/images/components/categories-banners/{{category.src}}" alt="{{category.nome}}">
                 </div>
                 <p>{{ category.descricao }}</p>
               </div>

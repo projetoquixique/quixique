@@ -33,9 +33,7 @@ export class CategoriesComponent implements OnInit {
     new Category("Bijuteria","Sua oportunidade de ficar ainda mais deslumbrante, valorizando seu charme de forma barata e elegante.","thumb (10).png"),
     new Category("Vestuário","Do popular ao estilizado, nossos artesãos possuem nas mãos, a capacidade de representar os valores de cada cliente.","thumb (11).png"),
     new Category("Recicláveis","Recriar é um dom que você verá por aqui. De uma coisa sem valor à um objeto de valor.","thumb (12).png"),
-  ];
-
-  
+  ];  
 
   ngOnInit() {
   }

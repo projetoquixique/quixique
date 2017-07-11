@@ -1,12 +1,12 @@
 <div class="col-sm-6 col-md-4 component">
-    <div class="thumbnail container-object-fit">
+    <div #container class="thumbnail container-object-fit">
         <div class="filtro caption">
             <div class="caption">
                 <h1>{{category.nome}}</h1>
                 <h4>{{category.descricao}}</h4>
             </div>
         </div>
-        <img class="item-object-fit" src="../../../assets/images/components/categories-thumbnail/{{category.src}}" alt="...">
+        <img class="item-object-fit {{itemClass}}" src="../../../assets/images/components/categories-thumbnail/{{category.src}}" alt="...">
         <!--<div class="img" style='background-image: url("../../../../assets/images/components/categorie-thumbnail/img-01.jpg")'></div>-->
     </div>
 </div>

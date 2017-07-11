@@ -8,15 +8,20 @@ export class TelaPrincipalCienteService{
 
     public valorTotal:number = 0;
 
-   
+    qtd = {};
+
+    chageQtd(){
+        // this.qtd[productId] = qtd;
+        this.setStorage('quantidade', this.qtd);
+    }
 
     setStorage(chave:string, valor:any){
         valor = JSON.stringify(valor);
-        localStorage.setItem(chave,valor);
+        sessionStorage.setItem(chave,valor);
     }
 
     getStorage(chave){
-        let value:any = localStorage.getItem(chave);
+        let value:any = sessionStorage.getItem(chave);
         if(value && value !== null && value !== undefined){
             return JSON.parse(value);
         }
@@ -27,7 +32,9 @@ export class TelaPrincipalCienteService{
         this.qtdCarrinho = this.carrinho.length;
         if(this.check(produto)) return true;
         this.carrinho.push(produto);
-        this.setStorage('produtos', this.carrinho); 
+        this.setStorage('produtos', this.carrinho);
+        this.qtd[produto.id] = 1;
+        this.setStorage('quantidade', this.qtd);
         this.update();
     }
 
@@ -39,6 +46,7 @@ export class TelaPrincipalCienteService{
         }
         this.setStorage('produtos', this.carrinho);
         this.update();
+        return false;
     }
 
     check(produto){
@@ -53,9 +61,9 @@ export class TelaPrincipalCienteService{
     sumProducts(){
         this.valorTotal = 0;
         for(let i in this.carrinho){
-            this.valorTotal += this.carrinho[i].preco;
+            this.valorTotal += (this.carrinho[i].preco * this.qtd[this.carrinho[i].id]);
         }
-        
+        this.chageQtd();
     }
 
     parsePrice(price:any){
@@ -68,6 +76,7 @@ export class TelaPrincipalCienteService{
 
     start(){
         let produtos:any = this.getStorage('produtos');
+        if(this.getStorage('quantidade') != false) this.qtd = this.getStorage('quantidade');
         if(produtos != false){
             this.carrinho = produtos;
             this.sumProducts();

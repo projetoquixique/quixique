@@ -64,34 +64,10 @@ div.img{
     height: 100vh;
 }
 
-div.img.i01{
-    background-image: url("../../../assets/images/components/carrossel/01.jpg");
-}
 
-div.img.i02{
-    background-image: url("../../../assets/images/components/carrossel/02.jpg");
-}
-div.img.i03{
-    background-image: url("../../../assets/images/components/carrossel/03.png");
-}
 
-div.img.i04{
-    background-image: url("../../../assets/images/components/carrossel/04.jpg");
-}
-
-div.img.PB-01{
-    background-image: url("../../../assets/images/components/carrossel/PB-01.jpg");
-}
-
-div.img.PB-02{
-    background-image: url("../../../assets/images/components/carrossel/PB-02.jpg");
-}
-div.img.PB-03{
-    background-image: url("../../../assets/images/components/carrossel/PB-03.png");
-}
-
-div.img.PB-04{
-    background-image: url("../../../assets/images/components/carrossel/PB-04.jpg");
+div.{
+    background-image: url("../../../assets/images/components/infografico/info (0).jpg");
 }
 
 .carousel-indicators {
@@ -143,4 +119,13 @@ div.img.PB-04{
     background-image: linear-gradient(to bottom, rgba(247,143,30,0.7), rgba(123,59,26,0.7));
     position: absolute;
     z-index: 20;
+}
+
+.container-object-fit {
+    width: 100vw;
+    height: 100vh;
+}
+
+.carousel-inner img{
+    width: initial;
 }

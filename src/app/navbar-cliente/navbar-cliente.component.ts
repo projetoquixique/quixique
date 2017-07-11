@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from './../services/authentication.service';
@@ -12,7 +12,13 @@ import * as $ from 'jquery';
   templateUrl: './navbar-cliente.component.html',
   styleUrls: ['./navbar-cliente.component.css']
 })
-export class NavbarClienteComponent implements OnInit {
+export class NavbarClienteComponent implements OnInit, AfterViewInit{
+
+  @ViewChildren('container') container:any;
+
+  itemClass = [];
+
+  containerAspectRatio;
 
  @Input() categories:Array<Category> = [
     new Category("Madeira","Encontre aqui as melhores peças esculpidas em madeira para decoração.","banner (1).png"),
@@ -42,28 +48,42 @@ export class NavbarClienteComponent implements OnInit {
   // carrinho:Array<any> = this.clientService.carrinho;
   // qtdCarrinho:number = this.clientService.qtdCarrinho;
 
-  ajustCover(){
-    $(document).ready(function(){
-      $('.container-object-fit').find('.item-object-fit').each(function() {
-          var itemClass;
-          var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-          // var imgAspectRatio = this.width/this.height; não funciona com videos
+  // ajustCover(){
+  //   $(document).ready(function(){
+  //     $('.container-object-fit').find('.item-object-fit').each(function() {
+  //         var itemClass;
+  //         var imgAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+  //         // var imgAspectRatio = this.width/this.height; não funciona com videos
 
-          $('.container-object-fit').each(function(){
-              var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
-              if(imgAspectRatio > containerAspectRatio){
-                  itemClass = 'tall';
-              }else{
-                  itemClass = 'wide';                                    
-              }
-          });
-          $(this).addClass(itemClass);
-      })
-    });
+  //         $('.container-object-fit').each(function(){
+  //             var containerAspectRatio = $(this).innerWidth()/$(this).innerHeight();
+  //             if(imgAspectRatio > containerAspectRatio){
+  //                 itemClass = 'tall';
+  //             }else{
+  //                 itemClass = 'wide';                                    
+  //             }
+  //         });
+  //         $(this).addClass(itemClass);
+  //     })
+  //   });
+  // }
+
+  ajustCover(img){
+    var imgAspectRatio = img.naturalHeight/img.naturalWidth;
+
+    if(imgAspectRatio < this.containerAspectRatio){
+        this.itemClass.push('tall');
+    }else{
+        this.itemClass.push('wide');                                
+    } 
+  }
+
+  ngAfterViewInit(){
+    this.containerAspectRatio = this.container._results[0].nativeElement.clientHeight/this.container._results[0].nativeElement.clientWidth;
   }
 
   ngOnInit() {
-    this.ajustCover();
+    // this.ajustCover();
     this.clientService.start();
   }
 

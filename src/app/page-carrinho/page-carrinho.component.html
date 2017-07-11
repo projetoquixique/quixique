@@ -1,6 +1,7 @@
 <div id="component">
   <header>
-    <app-header></app-header>
+    <app-header *ngIf="logged == false" ></app-header>
+    <app-navbar-start *ngIf="logged == false"></app-navbar-start>  
   </header>
 
   <!--<app-navbar-cliente></app-navbar-cliente>-->
@@ -8,7 +9,7 @@
   <div *ngIf="page == 0" class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>{{ title }}</h4>
+        <h4>{{ title1 }}</h4>
         <!--<ul class="nav nav-pills">
           <span class="glyphicon glyphicon-cart"></span>
           <li><a href="#">Messages <span class="badge">3</span></a></li>
@@ -18,7 +19,7 @@
         <div class="list">
           <div class="list-group">
             <!--routerLink="/detalhe_produto"-->
-            <a class="list-group-item" *ngFor="let produto of clientService.carrinho; let i = index" >
+            <a routerLink="/detalhe_produto" class="list-group-item" *ngFor="let produto of clientService.carrinho; let i = index" >
               <div class="container-object-fit">
                 <img class="item-object-fit" src="./assets/images/components/produtos/{{clientService.carrinho[i].img}}" alt="">
               </div>
@@ -28,14 +29,8 @@
                 <h3 class="">R$ {{ clientService.parsePrice(clientService.carrinho[i].preco) }}</h3>
               </div>
               <div (click)="$event.stopPropagation(); $event.preventDefault()" class="controls">
-                <a (click)="clientService.removeFromCart(produto)" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a>
-                <select class="form-control" id="select">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <input class="form-control" (change)="clientService.sumProducts()" [(ngModel)]="clientService.qtd[produto.id]" type="number" name="qtd" value="" max="{{ clientService.carrinho[i].estoque }}" min="1">
+                <a (click)="clientService.removeFromCart(produto)" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> remover</a>
               </div>
             </a>
             <div class="info" *ngIf="clientService.carrinho.length == 0" >
@@ -58,13 +53,51 @@
   <div *ngIf="page == 1" class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>{{ title }}</h4>
+        <h4>{{ title1 }}</h4>
         <!--<ul class="nav nav-pills">
           <span class="glyphicon glyphicon-cart"></span>
           <li><a href="#">Messages <span class="badge">3</span></a></li>
         </ul>-->
       </div>
       <div class="panel-body">
+
+        <fieldset>
+        <legend>{{ title2 }}</legend>
+        <div class="form-group col-md-4">
+          <label for="inputLogradouro" class="control-label">Logradouro</label>
+          <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro">
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="inputNumero" class="control-label">Número</label>
+          <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero">
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="inputComplemento" class="control-label" [class.has-error]="verificadores.complemento == false">Complemento</label>
+          <input type="text" class="form-control" id="inputComplemento" placeholder="Se houver" name="complemento">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputBairro" class="control-label">Bairro</label>
+          <input type="text" class="form-control" id="inputBairro" placeholder="Informe o bairro" name="bairro">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputCidade" class="control-label">Cidade</label>
+          <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade onde você vive" name="cidade">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputEstado" class="control-label">Estado</label>
+          <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado" name="estado">
+        </div>
+
+        <div class="form-group col-md-4">       
+          <label for="inputCep" class="control-label">CEP</label>
+          <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep">
+        </div>
+      </fieldset>
         
       </div>
     </div>

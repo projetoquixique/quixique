@@ -48,6 +48,7 @@ import { InserirProdutoComponent } from './loja-artesao-view/inserir-produto/ins
 import { VerPecaComponent } from './loja-artesao-view/ver-peca/ver-peca.component';
 
 import { FileSelectDirective } from 'ng2-file-upload';
+import { InfograficoComponent } from './page-start/infografico/infografico.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     ProdutoArtesaoViewComponent,
     InserirProdutoComponent,
     VerPecaComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    InfograficoComponent
   ],
   imports: [
     BrowserModule,

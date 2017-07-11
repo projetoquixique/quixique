@@ -1,0 +1,51 @@
+<div id="infografico">
+    <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div #container class="container-object-fit">
+                    <img #img1 (load)="ajustCover(img1)" class="item-object-fit {{ itemClass[0] }}" src="./assets/images/components/infografico/info (1).png" >
+                </div>
+            </div>
+            <div class="item">
+                <div class="container-object-fit">
+                    <img #img2 (load)="ajustCover(img2)" class="item-object-fit {{ itemClass[1] }}" src="./assets/images/components/infografico/info (2).png" >
+                </div>
+            </div>
+            <div class="item">
+                <div class="container-object-fit">
+                    <img #img3 (load)="ajustCover(img3)" class="item-object-fit {{ itemClass[2] }}" src="./assets/images/components/infografico/info (3).png" >
+                </div>
+            </div>
+            <div class="item">
+                <div class="container-object-fit">
+                    <img #img4 (load)="ajustCover(img4)" class="item-object-fit {{ itemClass[3] }}" src="./assets/images/components/infografico/info (4).png" >
+                </div>
+            </div>
+            <div class="item">
+                <div class="container-object-fit">
+                    <img #img5 (load)="ajustCover(img5)" class="item-object-fit {{ itemClass[4] }}" src="./assets/images/components/infografico/info (5).png" >
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
