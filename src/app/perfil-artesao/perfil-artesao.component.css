@@ -112,6 +112,24 @@ input[type="text"], textarea {
 .perfil input[type="text"]::-webkit-input-placeholder {
   color: rgb(252, 180, 93);
 }
+.btn-enviar-foto-perfil {
+  position: absolute;
+  bottom: 100px;
+  right: 10px;
+}
+.upload {
+  text-align: right;
+  position: absolute;
+  top: 165px;
+  right: 10px;
+}
+.upload button {
+  margin-left: 5px;
+}
+.filename {
+  display: block;
+  margin-bottom: 5px;
+}
 .historia input[type="text"], .historia textarea {
   background-color: #e28f2b;
   resize: none;
