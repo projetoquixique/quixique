@@ -2,6 +2,8 @@ import { Produto } from './../produto-artesao-view/produto.model';
 import { Component, OnInit } from '@angular/core';
 import { LojaArtesaoViewServiceService } from './../loja-artesao-view-service.service';
 
+import { RequestService } from './../../services/request.service';
+
 @Component({
   selector: 'app-ver-peca',
   templateUrl: './ver-peca.component.html',
@@ -9,10 +11,13 @@ import { LojaArtesaoViewServiceService } from './../loja-artesao-view-service.se
 })
 export class VerPecaComponent implements OnInit {
 
-  constructor(public servico: LojaArtesaoViewServiceService) { }
+  constructor(public servico: LojaArtesaoViewServiceService,
+              private requestService:RequestService) { }
 
   ngOnInit() {
   }
+
+  serverBaseImageUrl = this.requestService.serverBaseImageUrl;
   
   // public produtos:Produto[] = null;
 

@@ -16,7 +16,9 @@ export class LojaArtesaoViewComponent implements OnInit {
 
   produtos:Produto[] = null;
 
-  constructor(public servico: LojaArtesaoViewServiceService, public authService: AuthenticationService, private router:Router) { }
+  constructor(public servico: LojaArtesaoViewServiceService,
+              public authService: AuthenticationService, 
+              private router:Router) { }
   
   showZero:boolean = this.servico.showZero;
 

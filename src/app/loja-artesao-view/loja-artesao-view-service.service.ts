@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Produto } from './produto-artesao-view/produto.model';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
+import { RequestService } from './../services/request.service';
+
+import { Produto } from './produto-artesao-view/produto.model';
 
 @Injectable()
 export class LojaArtesaoViewServiceService {
 
-  public uriBase = "http://localhost:3000";
+  public uriBase = this.requestService.serverBaseUrl;
 
   produtos:Produto[] = [];
 
   showZero:boolean = false;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+              private requestService:RequestService) { }
   
 
   //abrir visualizador de peça
@@ -91,13 +94,13 @@ export class LojaArtesaoViewServiceService {
     console.log(produto);
     this.produtos.unshift(produto);
     console.log(this.produtos);
-    return this.http.post(this.uriBase+"/api/produtos", produto)
+    return this.http.post(this.uriBase+"/produtos", produto)
         .map((response: Response) =>{ response.json()})
         .catch((error: Response) => Observable.throw(error));
   }
 
   listarProdutos(){
-    return this.http.get(this.uriBase+"/api/produtos")
+    return this.http.get(this.uriBase+"/produtos")
           .map((response: Response)=>{
             let produtos:Produto[] = [];
             for(let produto of response.json()){
@@ -110,7 +113,7 @@ export class LojaArtesaoViewServiceService {
   }
 
   getProdutosArtesao(artesao_id){
-    return this.http.get(this.uriBase+"/api/produtos/"+artesao_id)
+    return this.http.get(this.uriBase+"/produtos/"+artesao_id)
           .map((response: Response)=>{
             let produtos:Produto[] = [];
             for(let produto of response.json()){
@@ -124,13 +127,13 @@ export class LojaArtesaoViewServiceService {
 
   editarProduto(produto: Produto){
     // this.id = produto._id;
-    return this.http.put(this.uriBase+"/api/produtos/"+this.id, produto)
+    return this.http.put(this.uriBase+"/produtos/"+this.id, produto)
         .map((response: Response) =>{ response.json()})
         .catch((error: Response) => Observable.throw(error));
   }
 
   deletarPeca(){
-    return this.http.delete(this.uriBase+"/api/produtos/"+this.id)
+    return this.http.delete(this.uriBase+"/produtos/"+this.id)
         .map((response: Response) =>{ response.json()})
         .catch((error: Response) => Observable.throw(error));
   }

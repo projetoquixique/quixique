@@ -7,8 +7,6 @@ import { AuthenticationService } from './../services/authentication.service';
 import { UserDataHandlerService } from './../services/user-data-handler.service';
 import { RequestService } from './../services/request.service';
 
-const URL = 'http://localhost:3000/api/perfil/upload';
-
 @Component({
   selector: 'app-perfil-artesao',
   templateUrl: './perfil-artesao.component.html',
@@ -17,7 +15,9 @@ const URL = 'http://localhost:3000/api/perfil/upload';
 
 export class PerfilArtesaoComponent implements OnInit {
 
-  public uploader:FileUploader = new FileUploader({url:URL});
+  private URL = this.requestService.serverBaseUrl + '/perfil/upload';
+
+  public uploader:FileUploader = new FileUploader({url:this.URL});
 
   public texto:string = '';
 
@@ -68,8 +68,6 @@ export class PerfilArtesaoComponent implements OnInit {
     urlInstagram:null
   }
 
-  
-
   contadorCaracteresRestantes(alvo, max){
     this.contadores[alvo] = (max - this.infoPerfil[alvo].length);
   }
@@ -79,7 +77,11 @@ export class PerfilArtesaoComponent implements OnInit {
       data => {
         this.userDataHandler.dadosPerfil = data;
         this.infoPerfil = this.userDataHandler.dadosPerfil;
-        this.infoPerfil.fotoPerfil = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');
+        if (sessionStorage.getItem('profilePicture') !== undefined) {
+          this.infoPerfil.fotoPerfil = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');
+        } else {
+          this.infoPerfil.fotoPerfil = "https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png";
+        }
       },
       error => {
         console.log(error);
@@ -92,6 +94,7 @@ export class PerfilArtesaoComponent implements OnInit {
     this.requestService.put(this.urlAtualizacaoDados, this.infoPerfil).subscribe(
       data => { 
         sessionStorage.setItem('name', this.infoPerfil.nomeApresentacao);
+        sessionStorage.setItem('profilePicture', this.infoPerfil.fotoPerfil);
       },
       error => {
         alert("Houve um erro. Por favor, tente novamente.");
@@ -101,16 +104,17 @@ export class PerfilArtesaoComponent implements OnInit {
   private modoEdicao:boolean = false;
 
   editarPerfil():void {
-    let backup = this.infoPerfil;
+    sessionStorage.setItem('backupInfoPerfil', JSON.stringify(this.infoPerfil));
     $(".modo-edicao").css("opacity", 1);
     $(".btn-editar").hide();
     this.modoEdicao = true;
   }
 
   cancelarEdicao():void {
+    this.infoPerfil = JSON.parse(sessionStorage.getItem('backupInfoPerfil'));
+    sessionStorage.removeItem('backupInfoPerfil');
     $(".btn-editar").show();
     this.modoEdicao = false;
-    this.infoPerfil = this.userDataHandler.dadosPerfil;
   }
 
   irParaSaibaMais():void {

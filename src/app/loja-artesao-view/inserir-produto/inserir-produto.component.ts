@@ -4,10 +4,10 @@ import { LojaArtesaoViewServiceService } from './../loja-artesao-view-service.se
 import { Produto } from './../produto-artesao-view/produto.model';
 import { FileUploader } from 'ng2-file-upload';
 
+import { RequestService } from './../../services/request.service';
 
 // var ng2_file_upload_1 = require("ng2-file-upload");
 // const URL = '/api/';
-const URL = 'http://localhost:3000/api/produtos/upload';
 
 @Component({
   selector: 'app-inserir-produto',
@@ -15,13 +15,17 @@ const URL = 'http://localhost:3000/api/produtos/upload';
   styleUrls: ['./inserir-produto.component.css']
   // providers: [LojaArtesaoViewServiceService]
 })
+
 export class InserirProdutoComponent implements OnInit {
+
+  private URL = this.requestService.serverBaseUrl + '/produtos/upload';
   
-  public uploader:FileUploader = new FileUploader({url:URL});
+  public uploader:FileUploader = new FileUploader({url:this.URL});
   // public uploader = new ng2_file_upload_1.FileUploader({ url: URL });
 
 
-  constructor(public servico: LojaArtesaoViewServiceService) { }
+  constructor(public servico: LojaArtesaoViewServiceService,
+              private requestService:RequestService) { }
   
   // public produtoView: ProdutoArtesaoViewComponent;
   

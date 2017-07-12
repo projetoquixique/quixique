@@ -3,16 +3,21 @@ import { LojaArtesaoViewServiceService } from './../loja-artesao-view-service.se
 import { LojaArtesaoViewComponent } from './../loja-artesao-view.component';
 import { Produto } from './produto.model';
 
+import { RequestService } from './../../services/request.service';
+
 @Component({
   selector: 'app-produto-artesao-view',
   templateUrl: './produto-artesao-view.component.html',
   styleUrls: ['./produto-artesao-view.component.css']
 })
 export class ProdutoArtesaoViewComponent implements OnInit {
+
+  serverBaseImageUrl = this.requestService.serverBaseImageUrl;
   
   @Input() produto;
 
-  constructor(public servico: LojaArtesaoViewServiceService) { }
+  constructor(public servico: LojaArtesaoViewServiceService,
+              private requestService:RequestService) { }
 
   ngOnInit() {
   }

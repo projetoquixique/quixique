@@ -117,6 +117,9 @@ input[type="text"], textarea {
   bottom: 100px;
   right: 10px;
 }
+.glyphicon-map-marker {
+  padding-right: 5px;
+}
 .upload {
   text-align: right;
   position: absolute;

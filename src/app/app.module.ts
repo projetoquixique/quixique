@@ -52,6 +52,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { InfograficoComponent } from './page-start/infografico/infografico.component';
 import { HistoricoArtesaoComponent } from './tela-principal-artesao/historico-artesao/historico-artesao.component';
 import { ContadorCaracteresComponent } from './contador-caracteres/contador-caracteres.component';
+import { ProdutosCategoriaComponent } from './produtos-categoria/produtos-categoria.component';
+import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,9 @@ import { ContadorCaracteresComponent } from './contador-caracteres/contador-cara
     FileSelectDirective,
     InfograficoComponent,
     HistoricoArtesaoComponent,
-    ContadorCaracteresComponent
+    ContadorCaracteresComponent,
+    ProdutosCategoriaComponent,
+    ResultadosBuscaComponent
   ],
   imports: [
     BrowserModule,

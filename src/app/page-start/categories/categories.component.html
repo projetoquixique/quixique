@@ -6,9 +6,9 @@
         </div>
         <div class="input-group col-md-offset-3 col-md-6 col-md-offset-3">
             <!--<span class="input-group-addon">$</span>-->
-            <input type="text" class="form-control" placeholder="O que deseja encontrar ?">
+            <input type="text" class="form-control" placeholder="O que deseja encontrar?" [(ngModel)]="searchString">
             <span class="input-group-btn">
-                <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                <button class="btn btn-primary" type="button" (click)="performSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </span>
         </div>
     </div>

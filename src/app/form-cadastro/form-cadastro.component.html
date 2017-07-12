@@ -80,7 +80,7 @@
         </div>
 
         <div class="form-group col-md-4" [class.has-error]="verificadores.logradouro.estado == false">
-          <label for="inputLogradouro" class="control-label">Logradouro</label>
+          <label for="inputLogradouro" class="control-label">Logradouro do local onde trabalha</label>
           <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde trabalha" name="logradouro" [(ngModel)]="novoUsuario.logradouro" (change)="verificaLogradouro()">
           <app-mensagem-erro-input *ngIf="verificadores.logradouro.estado == false" mensagemDeErro="{{verificadores.logradouro.mensagem}}"></app-mensagem-erro-input>
         </div>

@@ -35,7 +35,8 @@ export class NavbarClienteComponent implements OnInit, AfterViewInit{
     new Category("Recicláveis","Recriar é um dom que você verá por aqui. De uma coisa sem valor à um objeto de valor.","banner (12).png"),
   ];
 
-  constructor(private clientService:TelaPrincipalCienteService) { }
+  constructor(private clientService:TelaPrincipalCienteService,
+              private router:Router) { }
 
   // logout() {
   //   if (this.authService.logout()){
@@ -76,10 +77,25 @@ export class NavbarClienteComponent implements OnInit, AfterViewInit{
     } 
   }
 
+  public searchString;
+
+  performSearch() {
+    if (this.searchString.length !== 0) {
+      sessionStorage.setItem('generalSearch', this.searchString);
+      this.router.navigate(['/busca']);
+    }
+  } 
+
+  exibirProdutosCategoria(categoria) {
+    console.log(categoria)
+    sessionStorage.setItem('categorySearch', categoria);
+    this.router.navigate(['/categoria']);
+  }
+
   ngAfterViewInit(){
     this.containerAspectRatio = this.container._results[0].nativeElement.clientHeight/this.container._results[0].nativeElement.clientWidth;
   }
-
+  
   ngOnInit() {
     // this.ajustCover();
     this.clientService.start();

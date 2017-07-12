@@ -1,5 +1,6 @@
 .component{
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .component:hover{

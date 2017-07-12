@@ -1,0 +1,9 @@
+<app-header></app-header>
+<app-navbar-start *ngIf="!isLogged"></app-navbar-start>
+<app-navbar-cliente *ngIf="isLogged"></app-navbar-cliente>
+<div class="container results">
+	<h3>Categoria: {{ categoria }}</h3>
+	<app-produto *ngFor="let produto of produtos" [produto]="produto"></app-produto>
+	<h4 *ngIf = "produtos.length == 0">Não há produtos nessa categoria. Experimente outra! ;)</h4>
+</div>
+<app-footer></app-footer>

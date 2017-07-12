@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
+
+import { RequestService } from './../services/request.service';
 
 @Component({
   selector: 'app-detalhe-produto',
@@ -9,17 +11,43 @@ import * as $ from 'jquery';
 })
 export class DetalheProdutoComponent implements OnInit {
 
-  thumbnails;
+  public serverBaseUrl = this.requestService.serverBaseUrl;
+  public serverBaseImageUrl = this.requestService.serverBaseImageUrl;
+
+  // thumbnails;
   selectedImage;
   showFullscreen:boolean = false;
-  product;
+  public product = {
+    title:'',
+    price:'',
+    units:'',
+    size:'',
+    materials:'',
+    description:'',
+    imagem: [],
+    authorBio:''
+  };
+
   anotherAuthorProducts;
   productSuggestions;
   newComment:string;
   comments;
 
+  getProduct(id){
+    this.requestService.get(this.serverBaseUrl + '/produto/' + id).subscribe(
+      data => {
+        this.product = data;
+        console.log(this.product)
+        // console.log(this.serverBaseImageUrl + '/imagens-produtos/' + this.product.imagem[0]);
+        this.selectedImage = this.serverBaseImageUrl + '/imagens-produtos/' + this.product.imagem[0];
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
   setSelectedImage(image){
-    this.selectedImage = image;
+    this.selectedImage = this.serverBaseImageUrl + '/imagens-produtos/' + image;
   };
 
   setSelectedThumbnail(e){
@@ -41,22 +69,23 @@ export class DetalheProdutoComponent implements OnInit {
     };
   };
 
-  constructor() {
-    this.thumbnails = [
-      {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-03.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-04.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-05.jpg"}
-    ];
+  constructor(private requestService:RequestService,
+              private router:Router) {
+    // this.thumbnails = [
+    //   {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-03.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-04.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-05.jpg"}
+    // ];
 
-    this.product = {title:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá"',
-                    price:'24.99',
-                    units:50,
-                    size:'40cm',
-                    materials:'barro',
-                    description:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo.',
-                    authorBio:'Meu nome é Joana e trabalho especificamente com produtos feitos de barro.'};
+    // this.product = {title:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá"',
+    //                 price:'24.99',
+    //                 units:50,
+    //                 size:'40cm',
+    //                 materials:'barro',
+    //                 description:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo.',
+    //                 authorBio:'Meu nome é Joana e trabalho especificamente com produtos feitos de barro.'};
 
     this.anotherAuthorProducts = [
       {'imageUrl':'assets/images/components/detalhe-produto/more-01.jpg'},
@@ -77,8 +106,6 @@ export class DetalheProdutoComponent implements OnInit {
       {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
       {"author":"Amanda", "text":"Comprei e adorei!"}
     ];
-
-    this.selectedImage = this.thumbnails[0];
   };
 
   ajustCover(){
@@ -102,10 +129,17 @@ export class DetalheProdutoComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.ajustCover();
-    $(document).ready(function(){
-      $(".filter.thumbnail-product:first").addClass("selected-thumbnail");
-    });
+    if (sessionStorage.getItem('productDetailId') !== 'undefined') {
+      this.getProduct(sessionStorage.getItem('productDetailId'));
+      sessionStorage.removeItem('productDetailId');
+      this.ajustCover();
+      $(document).ready(function(){
+        $(".filter.thumbnail-product:first").addClass("selected-thumbnail");
+      });
+    } else {
+      console.log('notok')
+      this.router.navigate(['/']);
+    }
   }
 
 }

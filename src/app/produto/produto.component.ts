@@ -1,6 +1,8 @@
-import { TelaPrincipalCienteService } from './../tela-principal-cliente/tela-principal-cliente.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { TelaPrincipalCienteService } from './../tela-principal-cliente/tela-principal-cliente.service';
+import { RequestService } from './../services/request.service';
 
 @Component({
   selector: 'app-produto',
@@ -11,9 +13,13 @@ export class ProdutoComponent implements OnInit {
   
   @Input() produto;
 
+  serverBaseImageUrl = this.requestService.serverBaseImageUrl;
+
   private status = 'adicionar';
 
-  constructor(private clientService:TelaPrincipalCienteService) { }
+  constructor(private clientService:TelaPrincipalCienteService,
+              private requestService:RequestService,
+              private router:Router) { }
 
   addToCart(produto){
     // console.log(produto);
@@ -27,8 +33,14 @@ export class ProdutoComponent implements OnInit {
     }
   }
 
+  goToProductPage(id){
+    sessionStorage.setItem('productDetailId', id);
+    this.router.navigate(['/detalhe_produto']);
+  }
+
   ngOnInit() {
     this.checkStatus();
+    // console.log(this.produto);
   }
 
 }

@@ -1,0 +1,11 @@
+<app-header></app-header>
+<app-navbar-start *ngIf="!isLogged"></app-navbar-start>
+<app-navbar-cliente *ngIf="isLogged"></app-navbar-cliente>
+<div class="container results">
+	<h3>Busca: {{ busca }}</h3>
+	<div class="resultados" *ngIf = "produtos.length > 0">
+		<app-produto *ngFor="let produto of produtos" [produto]="produto"></app-produto>
+	</div>
+	<h4 *ngIf = "produtos.length == 0">Não foi encontrado nenhum produto. Experimente buscar com outros termos! ;)</h4>
+</div>
+<app-footer></app-footer>

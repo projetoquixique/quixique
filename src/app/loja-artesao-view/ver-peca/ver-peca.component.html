@@ -2,7 +2,7 @@
   <div class="mostrar-produto-box">
     <div class="photo-view">
       <div class="thumbnail">
-        <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[0] }}">
+        <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ servico.imagem[0] }}">
       </div>
       <!--<div *ngIf="servico.getImagem().length>1" class="thumbnail">
           <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
@@ -10,17 +10,17 @@
       <div class="row" *ngIf="servico.getImagem().length>1">
         <div class="col-md-4 miniatura">
           <div class="thumbnail">
-            <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+            <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ servico.imagem[1] }}" alt="">
           </div>
         </div>
         <div class="col-md-4 miniatura">
           <div class="thumbnail miniatura">
-            <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+            <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ servico.imagem[1] }}" alt="">
           </div>
         </div>
         <div class="col-md-4 miniatura">
           <div class="thumbnail">
-            <img src="http://localhost:3000/imagens-produtos/{{ servico.imagem[1] }}" alt="">
+            <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ servico.imagem[1] }}" alt="">
           </div>
         </div>
         <!--<div class="col-md-3 miniatura">

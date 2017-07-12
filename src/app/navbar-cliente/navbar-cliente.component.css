@@ -92,6 +92,10 @@ ul.menu-barra{
   transition: 0.3s;
 }
 
+a {
+  cursor: pointer;
+}
+
 .menu-barra > li:first-child > a{
   padding-left: 0;
   padding-right: 6vmin;
