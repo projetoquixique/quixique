@@ -1,3 +1,4 @@
+import { TelaPrincipalCienteService } from './../../tela-principal-cliente/tela-principal-cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,9 +13,22 @@ import { UserDataHandlerService } from './../../services/user-data-handler.servi
 
 export class NavbarStartComponent implements OnInit {
 
+  static = null;
+
   constructor(private authService:AuthenticationService,
               private userDataHandler:UserDataHandlerService,
-              private router:Router) {}
+              private router:Router,
+              private clientService:TelaPrincipalCienteService) {}
+
+  checkBar(){
+    if(this.router.url == '/incio'){
+      this.static = false;  
+    }
+  }
+
+  blur(){
+    this.clientService.dropdown = false;
+  }
 
   cadastrarCliente(){
     this.userDataHandler.startSignupFromNavbar('cliente');
@@ -93,7 +107,8 @@ export class NavbarStartComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.checkBar();
   }
 
 }

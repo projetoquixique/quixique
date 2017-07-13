@@ -2,6 +2,8 @@ import { OnInit } from '@angular/core';
 
 export class TelaPrincipalCienteService{
 
+    public dropdown:boolean = false;
+
     public carrinho:Array<any> = [];
 
     public qtdCarrinho:number;

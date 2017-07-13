@@ -66,7 +66,7 @@ header{
     right: 15px;
 }
 
-.well .btn{
+.well .btn-primary, .btn.pull-right{
     margin-left: auto; 
 }
 
@@ -75,3 +75,28 @@ header{
     padding: 0;
     margin-right: 20px; 
 }
+
+fieldset{
+    margin-top: 15px;
+}
+
+fieldset .btn{
+    margin-left: 15px;
+}
+
+.modal{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/*//deep acessa os elementos de um componente filho*/
+/*app-navbar-start >>> .navbar-start{
+  display: block;
+  position: static;
+  opacity: 1.0;
+}
+
+app-navbar-start >>> .navbar-start.hide{
+  display: block;
+  position: static;
+  opacity: 1.0;
+}*/

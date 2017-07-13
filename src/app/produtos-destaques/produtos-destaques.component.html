@@ -1,13 +1,20 @@
 <div class="container">
+    <h1>Produtos em destaque</h1>
     <!--<div class="row">-->
+
       <div #vitrine class="container-object-fit" 
       [style.height]="alturaBase+'px'" 
       [class.col-md-3]="dimensoes[i] == 1" 
       [class.col-md-6]="dimensoes[i] == 2" 
       [class.col-md-9]="dimensoes[i] == 3" 
-      *ngFor="let img of images; let i = index">
+      *ngFor="let produto of images; let i = index">
 
-        <img class="item-object-fit {{ itemClass[i] }}" src="../../assets/images/temp/photos/{{img}}" alt="" >
+        <img class="item-object-fit {{ itemClass[i] }}" src="../../assets/images/temp/photos/{{produto.img}}" alt="" >
+        <div class="filter">
+          <h4>{{ produto.nome }}</h4>
+          <a href="#"><h2> R$ {{ clientService.parsePrice(produto.preco) }}</h2></a>
+          <a (click)="addToCart(produto)" class="btn btn-primary" role="button" [class.added]="status == 'adicionado' ">comprar<span class="glyphicon glyphicon-shopping-cart"></span></a>
+        </div>
       </div>
     <!--</div>-->
 </div>

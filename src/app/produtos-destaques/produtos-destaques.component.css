@@ -2,5 +2,24 @@ div{
     /*margin: 15px auto;*/
     border: solid 15px transparent;
     padding: 0;
+    position: relative;
     /*height: 250px;*/
+}
+
+h1{
+    font-family: 'lobster 1.4', sans-serif;
+    color: #f7921e;
+}
+
+.filter{
+    background: linear-gradient(transparent 70%,#000);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: none;
+}
+
+.filter h2, .filter h4{
+    color: #fff;
 }

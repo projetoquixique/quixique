@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { TelaPrincipalCienteService } from './../tela-principal-cliente/tela-principal-cliente.service';
 import { AuthenticationService } from './../services/authentication.service';
@@ -15,6 +15,9 @@ export class PageCarrinhoComponent implements OnInit {
   public baseImageUrl = this.requestService.serverBaseImageUrl;
   
   public page = 0;
+  public modalShow = false;
+
+  navbar = true;
   
   title1:string = "Carrinho de compras";
   title2:string = "Confirmar endereço de entrega";
@@ -23,8 +26,33 @@ export class PageCarrinhoComponent implements OnInit {
 
   logged = null;
 
+  @Output() logar = new EventEmitter<string>();
+
   next(){
-    this.page += 1;
+    event.stopPropagation();
+    // event.preventDefault();
+    if(this.auth.isLogged() == true && this.clientService.qtdCarrinho > 0){
+      this.page += 1;
+    }else{
+      this.clientService.dropdown = true;
+      // alert(this.clientService.dropdown);
+    }
+  }
+
+  back(){
+    this.page -= 1;
+  }
+
+  finish(){
+    this.modalShow = true;
+  }
+
+  close(){
+    this.modalShow = false;   
+  }
+
+  blur(){
+    this.clientService.dropdown = false;
   }
   
   constructor(private clientService:TelaPrincipalCienteService,
