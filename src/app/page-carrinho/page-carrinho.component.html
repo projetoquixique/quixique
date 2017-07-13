@@ -64,43 +64,43 @@
         <fieldset class="col-md-offset-1 col-md-10">
           <div class="form-group col-md-12">
             <label for="inputLogradouro" class="control-label">Logradouro</label>
-            <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro">
+            <input type="text" class="form-control" [(ngModel)]="logradouro" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro">
           </div>
 
           <div class="form-group col-md-3">
             <label for="inputNumero" class="control-label">Número</label>
-            <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero">
+            <input type="tel" class="form-control" [(ngModel)]="numero" id="inputNumero" placeholder="Número" name="numero">
           </div>
 
           <div class="form-group col-md-4">
             <label for="inputComplemento" class="control-label">Complemento</label>
-            <input type="text" class="form-control" id="inputComplemento" placeholder="Se houver" name="complemento">
+            <input type="text" class="form-control" [(ngModel)]="complemento" id="inputComplemento" placeholder="Se houver" name="complemento">
           </div>
 
           <div class="form-group col-md-5">
             <label for="inputBairro" class="control-label">Bairro</label>
-            <input type="text" class="form-control" id="inputBairro" placeholder="Informe o bairro" name="bairro">
+            <input type="text" class="form-control" id="inputBairro" [(ngModel)]="bairro" placeholder="Informe o bairro" name="bairro">
           </div>
 
           <div class="form-group col-md-7">
             <label for="inputCidade" class="control-label">Cidade</label>
-            <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade onde você vive" name="cidade">
+            <input type="text" class="form-control" id="inputCidade" [(ngModel)]="cidade" placeholder="Informe a cidade onde você vive" name="cidade">
           </div>
 
           <div class="form-group col-md-5">
             <label for="inputEstado" class="control-label">Estado</label>
-            <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado" name="estado">
+            <input type="text" class="form-control" id="inputEstado" [(ngModel)]="estado" placeholder="Informe o estado" name="estado">
           </div>
 
           <div class="form-group col-md-12">       
             <label for="inputCep" class="control-label">CEP</label>
-            <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep">
+            <input type="tel" class="form-control" id="inputCep" [(ngModel)]="cep" placeholder="Insira o CEP de sua residência" name="cep">
           </div>
 
-          <div class="form-group col-md-12">       
+          <!--<div class="form-group col-md-12">       
             <a (click)="new()" class="btn btn-default btn-md pull-right"><span class="glyphicon glyphicon-plus"></span></a>
             <a (click)="edit()" class="btn btn-default btn-md pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
-         </div>
+         </div>-->
 
        </fieldset>
         
@@ -110,7 +110,7 @@
           <a (click)="finish()" class="btn btn-primary btn-lg pull-right">concluir</a>
         </div>
 
-        <div class="modal" [style.display]="modalShow ? 'block':'none' ">
+        <!--<div class="modal" [style.display]="modalShow ? 'block':'none' ">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -136,7 +136,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
 
       </div>
     </div>

@@ -67,6 +67,7 @@ export class DetalheProdutoComponent implements OnInit {
   }
 
   getArtisanInfo(){
+    console.log(this.serverBaseUrl + '/artesao/' + this.artisan.id + '/bio')
     this.requestService.get(this.serverBaseUrl + '/artesao/' + this.artisan.id + '/bio').subscribe(
       data => {
         this.artisan.bio = data.historia;
@@ -147,7 +148,7 @@ export class DetalheProdutoComponent implements OnInit {
 
   ngOnInit() {
     this.idProduto = sessionStorage.getItem('productDetailId');
-    console.log(this.idProduto);
+    // console.log(this.idProduto);
     this.requestService.get(this.serverBaseUrl + '/comentarios/' + this.idProduto).subscribe(
       data => {console.log(data); this.comments = data;},
       erro => {console.log(erro)}
