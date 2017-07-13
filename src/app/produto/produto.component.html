@@ -2,11 +2,13 @@
   <div class="thumbnail">
     <div (click)="goToProductPage(produto._id, produto.aid)" class="imagem">
       <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ produto.imagem[0] }}" alt="{{ produto.nome }}">
+    <!--<div (click)="goToProductPage(produto._id)" class="imagem">
+      <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ produto.img }}" alt="{{ produto.nome }}">-->
     </div>
     <div class="caption">
       <div class="row">
         <div class="col-md-12">
-          <p>{{ produto.nome }}<br></p>
+          <p class="nome">{{ produto.nome }}<br></p>
         </div>
       </div>
       <div class="row">

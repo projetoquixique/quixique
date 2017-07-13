@@ -1,0 +1,70 @@
+.container-principal{
+  background-color: #FAFAFA;
+  box-shadow: 0px 0px 30px #edebeb;
+  border-radius: 10px 10px 10px 10px;
+  /*margin-top: -20px;*/
+  min-height: 70vh;
+  position: relative
+}
+.img{
+    background-color: white;
+    width: 150px;
+    height: 150px;
+}
+.img img{
+    width: 150px;
+    height: 150px;
+}
+.header{
+    margin-top: 40px;
+}
+input[type='file'] {
+  display: none
+}
+.enviarImagem{
+    margin-top: 20px;
+}
+
+.cadastro{
+  margin-bottom: 60px !important;
+}
+
+
+.bottom-bar-container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0px;
+    left: 0px;
+}
+.pagination{
+    position:absolute;
+}
+.pager{
+    padding: 0;
+    /*width: 100%;*/
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover{
+  top: 0px;
+  border-bottom-width: 4px;
+}
+.pagination > li > a:active,
+.pagination > li > span:active{
+  top: 0px;
+  border-bottom-width: 4px;
+}
+fieldset{
+    width: 100%;
+}
+.body{
+    margin-top: 30px;    
+    margin-bottom: 30px;    
+}
+.sessionMarginTop{
+    margin-top: 30px;
+}
+.botao{
+    float: right;
+    margin-top: 20px;
+}
