@@ -9,7 +9,8 @@ import { PageStartComponent } from './page-start/page-start.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { LojaArtesaoViewComponent } from './loja-artesao-view/loja-artesao-view.component';
 import { ProdutosCategoriaComponent } from './produtos-categoria/produtos-categoria.component';
-import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component'
+import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 
 const APP_ROUTES: Routes = [
     {path:"", redirectTo:"/inicio", pathMatch:"full"},
@@ -22,7 +23,8 @@ const APP_ROUTES: Routes = [
     {path:"loja_artesao_view", component:LojaArtesaoViewComponent},
     {path:"perfil", component:PerfilArtesaoComponent},
     {path:"categoria", component:ProdutosCategoriaComponent},
-    {path:"busca", component:ResultadosBuscaComponent}
+    {path:"busca", component:ResultadosBuscaComponent},
+    {path:"perfil_cliente", component:PerfilClienteComponent},
 ]
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);

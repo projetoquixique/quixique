@@ -71,41 +71,7 @@ export class DetalheProdutoComponent implements OnInit {
 
   constructor(private requestService:RequestService,
               private router:Router) {
-    // this.thumbnails = [
-    //   {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
-    //   {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
-    //   {"url":"assets/images/components/detalhe-produto/img-03.jpg"},
-    //   {"url":"assets/images/components/detalhe-produto/img-04.jpg"},
-    //   {"url":"assets/images/components/detalhe-produto/img-05.jpg"}
-    // ];
-
-    // this.product = {title:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá"',
-    //                 price:'24.99',
-    //                 units:50,
-    //                 size:'40cm',
-    //                 materials:'barro',
-    //                 description:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo.',
-    //                 authorBio:'Meu nome é Joana e trabalho especificamente com produtos feitos de barro.'};
-
-    this.anotherAuthorProducts = [
-      {'imageUrl':'assets/images/components/detalhe-produto/more-01.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-02.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-03.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-04.jpg'}
-    ];
-
-    this.productSuggestions = [
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-01.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-02.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-03.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-04.jpg'}
-    ];
-    
-    this.comments = [
-      {"author":"Maria", "text":"Produto de ótima qualidade! Recomendo!"},
-      {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
-      {"author":"Amanda", "text":"Comprei e adorei!"}
-    ];
+    this.comments = [];
   };
 
   ajustCover(){
@@ -127,8 +93,17 @@ export class DetalheProdutoComponent implements OnInit {
       })
     });
   };
+  
+  idProduto;
 
   ngOnInit() {
+    this.idProduto = sessionStorage.getItem('productDetailId');
+    console.log(this.idProduto);
+    this.requestService.get(this.serverBaseUrl + '/comentarios/' + this.idProduto).subscribe(
+      data => {console.log(data); this.comments = data;},
+      erro => {console.log(erro)}
+    );
+
     if (sessionStorage.getItem('productDetailId') !== 'undefined') {
       this.getProduct(sessionStorage.getItem('productDetailId'));
       sessionStorage.removeItem('productDetailId');
@@ -140,6 +115,20 @@ export class DetalheProdutoComponent implements OnInit {
       console.log('notok')
       this.router.navigate(['/']);
     }
+  }
+  
+  enviarComentario(){
+    var comentario = {"cid":sessionStorage.getItem('userId'), "pid":this.idProduto, "comentario":this.newComment};
+    this.requestService.post(this.serverBaseUrl  + '/comentarios', comentario).subscribe(
+      data => {console.log(data); 
+            this.newComment = "";
+            this.requestService.get(this.serverBaseUrl + '/comentarios/' + this.idProduto).subscribe(
+              data => {console.log(data); this.comments = data;},
+              erro => {console.log(erro)}
+    );
+      },
+      erro => {console.log(erro)}
+    )
   }
 
 }
