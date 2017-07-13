@@ -27,7 +27,7 @@ export class ProdutosCategoriaComponent implements OnInit {
 	      data => {
 	        this.produtos = data;
           this.categoria = sessionStorage.getItem('categorySearch');
-	        sessionStorage.removeItem('categorySearch');
+	        // sessionStorage.removeItem('categorySearch');
   			  // console.log(this.produtos);
 	      },
 	      error => {

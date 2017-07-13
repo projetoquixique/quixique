@@ -9,3 +9,5 @@
 !!! - mensagem de erro mesmo após salvar dados de perfil com sucesso (atualização)
 
 - qual a unidade de medida usada nas dimensões do produto? não está especificada
+
+- sugestões de produtos serão dadas com base em quê?

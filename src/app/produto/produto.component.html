@@ -1,6 +1,6 @@
 <div class="col-md-4">
   <div class="thumbnail">
-    <div (click)="goToProductPage(produto._id)" class="imagem">
+    <div (click)="goToProductPage(produto._id, produto.aid)" class="imagem">
       <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ produto.imagem[0] }}" alt="{{ produto.nome }}">
     </div>
     <div class="caption">

@@ -1,7 +1,9 @@
 <app-header></app-header>
-<app-navbar></app-navbar>
+<app-navbar *ngIf="userType == 'artesao'"></app-navbar>
+<app-navbar-cliente *ngIf="userType == 'cliente'"></app-navbar-cliente>
+<app-navbar-start *ngIf="!isLogged"></app-navbar-start>
 <div class="container">
-  <app-capa-apresentacao [infoCapa]="infoPerfil" (irParaSaibaMais)="irParaSaibaMais()"></app-capa-apresentacao>
+  <app-capa-apresentacao [infoCapa]="infoPerfil" (irParaSaibaMais)="irParaSaibaMais()" (irParaMeusProdutos)="irParaMeusProdutos()"></app-capa-apresentacao>
   <div class="sub-container">
     <div class="portfolio portfolio-anchor">
       <h1>Portfólio</h1>
@@ -9,7 +11,7 @@
     </div>
     <div class="meus-produtos">
       <h1>Meus produtos</h1>
-      <app-produtos-perfil-artesao></app-produtos-perfil-artesao>
+      <app-produtos-perfil-artesao urlProdutosArtesao="{{ urlProdutos }}"></app-produtos-perfil-artesao>
     </div>
   </div>
   <div class="saiba-mais">

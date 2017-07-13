@@ -33,8 +33,9 @@ export class ProdutoComponent implements OnInit {
     }
   }
 
-  goToProductPage(id){
+  goToProductPage(id, aid){
     sessionStorage.setItem('productDetailId', id);
+    sessionStorage.setItem('productDetailAid', aid);
     this.router.navigate(['/detalhe_produto']);
   }
 

@@ -26,7 +26,7 @@ export class ResultadosBuscaComponent implements OnInit {
 		      	data => {
 		        	this.produtos = data;
 	          		this.busca = sessionStorage.getItem('generalSearch');
-		        	sessionStorage.removeItem('generalSearch');
+		        	// sessionStorage.removeItem('generalSearch');
 	  			  // console.log(this.produtos);
 		      	},
 		      	error => {

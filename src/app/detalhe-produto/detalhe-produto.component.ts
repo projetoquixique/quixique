@@ -14,9 +14,16 @@ export class DetalheProdutoComponent implements OnInit {
   public serverBaseUrl = this.requestService.serverBaseUrl;
   public serverBaseImageUrl = this.requestService.serverBaseImageUrl;
 
+  public artisan = {
+    bio:'',
+    username:'',
+    id:''
+  };
+
   // thumbnails;
-  selectedImage;
-  showFullscreen:boolean = false;
+  public selectedImage;
+  public showFullscreen:boolean = false;
+
   public product = {
     title:'',
     price:'',
@@ -24,12 +31,13 @@ export class DetalheProdutoComponent implements OnInit {
     size:'',
     materials:'',
     description:'',
-    imagem: [],
-    authorBio:''
+    category: '',
+    imagem: []
   };
 
-  anotherAuthorProducts;
-  productSuggestions;
+  public anotherArtisanProducts = {};
+  public productSuggestions = {};
+
   newComment:string;
   comments;
 
@@ -37,18 +45,59 @@ export class DetalheProdutoComponent implements OnInit {
     this.requestService.get(this.serverBaseUrl + '/produto/' + id).subscribe(
       data => {
         this.product = data;
-        console.log(this.product)
-        // console.log(this.serverBaseImageUrl + '/imagens-produtos/' + this.product.imagem[0]);
+        this.getProductSuggestions(data.category);
         this.selectedImage = this.serverBaseImageUrl + '/imagens-produtos/' + this.product.imagem[0];
       },
       error => {
         console.log(error);
-      });
+      }
+    );
+  }
+
+  getProductSuggestions(category){
+    console.log(this.serverBaseUrl + '/produtos/' + category + '/recomendacoes')
+    this.requestService.get(this.serverBaseUrl + '/produtos/' + category + '/recomendacoes').subscribe(
+      data => {
+        this.productSuggestions = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getArtisanInfo(){
+    this.requestService.get(this.serverBaseUrl + '/artesao/' + this.artisan.id + '/bio').subscribe(
+      data => {
+        this.artisan.bio = data.historia;
+        this.artisan.username = data.nomeDeUsuario;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  goToArtisanProfile(){
+    sessionStorage.setItem('artisanProfileUsername', this.artisan.username);
+    sessionStorage.setItem('artisanProfileId', this.artisan.id);
+    this.router.navigate(['/perfil']);
+  }
+
+  getArtisanRecommendations(){
+    this.requestService.get(this.serverBaseUrl + '/' + this.artisan.id + '/recomendacoes').subscribe(
+      data => {
+        this.anotherArtisanProducts = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   setSelectedImage(image){
     this.selectedImage = this.serverBaseImageUrl + '/imagens-produtos/' + image;
-  };
+  }
 
   setSelectedThumbnail(e){
     $(".thumbnail-product").removeClass("selected-thumbnail");
@@ -87,25 +136,25 @@ export class DetalheProdutoComponent implements OnInit {
     //                 description:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo.',
     //                 authorBio:'Meu nome é Joana e trabalho especificamente com produtos feitos de barro.'};
 
-    this.anotherAuthorProducts = [
-      {'imageUrl':'assets/images/components/detalhe-produto/more-01.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-02.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-03.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-04.jpg'}
-    ];
+    // this.anotherAuthorProducts = [
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-01.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-02.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-03.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-04.jpg'}
+    // ];
 
-    this.productSuggestions = [
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-01.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-02.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-03.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-04.jpg'}
-    ];
+    // this.productSuggestions = [
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-01.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-02.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-03.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-04.jpg'}
+    // ];
     
-    this.comments = [
-      {"author":"Maria", "text":"Produto de ótima qualidade! Recomendo!"},
-      {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
-      {"author":"Amanda", "text":"Comprei e adorei!"}
-    ];
+    // this.comments = [
+    //   {"author":"Maria", "text":"Produto de ótima qualidade! Recomendo!"},
+    //   {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
+    //   {"author":"Amanda", "text":"Comprei e adorei!"}
+    // ];
   };
 
   ajustCover(){
@@ -129,9 +178,13 @@ export class DetalheProdutoComponent implements OnInit {
   };
 
   ngOnInit() {
-    if (sessionStorage.getItem('productDetailId') !== 'undefined') {
+    if (sessionStorage.getItem('productDetailId') !== undefined) {
       this.getProduct(sessionStorage.getItem('productDetailId'));
-      sessionStorage.removeItem('productDetailId');
+      this.artisan.id = sessionStorage.getItem('productDetailAid');
+      this.getArtisanRecommendations();
+      this.getArtisanInfo();
+      // sessionStorage.removeItem('productDetailId');
+      // sessionStorage.removeItem('productDetailAid');
       this.ajustCover();
       $(document).ready(function(){
         $(".filter.thumbnail-product:first").addClass("selected-thumbnail");
