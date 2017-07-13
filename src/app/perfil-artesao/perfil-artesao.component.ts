@@ -66,7 +66,7 @@ export class PerfilArtesaoComponent implements OnInit {
       data => {
         this.userDataHandler.dadosPerfil = data;
         this.infoPerfil = this.userDataHandler.dadosPerfil;
-        if (this.infoPerfil.fotoPerfil == undefined) {
+        if (this.infoPerfil.fotoPerfil == null) {
           this.infoPerfil.fotoPerfil = "https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png";
         } else {
           this.infoPerfil.fotoPerfil = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');

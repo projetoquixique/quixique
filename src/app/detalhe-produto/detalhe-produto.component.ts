@@ -17,7 +17,8 @@ export class DetalheProdutoComponent implements OnInit {
   public artisan = {
     bio:'',
     username:'',
-    id:''
+    id:'',
+    imagemPerfil:''
   };
 
   // thumbnails;
@@ -69,6 +70,7 @@ export class DetalheProdutoComponent implements OnInit {
   getArtisanInfo(){
     this.requestService.get(this.serverBaseUrl + '/artesao/' + this.artisan.id + '/bio').subscribe(
       data => {
+        this.artisan.imagemPerfil = data.imagem;
         this.artisan.bio = data.historia;
         this.artisan.username = data.nomeDeUsuario;
       },
@@ -81,6 +83,7 @@ export class DetalheProdutoComponent implements OnInit {
   goToArtisanProfile(){
     sessionStorage.setItem('artisanProfileUsername', this.artisan.username);
     sessionStorage.setItem('artisanProfileId', this.artisan.id);
+    sessionStorage.setItem('profilePicture', this.artisan.imagemPerfil);
     this.router.navigate(['/perfil']);
   }
 
