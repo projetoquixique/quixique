@@ -51,6 +51,12 @@ app-mensagem-erro-input{
   display: none;
 }
 
+.navbar-start.static{
+  display: block !important;
+  position: static !important;
+  opacity: 1.0 !important;
+}
+
 .container{
   display: flex;
   align-items: center;

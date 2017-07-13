@@ -1,4 +1,4 @@
-<header class="navbar-start">
+<header [class.static]="static == true" class="navbar-start">
   <div class="container">
     <!--<div class="row">-->
       <div class="col-md-3">
@@ -23,7 +23,7 @@
         <small>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <div class="btn-group btn-entrar-dropdown">
+                    <div [class.open]="clientService.dropdown == true" class="btn-group btn-entrar-dropdown">
                         <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Entrar <span class="caret"></span>
                         </button>
@@ -31,7 +31,7 @@
                             <form class="" >
                                 <li>
                                     <div class="input-group input" [class.has-error]="loginData.email.state === false">
-                                        <input type="text" class="form-control" placeholder="Email" name="emailInput" [(ngModel)]="loginData.email.value" aria-describedby="basic-addon1">
+                                        <input (focusout)="blur()" type="text" autofocus class="form-control" placeholder="Email" name="emailInput" [(ngModel)]="loginData.email.value" aria-describedby="basic-addon1">
                                         <app-mensagem-erro-input *ngIf="loginData.email.state === false" mensagemDeErro="{{loginData.email.message}}"></app-mensagem-erro-input>
                                     </div>
                                 </li>

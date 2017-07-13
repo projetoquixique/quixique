@@ -1,15 +1,15 @@
 <div id="component">
   <header>
-    <app-header *ngIf="logged == false" ></app-header>
-    <app-navbar-start *ngIf="logged == false"></app-navbar-start>  
+    <app-header *ngIf="logged == true" ></app-header>
+    <app-navbar-start *ngIf="logged==false"></app-navbar-start>  
   </header>
 
   <!--<app-navbar-cliente></app-navbar-cliente>-->
 
-  <div *ngIf="page == 0" class="container">
+  <div (click)="blur()" *ngIf="page == 0" class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>{{ title1 }}</h4>
+        <h4><strong>{{ title1 }}</strong></h4>
         <!--<ul class="nav nav-pills">
           <span class="glyphicon glyphicon-cart"></span>
           <li><a href="#">Messages <span class="badge">3</span></a></li>
@@ -44,7 +44,7 @@
           <h2 class="text-success" >
             R$ {{ clientService.parsePrice(clientService.valorTotal) }}
           </h2>
-          <a (click)="next()" class="btn btn-primary btn-lg pull-right">comprar</a>
+          <a (click)="next()" [class.disabled]="this.clientService.qtdCarrinho == 0" class="btn btn-primary btn-lg pull-right">comprar</a>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
   <div *ngIf="page == 1" class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4>{{ title1 }}</h4>
+        <h4>{{ title1 }} - <strong>{{ title2 }}</strong></h4>
         <!--<ul class="nav nav-pills">
           <span class="glyphicon glyphicon-cart"></span>
           <li><a href="#">Messages <span class="badge">3</span></a></li>
@@ -61,44 +61,83 @@
       </div>
       <div class="panel-body">
 
-        <fieldset>
-        <legend>{{ title2 }}</legend>
-        <div class="form-group col-md-4">
-          <label for="inputLogradouro" class="control-label">Logradouro</label>
-          <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro">
-        </div>
+        <fieldset class="col-md-offset-1 col-md-10">
+          <div class="form-group col-md-12">
+            <label for="inputLogradouro" class="control-label">Logradouro</label>
+            <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro">
+          </div>
 
-        <div class="form-group col-md-2">
-          <label for="inputNumero" class="control-label">Número</label>
-          <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero">
-        </div>
+          <div class="form-group col-md-3">
+            <label for="inputNumero" class="control-label">Número</label>
+            <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero">
+          </div>
 
-        <div class="form-group col-md-2">
-          <label for="inputComplemento" class="control-label" [class.has-error]="verificadores.complemento == false">Complemento</label>
-          <input type="text" class="form-control" id="inputComplemento" placeholder="Se houver" name="complemento">
-        </div>
+          <div class="form-group col-md-4">
+            <label for="inputComplemento" class="control-label">Complemento</label>
+            <input type="text" class="form-control" id="inputComplemento" placeholder="Se houver" name="complemento">
+          </div>
 
-        <div class="form-group col-md-4">
-          <label for="inputBairro" class="control-label">Bairro</label>
-          <input type="text" class="form-control" id="inputBairro" placeholder="Informe o bairro" name="bairro">
-        </div>
+          <div class="form-group col-md-5">
+            <label for="inputBairro" class="control-label">Bairro</label>
+            <input type="text" class="form-control" id="inputBairro" placeholder="Informe o bairro" name="bairro">
+          </div>
 
-        <div class="form-group col-md-4">
-          <label for="inputCidade" class="control-label">Cidade</label>
-          <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade onde você vive" name="cidade">
-        </div>
+          <div class="form-group col-md-7">
+            <label for="inputCidade" class="control-label">Cidade</label>
+            <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade onde você vive" name="cidade">
+          </div>
 
-        <div class="form-group col-md-4">
-          <label for="inputEstado" class="control-label">Estado</label>
-          <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado" name="estado">
-        </div>
+          <div class="form-group col-md-5">
+            <label for="inputEstado" class="control-label">Estado</label>
+            <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado" name="estado">
+          </div>
 
-        <div class="form-group col-md-4">       
-          <label for="inputCep" class="control-label">CEP</label>
-          <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep">
-        </div>
-      </fieldset>
+          <div class="form-group col-md-12">       
+            <label for="inputCep" class="control-label">CEP</label>
+            <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep">
+          </div>
+
+          <div class="form-group col-md-12">       
+            <a (click)="new()" class="btn btn-default btn-md pull-right"><span class="glyphicon glyphicon-plus"></span></a>
+            <a (click)="edit()" class="btn btn-default btn-md pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+         </div>
+
+       </fieldset>
         
+        <div class="well well-lg">
+          
+          <a (click)="back()" class="btn btn-default btn-lg pull-left">voltar</a>
+          <a (click)="finish()" class="btn btn-primary btn-lg pull-right">concluir</a>
+        </div>
+
+        <div class="modal" [style.display]="modalShow ? 'block':'none' ">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button (click)="close()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Concluir Pagamento</h4>
+              </div>
+              <div class="modal-body">
+                <p>Insira as informaçãoes de pagamento</p>
+
+                <div class="form-group input">
+                    <label for="cardNumber">Numero do cartão</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Insira o numero do cartão" name="cardNumber">
+                </div>
+
+                <div class="form-group input">
+                    <label for="3digit">Codigo de 3 Digitos</label>
+                    <input type="number" class="form-control" id="3digit" placeholder="Insira uma senha com no mínimo 8 digitos" name="3digit">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
