@@ -1,0 +1,112 @@
+<app-header></app-header>
+<app-navbar-cliente></app-navbar-cliente>
+
+<div class="container container-principal">
+  <div class="header">
+    <div class="col-md-2">
+      <div class="img">
+        <img src="https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png" alt="">
+      </div>
+    </div>
+    <div class="col-md-10">
+      <h1>{{ cliente.nome }}</h1>
+      <div class="localizacao">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        <span>{{ cliente.cidade }} - {{ cliente.estado }}, {{ cliente.logradouro }}, {{ cliente.numero }}, {{ cliente.bairro }}</span>
+        <div class="enviarImagem">
+          <label for="imagens" class="btn btn-primary btn-sm">Enviar foto</label>
+          <input  type="file"  id="imagens" name="pic" accept="image/*" ng2FileSelect [uploader]="uploader" single>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 body">
+    <!--<div class="form-cadastro-cliente">-->
+      <form>
+        <fieldset *ngIf="pageCount == 0">
+          <legend>Dados Pessoais</legend>
+          <div class="form-group col-md-8">
+            <label for="inputNome" class="control-label">Nome</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Informe seu nome completo" name="nome" [(ngModel)]="cliente.nome">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.nome.estado == false" mensagemDeErro="{{verificadores.nome.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputData" class="control-label">Data de nascimento</label>
+            <input type="tel" class="form-control" id="inputData" placeholder="Insira sua data de nascimento" name="dataDeNascimento" [(ngModel)]="cliente.dataDeNascimento">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.dataDeNascimento.estado == false" mensagemDeErro="{{verificadores.dataDeNascimento.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputCpf" class="control-label">CPF</label>
+            <input type="tel" class="form-control" id="inputCpf" placeholder="Informe apenas os números do CPF" name="cpf" [(ngModel)]="cliente.cpf">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.cpf.estado == false" mensagemDeErro="{{verificadores.cpf.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputEmail" class="control-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Informe o seu endereço de e-mail" name="email" [(ngModel)]="cliente.email">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.email.estado == false" mensagemDeErro="{{verificadores.email.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputCelular" class="control-label">Celular</label>
+            <input type="tel" class="form-control" id="inputTelefone" placeholder="Insira seu telefone celular" name="celular" [(ngModel)]="cliente.celular">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.celular.estado == false" mensagemDeErro="{{verificadores.celular.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+        </fieldset>
+
+        <fieldset class="sessionMarginTop">
+          <legend>Dados Pessoais - Endereço</legend>
+          <div class="form-group col-md-4">
+            <label for="inputLogradouro" class="control-label">Logradouro</label>
+            <input type="text" class="form-control" id="inputLogradouro" placeholder="Informe o logradouro do local onde mora" name="logradouro" [(ngModel)]="cliente.logradouro">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.logradouro.estado == false" mensagemDeErro="{{verificadores.logradouro.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="inputNumero" class="control-label">Número</label>
+            <input type="tel" class="form-control" id="inputNumero" placeholder="Número" name="numero" [(ngModel)]="cliente.numero">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.numero.estado == false" mensagemDeErro="{{verificadores.numero.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="inputComplemento" class="control-label">Complemento</label>
+            <input type="text" class="form-control" id="inputComplemento" placeholder="Se houver" name="complemento" [(ngModel)]="cliente.complemento">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.complemento.estado == false" mensagemDeErro="{{verificadores.complemento.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputBairro" class="control-label">Bairro</label>
+            <input type="text" class="form-control" id="inputBairro" placeholder="Informe o bairro" name="bairro" [(ngModel)]="cliente.bairro">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.bairro.estado == false" mensagemDeErro="{{verificadores.bairro.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputCidade" class="control-label">Cidade</label>
+            <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade onde você vive" name="cidade" [(ngModel)]="cliente.cidade">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.cidade.estado == false" mensagemDeErro="{{verificadores.cidade.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputEstado" class="control-label">Estado</label>
+            <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado" name="estado" [(ngModel)]="cliente.estado">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.estado.estado == false" mensagemDeErro="{{verificadores.estado.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputCep" class="control-label">CEP</label>
+            <input type="tel" class="form-control" id="inputCep" placeholder="Insira o CEP de sua residência" name="cep" [(ngModel)]="cliente.cep">
+            <!--<app-mensagem-erro-input *ngIf="verificadores.cep.estado == false" mensagemDeErro="{{verificadores.cep.mensagem}}"></app-mensagem-erro-input>-->
+          </div>
+        </fieldset>
+
+      </form>
+    <!--</div>-->
+    <div class="botao">
+      <button class="btn btn-primary" (click)="salvar()">Salvar atualizações</button>
+    </div>
+  </div>
+
+</div>

@@ -42,7 +42,7 @@ export class ProdutosComponent implements OnInit {
   //     {
   //         "id":"8","extra":{"chave":"valor"} ,"nome":"Escultura de madeira Boi do sertão",
   //         "preco":23.00, "img":"thumb (8).png","estoque":"5"
-  //     }
+  //     },
   //     {
   //         "id":"9","extra":{"chave":"valor"} ,"nome":"Sandália de couro Maria Bonita - num 35 a 40",
   //         "preco":63.00, "img":"thumb (9).png"

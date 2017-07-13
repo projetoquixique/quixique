@@ -120,6 +120,7 @@ export class DetalheProdutoComponent implements OnInit {
 
   constructor(private requestService:RequestService,
               private router:Router) {
+
     // this.thumbnails = [
     //   {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
     //   {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
@@ -155,6 +156,8 @@ export class DetalheProdutoComponent implements OnInit {
     //   {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
     //   {"author":"Amanda", "text":"Comprei e adorei!"}
     // ];
+
+    this.comments = [];
   };
 
   ajustCover(){
@@ -176,8 +179,31 @@ export class DetalheProdutoComponent implements OnInit {
       })
     });
   };
+  
+  idProduto;
+
+  enviarComentario(){
+    var comentario = {"cid":sessionStorage.getItem('userId'), "pid":this.idProduto, "comentario":this.newComment};
+    this.requestService.post(this.serverBaseUrl  + '/comentarios', comentario).subscribe(
+      data => {console.log(data); 
+            this.newComment = "";
+            this.requestService.get(this.serverBaseUrl + '/comentarios/' + this.idProduto).subscribe(
+              data => {console.log(data); this.comments = data;},
+              erro => {console.log(erro)}
+    );
+      },
+      erro => {console.log(erro)}
+    )
+  }
 
   ngOnInit() {
+    this.idProduto = sessionStorage.getItem('productDetailId');
+    console.log(this.idProduto);
+    this.requestService.get(this.serverBaseUrl + '/comentarios/' + this.idProduto).subscribe(
+      data => {console.log(data); this.comments = data;},
+      erro => {console.log(erro)}
+    );
+
     if (sessionStorage.getItem('productDetailId') !== undefined) {
       this.getProduct(sessionStorage.getItem('productDetailId'));
       this.artisan.id = sessionStorage.getItem('productDetailAid');
@@ -194,5 +220,4 @@ export class DetalheProdutoComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-
 }

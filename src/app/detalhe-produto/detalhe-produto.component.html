@@ -62,12 +62,12 @@
                   <div class="form-group">
                     <textarea class="form-control comment-input" name="commentInput" placeholder="Escrever novo comentário" [(ngModel)]="newComment"></textarea>
                   </div>
-                  <button  *ngIf="newComment" class="btn btn-primary">Enviar</button>
+                  <button  *ngIf="newComment" (click)="enviarComentario()" class="btn btn-primary">Enviar</button>
                 </form>
 
                 <div *ngFor="let comment of comments">
-                  <p><b> {{comment.author}} </b> <br>
-                  {{comment.text }} </p>
+                  <p><b> {{comment.cid.nome}} </b> <br>
+                  {{comment.comentario }} </p>
                 </div>
 
               </div>

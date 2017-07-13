@@ -54,6 +54,7 @@ import { HistoricoArtesaoComponent } from './tela-principal-artesao/historico-ar
 import { ContadorCaracteresComponent } from './contador-caracteres/contador-caracteres.component';
 import { ProdutosCategoriaComponent } from './produtos-categoria/produtos-categoria.component';
 import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.co
     HistoricoArtesaoComponent,
     ContadorCaracteresComponent,
     ProdutosCategoriaComponent,
-    ResultadosBuscaComponent
+    ResultadosBuscaComponent,
+    PerfilClienteComponent
   ],
   imports: [
     BrowserModule,

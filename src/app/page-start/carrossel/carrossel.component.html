@@ -1,6 +1,7 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div id="logo" [class.cadastro]="formShow" (click)="hideForm('close')">
-        <h1>Quixique</h1>
+        <!--<h1>Quixique</h1>-->
+        <h1><img src="./assets/images/logo/Logo-branca-sombra.png" class="logo" alt=""></h1>
             <app-form-cadastro-start class="form" (closeForm)="hideForm($event)"></app-form-cadastro-start>            
         <a class="btn btn-primary btn-lg" (click)="showForm()">Entre ou Cadastre-se</a>
     </div>

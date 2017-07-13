@@ -91,7 +91,10 @@ ul.menu-barra{
   padding: 0 3vmin;
   transition: 0.3s;
 }
-
+.navbar ul li.active {
+  background-color: #462710;
+  font-weight: bold;
+}
 a {
   cursor: pointer;
 }
