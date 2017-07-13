@@ -21,7 +21,7 @@
           <ul id="menu-dropdown">
             <!--<li id="category"><a href="">CATEGORIAS</a> </li>-->
             <li *ngFor="let category of categories; let i = index">
-              <a> {{ category.nome }}  </a>
+              <a (click)="exibirProdutosCategoria(category.nome)"> {{ category.nome }} </a>
               <div class="preview">
                 <div #container class="container-object-fit">
                   <img #img (load)="ajustCover(img)"class="item-object-fit {{ itemClass[i] }}" src="../../../assets/images/components/categories-banners/{{category.src}}" alt="{{category.nome}}">
@@ -40,9 +40,9 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>-->
 
-          <input type="text" class="form-control" placeholder="O que deseja encontrar ?">
+          <input type="text" class="form-control" name="search" placeholder="O que deseja encontrar?" [(ngModel)]="searchString">
           <span class="input-group-btn">
-              <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              <button class="btn btn-primary" type="button" (click)="performSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
           </span>
 
         </form>

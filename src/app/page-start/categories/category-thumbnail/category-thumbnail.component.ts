@@ -1,5 +1,6 @@
 import { Category } from './category-thumbnail.model';
 import { Component, OnInit, Input, AfterViewInit, ViewChildren } from '@angular/core';
+import { Router } from '@angular/router';
 
 import * as $ from 'jquery';
 
@@ -23,7 +24,7 @@ export class CategoryThumbnailComponent implements OnInit, AfterViewInit {
 
   @Input ()index:any;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   // ajustCover(){
   //   console.log('Agora é nois mesmo');
@@ -78,6 +79,11 @@ export class CategoryThumbnailComponent implements OnInit, AfterViewInit {
         }
       }
     }
+  }
+
+  exibirProdutosCategoria(categoria) {
+    sessionStorage.setItem('categorySearch', categoria);
+    this.router.navigate(['/categoria']);
   }
 
   ngAfterViewInit(){

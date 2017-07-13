@@ -3,13 +3,12 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class RequestService{
+export class RequestService {
 	
 	constructor(private http:Http){}
 
   public serverBaseImageUrl:string = "http://localhost:3000"; //não colocar a última barra
   public serverBaseUrl:string = this.serverBaseImageUrl + "/api" //não colocar a última barra
-
 
 	post(url, dados){
     return this.http.post(url, dados)

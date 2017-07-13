@@ -20,23 +20,23 @@
 
         <div class=" item active">
             <div #container class="container-object-fit" > 
-                <img #img1 (load)="ajustCover(img1)" class="item-object-fit {{ itemClass[0] }}" src="http://localhost:3000/capas/capa ({{ imgs[0] }}).png" >
+                <img #img1 (load)="ajustCover(img1)" class="item-object-fit {{ itemClass[0] }}" src="{{ baseImageUrl }}/capas/capa ({{ imgs[0] }}).png" >
             </div>
         </div>
         <div class=" item">
             <div class="container-object-fit" >
-                <img #img2 (load)="ajustCover(img2)" class="item-object-fit {{ itemClass[1] }}" src="http://localhost:3000/capas/capa ({{ imgs[1] }}).png" >
+                <img #img2 (load)="ajustCover(img2)" class="item-object-fit {{ itemClass[1] }}" src="{{ baseImageUrl }}/capas/capa ({{ imgs[1] }}).png" >
             </div>
         </div>
 
         <div class=" item">
             <div class="container-object-fit" >
-                <img #img4 (load)="ajustCover(img4)" class="item-object-fit {{ itemClass[2] }}" src="http://localhost:3000/capas/capa ({{ imgs[2] }}).png" >
+                <img #img4 (load)="ajustCover(img3)" class="item-object-fit {{ itemClass[2] }}" src="{{ baseImageUrl }}/capas/capa ({{ imgs[2] }}).png" >
             </div>
         </div>
         <div class=" item">
             <div class="container-object-fit" >                
-                <img #img4 (load)="ajustCover(img4)" class="item-object-fit {{ itemClass[3] }}" src="http://localhost:3000/capas/capa ({{ imgs[3] }}).png" >
+                <img #img4 (load)="ajustCover(img4)" class="item-object-fit {{ itemClass[3] }}" src="{{ baseImageUrl }}/capas/capa ({{ imgs[3] }}).png" >
             </div>
         </div>
     </div>

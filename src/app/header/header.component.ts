@@ -25,8 +25,7 @@ export class HeaderComponent implements OnInit {
   }
   
   isLogged() {
-    if (this.authService.isLogged() == false){
-      alert('sim');
+    if (!this.authService.isLogged()){
       this.router.navigate(['/']);
     }
   }
@@ -37,6 +36,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.userNameSurname = sessionStorage.getItem('name');
-    this.profilePicture = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');
+    if (sessionStorage.getItem('profilePicture') !== "undefined") {
+      this.profilePicture = this.requestService.serverBaseImageUrl + '/imagens-perfis/' + sessionStorage.getItem('profilePicture');
+    } else {
+      this.profilePicture = "https://www.workplaceleadership.com.au/app/themes/cwl/assets/img/regular_res/default-user.png";
+    }
+
   }
 }

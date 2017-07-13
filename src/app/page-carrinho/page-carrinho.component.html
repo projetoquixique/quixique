@@ -1,7 +1,7 @@
 <div id="component">
   <header>
     <app-header *ngIf="logged == true" ></app-header>
-    <app-navbar-start *ngIf="logged==false"></app-navbar-start>  
+    <app-navbar-start *ngIf="logged==false"></app-navbar-start>   
   </header>
 
   <!--<app-navbar-cliente></app-navbar-cliente>-->
@@ -21,7 +21,7 @@
             <!--routerLink="/detalhe_produto"-->
             <a routerLink="/detalhe_produto" class="list-group-item" *ngFor="let produto of clientService.carrinho; let i = index" >
               <div class="container-object-fit">
-                <img class="item-object-fit" src="./assets/images/components/produtos/{{clientService.carrinho[i].img}}" alt="">
+                <img class="item-object-fit" src="{{ baseImageUrl }}/imagens-produtos/{{clientService.carrinho[i].imagem[0]}}" alt="">
               </div>
               <div class="content">
                 <h4 class="list-group-item-heading">{{clientService.carrinho[i].nome}}</h4>

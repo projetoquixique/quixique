@@ -1,13 +1,18 @@
 import { Component, OnInit, ViewChildren, AfterViewInit, ElementRef } from '@angular/core';
 
+import { RequestService } from './../../services/request.service';
+
 @Component({
   selector: 'app-carrossel',
   templateUrl: './carrossel.component.html',
   styleUrls: ['./carrossel.component.css']
 })
-export class CarrosselComponent implements OnInit, AfterViewInit{
+
+export class CarrosselComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('container') container:any;
+
+  public baseImageUrl = this.requestService.serverBaseImageUrl;
 
   itemClass = [];
 
@@ -152,7 +157,7 @@ export class CarrosselComponent implements OnInit, AfterViewInit{
     }, time);
   }
 
-  constructor() { }
+  constructor(private requestService:RequestService) { }
 
   ngAfterViewInit() {
     this.containerAspectRatio = this.container._results[0].nativeElement.clientHeight/this.container._results[0].nativeElement.clientWidth;    
@@ -163,6 +168,8 @@ export class CarrosselComponent implements OnInit, AfterViewInit{
   ngOnInit() {
     this.sort(this.qtdImgs,25,1);
     // this.updateImg(3000);
+
+    console.log(this.baseImageUrl)
   }
 
 

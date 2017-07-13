@@ -8,6 +8,8 @@ import { TelaPrincipalClienteComponent } from './tela-principal-cliente/tela-pri
 import { PageStartComponent } from './page-start/page-start.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { LojaArtesaoViewComponent } from './loja-artesao-view/loja-artesao-view.component';
+import { ProdutosCategoriaComponent } from './produtos-categoria/produtos-categoria.component';
+import { ResultadosBuscaComponent } from './resultados-busca/resultados-busca.component'
 
 const APP_ROUTES: Routes = [
     {path:"", redirectTo:"/inicio", pathMatch:"full"},
@@ -18,7 +20,9 @@ const APP_ROUTES: Routes = [
     {path:"detalhe_produto", component:DetalheProdutoComponent},
     {path:"carrinho", component:PageCarrinhoComponent},
     {path:"loja_artesao_view", component:LojaArtesaoViewComponent},
-    {path:"perfil", component:PerfilArtesaoComponent}
+    {path:"perfil", component:PerfilArtesaoComponent},
+    {path:"categoria", component:ProdutosCategoriaComponent},
+    {path:"busca", component:ResultadosBuscaComponent}
 ]
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);

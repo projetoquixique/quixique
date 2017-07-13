@@ -12,9 +12,14 @@ export class CapaApresentacaoComponent implements OnInit {
 
   @Input() infoCapa: string;
   @Output() irParaSaibaMais = new EventEmitter<string>();
+  @Output() irParaMeusProdutos = new EventEmitter<string>();
 
   clickSaibaMais() {
     this.irParaSaibaMais.emit(null);
+  }
+
+  clickMeusProdutos() {
+    this.irParaMeusProdutos.emit(null);
   }
 
   ngOnInit() {

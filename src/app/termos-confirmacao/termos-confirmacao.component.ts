@@ -14,6 +14,8 @@ export class TermosConfirmacaoComponent implements OnInit {
   constructor(private requestService:RequestService,
               private userDataHandler:UserDataHandlerService) { }
 
+  baseUrl = this.requestService.serverBaseUrl;
+
   userType = this.userDataHandler.newUserData.tipo;
   userMail = this.userDataHandler.newUserData.email;
 
@@ -32,9 +34,9 @@ export class TermosConfirmacaoComponent implements OnInit {
     this.sendButtonText = "Enviando...";
     if (this.confirmacaoTermos){
       if (this.userType == "artesao") {
-        this.urlPost = "http://localhost:3000/api/artesaos";
+        this.urlPost = this.baseUrl + "/artesaos";
       } else if (this.userType == "cliente") {
-        this.urlPost = "http://localhost:3000/api/clientes";
+        this.urlPost = this.baseUrl + "/clientes";
       } 
       this.requestService.post(this.urlPost, this.userDataHandler.newUserData).subscribe(
         data => this.cadastroFinalizado = true,

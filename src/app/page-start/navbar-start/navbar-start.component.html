@@ -12,9 +12,9 @@
         <!--<div class="form-group">-->
           <div class="input-group">
             <!--<span class="input-group-addon">$</span>-->
-            <input type="text" class="form-control" placeholder="O que deseja encontrar ?">
+            <input type="text" class="form-control" placeholder="O que deseja encontrar ?" [(ngModel)]="searchString">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                <button class="btn btn-default" type="button" (click)="performSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </span>
           </div>
         <!--</div>-->

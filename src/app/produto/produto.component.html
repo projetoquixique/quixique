@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <div class="thumbnail">
-    <div routerLink="/detalhe_produto" class="imagem">
-      <img src="./assets/images/components/produtos/{{produto.img}}" alt="Nature">
+    <div (click)="goToProductPage(produto._id, produto.aid)" class="imagem">
+      <img src="{{ serverBaseImageUrl }}/imagens-produtos/{{ produto.imagem[0] }}" alt="{{ produto.nome }}">
     </div>
     <div class="caption">
       <div class="row">

@@ -1,13 +1,14 @@
+a {
+  cursor: pointer;
+}
 .main-contents {
   position: relative;
 }
-
 div.photo-view > .container-object-fit {
   width: 430px !important;
   height: 300px !important;
   overflow: hidden;
 }
-
 .glyphicon-search {
   position: absolute;
   right: 15px;
@@ -16,25 +17,20 @@ div.photo-view > .container-object-fit {
   font-size: 1.25em;
   text-shadow: 0px 0px 2px rgba(43, 43, 43, 1);
 }
-
 div.thumbnails > .row {
   margin: 0;
 }
-
 a.thumbnail:hover {
   border-color: rgba(70,39,16,0.8);
 }
-
 .thumbnails-list {
   position: relative;
 }
-
 .thumbnail {
   padding: 0;
   border: 5px solid #fff;
   box-shadow: 0px 0px 1px 1px #eeeeee;
 }
-
 .thumbnail .filter, .selected-thumbnail {
   position: absolute;
   height: 100%;
@@ -42,83 +38,65 @@ a.thumbnail:hover {
   opacity: 0;
   transition: opacity 0.5s;
 }
-
 .selected-thumbnail {
   opacity: 1 !important;
 }
-
 .filter.thumbnail-product > h4 {
   color: rgba(0,0,0,0);
   cursor: default;
   user-select: none;
 }
-
 .thumbnail:hover .filter {
   opacity: 1.0;
 }
-
 div.caption h1 {
   font-family: "Lobster 1.4", sans-serif;
   color: #f7921e;
 }
-
 div.caption h4 {
   /*font-family: "Lobster 1.4", sans-serif;*/
   color: #fff;
 }
-
-
 h3, h4 {
   font-weight: 500;
   color: rgb(71, 37, 5);
 }
-
 .title {
   margin-top: 0;
 }
-
 .price {
   margin-bottom: 30px;
   color: rgb(94, 48, 0);
 }
-
 .buy {
   margin-bottom: 20px;
 }
-
 .info-group {
   margin-bottom: 15px;
 }
-
 .info-group > h4 {
   margin-bottom: 7px;
 }
-
 .payment-methods {
   max-width: 60%;
   margin-top: -5px;
 }
-
 .comment-input-form {
   margin-bottom: 7px;
 }
-
 .comment-input {
   width: 100%;
   height: 5em;
   resize: none;
 }
-
 .form-group > button {
   position: absolute;
   right: 0;
   margin-right: 15px;
 }
-
 .more-products {
   height: 77.5px;
 }
-
 .lightbox {
   position: fixed;
   background-color: rgba(0,0,0,0.75);
@@ -130,11 +108,9 @@ h3, h4 {
   bottom: 0;
   overflow-y: scroll;
 }
-
 .lightbox-contents {
   position: relative;
 }
-
 .close-lightbox {
   position: fixed;
   top: 25px;
@@ -142,21 +118,18 @@ h3, h4 {
   color: #fff;
   size: 1.5em;
 }
-
 .lightbox-image {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-
 .lightbox-image img {
   max-width: 100%;
   position: absolute;
   top: 40px;
   margin-bottom: 40px;
 }
-
 /*object-fit hack*/
 .container-object-fit {
   display: inline-block;

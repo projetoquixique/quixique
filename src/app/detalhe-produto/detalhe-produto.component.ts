@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
+
+import { RequestService } from './../services/request.service';
 
 @Component({
   selector: 'app-detalhe-produto',
@@ -9,18 +11,93 @@ import * as $ from 'jquery';
 })
 export class DetalheProdutoComponent implements OnInit {
 
-  thumbnails;
-  selectedImage;
-  showFullscreen:boolean = false;
-  product;
-  anotherAuthorProducts;
-  productSuggestions;
+  public serverBaseUrl = this.requestService.serverBaseUrl;
+  public serverBaseImageUrl = this.requestService.serverBaseImageUrl;
+
+  public artisan = {
+    bio:'',
+    username:'',
+    id:''
+  };
+
+  // thumbnails;
+  public selectedImage;
+  public showFullscreen:boolean = false;
+
+  public product = {
+    title:'',
+    price:'',
+    units:'',
+    size:'',
+    materials:'',
+    description:'',
+    category: '',
+    imagem: []
+  };
+
+  public anotherArtisanProducts = {};
+  public productSuggestions = {};
+
   newComment:string;
   comments;
 
+  getProduct(id){
+    this.requestService.get(this.serverBaseUrl + '/produto/' + id).subscribe(
+      data => {
+        this.product = data;
+        this.getProductSuggestions(data.category);
+        this.selectedImage = this.serverBaseImageUrl + '/imagens-produtos/' + this.product.imagem[0];
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getProductSuggestions(category){
+    console.log(this.serverBaseUrl + '/produtos/' + category + '/recomendacoes')
+    this.requestService.get(this.serverBaseUrl + '/produtos/' + category + '/recomendacoes').subscribe(
+      data => {
+        this.productSuggestions = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getArtisanInfo(){
+    this.requestService.get(this.serverBaseUrl + '/artesao/' + this.artisan.id + '/bio').subscribe(
+      data => {
+        this.artisan.bio = data.historia;
+        this.artisan.username = data.nomeDeUsuario;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  goToArtisanProfile(){
+    sessionStorage.setItem('artisanProfileUsername', this.artisan.username);
+    sessionStorage.setItem('artisanProfileId', this.artisan.id);
+    this.router.navigate(['/perfil']);
+  }
+
+  getArtisanRecommendations(){
+    this.requestService.get(this.serverBaseUrl + '/' + this.artisan.id + '/recomendacoes').subscribe(
+      data => {
+        this.anotherArtisanProducts = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   setSelectedImage(image){
-    this.selectedImage = image;
-  };
+    this.selectedImage = this.serverBaseImageUrl + '/imagens-produtos/' + image;
+  }
 
   setSelectedThumbnail(e){
     $(".thumbnail-product").removeClass("selected-thumbnail");
@@ -41,44 +118,43 @@ export class DetalheProdutoComponent implements OnInit {
     };
   };
 
-  constructor() {
-    this.thumbnails = [
-      {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-03.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-04.jpg"},
-      {"url":"assets/images/components/detalhe-produto/img-05.jpg"}
-    ];
+  constructor(private requestService:RequestService,
+              private router:Router) {
+    // this.thumbnails = [
+    //   {"url":"assets/images/components/detalhe-produto/img-01.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-02.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-03.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-04.jpg"},
+    //   {"url":"assets/images/components/detalhe-produto/img-05.jpg"}
+    // ];
 
-    this.product = {title:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá"',
-                    price:'24.99',
-                    units:50,
-                    size:'40cm',
-                    materials:'barro',
-                    description:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo.',
-                    authorBio:'Meu nome é Joana e trabalho especificamente com produtos feitos de barro.'};
+    // this.product = {title:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá"',
+    //                 price:'24.99',
+    //                 units:50,
+    //                 size:'40cm',
+    //                 materials:'barro',
+    //                 description:'Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo. Enfeite para parede "Telhas pintadas com as belezas de Quixadá" - nas cores lilás, vermelho e amarelo.',
+    //                 authorBio:'Meu nome é Joana e trabalho especificamente com produtos feitos de barro.'};
 
-    this.anotherAuthorProducts = [
-      {'imageUrl':'assets/images/components/detalhe-produto/more-01.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-02.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-03.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/more-04.jpg'}
-    ];
+    // this.anotherAuthorProducts = [
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-01.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-02.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-03.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/more-04.jpg'}
+    // ];
 
-    this.productSuggestions = [
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-01.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-02.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-03.jpg'},
-      {'imageUrl':'assets/images/components/detalhe-produto/suggestion-04.jpg'}
-    ];
+    // this.productSuggestions = [
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-01.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-02.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-03.jpg'},
+    //   {'imageUrl':'assets/images/components/detalhe-produto/suggestion-04.jpg'}
+    // ];
     
-    this.comments = [
-      {"author":"Maria", "text":"Produto de ótima qualidade! Recomendo!"},
-      {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
-      {"author":"Amanda", "text":"Comprei e adorei!"}
-    ];
-
-    this.selectedImage = this.thumbnails[0];
+    // this.comments = [
+    //   {"author":"Maria", "text":"Produto de ótima qualidade! Recomendo!"},
+    //   {"author":"José", "text":"Chegou direitinho, estou bastante satisfeito!"},
+    //   {"author":"Amanda", "text":"Comprei e adorei!"}
+    // ];
   };
 
   ajustCover(){
@@ -102,10 +178,21 @@ export class DetalheProdutoComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.ajustCover();
-    $(document).ready(function(){
-      $(".filter.thumbnail-product:first").addClass("selected-thumbnail");
-    });
+    if (sessionStorage.getItem('productDetailId') !== undefined) {
+      this.getProduct(sessionStorage.getItem('productDetailId'));
+      this.artisan.id = sessionStorage.getItem('productDetailAid');
+      this.getArtisanRecommendations();
+      this.getArtisanInfo();
+      // sessionStorage.removeItem('productDetailId');
+      // sessionStorage.removeItem('productDetailAid');
+      this.ajustCover();
+      $(document).ready(function(){
+        $(".filter.thumbnail-product:first").addClass("selected-thumbnail");
+      });
+    } else {
+      console.log('notok')
+      this.router.navigate(['/']);
+    }
   }
 
 }

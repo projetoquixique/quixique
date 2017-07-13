@@ -1,0 +1,13 @@
+- o endereço da web/portfólio pedido no cadastro aparece onde?
+
+- após o cadastro, não é enviado e-mail de confirmação, somente de boas-vindas
+
+- foto de perfil, se atualizada, só é trocada no front após logout / login
+
+- ao cancelar edição de dados de perfil, perguntar se usuário realmente deseja fazê-lo
+
+!!! - mensagem de erro mesmo após salvar dados de perfil com sucesso (atualização)
+
+- qual a unidade de medida usada nas dimensões do produto? não está especificada
+
+- sugestões de produtos serão dadas com base em quê?

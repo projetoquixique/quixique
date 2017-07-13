@@ -96,7 +96,16 @@ export class NavbarStartComponent implements OnInit {
                         }
                        )
     };
-  };
+  }
+
+  public searchString;
+
+  performSearch() {
+    if (this.searchString.length !== 0) {
+      sessionStorage.setItem('generalSearch', this.searchString);
+      this.router.navigate(['/busca']);
+    }
+  }
 
   ngOnInit(){
     this.checkBar();

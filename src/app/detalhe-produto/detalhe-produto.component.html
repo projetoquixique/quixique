@@ -1,5 +1,7 @@
 <app-header></app-header>
-<app-navbar-cliente></app-navbar-cliente>
+<app-navbar-cliente *ngIf="userType == 'cliente'"></app-navbar-cliente>
+<app-navbar *ngIf="userType == 'artesao'"></app-navbar>
+<app-navbar-start *ngIf="!isLogged"></app-navbar-start>
 
 <div class="container">
 
@@ -7,17 +9,17 @@
     <div class="col-md-6">
       <div class="photo-view">
         <div class="thumbnail container-object-fit">
-          <img *ngIf="selectedImage" class="item-object-fit" src="{{ selectedImage.url }}" (click)="lightboxControl()">
+          <img *ngIf="selectedImage" class="item-object-fit" src="{{ selectedImage }}" (click)="lightboxControl()">
           <span class="glyphicon glyphicon-search"></span>
         </div>
       </div>
       <div class="thumbnails">
         <div class="thumbnails-list">
-          <div *ngFor="let thumbnail of thumbnails" class="thumbnail container-object-fit">
+          <div *ngFor="let thumbnail of product.imagem" class="thumbnail container-object-fit">
             <div class="filter thumbnail-product" (click)="setSelectedImage(thumbnail); setSelectedThumbnail($event)">
               <h4>this content is necessary to fit the entire div's internal space. please don't remove.</h4>
             </div>
-            <img class="item-object-fit" src="{{ thumbnail.url }}" alt="">
+            <img class="item-object-fit" src="{{ serverBaseImageUrl }}/imagens-produtos/{{ thumbnail }}" alt="">
           </div>
         </div>
       </div>
@@ -75,26 +77,26 @@
             <div class="row">
               <div class="col-md-12 info-group">
                 <h4>Conheça o artesão</h4>
-                <p>{{ product.authorBio }} <br>
-                <a>Saiba mais</a></p>
+                <p>{{ artisan.bio }} <br>
+                <a (click)="goToArtisanProfile()">Saiba mais</a></p>
               </div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf = "anotherArtisanProducts.length > 0">
               <div class="col-md-12 info-group"> 
               <h4>Outras obras do artesão</h4>
                 <div class="thumbnails-list">
-                  <a class="thumbnail container-object-fit" *ngFor="let product of anotherAuthorProducts">
-                    <img class="item-object-fit" src="{{ product.imageUrl }}" alt="">
+                  <a class="thumbnail container-object-fit" *ngFor="let product of anotherArtisanProducts">
+                    <img class="item-object-fit" src="{{ serverBaseImageUrl }}/imagens-produtos/{{ product.imagem[0] }}" alt="product.nome">
                   </a>
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf = "productSuggestions.length > 0">
               <div class="col-md-12 info-group">
                 <h4>Você também pode gostar</h4>
                 <div class="thumbnails-list">
                   <a class="thumbnail container-object-fit" *ngFor="let product of productSuggestions">
-                    <img class="item-object-fit" src="{{ product.imageUrl }}" alt="">
+                    <img class="item-object-fit" src="{{ serverBaseImageUrl }}/imagens-produtos/{{ product.imagem[0] }}" alt="product.nome">
                   </a>
                 </div>
               </div>
@@ -109,7 +111,7 @@
     <div class="lightbox-contents">
       <span class="close-lightbox glyphicon glyphicon-remove" (click)="lightboxControl()"></span>
       <div class="lightbox-image">
-        <img src="{{ selectedImage.url }}" alt="">
+        <img src="{{ selectedImage }}" alt="">
       </div>
     </div>
   </div>

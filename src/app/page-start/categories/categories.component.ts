@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Category } from "app/page-start/categories/category-thumbnail/category-thumbnail.model";
 
 @Component({
@@ -8,7 +10,7 @@ import { Category } from "app/page-start/categories/category-thumbnail/category-
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   // @Input() categories:Array<Category> = [
   //   new Category("Madeira","Peças muito xiques de madeira para decoração e para o dia a dia","img-01.jpg"),
@@ -33,7 +35,16 @@ export class CategoriesComponent implements OnInit {
     new Category("Bijuteria","Sua oportunidade de ficar ainda mais deslumbrante, valorizando seu charme de forma barata e elegante.","thumb (10).png"),
     new Category("Vestuário","Do popular ao estilizado, nossos artesãos possuem nas mãos, a capacidade de representar os valores de cada cliente.","thumb (11).png"),
     new Category("Recicláveis","Recriar é um dom que você verá por aqui. De uma coisa sem valor à um objeto de valor.","thumb (12).png"),
-  ];  
+  ];
+
+  public searchString;
+
+  performSearch() {
+    if (this.searchString.length !== 0) {
+      sessionStorage.setItem('generalSearch', this.searchString);
+      this.router.navigate(['/busca']);
+    }
+  }  
 
   ngOnInit() {
   }

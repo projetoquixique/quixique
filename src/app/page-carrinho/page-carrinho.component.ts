@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { TelaPrincipalCienteService } from './../tela-principal-cliente/tela-principal-cliente.service';
 import { AuthenticationService } from './../services/authentication.service';
+import { RequestService } from './../services/request.service';
 
 @Component({
   selector: 'app-page-carrinho',
@@ -8,8 +10,9 @@ import { AuthenticationService } from './../services/authentication.service';
   styleUrls: ['./page-carrinho.component.css']
 })
 
-
 export class PageCarrinhoComponent implements OnInit {
+
+  public baseImageUrl = this.requestService.serverBaseImageUrl;
   
   public page = 0;
   public modalShow = false;
@@ -52,7 +55,9 @@ export class PageCarrinhoComponent implements OnInit {
     this.clientService.dropdown = false;
   }
   
-  constructor(private clientService:TelaPrincipalCienteService, private auth:AuthenticationService) { }
+  constructor(private clientService:TelaPrincipalCienteService,
+              private auth:AuthenticationService,
+              private requestService:RequestService) { }
 
   ngOnInit() {
     this.clientService.start();
